@@ -20,7 +20,7 @@ let headerTelephone = document.querySelector('.top-menu__tel');
 
 window.addEventListener('load', () => {
     if (headerTelephone) {
-        if(cheakMaxWidth(580)) {
+        if(cheakMaxWidth(600)) {
             headerTelephone.innerHTML = 'Контакты';
         }
     }
