@@ -23,12 +23,12 @@
                         <img class="header-logo__img" width="70" src="images/Logo-2.png" alt="Логотип">
                         <div class="logo__text">
                             <h3 class="header-logo__title">Мир колёс</h3>
-                            <h4 class="header-logo__subtitle">mir-wheels.ru</h4>
+                            <h4 class="header-logo__subtitle">шины и диски</h4>
                         </div>
                     </div>
                 </a>
                 <div class="top-header__menu top-menu">
-                    <a class="top-menu__tel icon-phone" href="tel: +79525703502">+7 (952) 570-35-02</a>
+                    <a class="top-menu__tel icon-phone popup-opener" data-popup_open="#popup-contacts" href="#">Контакты</a>
                     <button data-count="1" class="top-menu__cart icon-cart"></button>
                     <div class="top-menu__burger">
                         <span></span>
@@ -59,9 +59,30 @@
 
         </footer>
 
+        <!-- POPUPS -->
+
+        <!-- Header 'Contacts' -->
+        <section class="popup" id="popup-contacts">
+            <div class="popup__body">
+                <div class="popup__content">
+                    <a href="#" class="popup__close">X</a>
+                    <div class="popup__title">Контакты</div>
+                    <a class="popup__text" href="tel: +79525703502">
+                        +7 (952) 570-35-02
+                    </a>
+                    <br>
+                    <br>
+                    <a class="popup__text" href="tel: +79286095110">
+                        +7 (928) 609-51-10
+                    </a>
+                </div>
+            </div>
+        </section>
+
     </div>
 
     <script src="js/home.js"></script>
+    <script src="js/popup.js"></script>
 
 </body>
 

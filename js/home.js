@@ -14,20 +14,6 @@ window.addEventListener('load', addPadding);
 
 //</Padding to main element>==============================================================================
 
-//<Changing header on small devices>==============================================================================
-
-let headerTelephone = document.querySelector('.top-menu__tel');
-
-window.addEventListener('load', () => {
-    if (headerTelephone) {
-        if(cheakMaxWidth(600)) {
-            headerTelephone.innerHTML = 'Контакты';
-        }
-    }
-});
-
-//</Changing header on small devices>==============================================================================
-
 //<Burger menu>==============================================================================
 
 const navigationMenu = document.querySelector('.menu-nav'),
