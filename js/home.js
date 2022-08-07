@@ -10,7 +10,12 @@ let addPadding = () => {
     mainElement.style.paddingTop = `${paddingForMain}px`;
 }
 
-window.addEventListener('load', addPadding);
+document.addEventListener('scroll', () => {
+    if (cheakScrollPosition(500)) {
+        headerElement.classList.add('_header-fixed');
+        addPadding();
+    }
+});
 
 //</Padding to main element>==============================================================================
 
@@ -29,6 +34,35 @@ function openMenuBurger() {
 
 //</Burger menu>==============================================================================
 
+//<Slider config>==============================================================================
+
+new Swiper('.my-slider', {
+
+    direction: 'horizontal',
+    loop: true,
+
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+
+    keyboard: {
+        enabled: true,
+        onlyInViewport: true,
+        pageUpDown: true,
+    },
+
+    grabCursor: true,
+
+});
+
+//</Slider config>==============================================================================
+
 // ======================================================================================
 // ======================================================================================
 // ======================================================================================
@@ -43,6 +77,10 @@ function cheakMaxWidth(pixels) {
 function cheakMinWidth(pixels) {
     let mediaQuery = window.matchMedia(`(min-width: ${pixels}px)`);
     return mediaQuery.matches
+}
+
+function cheakScrollPosition(coord) {
+    return (window.pageYOffset >= coord) ? true : false;
 }
 
 //</ FUNCTIONS >==============================================================================
