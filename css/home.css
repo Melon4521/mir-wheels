@@ -589,6 +589,24 @@ body._lock {
   background-repeat: no-repeat;
 }
 
+.my-slider__prev::after,
+.my-slider__next::after {
+  color: #000;
+  font-size: 35px;
+}
+
+.my-slider .swiper-pagination-bullet {
+  width: 13px;
+  height: 13px;
+  font-size: 16px;
+}
+
+@media (max-width: 480px) {
+  .my-slider__prev::after,
+.my-slider__next::after {
+    display: none;
+  }
+}
 .my-slider__image-2 {
   background-image: url("images/Slide-2_BG.jpg");
   position: relative;
@@ -641,7 +659,6 @@ body._lock {
   }
 }
 
-/* First slide =========================================================== */
 .my-slider__image-1 {
   background-image: url("images/Slide-2_BG.jpg");
   position: relative;
@@ -740,8 +757,6 @@ body._lock {
     left: -350px;
   }
 }
-/* =========================================================== */
-/* Second slide =========================================================== */
 .slide__image-2__wrapper {
   width: 100%;
   height: 100%;
@@ -833,8 +848,6 @@ body._lock {
     right: -5px;
   }
 }
-/* =========================================================== */
-/* Third slide =========================================================== */
 .my-slider__image-3 {
   background-image: url("images/Slide-2_BG.jpg");
   position: relative;

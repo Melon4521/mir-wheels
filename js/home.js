@@ -37,13 +37,12 @@ function openMenuBurger() {
 //<Slider config>==============================================================================
 
 new Swiper('.my-slider', {
-
-    direction: 'horizontal',
     loop: true,
 
     pagination: {
         el: '.swiper-pagination',
         clickable: true,
+        dynamicBullets: true,
     },
 
     navigation: {
@@ -58,6 +57,11 @@ new Swiper('.my-slider', {
     },
 
     grabCursor: true,
+
+    autoplay: {
+        delay: 2500,
+        disableOnInteraction: true,
+    },
 
 });
 
