@@ -173,6 +173,9 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
   margin-bottom: 30px;
 }
+.popup__text-inner {
+  margin-bottom: 20px;
+}
 .popup__text {
   font-size: 18px;
   color: #000;
@@ -914,6 +917,187 @@ body._lock {
   }
 
   .slide__content-subtitle {
+    text-align: center;
+  }
+}
+.footer {
+  background-color: #3c3c3c;
+  margin-top: 80px;
+}
+.footer__body {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+@media (max-width: 1120px) {
+  .footer__body {
+    padding-top: calc(30px + 30 * ((100vw - 320px) / 800));
+  }
+}
+@media (max-width: 1120px) {
+  .footer__body {
+    padding-bottom: calc(30px + 30 * ((100vw - 320px) / 800));
+  }
+}
+.footer__fst-col {
+  margin-right: 60px;
+}
+@media (max-width: 1120px) {
+  .footer__fst-col {
+    margin-right: calc(30px + 30 * ((100vw - 320px) / 800));
+  }
+}
+.footer__columns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.footer-fst__logo {
+  margin-bottom: 25px;
+}
+@media (max-width: 1120px) {
+  .footer-fst__logo {
+    margin-bottom: calc(20px + 5 * ((100vw - 320px) / 800));
+  }
+}
+.footer-fst__logo img {
+  width: 160px;
+}
+@media (max-width: 1120px) {
+  .footer-fst__logo img {
+    width: calc(120px + 40 * ((100vw - 320px) / 800));
+  }
+}
+.footer-fst__social {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.footer-social__item {
+  color: #fff;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+  font-size: 30px;
+  margin: 0px 10px 0px 10px;
+}
+@media (any-hover: hover) {
+  .footer-social__item:hover {
+    color: #EF7B00;
+    -webkit-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+  }
+}
+
+.footer-columns__col {
+  margin-right: 35px;
+  margin-left: 35px;
+  margin-bottom: 40px;
+}
+@media (max-width: 1120px) {
+  .footer-columns__col {
+    margin-right: calc(15px + 20 * ((100vw - 320px) / 800));
+  }
+}
+@media (max-width: 1120px) {
+  .footer-columns__col {
+    margin-left: calc(15px + 20 * ((100vw - 320px) / 800));
+  }
+}
+@media (max-width: 1120px) {
+  .footer-columns__col {
+    margin-bottom: calc(30px + 10 * ((100vw - 320px) / 800));
+  }
+}
+
+.footer-col__title {
+  font-size: 22px;
+  color: #EF7B00;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+@media (max-width: 1120px) {
+  .footer-col__title {
+    font-size: calc(20px + 2 * ((100vw - 320px) / 800));
+  }
+}
+.footer-col__list-item {
+  max-width: 250px;
+}
+.footer-col__list-item:not(:last-child) {
+  margin-bottom: 13px;
+}
+@media (max-width: 1120px) {
+  .footer-col__list-item:not(:last-child) {
+    margin-bottom: calc(10px + 3 * ((100vw - 320px) / 800));
+  }
+}
+.footer-col__link {
+  color: #fff;
+  line-height: 1.2;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  font-size: 18px;
+}
+@media (max-width: 1120px) {
+  .footer-col__link {
+    font-size: calc(16px + 2 * ((100vw - 320px) / 800));
+  }
+}
+@media (any-hover: hover) {
+  .footer-col__link:hover {
+    color: #3992C5;
+    -webkit-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+  }
+}
+
+@media (max-width: 800px) {
+  .footer__columns {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+  }
+}
+@media (max-width: 600px) {
+  .footer__body {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+
+  .footer__fst-col {
+    width: 100%;
+    margin-right: 0px;
+    margin-bottom: 60px;
+  }
+}
+@media (max-width: 600px) and (max-width: 1120px) {
+  .footer__fst-col {
+    margin-bottom: calc(40px + 20 * ((100vw - 320px) / 800));
+  }
+}
+@media (max-width: 600px) {
+  .footer-fst__logo {
     text-align: center;
   }
 }
