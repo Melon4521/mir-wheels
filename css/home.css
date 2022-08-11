@@ -653,25 +653,25 @@ body._lock {
 }
 
 .slide__content-title {
-  font-size: 60px;
+  font-size: 55px;
   font-weight: 700;
   line-height: 1;
   margin-bottom: 15px;
 }
 @media (max-width: 1120px) {
   .slide__content-title {
-    font-size: calc(35px + 25 * ((100vw - 320px) / 800));
+    font-size: calc(35px + 20 * ((100vw - 320px) / 800));
   }
 }
 
 .slide__content-subtitle {
-  font-size: 40px;
+  font-size: 35px;
   font-weight: 300;
   max-width: 80%;
 }
 @media (max-width: 1120px) {
   .slide__content-subtitle {
-    font-size: calc(20px + 20 * ((100vw - 320px) / 800));
+    font-size: calc(15px + 20 * ((100vw - 320px) / 800));
   }
 }
 

@@ -25,10 +25,22 @@ const navigationMenu = document.querySelector('.menu-nav'),
 burgerButton.addEventListener('click', openMenuBurger);
 
 function openMenuBurger() {
-    burgerButton.classList.toggle('_burger-open');
-    navigationMenu.classList.toggle('_burger-open');
-    document.body.classList.toggle('_lock')
-};
+
+    if (!navigationMenu.classList.contains('_burger-open') &&
+    !burgerButton.classList.contains('_burger-open')) {
+        burgerButton.classList.add('_burger-open');
+        navigationMenu.classList.add('_burger-open');
+        let scrollWidth = window.innerWidth - document.documentElement.clientWidth;
+        document.body.style.paddingRight = `${scrollWidth}px`;
+        document.body.classList.add('_lock');
+    } else {
+        burgerButton.classList.remove('_burger-open');
+        navigationMenu.classList.remove('_burger-open');
+        document.body.classList.remove('_lock');
+        document.body.style.paddingRight = `0px`;
+    }
+    
+}
 
 //</Burger menu>==============================================================================
 

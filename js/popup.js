@@ -65,7 +65,7 @@ function lockBody() {
 
 function unlockBody() {
     setTimeout(() => {
-        if (body.classList.contains('_lock')) {
+        if (body.classList.contains('_lock') && !navigationMenu.classList.contains('_burger-open')) {
             body.classList.remove('_lock');
             body.style.paddingRight = '0px';
         }
