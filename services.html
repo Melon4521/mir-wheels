@@ -16,7 +16,7 @@
     <div class="wrapper">
 
         <!-- HEADER -->
-        <header class="header _add-padding">
+        <header class="header lock-padding">
             <div class="header__container top-header">
                 <a href="#" title="Главная">
                     <div class="top-header__logo header-logo">
@@ -28,9 +28,9 @@
                     </div>
                 </a>
                 <div class="top-header__menu top-menu">
-                    <a class="top-menu__tel icon-phone popup-opener" data-popup_open="#popup-contacts"
-                        href="#">Контакты</a>
-                    <button data-count="1" class="top-menu__cart icon-cart"></button>
+                    <a class="top-menu__tel icon-phone popup-opener" data-popup_open="#popup-contacts" href="#">Контакты</a>
+                    <button data-count="0" class="top-menu__cart icon-cart popup-opener"
+                        data-popup_open="#popup-cart"></button>
                     <div class="top-menu__burger">
                         <span></span>
                     </div>
@@ -40,11 +40,27 @@
                 <div class="container">
                     <nav class="header-footer__menu menu-nav">
                         <ul class="menu-nav__list">
-                            <li class="menu-nav__elem"><a class="menu-nav__link" href="index.html">Главная</a></li>
-                            <li class="menu-nav__elem"><a class="menu-nav__link" href="catalog.html">Каталог</a></li>
-                            <li class="menu-nav__elem _active-link"><a class="menu-nav__link" href="#">Сервис</a></li>
-                            <li class="menu-nav__elem"><a class="menu-nav__link" href="sales.html">Акции</a></li>
-                            <li class="menu-nav__elem"><a class="menu-nav__link" href="#">Оплата и доставка</a></li>
+
+                            <li class="menu-nav__elem">
+                                <a class="menu-nav__link" href="index.html">Главная</a>
+                            </li>
+
+                            <li class="menu-nav__elem">
+                                <a class="menu-nav__link" href="catalog.html">Каталог</a>
+                            </li>
+
+                            <li class="menu-nav__elem _active-link">
+                                <a class="menu-nav__link" href="#">Сервис</a>
+                            </li>
+
+                            <li class="menu-nav__elem">
+                                <a class="menu-nav__link" href="sales.html">Акции</a>
+                            </li>
+
+                            <li class="menu-nav__elem">
+                                <a class="menu-nav__link" href="#">Оплата и доставка</a>
+                            </li>
+
                         </ul>
                     </nav>
                 </div>
@@ -154,10 +170,65 @@
             </div>
         </section>
 
+        <!-- Cart window -->
+        <section class="popup" id="popup-cart">
+            <div class="popup__body">
+                <div class="popup__content">
+                    <a href="#" class="popup__close">X</a>
+                    <div class="popup__title">Корзина</div>
+
+                    <div class="popup__cart popup-cart">
+                        <div class="popup-cart__body">
+                            <div class="popup-cart__cards cart-cards" id="shoppingCart">
+                                <!-- Cards will appeare here -->
+                                <div class="cart-cards__empty">
+                                    <p class="cart-cards__empty-text">Корзина пуста...</p>
+                                </div>
+                            </div>
+                            <div class="popup-cart__footer cart-footer">
+                                <div class="cart-footer__total">
+                                    <h4 class="cart-footer__total-title">Итог:</h4>
+                                    <h4 class="cart-footer__total-price" id="totalCartSum">0 руб.</h4>
+                                </div>
+                                <div class="cart-footer__buttons">
+                                    <button class="cart-footer__button" id="cartClearAll">Очистить всё</button>
+                                    <button class="cart-footer__button cartMakeOffer popup-opener" data-popup_open="#popup-offer" id="cartMakeOffer">Оформить заказ</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- Cart window - offer -->
+        <section class="popup" id="popup-offer">
+            <div class="popup__body">
+                <div class="popup__content">
+                    <a href="#" class="popup__close">X</a>
+                    <div class="popup__title">Оформление</div>
+                    <div class="popup__cart-offer cart-offer">
+                        <form class="cart-offer__form" id="offerForm" action="http://localhost/dashboard/test-cards/components/shopping-cart/message-sender.php" method="POST">
+                            <div class="cart-offer__inputs" id="offerInputs">
+                                <input type="hidden" name="cart" id="hiddenCartItem" value="">
+                                <input class="cart-offer__input" name="name" id="offerInputName" placeholder="Имя..." type="text" required>
+                                <input class="cart-offer__input" name="phone" id="offerInputPhone" placeholder="Телефон..." minlength="11" type="tel" required>
+                                <input class="cart-offer__input" name="mail" id="offerInputMail" placeholder="Email..." type="email" required>
+                            </div>
+                            <div class="cart-offer__button-inner">
+                                <button class="cart-offer__button" id="cartSendOffer" type="submit">Отправить</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </div>
 
-    <script src="js/popup.js"></script>
-    <script src="js/services.js"></script>
+    <script src="js/header.js"></script>
+    <script  type="module" src="js/services.js"></script>
 
 </body>
 
