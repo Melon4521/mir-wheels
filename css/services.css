@@ -840,7 +840,7 @@ body._lock {
   .info-header__title a {
     font-size: 20px;
   }
-  .info-headerr__details {
+  .info-header__details {
     display: none;
   }
 }
