@@ -250,6 +250,48 @@ body._lock {
   background-color: #a4a4a4;
 }
 
+.elipse-up {
+  position: fixed;
+  z-index: 99;
+  bottom: 5%;
+  right: 5%;
+  opacity: 0;
+  visibility: hidden;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #EF7B00;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+}
+.elipse-up:hover {
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+  background-color: #db7100;
+}
+.elipse-up._active {
+  opacity: 1;
+  visibility: visible;
+}
+.elipse-up__body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: inherit;
+}
+.elipse-up__elem {
+  position: absolute;
+  color: #fff;
+  font-size: 24px;
+}
+
 .header {
   position: relative;
   z-index: 100;
