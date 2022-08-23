@@ -1,4 +1,4 @@
-import cartMainFunction from './shopping-cart.js';
+import cartInit from './shopping-cart.js';
 
 //<Slider config>==============================================================================
 
@@ -35,6 +35,6 @@ new Swiper('.my-slider', {
 
 //<Shopping cart>==============================================================================
 
-cartMainFunction()
+cartInit()
 
 //</Shopping cart>==============================================================================

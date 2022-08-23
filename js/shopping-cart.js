@@ -1,4 +1,4 @@
-export default function cartMainFunction() {
+export default function cartInit() {
     let addToCartButtons = document.querySelectorAll('.addToCart'),
         cartData = getCartData();
     const shoppingCart = document.querySelector('#shoppingCart'),

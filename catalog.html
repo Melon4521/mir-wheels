@@ -73,70 +73,89 @@
 
             <div class="container">
                 <div class="catalog" style="padding-top: 50px;">
-                    <div class="catalog__sort" id="Left">
-                        <div class="catalog__sort-menu sort-menu">
-                            <h3 class="sort-menu__title">Шины</h3>
-                            <button class="sort-menu__back" id="ButtonBack">Назад</button>
-                            <button class="sort-menu__find sort-menu__button" id="LeftPick">Подобрать</button>
-                            <button class="sort-menu__reset sort-menu__button" id="Reset">Сбросить</button>
-                            <div class="sort-menu__body">
-                                <div id="selectGroup" class="sort-menu__selects LeftBodyDiv">
-                                    <div class="SelectBox" data-name="brand">
-                                        <select class="dropdown">
-                                            <option value="0">Производитель</option>
-                                        </select>
+                    <div class="catalog__sort-cards">
+                        <!-- Sorting panel -->
+                        <div class="catalog__sort" id="Left">
+                            <div class="catalog__sort-menu sort-menu">
+                                <h3 class="sort-menu__title">Шины</h3>
+                                <button class="sort-menu__back" id="ButtonBack">Назад</button>
+                                <button class="sort-menu__find sort-menu__button" id="LeftPick">Подобрать</button>
+                                <button class="sort-menu__reset sort-menu__button" id="Reset">Сбросить</button>
+                                <div class="sort-menu__body">
+                                    <div id="selectGroup" class="sort-menu__selects LeftBodyDiv">
+                                        <div class="SelectBox" data-name="brand">
+                                            <select class="dropdown">
+                                                <option value="0">Производитель</option>
+                                            </select>
+                                        </div>
+                                        <div class="SelectBox" data-name="ship">
+                                            <select class="dropdown">
+                                                <option value="0">Шиповка</option>
+                                            </select>
+                                        </div>
+                                        <div class="SelectBox" data-name="date_up">
+                                            <select class="dropdown">
+                                                <option value="0">Дата производства</option>
+                                            </select>
+                                        </div>
+                                        <div class="SelectBox" data-name="season">
+                                            <select class="dropdown">
+                                                <option value="0">Сезон</option>
+                                            </select>
+                                        </div>
+                                        <div class="SelectBox" data-name="w">
+                                            <select class="dropdown">
+                                                <option value="0">Ширина</option>
+                                            </select>
+                                        </div>
+                                        <div class="SelectBox" data-name="h">
+                                            <select class="dropdown">
+                                                <option value="0">Высота</option>
+                                            </select>
+                                        </div>
+                                        <div class="SelectBox" data-name="r">
+                                            <select class="dropdown">
+                                                <option value="0">Диаметр</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                    <div class="SelectBox" data-name="ship">
-                                        <select class="dropdown">
-                                            <option value="0">Шиповка</option>
-                                        </select>
-                                    </div>
-                                    <div class="SelectBox" data-name="date_up">
-                                        <select class="dropdown">
-                                            <option value="0">Дата производства</option>
-                                        </select>
-                                    </div>
-                                    <div class="SelectBox" data-name="season">
-                                        <select class="dropdown">
-                                            <option value="0">Сезон</option>
-                                        </select>
-                                    </div>
-                                    <div class="SelectBox" data-name="w">
-                                        <select class="dropdown">
-                                            <option value="0">Ширина</option>
-                                        </select>
-                                    </div>
-                                    <div class="SelectBox" data-name="h">
-                                        <select class="dropdown">
-                                            <option value="0">Высота</option>
-                                        </select>
-                                    </div>
-                                    <div class="SelectBox" data-name="r">
-                                        <select class="dropdown">
-                                            <option value="0">Диаметр</option>
-                                        </select>
-                                    </div>
-                                </div>
 
-                                <div class="sort-menu__price menu-price">
-                                    <h3 class="menu-price__title">Розничная цена</h3>
-                                    <div class="menu-price__header">
-                                        <div class="menu-price__min menu-price__elem">
-                                            От <span id="MinPriceCard" value="false">123</span>
+                                    <div class="sort-menu__price menu-price">
+                                        <h3 class="menu-price__title">Розничная цена</h3>
+                                        <div class="menu-price__header">
+                                            <div class="menu-price__min menu-price__elem">
+                                                От <span id="MinPriceCard" value="false">123</span>
+                                            </div>
+                                            <div class="menu-price__max menu-price__elem">
+                                                До <span id="MaxPriceCard" value="false">123</span>
+                                            </div>
                                         </div>
-                                        <div class="menu-price__max menu-price__elem">
-                                            До <span id="MaxPriceCard" value="false">123</span>
+                                        <div class="menu-price__range">
+                                            <input id="MenuPriceRange" type="range" multiple value="" min="" max="">
                                         </div>
-                                    </div>
-                                    <div class="menu-price__range">
-                                        <input id="MenuPriceRange" type="range" multiple value="" min="" max="">
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <!-- Cards -->
+                        <div class="catalog__cards" id="Right"></div>
                     </div>
+                    <!-- Pagen -->
+                    <div class="catalog__pagen catalog-pagen">
+                        <div class="catalog-pagen__prev" id="pagenPrev">
+                            <div class="catalog-pagen__text icon-arrow"></div>
+                        </div>
+                        <div class="catalog-pagen__buttons">
 
-                    <div class="catalog__cards" id="Right"></div>
+                            <!-- <div class="catalog-pagen__button">
+                                <div class="catalog-pagen__button-text">1</div>
+                            </div> -->
+
+                        </div>
+                        <div class="catalog-pagen__next"  id="pagenNext">
+                            <div class="catalog-pagen__text icon-arrow"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
