@@ -477,6 +477,8 @@ body._lock {
 
 .header-footer {
   background-color: #E9E9E9;
+  -webkit-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
 }
 .header-footer__menu {
   display: -webkit-box;

@@ -1,3 +1,5 @@
+import settingCards from '../cards/script.js';
+
 export default function pagenInit(myJson) {
     const step = 10,
     pagenPrev = document.querySelector('#pagenPrev'),
@@ -100,6 +102,7 @@ export default function pagenInit(myJson) {
             startPosition = start;
             endPosition = end;
             newCardGenerate(myJson, startPosition, endPosition);
+            settingCards();
             scrollToPosition(0);
         };
     };
@@ -117,6 +120,7 @@ export default function pagenInit(myJson) {
             endPosition = end;
 
             newCardGenerate(myJson, startPosition, endPosition);
+            settingCards()
             scrollToPosition(0);
         };
     };
