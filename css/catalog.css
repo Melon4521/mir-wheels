@@ -1612,6 +1612,22 @@ body._lock {
     transition: all 0.3s ease-in;
   }
 }
+.catalog-pagen__prev._pagen-disable, .catalog-pagen__next._pagen-disable {
+  -webkit-filter: grayscale(95%);
+          filter: grayscale(95%);
+  background-color: #EF7B00;
+}
+@media (any-hover: hover) {
+  .catalog-pagen__prev._pagen-disable:hover, .catalog-pagen__next._pagen-disable:hover {
+    cursor: default;
+  }
+}
+@media (any-hover: hover) {
+  .catalog-pagen__prev._pagen-disable:hover .catalog-pagen__text, .catalog-pagen__next._pagen-disable:hover .catalog-pagen__text {
+    color: #fff;
+    cursor: default;
+  }
+}
 .catalog-pagen__prev {
   margin-right: 10px;
   -webkit-transform: rotate(180deg);
@@ -1622,8 +1638,8 @@ body._lock {
 }
 .catalog-pagen__text {
   position: absolute;
-  top: 52%;
-  left: 52%;
+  top: 53%;
+  left: 53%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   color: #fff;

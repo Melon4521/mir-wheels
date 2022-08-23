@@ -12,6 +12,26 @@ export default function pagenInit(myJson) {
 
     newCardGenerate(myJson, start, end);
 
+    if (start == 0) {
+        pagenPrev.classList.add('_pagen-disable');
+        pagenPrev.removeEventListener('click', pagenPrevCards);
+    } else {
+        if (pagenPrev.classList.contains('_pagen-disable')) {
+            pagenPrev.classList.remove('_pagen-disable');
+            pagenPrev.addEventListener('click', pagenPrevCards);
+        }
+    }
+
+    if (end >= myJson.tires.length) {
+        pagenNext.classList.add('_pagen-disable');
+        pagenNext.removeEventListener('click', pagenNextCards);
+    } else {
+        if (pagenNext.classList.contains('_pagen-disable')) {
+            pagenNext.classList.remove('_pagen-disable');
+            pagenNext.addEventListener('click', pagenNextCards);
+        }
+    }
+
     //<Functions>==============================================================================
     
     function newCardGenerate(myJson, start, end) {
@@ -95,8 +115,14 @@ export default function pagenInit(myJson) {
         let endPosition;
 
         if (start == 0) {
-
+            pagenPrev.classList.add('_pagen-disable');
+            pagenPrev.removeEventListener('click', pagenPrevCards);
         } else {
+            if (pagenPrev.classList.contains('_pagen-disable')) {
+                pagenPrev.classList.remove('_pagen-disable');
+                pagenPrev.addEventListener('click', pagenPrevCards);
+            }
+
             end = start;
             start -= step;
             startPosition = start;
@@ -105,6 +131,26 @@ export default function pagenInit(myJson) {
             settingCards();
             scrollToPosition(0);
         };
+
+        if (start == 0) {
+            pagenPrev.classList.add('_pagen-disable');
+            pagenPrev.removeEventListener('click', pagenPrevCards);
+        } else {
+            if (pagenPrev.classList.contains('_pagen-disable')) {
+                pagenPrev.classList.remove('_pagen-disable');
+                pagenPrev.addEventListener('click', pagenPrevCards);
+            }
+        };
+
+        if (end >= myJson.tires.length) {
+            pagenNext.classList.add('_pagen-disable');
+            pagenNext.removeEventListener('click', pagenNextCards);
+        } else {
+            if (pagenNext.classList.contains('_pagen-disable')) {
+                pagenNext.classList.remove('_pagen-disable');
+                pagenNext.addEventListener('click', pagenNextCards);
+            }
+        }
     };
 
     function pagenNextCards() {
@@ -112,8 +158,14 @@ export default function pagenInit(myJson) {
         let endPosition;
 
         if (end >= myJson.tires.length) {
-
+            pagenNext.classList.add('_pagen-disable');
+            pagenNext.removeEventListener('click', pagenNextCards);
         } else {
+            if (pagenNext.classList.contains('_pagen-disable')) {
+                pagenNext.classList.remove('_pagen-disable');
+                pagenNext.addEventListener('click', pagenNextCards);
+            }
+
             start = end;
             end += step;
             startPosition = start;
@@ -122,6 +174,26 @@ export default function pagenInit(myJson) {
             newCardGenerate(myJson, startPosition, endPosition);
             settingCards()
             scrollToPosition(0);
+        };
+
+        if (start == 0) {
+            pagenPrev.classList.add('_pagen-disable');
+            pagenPrev.removeEventListener('click', pagenPrevCards);
+        } else {
+            if (pagenPrev.classList.contains('_pagen-disable')) {
+                pagenPrev.classList.remove('_pagen-disable');
+                pagenPrev.addEventListener('click', pagenPrevCards);
+            }
+        };
+
+        if (end >= myJson.tires.length) {
+            pagenNext.classList.add('_pagen-disable');
+            pagenNext.removeEventListener('click', pagenNextCards);
+        } else {
+            if (pagenNext.classList.contains('_pagen-disable')) {
+                pagenNext.classList.remove('_pagen-disable');
+                pagenNext.addEventListener('click', pagenNextCards);
+            }
         };
     };
 
