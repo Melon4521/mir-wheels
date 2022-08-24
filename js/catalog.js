@@ -1,4 +1,4 @@
-import myJson from '../api/demoDataTires.json' assert {
+import myJson from '../api/demoDataTiresFull.json' assert {
     type: 'json'
 };
 
@@ -16,7 +16,14 @@ document.getElementById("MenuPriceRange").addEventListener("input", function () 
     inputRangeValue.innerHTML = `${this.value}`;
 });
 
+let sortedArray,
+    page = 1;
+
 document.getElementById('Reset').addEventListener('click', reset);
+
+document.getElementById('LeftPick').addEventListener('click', () => {
+    sortingEvents(myJson, page);
+});
 
 selectGenerate(myJson);
 easydropdown.all();
@@ -25,14 +32,10 @@ easydropdown.all();
 
 //<Cards>==============================================================================
 
-pagenInit(myJson);
+// pagenInit(myJson, sortedArray);
 settingCards();
 
 //</Cards>==============================================================================
-
-document.getElementById('LeftPick').addEventListener('click', () => {
-    sortingEvents(myJson);
-});
 
 //<Shopping cart>==============================================================================
 

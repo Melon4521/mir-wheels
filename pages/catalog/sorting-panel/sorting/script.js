@@ -1,98 +1,122 @@
-export default function sortingEvents(myJson) {
+export default function sortingEvents(myJson, page) {
 
-    // Sorting v1.0
+    // V: 2.0
 
-    let allItem = document.getElementById('Right'),
-        maxPrice = document.getElementById('MaxPriceCard').textContent,
-        select = document.getElementById('selectGroup');
+    let arrAll = [],
+        arrSuperfluous = []; // Массив лишних индексов
 
-    let arrAll = [];
+    for (let i = 0; i < myJson.tires.length; i++) { // Генерация всех индексов товаров
+        arrAll.push(i)
+    };
 
-    for (let i = 0; i < select.children.length; i++) {
-        let type = select.children[i].children[0].children[0].children[2].value,
-            qualification = 'data-' + select.children[i].dataset.name;
+    let selectAll = document.getElementById('selectGroup'), // Группа селектов
+        maxPrice = +(document.getElementById('MaxPriceCard').attributes.value.value),
+        inputRangeValue = document.getElementById('MaxPriceCard').textContent;
 
-        if ((Number(document.getElementById('MaxPriceCard').attributes.value.value) != Number(maxPrice)) || (type != 0)) {
-            for (let x = 0; x < allItem.children.length; x++) {
+    for (let i = 0; i < selectAll.children.length; i++) { // Добавление в массив не подходящих по значению
+        let selectDataName = selectAll.children[i].dataset.name, // Тип , дата-name (brand , w , h , r ...) 
+            selectValue = selectAll.children[i].children[0].children[0].children[2].value; // Получение value текущего select'a 
 
-                if (type != 0) {
-                    if (allItem.children[x].getAttribute(qualification) != type) {
-                        arrAll.push(x);
-                    };
-                };
-
-                if (Number(document.getElementById('MaxPriceCard').attributes.value.value) != Number(maxPrice)){
-                    if (Number(allItem.children[x].attributes[3].value) > Number(maxPrice)) {
-                        arrAll.push(x);
-                    };
+        if (selectValue != 0) {
+            for (let z = 0; z < myJson.tires.length; z++) {
+                if (myJson.tires[z][`${selectDataName}`] != selectValue) {
+                    arrSuperfluous.push(z)
                 };
             };
         };
     };
 
-    arrAll = Array.from(new Set(arrAll)) // Удаление лишнего (повторов)
-    arrAll.sort((a, b) => a - b); // Сортировка по возрастанию
-
-    for (let i = 0; i < allItem.children.length; i++) {
-        allItem.children[i].style.display = 'block';
+    if (+(inputRangeValue) != +(maxPrice)) {
+        for (let z = 0; z < myJson.tires.length; z++) {
+            if (+(myJson.tires[z].price) >= +(inputRangeValue)) {
+                arrSuperfluous.push(z);
+            };
+        };
     };
 
-    for (let i = 0; i < arrAll.length; i++) {
-        allItem.children[arrAll[i]].style.display = 'none';
+    arrAll = arrAll.filter(e => !~arrSuperfluous.indexOf(e)); // Удаление ненужного
+
+    console.log('delete :', arrSuperfluous); // Номера карточек которые удалятся
+    console.log(arrAll); // Остатки , номера которые будут выводится
+
+    const step = 10; // Число карточек на странице
+    let PlaceGeneration = document.getElementById('Right'); // Место вывода карточек
+
+    PlaceGeneration.innerHTML = ``; // Очищение от старых карточек
+
+    page = +(document.getElementById('pagenPage').children[0].textContent); // Узнаём номер страницы
+
+    for (let i = (page - 1) * step; i < page * step; i++) { // От и до какой карточки выводим
+
+        if ((PlaceGeneration.children.length == step) || (i > arrAll.length - 1)) { // Условия при которых больше не выводим карточки
+            break;
+        };
+
+        console.log(i, ':', arrAll[i]); // Номер карточки : номер по массиву
+
+        let image;
+
+        if (myJson.tires[`${arrAll[i]}`].image500x500) { // Выдача картинки если её нет
+            image = myJson.tires[`${arrAll[i]}`].image500x500;
+        } else {
+            image = "images/no-image.png";
+        };
+
+        PlaceGeneration.innerHTML += /*html*/`
+            <div class="catalog__cards-card catalog-card" name="${myJson.tires[`${arrAll[i]}`].name}" price="${myJson.tires[`${arrAll[i]}`].price}" stok="${myJson.tires[`${arrAll[i]}`].stock}" data-brand='${myJson.tires[`${arrAll[i]}`].brand}' data-ship='${myJson.tires[`${arrAll[i]}`].ship}' data-date_up='${myJson.tires[`${arrAll[i]}`].date_up}' data-season='${myJson.tires[`${arrAll[i]}`].season}' data-w='${myJson.tires[`${arrAll[i]}`].w}' data-h='${myJson.tires[`${arrAll[i]}`].h}' data-r='${myJson.tires[`${arrAll[i]}`].r}'>
+                <div class="catalog-card__media-title"></div>
+                <div class="catalog-card__body">
+                    <div class="catalog-card__image">
+                        <img src="${image}">
+                    </div>
+                    <div class="catalog-card__info card-info">
+                        <div class="card-info__title"><a href="#">${myJson.tires[`${arrAll[i]}`].name}</a></div>
+                        <div class="card-info__price">
+                            <span>${+(myJson.tires[`${arrAll[i]}`].price)}</span> руб./шт.
+                        </div>
+                        <div class='catalog-card__dop card-dop CardDopInfo'>
+                            <div class="card-dop__item">
+                                Сезон:
+                                <span>${myJson.tires[i].season}</span>
+                            </div>
+                            <div class="card-dop__item">
+                                В наличии:
+                                <span>${+(myJson.tires[`${arrAll[i]}`].stock)}</span>
+                                шт.
+                            </div>
+                            <div class="card-dop__item">
+                                Производитель:
+                                <span>${myJson.tires[`${arrAll[i]}`].brand}</span>
+                            </div>
+                        </div>
+                        <div class="card-info__buttons CardButtonAll">
+                            <button class="card-info__button buyIn1Click" 
+                                data-name="${myJson.tires[`${arrAll[i]}`].name}" 
+                                data-price="${myJson.tires[`${arrAll[i]}`].price}" 
+                                data-stock="${myJson.tires[`${arrAll[i]}`].stock}"
+                                data-date_up="${myJson.tires[`${arrAll[i]}`].date_up}" 
+                                data-season="${myJson.tires[`${arrAll[i]}`].season}"
+                                data-image="${myJson.tires[`${arrAll[i]}`].image500x500}"
+                                data-card_id="${myJson.tires[`${arrAll[i]}`].code}">
+                                Купить в 1 клик
+                            </button>
+                            <button class="card-info__button addToCart" 
+                                data-name="${myJson.tires[`${arrAll[i]}`].name}" 
+                                data-price="${myJson.tires[`${arrAll[i]}`].price}" 
+                                data-stock="${myJson.tires[`${arrAll[i]}`].stock}"
+                                data-date_up="${myJson.tires[`${arrAll[i]}`].date_up}" 
+                                data-season="${myJson.tires[`${arrAll[i]}`].season}"
+                                data-image="${myJson.tires[`${arrAll[i]}`].image500x500}"
+                                data-card_id="${myJson.tires[`${arrAll[i]}`].code}">
+                                В корзину
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="catalog-card__media-buttons"></div>
+            </div>
+        `;
     };
 
-    // ======================================================================================
-    // Sorting v2.0
-
-    // let allItems = myJson.tires,
-    //     allCards = document.getElementById('Right').children,
-    //     maxPrice = document.getElementById('MaxPriceCard').textContent,
-    //     selects = document.querySelectorAll('.SelectBox'),
-    //     arrAll = [];
-
-    // for (let i = 0; i < selects.length; i++) {
-    //     let type = selects[i].children[0].children[0].children[2].value,
-    //         qualification = 'data-' + selects[i].dataset.name;
-
-    //     if ((Number(document.getElementById('MaxPriceCard').attributes.value.value) != Number(maxPrice)) || (type != 0)) {
-    //         for (let x = 0; x < allItems.length; x++) {
-    //             if (type != 0) {
-    //                 if (allItems[x][qualification] != type) {
-    //                     arrAll.push(x);
-    //                 };
-    //             };
-
-    //             if (Number(document.getElementById('MaxPriceCard').attributes.value.value) != Number(maxPrice)){
-    //                 if (Number(allItems[x].stock.value) > Number(maxPrice)) {
-    //                     arrAll.push(x);
-    //                 };
-    //             };
-    //         };
-    //     };
-    // };
-
-    // arrAll = Array.from(new Set(arrAll)) // Удаление лишнего (повторов)
-    // arrAll.sort((a, b) => a - b); // Сортировка по возрастанию
-
-    // for (let i = 0; i < allItems.length; i++) {
-    //     if (i > allCards.length-1) {
-    //         break;
-    //     } else {
-    //         allCards[i].style.display = 'block';
-    //     };
-
-    //     // allItems.children[i].style.display = 'block';
-    // };
-
-    // for (let i = 0; i < arrAll.length; i++) {
-    //     if (i > allCards.length-1) {
-    //         break;
-    //     } else {
-    //         console.log(arrAll);
-    //         allCards[i].style.display = 'none';
-    //     };
-
-    //     // document.querySelectorAll('.catalog-card')[i].style.display = 'none';
-    //     // allItems.children[arrAll[i]].style.display = 'none';
-    // };
+    console.log('Count cards:', PlaceGeneration.children.length); // Количество карточек
 };

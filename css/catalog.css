@@ -217,7 +217,13 @@ body._lock {
 }
 
 .container {
-  max-width: 1120px;
+  max-width: 1090px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+[class*=__container] {
+  max-width: 1090px;
   padding: 0 15px;
   margin: 0 auto;
 }
@@ -314,12 +320,9 @@ body._lock {
 }
 
 .header__container {
-  max-width: 1120px;
-  margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 0 15px;
   padding-top: 10px;
   padding-bottom: 10px;
   -webkit-box-align: center;
@@ -1308,6 +1311,9 @@ body._lock {
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
   }
+}
+.card-info__button:last-child {
+  margin-right: 0px;
 }
 
 .card-dop__item {
