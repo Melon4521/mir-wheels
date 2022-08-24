@@ -16,10 +16,6 @@ document.getElementById("MenuPriceRange").addEventListener("input", function () 
     inputRangeValue.innerHTML = `${this.value}`;
 });
 
-document.getElementById('LeftPick').addEventListener('click', function () {
-    sortingEvents();
-});
-
 document.getElementById('Reset').addEventListener('click', reset);
 
 selectGenerate(myJson);
@@ -33,6 +29,10 @@ pagenInit(myJson);
 settingCards();
 
 //</Cards>==============================================================================
+
+document.getElementById('LeftPick').addEventListener('click', () => {
+    sortingEvents(myJson);
+});
 
 //<Shopping cart>==============================================================================
 

@@ -1,17 +1,29 @@
 import settingCards from '../cards/script.js';
 
-export default function pagenInit(myJson) {
+export default function pagenInit(myJson, sortedArray) {
+    // Объявления переменных и констант
     const step = 10,
-    pagenPrev = document.querySelector('#pagenPrev'),
-    pagenNext = document.querySelector('#pagenNext');
-    let start = 0,
-        end = step;
+        pagenPrev = document.querySelector('#pagenPrev'),
+        pagenNext = document.querySelector('#pagenNext'),
+        pagenInput = document.querySelector('#pagenInput'),
+        pagenPage = document.querySelector('#pagenPage');
 
+    let start = 0,
+        end = step,
+        fileLength = myJson.tires.length,
+        activePage = end / step,
+        pages = Math.ceil(fileLength / step);
+
+    // Проверка на цифру pagenPage
+    pagenPage.innerHTML = `${activePage}/${pages}`;
+
+    // Вешаем события на кнопки пагинации
     pagenPrev.addEventListener('click', pagenPrevCards);
     pagenNext.addEventListener('click', pagenNextCards);
 
     newCardGenerate(myJson, start, end);
 
+    // Проверка на активность кнопки пагинации
     if (start == 0) {
         pagenPrev.classList.add('_pagen-disable');
         pagenPrev.removeEventListener('click', pagenPrevCards);
@@ -20,7 +32,7 @@ export default function pagenInit(myJson) {
             pagenPrev.classList.remove('_pagen-disable');
             pagenPrev.addEventListener('click', pagenPrevCards);
         }
-    }
+    };
 
     if (end >= myJson.tires.length) {
         pagenNext.classList.add('_pagen-disable');
@@ -30,7 +42,7 @@ export default function pagenInit(myJson) {
             pagenNext.classList.remove('_pagen-disable');
             pagenNext.addEventListener('click', pagenNextCards);
         }
-    }
+    };
 
     //<Functions>==============================================================================
     
@@ -54,7 +66,7 @@ export default function pagenInit(myJson) {
             };
     
             PlaceGeneration.innerHTML += /*html*/ `
-                <div class="catalog__cards-card catalog-card" id="Card" name="${myJson.tires[i].name}" price="${myJson.tires[i].price}" stok="${myJson.tires[i].stock}" data-brand='${myJson.tires[i].brand}' data-ship='${myJson.tires[i].ship}' data-date_up='${myJson.tires[i].date_up}' data-season='${myJson.tires[i].season}' data-w='${myJson.tires[i].w}' data-h='${myJson.tires[i].h}' data-r='${myJson.tires[i].r}'>
+                <div class="catalog__cards-card catalog-card" name="${myJson.tires[i].name}" price="${myJson.tires[i].price}" stok="${myJson.tires[i].stock}" data-brand='${myJson.tires[i].brand}' data-ship='${myJson.tires[i].ship}' data-date_up='${myJson.tires[i].date_up}' data-season='${myJson.tires[i].season}' data-w='${myJson.tires[i].w}' data-h='${myJson.tires[i].h}' data-r='${myJson.tires[i].r}'>
                     <div class="catalog-card__media-title"></div>
                     <div class="catalog-card__body">
                         <div class="catalog-card__image">
@@ -127,11 +139,14 @@ export default function pagenInit(myJson) {
             start -= step;
             startPosition = start;
             endPosition = end;
+            activePage = end / step;
+
             newCardGenerate(myJson, startPosition, endPosition);
             settingCards();
             scrollToPosition(0);
         };
 
+        // Проверка на активность кнопки пагинации
         if (start == 0) {
             pagenPrev.classList.add('_pagen-disable');
             pagenPrev.removeEventListener('click', pagenPrevCards);
@@ -150,7 +165,10 @@ export default function pagenInit(myJson) {
                 pagenNext.classList.remove('_pagen-disable');
                 pagenNext.addEventListener('click', pagenNextCards);
             }
-        }
+        };
+
+        // Проверка на цифру pagenPage
+        pagenPage.innerHTML = `${activePage}/${pages}`;
     };
 
     function pagenNextCards() {
@@ -170,12 +188,14 @@ export default function pagenInit(myJson) {
             end += step;
             startPosition = start;
             endPosition = end;
+            activePage = end / step;
 
             newCardGenerate(myJson, startPosition, endPosition);
-            settingCards()
+            settingCards();
             scrollToPosition(0);
         };
 
+        // Проверка на активность кнопки пагинации 
         if (start == 0) {
             pagenPrev.classList.add('_pagen-disable');
             pagenPrev.removeEventListener('click', pagenPrevCards);
@@ -195,6 +215,9 @@ export default function pagenInit(myJson) {
                 pagenNext.addEventListener('click', pagenNextCards);
             }
         };
+
+        // Проверка на цифру pagenPage
+        pagenPage.innerHTML = `${activePage}/${pages}`;
     };
 
     //</Functions>==============================================================================
