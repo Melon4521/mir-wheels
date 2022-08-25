@@ -16,23 +16,26 @@ document.getElementById("MenuPriceRange").addEventListener("input", function () 
     inputRangeValue.innerHTML = `${this.value}`;
 });
 
-let sortedArray,
-    page = 1;
-
-document.getElementById('Reset').addEventListener('click', reset);
-
-document.getElementById('LeftPick').addEventListener('click', () => {
-    sortingEvents(myJson, page);
-});
-
 selectGenerate(myJson);
 easydropdown.all();
+
+let sortedArray = sortingEvents(myJson);
+
+document.getElementById('LeftPick').addEventListener('click', () => {
+    sortedArray = sortingEvents(myJson);
+    pagenInit(myJson, sortedArray);
+});
+
+document.getElementById('Reset').addEventListener('click', () => {
+    sortedArray = reset(myJson);
+    pagenInit(myJson, sortedArray)
+});
 
 //</Sorting>==============================================================================
 
 //<Cards>==============================================================================
 
-// pagenInit(myJson, sortedArray);
+pagenInit(myJson, sortedArray);
 settingCards();
 
 //</Cards>==============================================================================
