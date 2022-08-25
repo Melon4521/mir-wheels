@@ -322,7 +322,7 @@ export default function cartInit() {
         }
 
         function validatePhone(phone) {
-            let reg = /^\+?(\d{1,3})?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$/;
+            let reg = /^(\+)?((\d{2,3}) ?\d|\d)(([ -]?\d)|( ?(\d{2,3}) ?)){5,12}\d$/;
             return reg.test(String(phone));
         }
 

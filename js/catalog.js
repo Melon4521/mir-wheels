@@ -24,11 +24,15 @@ let sortedArray = sortingEvents(myJson);
 document.getElementById('LeftPick').addEventListener('click', () => {
     sortedArray = sortingEvents(myJson);
     pagenInit(myJson, sortedArray);
+    settingCards();
+    cartInit();
 });
 
 document.getElementById('Reset').addEventListener('click', () => {
     sortedArray = reset(myJson);
     pagenInit(myJson, sortedArray)
+    settingCards();
+    cartInit();
 });
 
 //</Sorting>==============================================================================
@@ -42,6 +46,6 @@ settingCards();
 
 //<Shopping cart>==============================================================================
 
-cartInit()
+cartInit();
 
 //</Shopping cart>==============================================================================
