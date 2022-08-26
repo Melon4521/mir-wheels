@@ -1,7 +1,5 @@
-import settingCards from '../cards/script.js';
-import cartInit from '../../../js/shopping-cart.js';
-
-export default function pagenInit(myJson, sortedArray) {
+function pagenInit(myJson, sortedArray) {
+    
     // Объявления констант
     const step = 10,
         pagenPrev = document.querySelector('#pagenPrev'),
@@ -36,6 +34,7 @@ export default function pagenInit(myJson, sortedArray) {
         PlaceGeneration.innerHTML = '';
 
         for (let i = start; i < end; i++) {
+            console.log(sortedArray[i]);
 
             let image;
 
@@ -168,7 +167,6 @@ export default function pagenInit(myJson, sortedArray) {
     };
 
     function pagenPrevCards() {
-        cartInit();
         let startPosition;
         let endPosition;
 
@@ -196,7 +194,6 @@ export default function pagenInit(myJson, sortedArray) {
 
         // Проверка на цифру pagenPage
         changePagenPage(activePage, pages);
-        cartInit();
     };
 
     function pagenNextCards() {
@@ -227,7 +224,6 @@ export default function pagenInit(myJson, sortedArray) {
 
         // Проверка на цифру pagenPage
         changePagenPage(activePage, pages);
-        cartInit();
     };
 
     function changePagenPage(activePage, pages) {

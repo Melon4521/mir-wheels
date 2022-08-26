@@ -1,4 +1,4 @@
-export default function selectGenerate(myJson) {
+function selectGenerate(myJson) {
     let selectGroup = document.getElementById('selectGroup').children,
         minPrice = document.getElementById('MinPriceCard'),
         maxPrice = document.getElementById('MaxPriceCard'),

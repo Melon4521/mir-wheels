@@ -1,7 +1,6 @@
-export default function reset(myJson) {
+function reset(myJson) {
     let maxPrice = document.getElementById('MaxPriceCard').attributes.value,
         input = document.getElementById('MenuPriceRange'),
-        select = document.getElementById('selectGroup'),
         arrAll = [];
 
     document.getElementById('MaxPriceCard').innerHTML = `${maxPrice.textContent}`;
