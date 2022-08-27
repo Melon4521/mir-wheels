@@ -34,7 +34,6 @@ function pagenInit(myJson, sortedArray) {
         PlaceGeneration.innerHTML = '';
 
         for (let i = start; i < end; i++) {
-            console.log(sortedArray[i]);
 
             let image;
 

@@ -167,7 +167,8 @@ function openCart() {
 };
 
 function clearAllItems() {
-    if (confirm("Вы точно хотите очистить всё?")) {
+    const userResponse = confirm("Вы точно хотите очистить всё?");
+    if (userResponse) {
         localStorage.removeItem("shopping-cart");
         shoppingCart.innerHTML = '';
         shoppingCart.innerHTML = /*html*/ `
