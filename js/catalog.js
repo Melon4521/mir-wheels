@@ -5,18 +5,6 @@ async function fetchAsync() {
     return await response.json();
 };
 
-// async function getJson() {
-//     const fileUrl = '../api/demoDataTiresFull.json';
-//     const response = await fetch(fileUrl);
-//     let DB = await response.json();
-
-//     return DB;
-// };
-
-// let myJson = await getJson();
-
-// console.log(myJson);
-
 //</Получение JSON>==============================================================================
 
 document.addEventListener('click', function (e) {
