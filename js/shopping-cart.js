@@ -79,7 +79,7 @@ function generateCartCard(cardAtrs) {
     <div class="cart-cards__item cart-card" data-id="${cardAtrs.cardId}">
                 <div class="cart-card__body">
                     <div class="cart-card__image">
-                        <img src="${image}" alt="Изображение">
+                        <img loading="lazy" src="${image}" alt="Изображение">
                     </div>
                     <div class="cart-card__info">
                         <div class="cart-card__info-header info-header">

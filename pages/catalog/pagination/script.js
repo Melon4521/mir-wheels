@@ -112,7 +112,7 @@ function pagenInit(myJson, sortedArray) {
                         <div class="catalog-card__media-title"></div>
                         <div class="catalog-card__body">
                             <div class="catalog-card__image">
-                                <img src="${image}">
+                                <img loading="lazy" src="${image}">
                             </div>
                             <div class="catalog-card__info card-info">
                                 <div class="card-info__title"><a href="#">${myJson.tires[sortedArray[i]].name}</a></div>
