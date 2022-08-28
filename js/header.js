@@ -1,22 +1,22 @@
 //<Popup>==============================================================================
 
-let popupOpeners = document.querySelectorAll('.popup-opener[data-popup_open]');
+// let popupOpeners = document.querySelectorAll('.popup-opener[data-popup_open]');
 const body = document.querySelector('body');
 const lockElements = document.querySelectorAll('.lock-padding');
 
 let unlock = true;
 
-if (popupOpeners.length > 0) {
-    for (let i = 0; i < popupOpeners.length; i++) {
-        let popupOpener = popupOpeners[i];
-        popupOpener.addEventListener('click', (e) => {
-            const dataAtribute = popupOpener.dataset.popup_open;
-            let popup = document.querySelector(dataAtribute);
-            popupOpen(popup, e);
-            e.preventDefault();
-        });
-    };
-};
+// if (popupOpeners.length > 0) {
+//     for (let i = 0; i < popupOpeners.length; i++) {
+//         let popupOpener = popupOpeners[i];
+//         popupOpener.addEventListener('click', (e) => {
+//             const dataAtribute = popupOpener.dataset.popup_open;
+//             let popup = document.querySelector(dataAtribute);
+//             popupOpen(popup, e);
+//             e.preventDefault();
+//         });
+//     };
+// };
 
 function popupOpen(popup, e) {
     if (popup && unlock) {

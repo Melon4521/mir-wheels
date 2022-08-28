@@ -72,7 +72,7 @@ function pagenInit(myJson, sortedArray) {
                                     </div>
                                 </div>
                                 <div class="card-info__buttons CardButtonAll">
-                                    <button class="card-info__button buyIn1Click" 
+                                    <button class="card-info__button buyIn1Click popup-opener" data-popup_open="#popup-offer"
                                         data-name="${myJson.tires[sortedArray[i]].name}" 
                                         data-price="${myJson.tires[sortedArray[i]].price}" 
                                         data-stock="${myJson.tires[sortedArray[i]].stock}"
@@ -135,7 +135,7 @@ function pagenInit(myJson, sortedArray) {
                                     </div>
                                 </div>
                                 <div class="card-info__buttons CardButtonAll">
-                                    <button class="card-info__button buyIn1Click" 
+                                    <button class="card-info__button buyIn1Click popup-opener" data-popup_open="#popup-offer"
                                         data-name="${myJson.tires[sortedArray[i]].name}" 
                                         data-price="${myJson.tires[sortedArray[i]].price}" 
                                         data-stock="${myJson.tires[sortedArray[i]].stock}"

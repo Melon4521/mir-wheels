@@ -1,4 +1,4 @@
-let cartData = getCartData(),
+let cartData = getCartData("shopping-cart"),
     offerForm = document.getElementById("offerForm"),
     offerInputPhone = document.getElementById("offerInputPhone"),
     offerInputMail = document.getElementById("offerInputMail");
@@ -29,7 +29,7 @@ function add2Cart(targetButton) {
             cardImage: targetButton.dataset.image,
             cardId: targetButton.dataset.card_id || '0',
         },
-        cartData = getCartData() || {},
+        cartData = getCartData("shopping-cart") || {},
         cardID = cardDataAtributes.cardId;
 
     if (cartData.hasOwnProperty(cardID)) {
@@ -61,7 +61,7 @@ function add2Cart(targetButton) {
         cartMakeOffer.classList.add('_none-cart-data');
     }
 
-    setCartData(cartData);
+    setCartData(cartData, "shopping-cart");
     changeCartIconNumber();
 };
 
@@ -118,16 +118,16 @@ function generateCartCard(cardAtrs) {
     // });
 };
 
-function setCartData(cartData) {
-    localStorage.setItem("shopping-cart", JSON.stringify(cartData));
+function setCartData(cartData, name) {
+    localStorage.setItem(name, JSON.stringify(cartData));
 };
 
-function getCartData() {
-    return JSON.parse(localStorage.getItem("shopping-cart"));
+function getCartData(name) {
+    return JSON.parse(localStorage.getItem(name));
 };
 
 function openCart() {
-    let cartData = getCartData(),
+    let cartData = getCartData("shopping-cart"),
         PlaceGeneration = shoppingCart,
         totalCartSum = 0, // Сумма всех товаров в корзине
         cartInfo = ''; // Текст заказа для письма
@@ -183,7 +183,7 @@ function clearAllItems() {
         }, 1000)
     };
 
-    let cartData = getCartData(),
+    let cartData = getCartData("shopping-cart"),
         totalCartSum = openCart();
 
     if (totalCartSum === 0) {
@@ -207,7 +207,7 @@ function clearAllItems() {
 
 function addItem(targetElement) {
     let targetElementId = targetElement.dataset.id,
-        cartData = getCartData();
+        cartData = getCartData("shopping-cart");
 
     for (let item in cartData) {
 
@@ -217,14 +217,14 @@ function addItem(targetElement) {
         }
     }
 
-    setCartData(cartData);
+    setCartData(cartData, "shopping-cart");
     changeCartIconNumber();
     openCart();
 };
 
 function deleteItem(targetElement) {
     let targetElementId = targetElement.dataset.id,
-        cartData = getCartData();
+        cartData = getCartData("shopping-cart");
 
     for (let item in cartData) {
 
@@ -240,7 +240,7 @@ function deleteItem(targetElement) {
         }
     }
 
-    setCartData(cartData);
+    setCartData(cartData, "shopping-cart");
     changeCartIconNumber();
     openCart();
 
@@ -304,7 +304,7 @@ function checkFormValidity(phone, mail) {
 };
 
 function changeCartIconNumber() {
-    let cartData = getCartData();
+    let cartData = getCartData("shopping-cart");
     let count = 0;
 
     if (cartData !== null) {
@@ -318,6 +318,36 @@ function changeCartIconNumber() {
     } else {
         cartIcon.dataset.count = `${count}`;
     }
+};
+
+function buyIn1Click(targetButton) {
+    let cardDataAtributes = {
+        "item": {
+            cardName: targetButton.dataset.name,
+            price: targetButton.dataset.price,
+            season: targetButton.dataset.season,
+            dateUp: targetButton.dataset.date_up,
+            stock: targetButton.dataset.stock,
+            cardImage: targetButton.dataset.image,
+            cardId: targetButton.dataset.card_id || '0',
+        }
+    },
+    totalCartSum = 0, // Сумма всех товаров в корзине
+    cartInfo = ''; // Текст заказа для письма
+
+    setCartData(cardDataAtributes, "one_click");
+
+    let cartData = getCartData("one_click");
+
+    for (let item in cartData.item) {
+        cartInfo += `${cartData.item[item]}\t`;
+    }
+
+    totalCartSum += Number(String(cartData.item.price));
+
+    document.getElementById("hiddenCartItem").value = cartInfo + `\n\nОбщая стоимость товаров: ${totalCartSum}руб.`;
+
+    localStorage.removeItem("one_click");
 };
 
 //</Functions>==============================================================================
