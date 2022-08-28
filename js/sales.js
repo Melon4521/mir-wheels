@@ -26,6 +26,14 @@ function documentActions(e) {
     if (targetElement.classList.contains('delCartItem')) {
         deleteItem(targetElement);
     };
+
+    // Открытие popup-а.
+    if (targetElement.classList.contains('popup-opener')) {
+        const dataAtribute = targetElement.dataset.popup_open;
+        let popup = document.querySelector(dataAtribute);
+        popupOpen(popup, e);
+        e.preventDefault();
+    }
 };
 
 //</Document Actions>==============================================================================
