@@ -194,6 +194,24 @@ body._lock {
   transition: all 0.35s ease-in;
 }
 
+.sub-title {
+  font-weight: 800;
+  font-size: 35px;
+  color: #333;
+}
+
+.sub-title-orange {
+  font-weight: 700;
+  font-size: 30px;
+  color: #EE940F;
+}
+
+.simple-text {
+  line-height: 145%;
+  font-size: 20px;
+  color: #333;
+}
+
 .popup {
   position: fixed;
   z-index: 100;

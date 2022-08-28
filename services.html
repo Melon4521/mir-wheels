@@ -28,7 +28,8 @@
                     </div>
                 </a>
                 <div class="top-header__menu top-menu">
-                    <a class="top-menu__tel icon-phone popup-opener" data-popup_open="#popup-contacts" href="#">Контакты</a>
+                    <a class="top-menu__tel icon-phone popup-opener" data-popup_open="#popup-contacts"
+                        href="#">Контакты</a>
                     <button data-count="0" class="top-menu__cart icon-cart popup-opener"
                         data-popup_open="#popup-cart"></button>
                     <div class="top-menu__burger">
@@ -69,13 +70,36 @@
         <!-- MAIN -->
         <main class="main">
 
-            <div class="container">
-                <div style="height: 50vh;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;">
+            <div class="main__hi-image hi-image">
+                <div class="hi-image__layer"></div>
+                <div class="hi-image__container">
+                    <div class="hi-image__body">
+                        <div class="hi-image__title">Шиномонтаж</div>
+                        <div class="hi-image__text">
+                            Бесплатно, при покупке комплекта <br> шин и дисков
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                    <p style="font-size: 20px; color: rgb(67, 67, 67);">Данная страница временно не доступна</p>
+            <div class="main__tarifs tarifs">
+                <div class="tarifs__container">
+                    <h2 class="tarifs__title sub-title">Тарифы</h2>
+                    <div class="tarifs__body">
+                        <div class="tarifs__item tarifs-item">
+                            <div class="tarifs-item__title">Бесплатно</div>
+                            <div class="tarifs-item__text">
+                                При покупке комплекта <br>
+                                шин и дисков.
+                            </div>
+                        </div>
+                        <div class="tarifs__item tarifs-item">
+                            <div class="tarifs-item__title">От 800 руб.</div>
+                            <div class="tarifs-item__text">
+                                Шиномонтаж четырех <br> колес.
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -191,13 +215,15 @@
                                     <h4 class="cart-footer__total-price" id="totalCartSum">0 руб.</h4>
                                 </div>
                                 <div class="cart-footer__buttons">
-                                    <button class="cart-footer__button cartClearAll" id="cartClearAll">Очистить всё</button>
-                                    <button class="cart-footer__button cartMakeOffer popup-opener" data-popup_open="#popup-offer" id="cartMakeOffer">Оформить заказ</button>
+                                    <button class="cart-footer__button cartClearAll" id="cartClearAll">Очистить
+                                        всё</button>
+                                    <button class="cart-footer__button cartMakeOffer popup-opener"
+                                        data-popup_open="#popup-offer" id="cartMakeOffer">Оформить заказ</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
         </section>
@@ -209,12 +235,17 @@
                     <a href="#" class="popup__close">X</a>
                     <div class="popup__title">Оформление</div>
                     <div class="popup__cart-offer cart-offer">
-                        <form class="cart-offer__form" id="offerForm" action="http://localhost/dashboard/test-cards/components/shopping-cart/message-sender.php" method="POST">
+                        <form class="cart-offer__form" id="offerForm"
+                            action="http://localhost/dashboard/test-cards/components/shopping-cart/message-sender.php"
+                            method="POST">
                             <div class="cart-offer__inputs" id="offerInputs">
                                 <input type="hidden" name="cart" id="hiddenCartItem" value="">
-                                <input class="cart-offer__input" name="name" id="offerInputName" placeholder="Имя..." type="text" required>
-                                <input class="cart-offer__input" name="phone" id="offerInputPhone" placeholder="Телефон..." minlength="11" type="tel" required>
-                                <input class="cart-offer__input" name="mail" id="offerInputMail" placeholder="Email..." type="email" required>
+                                <input class="cart-offer__input" name="name" id="offerInputName" placeholder="Имя..."
+                                    type="text" required>
+                                <input class="cart-offer__input" name="phone" id="offerInputPhone"
+                                    placeholder="Телефон..." minlength="11" type="tel" required>
+                                <input class="cart-offer__input" name="mail" id="offerInputMail" placeholder="Email..."
+                                    type="email" required>
                             </div>
                             <div class="cart-offer__button-inner">
                                 <button class="cart-offer__button" id="cartSendOffer" type="submit">Отправить</button>
@@ -230,6 +261,7 @@
                 <div class="elipse-up__elem icon-arrow-up"></div>
             </div>
         </div>
+
     </div>
 
     <script src="js/header.js"></script>
