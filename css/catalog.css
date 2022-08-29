@@ -213,6 +213,38 @@ body._lock {
   color: #333;
 }
 
+.form-input, .cart-offer__input {
+  background-color: #f6f6f6;
+  border-radius: 12px;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: 400;
+  color: #333;
+}
+
+.form-button-blue, .cart-offer__button {
+  padding: 10px 25px;
+  border-radius: 12px;
+  background-color: #2980B1;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  -webkit-transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
+}
+.form-button-blue:focus, .cart-offer__button:focus {
+  -webkit-transition: background-color 0.2s ease-in;
+  transition: background-color 0.2s ease-in;
+  background-color: #EE940F;
+}
+@media (any-hover: hover) {
+  .form-button-blue:hover, .cart-offer__button:hover {
+    background-color: #EE940F;
+    -webkit-transition: background-color 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out;
+  }
+}
+
 .popup {
   position: fixed;
   z-index: 100;
@@ -958,12 +990,6 @@ body._lock {
 }
 .cart-offer__input {
   width: 100%;
-  background-color: #f6f6f6;
-  border-radius: 12px;
-  padding: 10px;
-  font-size: 20px;
-  font-weight: 400;
-  color: #333;
   margin-bottom: 15px;
   -webkit-transition: background-color 0.2s ease-in;
   transition: background-color 0.2s ease-in;
@@ -980,28 +1006,6 @@ body._lock {
   -webkit-transition: background-color 0.2s ease-in;
   transition: background-color 0.2s ease-in;
   background-color: #e2e2e2;
-}
-.cart-offer__button {
-  padding: 10px 20px;
-  border-radius: 12px;
-  background-color: #2980B1;
-  color: #fff;
-  font-size: 18px;
-  font-weight: 700;
-  -webkit-transition: background-color 0.3s ease-in-out;
-  transition: background-color 0.3s ease-in-out;
-}
-.cart-offer__button:focus {
-  -webkit-transition: background-color 0.2s ease-in;
-  transition: background-color 0.2s ease-in;
-  background-color: #EE940F;
-}
-@media (any-hover: hover) {
-  .cart-offer__button:hover {
-    background-color: #EE940F;
-    -webkit-transition: background-color 0.3s ease-in-out;
-    transition: background-color 0.3s ease-in-out;
-  }
 }
 .cart-offer__button-inner {
   display: -webkit-box;
