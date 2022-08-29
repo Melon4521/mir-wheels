@@ -33,7 +33,23 @@ function documentActions(e) {
         let popup = document.querySelector(dataAtribute);
         popupOpen(popup, e);
         e.preventDefault();
-    }
+    };
+
+    // Кнопка "Записаться" на главном изображение.
+    if (targetElement.classList.contains('hi-image__button')) {
+        let scrollPlace = document.querySelector('.service-form__form').getBoundingClientRect().top + window.pageYOffset;
+            headerElementHeight = document.querySelector('.header').getBoundingClientRect().height;
+        scrollTo({
+            top: (scrollPlace - headerElementHeight),
+            behavior: "smooth"
+        });
+    };
+
+    // Кнопка "Записаться" на главном изображение.
+    if (targetElement.classList.contains('service-form__button')) {
+
+        
+    };
 };
 
 //</Document Actions>==============================================================================
@@ -56,3 +72,17 @@ if (cartData !== null) {
 changeCartIconNumber();
 
 //</Shopping cart>==============================================================================
+
+//<Checking form validity>==============================================================================
+
+let serviceForm = document.querySelector('.service-form__form'),
+    servicePhone = document.querySelector('.service-form__phone');
+
+serviceForm.onsubmit = function () {
+    if (checkForm(servicePhone, null)) {
+        return true;
+    } else {
+        return false;
+    };
+}
+//</Checking form validity>==============================================================================
