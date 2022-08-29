@@ -8,10 +8,6 @@ async function fetchAsync() {
 //</Получение JSON>==============================================================================
 
 document.addEventListener('click', function (e) {
-    documentActions(e)
-});
-
-function documentActions(e) {
     let targetElement = e.target;
 
     // Кнопка "Подобрать"
@@ -21,55 +17,49 @@ function documentActions(e) {
             pagenInit(myJson, sortedArray);
             settingCards();
         });
-    };
 
-    // Кнопка "Сбросить"
-    if (targetElement.classList.contains('sort-menu__reset')) {
+    } else if (targetElement.classList.contains('sort-menu__reset')) {
+        // Кнопка "Сбросить"
         fetchAsync().then(function (myJson) {
             let sortedArray = reset(myJson);
             pagenInit(myJson, sortedArray);
             settingCards();
         });
-    };
 
-    // Кнопка "В корзину"
-    if (targetElement.classList.contains('addToCart')) {
+    } else if (targetElement.classList.contains('addToCart')) {
+        // Кнопка "В корзину"
         add2Cart(targetElement);
-    }
 
-    // Кнопка "В корзину"
-    if (targetElement.classList.contains('buyIn1Click')) {
+    } else if (targetElement.classList.contains('buyIn1Click')) {
+        // Кнопка "В корзину"
         buyIn1Click(targetElement);
-    }
-    
-    // Иконка корзины
-    if (targetElement.classList.contains('top-menu__cart')) {
+
+    } else if (targetElement.classList.contains('top-menu__cart')) {
+        // Иконка корзины
         openCart();
-    }
 
-    // Кнопка "Очистить все" в корзине.
-    if (targetElement.classList.contains('cartClearAll')) {
+    } else if (targetElement.classList.contains('cartClearAll')) {
+        // Кнопка "Очистить все" в корзине.
         clearAllItems();
-    }
 
-    // Кнопка "Добавить" в корзине.
-    if (targetElement.classList.contains('addCartItem')) {
+    } else if (targetElement.classList.contains('addCartItem')) {
+        // Кнопка "Добавить" в корзине.
         addItem(targetElement);
-    }
 
-    // Кнопка "Убрать" в корзине.
-    if (targetElement.classList.contains('delCartItem')) {
+    } else if (targetElement.classList.contains('delCartItem')) {
+        // Кнопка "Убрать" в корзине.
         deleteItem(targetElement);
-    }
-
-    // Открытие popup-а.
-    if (targetElement.classList.contains('popup-opener')) {
+        
+    } else if (targetElement.classList.contains('popup-opener')) {
+        // Открытие popup-а.
         const dataAtribute = targetElement.dataset.popup_open;
         let popup = document.querySelector(dataAtribute);
         popupOpen(popup, e);
         e.preventDefault();
-    }
-};
+    };
+});
+
+// function documentActions(e) ;
 
 // ======================================================================================
 
