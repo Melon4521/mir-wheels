@@ -196,12 +196,14 @@ body._lock {
 }
 
 .sub-title {
+  line-height: 145%;
   font-weight: 800;
   font-size: 35px;
   color: #333;
 }
 
 .sub-title-orange {
+  line-height: 145%;
   font-weight: 700;
   font-size: 30px;
   color: #EE940F;

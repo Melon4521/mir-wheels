@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Каталог</title>
+    <title>Шины</title>
 
     <link rel="icon" href="images/Logo-2.png" type="image/png">
     <link rel="stylesheet" href="css/iconsfont.css">
@@ -29,8 +29,9 @@
                     </div>
                 </a>
                 <div class="top-header__menu top-menu">
-                    <a class="top-menu__tel icon-phone popup-opener" data-popup_open="#popup-contacts"
-                        href="#">Контакты</a>
+                    <a class="top-menu__tel icon-phone popup-opener" data-popup_open="#popup-contacts" href="#">
+                        Контакты
+                    </a>
                     <button data-count="0" class="top-menu__cart icon-cart popup-opener"
                         data-popup_open="#popup-cart"></button>
                     <div class="top-menu__burger">
@@ -48,7 +49,11 @@
                             </li>
 
                             <li class="menu-nav__elem _active-link">
-                                <a class="menu-nav__link" href="#">Каталог</a>
+                                <a class="menu-nav__link" href="#">Шины</a>
+                            </li>
+
+                            <li class="menu-nav__elem">
+                                <a class="menu-nav__link" href="disks.html">Диски</a>
                             </li>
 
                             <li class="menu-nav__elem">
@@ -60,101 +65,106 @@
                             </li>
 
                             <li class="menu-nav__elem">
-                                <a class="menu-nav__link" href="#">Оплата и доставка</a>
+                                <a class="menu-nav__link" href="delivery.html">Оплата и доставка</a>
                             </li>
 
                         </ul>
                     </nav>
                 </div>
+            </div>
         </header>
 
         <!-- MAIN -->
         <main class="main">
 
-            <div class="container">
-                <div class="catalog" style="padding-top: 50px;">
+            <div class="main__catalog catalog" style="padding-top: 50px;">
+                <div class="catalog__container">
                     <div class="catalog__sort-cards">
+
                         <!-- Sorting panel -->
                         <div class="catalog__sort" id="Left">
-                            <div class="catalog__sort-menu sort-menu">
-                                <h3 class="sort-menu__title">Шины</h3>
-                                <button class="sort-menu__back" id="ButtonBack">Назад</button>
-                                <div class="sort-menu__body">
-                                    <div id="selectGroup" class="sort-menu__selects LeftBodyDiv">
-                                        <div class="SelectBox" data-name="brand">
-                                            <select class="dropdown">
-                                                <option value="0">Производитель</option>
-                                            </select>
+                                <div class="catalog__sort-menu sort-menu">
+                                    <h3 class="sort-menu__title">Шины</h3>
+                                    <button class="sort-menu__back" id="ButtonBack">Назад</button>
+                                    <div class="sort-menu__body">
+                                        <div id="selectGroup" class="sort-menu__selects LeftBodyDiv">
+                                            <div class="SelectBox" data-name="brand">
+                                                <select class="dropdown">
+                                                    <option value="0">Производитель</option>
+                                                </select>
+                                            </div>
+                                            <div class="SelectBox" data-name="ship">
+                                                <select class="dropdown">
+                                                    <option value="0">Шиповка</option>
+                                                </select>
+                                            </div>
+                                            <div class="SelectBox" data-name="season">
+                                                <select class="dropdown">
+                                                    <option value="0">Сезон</option>
+                                                </select>
+                                            </div>
+                                            <div class="SelectBox" data-name="w">
+                                                <select class="dropdown">
+                                                    <option value="0">Ширина</option>
+                                                </select>
+                                            </div>
+                                            <div class="SelectBox" data-name="h">
+                                                <select class="dropdown">
+                                                    <option value="0">Высота</option>
+                                                </select>
+                                            </div>
+                                            <div class="SelectBox" data-name="r">
+                                                <select class="dropdown">
+                                                    <option value="0">Диаметр</option>
+                                                </select>
+                                            </div>
                                         </div>
-                                        <div class="SelectBox" data-name="ship">
-                                            <select class="dropdown">
-                                                <option value="0">Шиповка</option>
-                                            </select>
-                                        </div>
-                                        <div class="SelectBox" data-name="season">
-                                            <select class="dropdown">
-                                                <option value="0">Сезон</option>
-                                            </select>
-                                        </div>
-                                        <div class="SelectBox" data-name="w">
-                                            <select class="dropdown">
-                                                <option value="0">Ширина</option>
-                                            </select>
-                                        </div>
-                                        <div class="SelectBox" data-name="h">
-                                            <select class="dropdown">
-                                                <option value="0">Высота</option>
-                                            </select>
-                                        </div>
-                                        <div class="SelectBox" data-name="r">
-                                            <select class="dropdown">
-                                                <option value="0">Диаметр</option>
-                                            </select>
-                                        </div>
-                                    </div>
 
-                                    <div class="sort-menu__price menu-price">
-                                        <h3 class="menu-price__title">Розничная цена</h3>
-                                        <div class="menu-price__header">
-                                            <div class="menu-price__min menu-price__elem">
-                                                От <span id="MinPriceCard" value="false">123</span>
+                                        <div class="sort-menu__price menu-price">
+                                            <h3 class="menu-price__title">Розничная цена</h3>
+                                            <div class="menu-price__header">
+                                                <div class="menu-price__min menu-price__elem">
+                                                    От <span id="MinPriceCard" value="false">...</span>
+                                                </div>
+                                                <div class="menu-price__max menu-price__elem">
+                                                    До <span id="MaxPriceCard" value="false">...</span>
+                                                </div>
                                             </div>
-                                            <div class="menu-price__max menu-price__elem">
-                                                До <span id="MaxPriceCard" value="false">123</span>
+                                            <div class="menu-price__range">
+                                                <input id="MenuPriceRange" type="range" multiple value="" min="" max="">
                                             </div>
                                         </div>
-                                        <div class="menu-price__range">
-                                            <input id="MenuPriceRange" type="range" multiple value="" min="" max="">
+                                        <div style="margin-top: 15px;">
+                                            <button class="sort-menu__find sort-menu__button" id="LeftPick">Подобрать</button>
+                                            <button class="sort-menu__reset sort-menu__button" id="Reset">Сбросить</button>
                                         </div>
-                                    </div>
-                                    <div style="margin-top: 15px;">
-                                        <button class="sort-menu__find sort-menu__button" id="LeftPick">Подобрать</button>
-                                        <button class="sort-menu__reset sort-menu__button" id="Reset">Сбросить</button>
                                     </div>
                                 </div>
-                            </div>
                         </div>
+
                         <!-- Cards -->
                         <div class="catalog__cards" id="Right"></div>
+
                     </div>
+
                     <!-- Pagen -->
                     <div class="catalog__pagen catalog-pagen">
-                        <div class="catalog-pagen__prev" id="pagenPrev">
-                            <div class="catalog-pagen__text icon-arrow"></div>
-                        </div>
-                        <div class="catalog-pagen__buttons pagen-buttons">
+                            <div class="catalog-pagen__prev" id="pagenPrev">
+                                <div class="catalog-pagen__text icon-arrow"></div>
+                            </div>
+                            <div class="catalog-pagen__buttons pagen-buttons">
 
-                            <input class="pagen-buttons__input" id="pagenInput" min="1" max="9" type="tel" value="" placeholder="Страница...">
-                            <div class="pagen-buttons__page" id="pagenPage"><span>1</span>/<span>...</span></div>
+                                <input class="pagen-buttons__input" id="pagenInput" min="1" max="9" type="tel" value="" placeholder="Страница...">
+                                <div class="pagen-buttons__page" id="pagenPage"><span>1</span>/<span>...</span></div>
 
-                        </div>
-                        <div class="catalog-pagen__next" id="pagenNext">
-                            <div class="catalog-pagen__text icon-arrow"></div>
-                        </div>
+                            </div>
+                            <div class="catalog-pagen__next" id="pagenNext">
+                                <div class="catalog-pagen__text icon-arrow"></div>
+                            </div>
                     </div>
                 </div>
             </div>
-
+            
         </main>
 
         <!-- FOOTER -->
@@ -171,6 +181,7 @@
                         </div>
                     </div>
                     <div class="footer__columns footer-columns">
+
                         <div class="footer-columns__col footer-col">
                             <h3 class="footer-col__title">Контакты</h3>
                             <ul class="footer-col__list">
@@ -187,11 +198,16 @@
                                 </li>
                             </ul>
                         </div>
+
                         <div class="footer-columns__col footer-col">
                             <h3 class="footer-col__title">Навигация</h3>
                             <ul class="footer-col__list">
                                 <li class="footer-col__list-item">
                                     <a class="footer-col__link" href="index.html">Главная</a>
+                                </li>
+
+                                <li class="footer-col__list-item">
+                                    <a class="footer-col__link" href="disks.html">Диски</a>
                                 </li>
 
                                 <li class="footer-col__list-item">
@@ -207,6 +223,7 @@
                                 </li>
                             </ul>
                         </div>
+
                         <div class="footer-columns__col footer-col">
                             <h3 class="footer-col__title">Сервис</h3>
                             <ul class="footer-col__list">
@@ -219,6 +236,7 @@
                                 </li>
                             </ul>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -268,13 +286,13 @@
                                 </div>
                                 <div class="cart-footer__buttons">
                                     <button class="cart-footer__button cartClearAll" id="cartClearAll">Очистить всё</button>
-                                    <button class="cart-footer__button cartMakeOffer popup-opener"
-                                        data-popup_open="#popup-offer" id="cartMakeOffer">Оформить заказ</button>
+                                    <button class="cart-footer__button cartMakeOffer popup-opener" data-popup_open="#popup-offer" id="cartMakeOffer">
+                                        Оформить заказ
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
@@ -316,19 +334,19 @@
     </div>
 
     <!-- То что надо подключить -->
-    <link rel="stylesheet" href="pages/catalog/sorting-panel/selects/style.css">
-    <link rel="stylesheet" href="pages/catalog/sorting-panel/selects/style/flax.css">
+    <link rel="stylesheet" href="pages/tires/sorting-panel/selects/style.css">
+    <link rel="stylesheet" href="pages/tires/sorting-panel/selects/style/flax.css">
 
-    <script src="pages/catalog/sorting-panel/selects/script.js"></script>
+    <script src="pages/tires/sorting-panel/selects/script.js"></script>
 
     <script src="js/select-generate.js"></script>
     <script src="js/reset.js"></script>
-    <script src="pages/catalog/cards/script.js"></script>
-    <script src="pages/catalog/pagination/script.js"></script>
-    <script src="pages/catalog/sorting-panel/sorting/script.js"></script>
+    <script src="pages/tires/cards/script.js"></script>
+    <script src="pages/tires/pagination/script.js"></script>
+    <script src="pages/tires/sorting-panel/sorting/script.js"></script>
     <script src="js/shopping-cart.js"></script>
     <script src="js/header.js"></script>
-    <script src="js/catalog.js"></script>
+    <script src="js/tires.js"></script>
 
 </body>
 

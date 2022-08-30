@@ -5,12 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Главная</title>
+    <title>Каталог</title>
 
     <link rel="icon" href="images/Logo-2.png" type="image/png">
     <link rel="stylesheet" href="css/iconsfont.css">
-    <link rel="stylesheet" href="css/swiper-bundle.min.css">
-    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/catalog.css">
 </head>
 
 <body>
@@ -30,7 +29,8 @@
                     </div>
                 </a>
                 <div class="top-header__menu top-menu">
-                    <a class="top-menu__tel icon-phone popup-opener" data-popup_open="#popup-contacts" href="#">Контакты</a>
+                    <a class="top-menu__tel icon-phone popup-opener" data-popup_open="#popup-contacts"
+                        href="#">Контакты</a>
                     <button data-count="0" class="top-menu__cart icon-cart popup-opener"
                         data-popup_open="#popup-cart"></button>
                     <div class="top-menu__burger">
@@ -43,16 +43,16 @@
                     <nav class="header-footer__menu menu-nav">
                         <ul class="menu-nav__list">
 
-                            <li class="menu-nav__elem _active-link">
-                                <a class="menu-nav__link" href="#">Главная</a>
+                            <li class="menu-nav__elem">
+                                <a class="menu-nav__link" href="index.html">Главная</a>
                             </li>
 
                             <li class="menu-nav__elem">
                                 <a class="menu-nav__link" href="tires.html">Шины</a>
                             </li>
 
-                            <li class="menu-nav__elem">
-                                <a class="menu-nav__link" href="disks.html">Диски</a>
+                            <li class="menu-nav__elem _active-link">
+                                <a class="menu-nav__link" href="#">Диски</a>
                             </li>
 
                             <li class="menu-nav__elem">
@@ -70,82 +70,99 @@
                         </ul>
                     </nav>
                 </div>
-            </div>
         </header>
 
         <!-- MAIN -->
         <main class="main">
 
-            <!-- Slider -->
-            <div class="my-slider swiper">
+            <div class="main__catalog catalog" style="padding-top: 50px;">
+                <div class="catalog__container">
+                    <div class="catalog__sort-cards">
 
-                <div class="my-slider__wrapper swiper-wrapper">
-        
-                    <div class="my-slider__slide swiper-slide">
-                        <div class="my-slider__image my-slider__image-1">
-                            <div class="slide-1__decor">
-                                <img class="slide-1__decor-1" src="images/Slide-1_Decor-left.png" alt="">
-                                <img class="slide-1__decor-2" src="images/Slide-1_Decor-right.png" alt="">
-                            </div>
-                            <div class="container">
-                                <div class="slide__wrapper slide__wrapper-1">
-                                    <div class="slide__image slide__image-1">
-                                        <img src="images/Slide-1_Tire.png" alt="">
+                        <!-- Sorting panel -->
+                        <div class="catalog__sort" id="Left">
+                            <div class="catalog__sort-menu sort-menu">
+                                <h3 class="sort-menu__title">Диски</h3>
+                                <button class="sort-menu__back" id="ButtonBack">Назад</button>
+                                <div class="sort-menu__body">
+                                    <div id="selectGroup" class="sort-menu__selects LeftBodyDiv">
+                                        <div class="SelectBox" data-name="brand">
+                                            <select class="dropdown">
+                                                <option value="0">Производитель</option>
+                                            </select>
+                                        </div>
+                                        <div class="SelectBox" data-name="ship">
+                                            <select class="dropdown">
+                                                <option value="0">Шиповка</option>
+                                            </select>
+                                        </div>
+                                        <div class="SelectBox" data-name="season">
+                                            <select class="dropdown">
+                                                <option value="0">Сезон</option>
+                                            </select>
+                                        </div>
+                                        <div class="SelectBox" data-name="w">
+                                            <select class="dropdown">
+                                                <option value="0">Ширина</option>
+                                            </select>
+                                        </div>
+                                        <div class="SelectBox" data-name="h">
+                                            <select class="dropdown">
+                                                <option value="0">Высота</option>
+                                            </select>
+                                        </div>
+                                        <div class="SelectBox" data-name="r">
+                                            <select class="dropdown">
+                                                <option value="0">Диаметр</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                    <div class="slide__content slide__content-1">
-                                        <div class="slide__content-title">Лучшие шины</div>
-                                        <div class="slide__content-subtitle">от известных производителей.</div>
+
+                                    <div class="sort-menu__price menu-price">
+                                        <h3 class="menu-price__title">Розничная цена</h3>
+                                        <div class="menu-price__header">
+                                            <div class="menu-price__min menu-price__elem">
+                                                От <span id="MinPriceCard" value="false">...</span>
+                                            </div>
+                                            <div class="menu-price__max menu-price__elem">
+                                                До <span id="MaxPriceCard" value="false">...</span>
+                                            </div>
+                                        </div>
+                                        <div class="menu-price__range">
+                                            <input id="MenuPriceRange" type="range" multiple value="" min="" max="">
+                                        </div>
+                                    </div>
+                                    <div style="margin-top: 15px;">
+                                        <button class="sort-menu__find sort-menu__button"
+                                            id="LeftPick">Подобрать</button>
+                                        <button class="sort-menu__reset sort-menu__button" id="Reset">Сбросить</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Cards -->
+                        <div class="catalog__cards" id="Right"></div>
+
                     </div>
-        
-                    <div class="my-slider__slide swiper-slide">
-                        <div class="my-slider__image my-slider__image-2">
-                            <div class="slide__image-2">
-                                <div class="slide__image-2__wrapper">
-                                    <img style="z-index: 1;" class="slide__image-2__img-1" src="images/Slide-2_Decor.png" alt="">
-                                    <img style="z-index: 2;" class="slide__image-2__img-2" src="images/Slide-2_Disk.png" alt="">
-                                </div>
-                            </div>
-                            <div class="container">
-                                <div class="slide__wrapper slide__wrapper-2">
-                                    <div class="slide__content slide__content-2">
-                                        <div class="slide__content-title">Надежные диски</div>
-                                        <div class="slide__content-subtitle">для вашего автомобиля.</div>
-                                    </div>
-                                </div>
-                            </div>
+
+                    <!-- Pagen -->
+                    <div class="catalog__pagen catalog-pagen">
+                        <div class="catalog-pagen__prev" id="pagenPrev">
+                            <div class="catalog-pagen__text icon-arrow"></div>
+                        </div>
+                        <div class="catalog-pagen__buttons pagen-buttons">
+
+                            <input class="pagen-buttons__input" id="pagenInput" min="1" max="9" type="tel" value=""
+                                placeholder="Страница...">
+                            <div class="pagen-buttons__page" id="pagenPage"><span>1</span>/<span>...</span></div>
+
+                        </div>
+                        <div class="catalog-pagen__next" id="pagenNext">
+                            <div class="catalog-pagen__text icon-arrow"></div>
                         </div>
                     </div>
-        
-                    <div class="my-slider__slide swiper-slide">
-                        <div class="my-slider__image  my-slider__image-3">
-                            <div class="slide-3__decor">
-                                <img src="images/Slide-3_Decor.png" alt="">
-                            </div>
-                            <div class="container">
-                                <div class="slide__wrapper slide__wrapper-3">
-                                    <div class="slide__image slide__image-3">
-                                        <img src="images/Slide-3_Keys.png" alt="">
-                                    </div>
-                                    <div class="slide__content slide__content-3">
-                                        <div class="slide__content-title">Шиномонтаж</div>
-                                        <div class="slide__content-subtitle">предоставляем при покупки комплекта шин и дисков.</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-        
                 </div>
-        
-                <div class="my-slider__pagination swiper-pagination"></div>
-                
-                <div class="my-slider__prev swiper-button-prev"></div>
-                <div class="my-slider__next swiper-button-next"></div>
-
             </div>
 
         </main>
@@ -183,6 +200,15 @@
                         <div class="footer-columns__col footer-col">
                             <h3 class="footer-col__title">Навигация</h3>
                             <ul class="footer-col__list">
+
+                                <li class="footer-col__list-item">
+                                    <a class="footer-col__link" href="index.html">Главная</a>
+                                </li>
+                                
+                                <li class="footer-col__list-item">
+                                    <a class="footer-col__link" href="tires.html">Шины</a>
+                                </li>
+
                                 <li class="footer-col__list-item">
                                     <a class="footer-col__link" href="services.html">Сервисы</a>
                                 </li>
@@ -194,6 +220,7 @@
                                 <li class="footer-col__list-item">
                                     <a class="footer-col__link" href="#">Оплата и доставка</a>
                                 </li>
+
                             </ul>
                         </div>
                         <div class="footer-columns__col footer-col">
@@ -214,6 +241,7 @@
         </footer>
 
         <!-- POPUPS -->
+
         <!-- Header 'Contacts' -->
         <section class="popup" id="popup-contacts">
             <div class="popup__body">
@@ -255,8 +283,10 @@
                                     <h4 class="cart-footer__total-price" id="totalCartSum">0 руб.</h4>
                                 </div>
                                 <div class="cart-footer__buttons">
-                                    <button class="cart-footer__button cartClearAll" id="cartClearAll">Очистить всё</button>
-                                    <button class="cart-footer__button cartMakeOffer popup-opener" data-popup_open="#popup-offer" id="cartMakeOffer">Оформить заказ</button>
+                                    <button class="cart-footer__button cartClearAll" id="cartClearAll">Очистить
+                                        всё</button>
+                                    <button class="cart-footer__button cartMakeOffer popup-opener"
+                                        data-popup_open="#popup-offer" id="cartMakeOffer">Оформить заказ</button>
                                 </div>
                             </div>
                         </div>
@@ -274,12 +304,15 @@
                     <div class="popup__title">Оформление</div>
                     <div class="popup__cart-offer cart-offer">
                         <form class="cart-offer__form" id="offerForm"
-                        action="http://tires.intermir.ru/php/shopping-cart/message-sender.php" method="POST">
+                            action="http://tires.intermir.ru/php/shopping-cart/message-sender.php" method="POST">
                             <div class="cart-offer__inputs" id="offerInputs">
                                 <input type="hidden" name="cart" id="hiddenCartItem" value="">
-                                <input class="cart-offer__input" name="name" id="offerInputName" placeholder="Имя..." type="text" required>
-                                <input class="cart-offer__input" name="phone" id="offerInputPhone" placeholder="Телефон..." minlength="6" type="tel" required>
-                                <input class="cart-offer__input" name="mail" id="offerInputMail" placeholder="Email..." type="email" required>
+                                <input class="cart-offer__input" name="name" id="offerInputName" placeholder="Имя..."
+                                    type="text" required>
+                                <input class="cart-offer__input" name="phone" id="offerInputPhone"
+                                    placeholder="Телефон..." minlength="6" type="tel" required>
+                                <input class="cart-offer__input" name="mail" id="offerInputMail" placeholder="Email..."
+                                    type="email" required>
                             </div>
                             <div class="cart-offer__button-inner">
                                 <button class="cart-offer__button" id="cartSendOffer" type="submit">Отправить</button>
@@ -295,12 +328,23 @@
                 <div class="elipse-up__elem icon-arrow-up"></div>
             </div>
         </div>
+
     </div>
-    
-    <script src="js/swiper-bundle.min.js"></script>
-    <script src="js/header.js"></script>
+
+    <!-- То что надо подключить -->
+    <link rel="stylesheet" href="pages/disks/sorting-panel/selects/style.css">
+    <link rel="stylesheet" href="pages/disks/sorting-panel/selects/style/flax.css">
+
+    <script src="pages/disks/sorting-panel/selects/script.js"></script>
+
+    <script src="js/select-generate.js"></script>
+    <script src="js/reset.js"></script>
+    <script src="pages/disks/cards/script.js"></script>
+    <script src="pages/disks/pagination/script.js"></script>
+    <script src="pages/disks/sorting-panel/sorting/script.js"></script>
     <script src="js/shopping-cart.js"></script>
-    <script src="js/home.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/disks.js"></script>
 
 </body>
 

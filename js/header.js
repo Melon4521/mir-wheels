@@ -1,22 +1,9 @@
 //<Popup>==============================================================================
 
-// let popupOpeners = document.querySelectorAll('.popup-opener[data-popup_open]');
 const body = document.querySelector('body');
 const lockElements = document.querySelectorAll('.lock-padding');
 
 let unlock = true;
-
-// if (popupOpeners.length > 0) {
-//     for (let i = 0; i < popupOpeners.length; i++) {
-//         let popupOpener = popupOpeners[i];
-//         popupOpener.addEventListener('click', (e) => {
-//             const dataAtribute = popupOpener.dataset.popup_open;
-//             let popup = document.querySelector(dataAtribute);
-//             popupOpen(popup, e);
-//             e.preventDefault();
-//         });
-//     };
-// };
 
 function popupOpen(popup, e) {
     if (popup && unlock) {
@@ -118,7 +105,7 @@ function unlockBody() {
 
 //</Popup>==============================================================================
 
-//<Padding to main element and header fixing>==============================================================================
+//<Padding to main element. Header fixing>==============================================================================
 
 const headerElement = document.querySelector('.header'),
     mainElement = document.querySelector('.main');
@@ -126,13 +113,24 @@ const headerElement = document.querySelector('.header'),
 let addPadding = () => {
     let paddingForMain = headerElement.getBoundingClientRect().height;
     mainElement.style.paddingTop = `${paddingForMain}px`;
-}
+};
+
+let removePadding = () => {
+    mainElement.style.paddingTop = `0px`;
+};
 
 document.addEventListener('scroll', () => {
-    if (cheakScrollPosition(500)) {
+    if (cheakScrollPosition(600)) {
         headerElement.classList.add('_header-fixed');
         addPadding();
-    } 
+    } else {
+        if (cheakScrollPosition(0, '==')) {
+            if (headerElement.classList.contains('_header-fixed')) {
+                headerElement.classList.remove('_header-fixed');
+                removePadding();
+            }
+        }
+    }
     
     if (cheakScrollPosition(600)) {
         let elipseUp = document.querySelector('#elipseUp');
@@ -149,7 +147,7 @@ document.addEventListener('scroll', () => {
     }
 });
 
-//</Padding to main element>==============================================================================
+//</Padding to main element. Header fixing>==============================================================================
 
 //<Burger menu>==============================================================================
 
@@ -159,7 +157,6 @@ const navigationMenu = document.querySelector('.menu-nav'),
 burgerButton.addEventListener('click', openMenuBurger);
 
 function openMenuBurger() {
-
     if (!navigationMenu.classList.contains('_burger-open') &&
         !burgerButton.classList.contains('_burger-open')) {
         burgerButton.classList.add('_burger-open');
@@ -184,18 +181,28 @@ function openMenuBurger() {
 
 // <FUNCTIONS> ==============================================================================
 
-function cheakMaxWidth(pixels) {
-    let mediaQuery = window.matchMedia(`(max-width: ${pixels}px)`);
-    return mediaQuery.matches
-};
+// function cheakMaxWidth(pixels) {
+//     let mediaQuery = window.matchMedia(`(max-width: ${pixels}px)`);
+//     return mediaQuery.matches
+// };
 
-function cheakMinWidth(pixels) {
-    let mediaQuery = window.matchMedia(`(min-width: ${pixels}px)`);
-    return mediaQuery.matches
-};
+// function cheakMinWidth(pixels) {
+//     let mediaQuery = window.matchMedia(`(min-width: ${pixels}px)`);
+//     return mediaQuery.matches
+// };
 
-function cheakScrollPosition(coord) {
-    return (window.pageYOffset >= coord) ? true : false;
+function cheakScrollPosition(coord, symbol = '>=') {
+    if (symbol === '>=') {
+        return (window.pageYOffset >= coord) ? true : false;
+    } else if (symbol === '<=') {
+        return (window.pageYOffset <= coord) ? true : false;
+    } else if (symbol === '==') {
+        return (window.pageYOffset === coord) ? true : false;
+    } else if (symbol === '>') {
+        return (window.pageYOffset > coord) ? true : false;
+    } else if (symbol === '<') {
+        return (window.pageYOffset < coord) ? true : false;
+    }
 };
 
 function scrollToPosition(top, behavior = "smooth") {
