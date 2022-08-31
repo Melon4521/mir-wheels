@@ -1,5 +1,5 @@
 function pagenInit(myJson, sortedArray) {
-    
+
     // Объявления констант
     const step = 10,
         pagenPrev = document.querySelector('#pagenPrev'),
@@ -37,131 +37,144 @@ function pagenInit(myJson, sortedArray) {
 
             let image;
 
-            if (i == fileLength-1) {
-                if (myJson.tires[sortedArray[i]].image500x500) {
-                    image = myJson.tires[sortedArray[i]].image500x500;
-                } else {
-                    image = "images/no-image.png";
-                };
+            if (sortedArray.length != 0) {
+                if (i == fileLength - 1) {
+                    if (myJson.disks[sortedArray[i]].imgProd) {
+                        image = myJson.disks[sortedArray[i]].imgProd;
+                    } else {
+                        image = "images/no-image.png";
+                    };
     
-                PlaceGeneration.innerHTML += /*html*/ `
-                    <div class="catalog__cards-card catalog-card" name="${myJson.tires[sortedArray[i]].name}" price="${myJson.tires[sortedArray[i]].price}" stok="${myJson.tires[sortedArray[i]].stock}" data-brand='${myJson.tires[sortedArray[i]].brand}' data-ship='${myJson.tires[sortedArray[i]].ship}' data-date_up='${myJson.tires[sortedArray[i]].date_up}' data-season='${myJson.tires[sortedArray[i]].season}' data-w='${myJson.tires[sortedArray[i]].w}' data-h='${myJson.tires[sortedArray[i]].h}' data-r='${myJson.tires[sortedArray[i]].r}'>
-                        <div class="catalog-card__media-title"></div>
-                        <div class="catalog-card__body">
-                            <div class="catalog-card__image">
-                                <img src="${image}">
+                    PlaceGeneration.innerHTML += /*html*/ `
+                        <div class="catalog__cards-card catalog-card" name="${myJson.disks[sortedArray[i]].name}" price="${myJson.disks[sortedArray[i]].price}" stok="${myJson.disks[sortedArray[i]].stock}" data-brand='${myJson.disks[sortedArray[i]].brand}' data-date_up='${myJson.disks[sortedArray[i]].date_up}' data-w='${myJson.disks[sortedArray[i]].w}' data-r='${myJson.disks[sortedArray[i]].r}' data-b='${myJson.disks[sortedArray[i]].b}' data-color='${myJson.disks[sortedArray[i]].color}' data-type='${myJson.disks[sortedArray[i]].type}' data-supplier='${myJson.disks[sortedArray[i]].supplier}' data-city='${myJson.disks[sortedArray[i]].city}' data-pсd='${myJson.disks[sortedArray[i]].pсd}'>
+                            <div class="catalog-card__media-title"></div>
+                            <div class="catalog-card__body">
+                                <div class="catalog-card__image">
+                                    <img src="${image}">
+                                </div>
+                                <div class="catalog-card__info card-info">
+                                    <div class="card-info__title"><a href="#">${myJson.disks[sortedArray[i]].name}</a></div>
+                                    <div class="card-info__price">
+                                        <span>${Number(myJson.disks[sortedArray[i]].price)}</span> руб./шт.
+                                    </div>
+                                    <div class='catalog-card__dop card-dop CardDopInfo'>
+                                        <div class="card-dop__item">
+                                            Цвет:
+                                            <span>${myJson.disks[sortedArray[i]].color}</span>
+                                        </div>
+                                        <div class="card-dop__item">
+                                            Тип:
+                                            <span>${myJson.disks[sortedArray[i]].type}</span>
+                                        </div>
+                                        <div class="card-dop__item">
+                                            В наличии:
+                                            <span>${Number(myJson.disks[sortedArray[i]].stock)}</span>
+                                            шт.
+                                        </div>
+                                    </div>
+                                    <div class="card-info__buttons CardButtonAll">
+                                        <button class="card-info__button buyIn1Click popup-opener" data-popup_open="#popup-offer"
+                                            data-name="${myJson.disks[sortedArray[i]].name}" 
+                                            data-price="${myJson.disks[sortedArray[i]].price}" 
+                                            data-stock="${myJson.disks[sortedArray[i]].stock}"
+                                            data-date_up="${myJson.disks[sortedArray[i]].date_up}" 
+                                            data-color="${myJson.disks[sortedArray[i]].color}"
+                                            data-type="${myJson.disks[sortedArray[i]].type}"
+                                            data-image="${myJson.disks[sortedArray[i]].imgProd}"
+                                            data-card_id="${myJson.disks[sortedArray[i]].code}">
+                                            Купить в 1 клик
+                                        </button>
+                                        <button class="card-info__button addToCart" 
+                                            data-name="${myJson.disks[sortedArray[i]].name}" 
+                                            data-price="${myJson.disks[sortedArray[i]].price}" 
+                                            data-stock="${myJson.disks[sortedArray[i]].stock}"
+                                            data-date_up="${myJson.disks[sortedArray[i]].date_up}" 
+                                            data-color="${myJson.disks[sortedArray[i]].color}"
+                                            data-type="${myJson.disks[sortedArray[i]].type}"
+                                            data-image="${myJson.disks[sortedArray[i]].imgProd}"
+                                            data-card_id="${myJson.disks[sortedArray[i]].code}">
+                                            В корзину
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="catalog-card__info card-info">
-                                <div class="card-info__title"><a href="#">${myJson.tires[sortedArray[i]].name}</a></div>
-                                <div class="card-info__price">
-                                    <span>${Number(myJson.tires[sortedArray[i]].price)}</span> руб./шт.
-                                </div>
-                                <div class='catalog-card__dop card-dop CardDopInfo'>
-                                    <div class="card-dop__item">
-                                        Сезон:
-                                        <span>${myJson.tires[sortedArray[i]].season}</span>
-                                    </div>
-                                    <div class="card-dop__item">
-                                        В наличии:
-                                        <span>${Number(myJson.tires[sortedArray[i]].stock)}</span>
-                                        шт.
-                                    </div>
-                                    <div class="card-dop__item">
-                                        Производитель:
-                                        <span>${myJson.tires[sortedArray[i]].brand}</span>
-                                    </div>
-                                </div>
-                                <div class="card-info__buttons CardButtonAll">
-                                    <button class="card-info__button buyIn1Click popup-opener" data-popup_open="#popup-offer"
-                                        data-name="${myJson.tires[sortedArray[i]].name}" 
-                                        data-price="${myJson.tires[sortedArray[i]].price}" 
-                                        data-stock="${myJson.tires[sortedArray[i]].stock}"
-                                        data-date_up="${myJson.tires[sortedArray[i]].date_up}" 
-                                        data-season="${myJson.tires[sortedArray[i]].season}"
-                                        data-image="${myJson.tires[sortedArray[i]].image500x500}"
-                                        data-card_id="${myJson.tires[sortedArray[i]].code}">
-                                        Купить в 1 клик
-                                    </button>
-                                    <button class="card-info__button addToCart" 
-                                        data-name="${myJson.tires[sortedArray[i]].name}" 
-                                        data-price="${myJson.tires[sortedArray[i]].price}" 
-                                        data-stock="${myJson.tires[sortedArray[i]].stock}"
-                                        data-date_up="${myJson.tires[sortedArray[i]].date_up}" 
-                                        data-season="${myJson.tires[sortedArray[i]].season}"
-                                        data-image="${myJson.tires[sortedArray[i]].image500x500}"
-                                        data-card_id="${myJson.tires[sortedArray[i]].code}">
-                                        В корзину
-                                    </button>
-                                </div>
-                            </div>
+                            <div class="catalog-card__media-buttons"></div>
                         </div>
-                        <div class="catalog-card__media-buttons"></div>
-                    </div>
-                `;
-                break;
-
+                    `;
+                    break;
+    
+                } else {
+                    if (myJson.disks[sortedArray[i]].imgProd) {
+                        image = myJson.disks[sortedArray[i]].imgProd;
+                    } else {
+                        image = "images/no-image.png";
+                    };
+    
+                    PlaceGeneration.innerHTML += /*html*/ `
+                        <div class="catalog__cards-card catalog-card" name="${myJson.disks[sortedArray[i]].name}" price="${myJson.disks[sortedArray[i]].price}" stok="${myJson.disks[sortedArray[i]].stock}" data-brand='${myJson.disks[sortedArray[i]].brand}' data-date_up='${myJson.disks[sortedArray[i]].date_up}' data-w='${myJson.disks[sortedArray[i]].w}' data-r='${myJson.disks[sortedArray[i]].r}' data-b='${myJson.disks[sortedArray[i]].b}' data-color='${myJson.disks[sortedArray[i]].color}' data-type='${myJson.disks[sortedArray[i]].type}' data-supplier='${myJson.disks[sortedArray[i]].supplier}' data-city='${myJson.disks[sortedArray[i]].city}' data-pсd='${myJson.disks[sortedArray[i]].pсd}'>
+                            <div class="catalog-card__media-title"></div>
+                            <div class="catalog-card__body">
+                                <div class="catalog-card__image">
+                                    <img src="${image}">
+                                </div>
+                                <div class="catalog-card__info card-info">
+                                    <div class="card-info__title"><a href="#">${myJson.disks[sortedArray[i]].name}</a></div>
+                                    <div class="card-info__price">
+                                        <span>${Number(myJson.disks[sortedArray[i]].price)}</span> руб./шт.
+                                    </div>
+                                    <div class='catalog-card__dop card-dop CardDopInfo'>
+                                        <div class="card-dop__item">
+                                            Цвет:
+                                            <span>${myJson.disks[sortedArray[i]].color}</span>
+                                        </div>
+                                        <div class="card-dop__item">
+                                            Тип:
+                                            <span>${myJson.disks[sortedArray[i]].type}</span>
+                                        </div>
+                                        <div class="card-dop__item">
+                                            В наличии:
+                                            <span>${Number(myJson.disks[sortedArray[i]].stock)}</span>
+                                            шт.
+                                        </div>
+                                    </div>
+                                    <div class="card-info__buttons CardButtonAll">
+                                        <button class="card-info__button buyIn1Click popup-opener" data-popup_open="#popup-offer"
+                                            data-name="${myJson.disks[sortedArray[i]].name}" 
+                                            data-price="${myJson.disks[sortedArray[i]].price}" 
+                                            data-stock="${myJson.disks[sortedArray[i]].stock}"
+                                            data-date_up="${myJson.disks[sortedArray[i]].date_up}" 
+                                            data-color="${myJson.disks[sortedArray[i]].color}"
+                                            data-type="${myJson.disks[sortedArray[i]].type}"
+                                            data-image="${myJson.disks[sortedArray[i]].imgProd}"
+                                            data-card_id="${myJson.disks[sortedArray[i]].code}">
+                                            Купить в 1 клик
+                                        </button>
+                                        <button class="card-info__button addToCart" 
+                                            data-name="${myJson.disks[sortedArray[i]].name}" 
+                                            data-price="${myJson.disks[sortedArray[i]].price}" 
+                                            data-stock="${myJson.disks[sortedArray[i]].stock}"
+                                            data-date_up="${myJson.disks[sortedArray[i]].date_up}" 
+                                            data-color="${myJson.disks[sortedArray[i]].color}"
+                                            data-type="${myJson.disks[sortedArray[i]].type}"
+                                            data-image="${myJson.disks[sortedArray[i]].imgProd}"
+                                            data-card_id="${myJson.disks[sortedArray[i]].code}">
+                                            В корзину
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="catalog-card__media-buttons"></div>
+                        </div>
+                    `;
+                };
             } else {
-                if (myJson.tires[sortedArray[i]].image500x500) {
-                    image = myJson.tires[sortedArray[i]].image500x500;
-                } else {
-                    image = "images/no-image.png";
-                };
-    
-                PlaceGeneration.innerHTML += /*html*/ `
-                    <div class="catalog__cards-card catalog-card" name="${myJson.tires[sortedArray[i]].name}" price="${myJson.tires[sortedArray[i]].price}" stok="${myJson.tires[sortedArray[i]].stock}" data-brand='${myJson.tires[sortedArray[i]].brand}' data-ship='${myJson.tires[sortedArray[i]].ship}' data-date_up='${myJson.tires[sortedArray[i]].date_up}' data-season='${myJson.tires[sortedArray[i]].season}' data-w='${myJson.tires[sortedArray[i]].w}' data-h='${myJson.tires[sortedArray[i]].h}' data-r='${myJson.tires[sortedArray[i]].r}'>
-                        <div class="catalog-card__media-title"></div>
-                        <div class="catalog-card__body">
-                            <div class="catalog-card__image">
-                                <img loading="lazy" src="${image}">
-                            </div>
-                            <div class="catalog-card__info card-info">
-                                <div class="card-info__title"><a href="#">${myJson.tires[sortedArray[i]].name}</a></div>
-                                <div class="card-info__price">
-                                    <span>${Number(myJson.tires[sortedArray[i]].price)}</span> руб./шт.
-                                </div>
-                                <div class='catalog-card__dop card-dop CardDopInfo'>
-                                    <div class="card-dop__item">
-                                        Сезон:
-                                        <span>${myJson.tires[sortedArray[i]].season}</span>
-                                    </div>
-                                    <div class="card-dop__item">
-                                        В наличии:
-                                        <span>${Number(myJson.tires[sortedArray[i]].stock)}</span>
-                                        шт.
-                                    </div>
-                                    <div class="card-dop__item">
-                                        Производитель:
-                                        <span>${myJson.tires[sortedArray[i]].brand}</span>
-                                    </div>
-                                </div>
-                                <div class="card-info__buttons CardButtonAll">
-                                    <button class="card-info__button buyIn1Click popup-opener" data-popup_open="#popup-offer"
-                                        data-name="${myJson.tires[sortedArray[i]].name}" 
-                                        data-price="${myJson.tires[sortedArray[i]].price}" 
-                                        data-stock="${myJson.tires[sortedArray[i]].stock}"
-                                        data-date_up="${myJson.tires[sortedArray[i]].date_up}" 
-                                        data-season="${myJson.tires[sortedArray[i]].season}"
-                                        data-image="${myJson.tires[sortedArray[i]].image500x500}"
-                                        data-card_id="${myJson.tires[sortedArray[i]].code}">
-                                        Купить в 1 клик
-                                    </button>
-                                    <button class="card-info__button addToCart" 
-                                        data-name="${myJson.tires[sortedArray[i]].name}" 
-                                        data-price="${myJson.tires[sortedArray[i]].price}" 
-                                        data-stock="${myJson.tires[sortedArray[i]].stock}"
-                                        data-date_up="${myJson.tires[sortedArray[i]].date_up}" 
-                                        data-season="${myJson.tires[sortedArray[i]].season}"
-                                        data-image="${myJson.tires[sortedArray[i]].image500x500}"
-                                        data-card_id="${myJson.tires[sortedArray[i]].code}">
-                                        В корзину
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="catalog-card__media-buttons"></div>
-                    </div>
+                PlaceGeneration.innerHTML = /*html*/ `
+                <div style="width: 100%; height: 100px; display: flex; align-items: center; justify-content: center;">
+                    <div style="font-size: 1.1em; color: #333;">Ничего не найдено</div>
+                </div>
                 `;
-            };
+            }
+            
         };
     };
 
