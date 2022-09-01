@@ -1,10 +1,13 @@
 //<Pre-loader>==============================================================================
 
-window.onload = function () {
-    let pageLoading = document.querySelector('.page-loading');
-    pageLoading.classList.remove('_un-load');
-    pageLoading.classList.add('_loaded');
-    document.body.classList.remove('_lock');
+document.body.onload = function () {
+    setTimeout(() => {
+        let pageLoading = document.querySelector('.page-loading');
+        if (!pageLoading.classList.contains('_loaded')) {
+            pageLoading.classList.add('_loaded');
+            document.body.classList.remove('_lock');
+        };
+    }, 1000)
 };
 
 //</Pre-loader>==============================================================================
