@@ -12,9 +12,14 @@
     <link rel="stylesheet" href="css/catalog.css">
 </head>
 
-<body>
+<body class="_lock">
 
     <div class="wrapper">
+
+        <!-- Pre-loader -->
+        <div class="page-loading _un-load">
+            <div class="page-loading__load"></div>
+        </div>
 
         <!-- HEADER -->
         <header class="header lock-padding">
@@ -85,7 +90,6 @@
                         <div class="catalog__sort" id="Left">
                                 <div class="catalog__sort-menu sort-menu">
                                     <h3 class="sort-menu__title">Шины</h3>
-                                    <button class="sort-menu__back" id="ButtonBack">Назад</button>
                                     <div class="sort-menu__body">
                                         <div id="selectGroup" class="sort-menu__selects LeftBodyDiv">
                                             <div class="SelectBox" data-name="brand">

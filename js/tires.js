@@ -1,7 +1,18 @@
+//<Pre-loader>==============================================================================
+
+document.addEventListener('DOMContentLoaded', function () {
+    let pageLoading = document.querySelector('.page-loading');
+    pageLoading.classList.remove('_un-load');
+    pageLoading.classList.add('_loaded');
+    document.body.classList.remove('_lock');
+});
+
+//</Pre-loader>==============================================================================
+
 // <Получение JSON>==============================================================================
 
 async function fetchAsync() {
-    const response = await fetch('../api/demoDataTiresFull.json');
+    const response = await fetch('../api/DataBase.json');
     return await response.json();
 };
 
