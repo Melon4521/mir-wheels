@@ -1,16 +1,4 @@
-//<Pre-loader>==============================================================================
-
-// document.body.onload = function () {
-//     setTimeout(() => {
-//         let pageLoading = document.querySelector('.page-loading');
-//         if (!pageLoading.classList.contains('_loaded')) {
-//             pageLoading.classList.add('_loaded');
-//             document.body.classList.remove('_lock');
-//         };
-//     }, 1000)
-// };
-
-//</Pre-loader>==============================================================================
+let sortedArray = [];
 
 // <Получение JSON>==============================================================================
 
@@ -28,7 +16,7 @@ document.addEventListener('click', function (e) {
 
     if (targetElement.classList.contains('sort-menu__find')) { // Кнопка "Подобрать"
         fetchAsync().then(function (myJson) {
-            let sortedArray = sortingEvents(myJson);
+            sortedArray = sortingEvents(myJson);
             pagenInit(myJson, sortedArray);
             settingCards();
         })
@@ -36,7 +24,7 @@ document.addEventListener('click', function (e) {
     
     if (targetElement.classList.contains('sort-menu__reset')) { // Кнопка "Сбросить"
         fetchAsync().then(function (myJson) {
-            let sortedArray = reset(myJson);
+            sortedArray = reset(myJson);
             pagenInit(myJson, sortedArray);
             settingCards();
         })
@@ -94,7 +82,7 @@ fetchAsync().then(function (myJson) {
 
     // <Sorting>==============================================================================
 
-    let sortedArray = sortingEvents(myJson);
+    sortedArray = sortingEvents(myJson);
     pagenInit(myJson, sortedArray);
     settingCards();
 
@@ -216,6 +204,7 @@ function selectGenerate(myJson) {
 function reset(myJson) {
     let maxPrice = document.getElementById('MaxPriceCard').attributes.value,
         input = document.getElementById('MenuPriceRange'),
+        select = document.getElementById('selectGroup'),
         arrAll = [];
 
     document.getElementById('MaxPriceCard').innerHTML = `${maxPrice.textContent}`;
@@ -223,6 +212,12 @@ function reset(myJson) {
 
     for (let i = 0; i < myJson.tires.length; i++) { // Генерация всех индексов товаров
         arrAll.push(i)
+    };
+
+    for (let i = 0; i < select.children.length; i++) { // Добавление в массив не подходящих по значению
+        if (select.children[i].children[0].children[0].children[2].value != 0){
+            select.children[i].children[0].children[0].children[2].value = 0;
+        };
     };
 
     return arrAll;
