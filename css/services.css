@@ -202,8 +202,8 @@ body._lock {
   left: 0;
   z-index: 101;
   background-color: #fff;
-  -webkit-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.85s ease-in;
+  transition: all 0.85s ease-in;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -219,8 +219,8 @@ body._lock {
   visibility: visible;
 }
 .page-loading._loaded {
-  -webkit-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.85s ease-in;
+  transition: all 0.85s ease-in;
   opacity: 0;
   visibility: hidden;
 }
@@ -234,20 +234,19 @@ body._lock {
   -webkit-animation: loading 1s linear infinite;
           animation: loading 1s linear infinite;
 }
-
 @-webkit-keyframes loading {
   100% {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg);
   }
 }
-
 @keyframes loading {
   100% {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg);
   }
 }
+
 .sub-title, .service-form__title, .tarifs__title {
   line-height: 145%;
   font-weight: 800;

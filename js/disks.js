@@ -1,11 +1,11 @@
 //<Pre-loader>==============================================================================
 
-document.addEventListener('DOMContentLoaded', function () {
+window.onload = function () {
     let pageLoading = document.querySelector('.page-loading');
     pageLoading.classList.remove('_un-load');
     pageLoading.classList.add('_loaded');
     document.body.classList.remove('_lock');
-});
+};
 
 //</Pre-loader>==============================================================================
 
