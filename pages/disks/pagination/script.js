@@ -44,15 +44,15 @@ function pagenInit(myJson, sortedArray) {
             let image;
 
             if (sortedArray.length != 0) {
-                if (i == fileLength-1) {
-                    if (myJson.disks[sortedArray[i]].image500x500) {
-                        image = myJson.disks[sortedArray[i]].image500x500;
+                if (i == fileLength - 1) {
+                    if (myJson.disks[sortedArray[i]].imgProd) {
+                        image = myJson.disks[sortedArray[i]].imgProd;
                     } else {
                         image = "images/no-image.png";
                     };
-        
+    
                     PlaceGeneration.innerHTML += /*html*/ `
-                        <div class="catalog__cards-card catalog-card" name="${myJson.disks[sortedArray[i]].name}" price="${myJson.disks[sortedArray[i]].price}" stok="${myJson.disks[sortedArray[i]].stock}" data-brand='${myJson.disks[sortedArray[i]].brand}' data-ship='${myJson.disks[sortedArray[i]].ship}' data-date_up='${myJson.disks[sortedArray[i]].date_up}' data-season='${myJson.disks[sortedArray[i]].season}' data-w='${myJson.disks[sortedArray[i]].w}' data-h='${myJson.disks[sortedArray[i]].h}' data-r='${myJson.disks[sortedArray[i]].r}'>
+                        <div class="catalog__cards-card catalog-card" name="${myJson.disks[sortedArray[i]].name}" price="${myJson.disks[sortedArray[i]].price}" stok="${myJson.disks[sortedArray[i]].stock}" data-brand='${myJson.disks[sortedArray[i]].brand}' data-date_up='${myJson.disks[sortedArray[i]].date_up}' data-w='${myJson.disks[sortedArray[i]].w}' data-r='${myJson.disks[sortedArray[i]].r}' data-b='${myJson.disks[sortedArray[i]].b}' data-color='${myJson.disks[sortedArray[i]].color}' data-type='${myJson.disks[sortedArray[i]].type}' data-supplier='${myJson.disks[sortedArray[i]].supplier}' data-city='${myJson.disks[sortedArray[i]].city}' data-pсd='${myJson.disks[sortedArray[i]].pсd}'>
                             <div class="catalog-card__media-title"></div>
                             <div class="catalog-card__body">
                                 <div class="catalog-card__image">
@@ -65,17 +65,17 @@ function pagenInit(myJson, sortedArray) {
                                     </div>
                                     <div class='catalog-card__dop card-dop CardDopInfo'>
                                         <div class="card-dop__item">
-                                            Сезон:
-                                            <span>${myJson.disks[sortedArray[i]].season}</span>
+                                            Цвет:
+                                            <span>${myJson.disks[sortedArray[i]].color}</span>
+                                        </div>
+                                        <div class="card-dop__item">
+                                            Тип:
+                                            <span>${myJson.disks[sortedArray[i]].type}</span>
                                         </div>
                                         <div class="card-dop__item">
                                             В наличии:
                                             <span>${Number(myJson.disks[sortedArray[i]].stock)}</span>
                                             шт.
-                                        </div>
-                                        <div class="card-dop__item">
-                                            Производитель:
-                                            <span>${myJson.disks[sortedArray[i]].brand}</span>
                                         </div>
                                     </div>
                                     <div class="card-info__buttons CardButtonAll">
@@ -84,8 +84,9 @@ function pagenInit(myJson, sortedArray) {
                                             data-price="${myJson.disks[sortedArray[i]].price}" 
                                             data-stock="${myJson.disks[sortedArray[i]].stock}"
                                             data-date_up="${myJson.disks[sortedArray[i]].date_up}" 
-                                            data-season="${myJson.disks[sortedArray[i]].season}"
-                                            data-image="${myJson.disks[sortedArray[i]].image500x500}"
+                                            data-color="${myJson.disks[sortedArray[i]].color}"
+                                            data-type="${myJson.disks[sortedArray[i]].type}"
+                                            data-image="${myJson.disks[sortedArray[i]].imgProd}"
                                             data-card_id="${myJson.disks[sortedArray[i]].code}">
                                             Купить в 1 клик
                                         </button>
@@ -94,8 +95,9 @@ function pagenInit(myJson, sortedArray) {
                                             data-price="${myJson.disks[sortedArray[i]].price}" 
                                             data-stock="${myJson.disks[sortedArray[i]].stock}"
                                             data-date_up="${myJson.disks[sortedArray[i]].date_up}" 
-                                            data-season="${myJson.disks[sortedArray[i]].season}"
-                                            data-image="${myJson.disks[sortedArray[i]].image500x500}"
+                                            data-color="${myJson.disks[sortedArray[i]].color}"
+                                            data-type="${myJson.disks[sortedArray[i]].type}"
+                                            data-image="${myJson.disks[sortedArray[i]].imgProd}"
                                             data-card_id="${myJson.disks[sortedArray[i]].code}">
                                             В корзину
                                         </button>
@@ -108,18 +110,18 @@ function pagenInit(myJson, sortedArray) {
                     break;
     
                 } else {
-                    if (myJson.disks[sortedArray[i]].image500x500) {
-                        image = myJson.disks[sortedArray[i]].image500x500;
+                    if (myJson.disks[sortedArray[i]].imgProd) {
+                        image = myJson.disks[sortedArray[i]].imgProd;
                     } else {
                         image = "images/no-image.png";
                     };
-        
+    
                     PlaceGeneration.innerHTML += /*html*/ `
-                        <div class="catalog__cards-card catalog-card" name="${myJson.disks[sortedArray[i]].name}" price="${myJson.disks[sortedArray[i]].price}" stok="${myJson.disks[sortedArray[i]].stock}" data-brand='${myJson.disks[sortedArray[i]].brand}' data-ship='${myJson.disks[sortedArray[i]].ship}' data-date_up='${myJson.disks[sortedArray[i]].date_up}' data-season='${myJson.disks[sortedArray[i]].season}' data-w='${myJson.disks[sortedArray[i]].w}' data-h='${myJson.disks[sortedArray[i]].h}' data-r='${myJson.disks[sortedArray[i]].r}'>
+                        <div class="catalog__cards-card catalog-card" name="${myJson.disks[sortedArray[i]].name}" price="${myJson.disks[sortedArray[i]].price}" stok="${myJson.disks[sortedArray[i]].stock}" data-brand='${myJson.disks[sortedArray[i]].brand}' data-date_up='${myJson.disks[sortedArray[i]].date_up}' data-w='${myJson.disks[sortedArray[i]].w}' data-r='${myJson.disks[sortedArray[i]].r}' data-b='${myJson.disks[sortedArray[i]].b}' data-color='${myJson.disks[sortedArray[i]].color}' data-type='${myJson.disks[sortedArray[i]].type}' data-supplier='${myJson.disks[sortedArray[i]].supplier}' data-city='${myJson.disks[sortedArray[i]].city}' data-pсd='${myJson.disks[sortedArray[i]].pсd}'>
                             <div class="catalog-card__media-title"></div>
                             <div class="catalog-card__body">
                                 <div class="catalog-card__image">
-                                    <img loading="lazy" src="${image}">
+                                    <img src="${image}">
                                 </div>
                                 <div class="catalog-card__info card-info">
                                     <div class="card-info__title"><a href="#">${myJson.disks[sortedArray[i]].name}</a></div>
@@ -128,17 +130,17 @@ function pagenInit(myJson, sortedArray) {
                                     </div>
                                     <div class='catalog-card__dop card-dop CardDopInfo'>
                                         <div class="card-dop__item">
-                                            Сезон:
-                                            <span>${myJson.disks[sortedArray[i]].season}</span>
+                                            Цвет:
+                                            <span>${myJson.disks[sortedArray[i]].color}</span>
+                                        </div>
+                                        <div class="card-dop__item">
+                                            Тип:
+                                            <span>${myJson.disks[sortedArray[i]].type}</span>
                                         </div>
                                         <div class="card-dop__item">
                                             В наличии:
                                             <span>${Number(myJson.disks[sortedArray[i]].stock)}</span>
                                             шт.
-                                        </div>
-                                        <div class="card-dop__item">
-                                            Производитель:
-                                            <span>${myJson.disks[sortedArray[i]].brand}</span>
                                         </div>
                                     </div>
                                     <div class="card-info__buttons CardButtonAll">
@@ -147,8 +149,9 @@ function pagenInit(myJson, sortedArray) {
                                             data-price="${myJson.disks[sortedArray[i]].price}" 
                                             data-stock="${myJson.disks[sortedArray[i]].stock}"
                                             data-date_up="${myJson.disks[sortedArray[i]].date_up}" 
-                                            data-season="${myJson.disks[sortedArray[i]].season}"
-                                            data-image="${myJson.disks[sortedArray[i]].image500x500}"
+                                            data-color="${myJson.disks[sortedArray[i]].color}"
+                                            data-type="${myJson.disks[sortedArray[i]].type}"
+                                            data-image="${myJson.disks[sortedArray[i]].imgProd}"
                                             data-card_id="${myJson.disks[sortedArray[i]].code}">
                                             Купить в 1 клик
                                         </button>
@@ -157,8 +160,9 @@ function pagenInit(myJson, sortedArray) {
                                             data-price="${myJson.disks[sortedArray[i]].price}" 
                                             data-stock="${myJson.disks[sortedArray[i]].stock}"
                                             data-date_up="${myJson.disks[sortedArray[i]].date_up}" 
-                                            data-season="${myJson.disks[sortedArray[i]].season}"
-                                            data-image="${myJson.disks[sortedArray[i]].image500x500}"
+                                            data-color="${myJson.disks[sortedArray[i]].color}"
+                                            data-type="${myJson.disks[sortedArray[i]].type}"
+                                            data-image="${myJson.disks[sortedArray[i]].imgProd}"
                                             data-card_id="${myJson.disks[sortedArray[i]].code}">
                                             В корзину
                                         </button>
