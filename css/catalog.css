@@ -1751,9 +1751,17 @@ body._lock {
           align-items: center;
 }
 
-.pagen-buttons__input {
+.pagen-buttons__input-inner {
+  position: relative;
   max-width: 200px;
-  min-width: 100px;
+  margin-right: 15px;
+}
+@media (max-width: 1120px) {
+  .pagen-buttons__input-inner {
+    margin-right: calc(10px + 5 * ((100vw - 320px) / 800));
+  }
+}
+.pagen-buttons__input {
   width: 100%;
   padding: 15px 10px;
   border-radius: 15px;
@@ -1762,11 +1770,57 @@ body._lock {
           box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
   color: #666;
   font-size: 18px;
-  margin-right: 15px;
 }
 @media (max-width: 1120px) {
   .pagen-buttons__input {
-    margin-right: calc(10px + 5 * ((100vw - 320px) / 800));
+    font-size: calc(16px + 2 * ((100vw - 320px) / 800));
+  }
+}
+.pagen-buttons__input::-webkit-input-placeholder {
+  font-size: 18px;
+}
+.pagen-buttons__input::-moz-placeholder {
+  font-size: 18px;
+}
+.pagen-buttons__input:-ms-input-placeholder {
+  font-size: 18px;
+}
+.pagen-buttons__input::-ms-input-placeholder {
+  font-size: 18px;
+}
+.pagen-buttons__input::placeholder {
+  font-size: 18px;
+}
+@media (max-width: 1120px) {
+  .pagen-buttons__input::-webkit-input-placeholder {
+    font-size: calc(16px + 2 * ((100vw - 320px) / 800));
+  }
+  .pagen-buttons__input::-moz-placeholder {
+    font-size: calc(16px + 2 * ((100vw - 320px) / 800));
+  }
+  .pagen-buttons__input:-ms-input-placeholder {
+    font-size: calc(16px + 2 * ((100vw - 320px) / 800));
+  }
+  .pagen-buttons__input::-ms-input-placeholder {
+    font-size: calc(16px + 2 * ((100vw - 320px) / 800));
+  }
+  .pagen-buttons__input::placeholder {
+    font-size: calc(16px + 2 * ((100vw - 320px) / 800));
+  }
+}
+.pagen-buttons__input-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  padding: 15px 5px;
+  background-color: #f6f6f6;
+  border-radius: 50%;
+  font-size: 18px;
+}
+@media (max-width: 1120px) {
+  .pagen-buttons__input-btn {
+    font-size: calc(15px + 3 * ((100vw - 320px) / 800));
   }
 }
 .pagen-buttons__page {
@@ -1775,6 +1829,19 @@ body._lock {
 }
 @media (max-width: 1120px) {
   .pagen-buttons__page {
-    font-size: calc(18px + 5 * ((100vw - 320px) / 800));
+    font-size: calc(16px + 7 * ((100vw - 320px) / 800));
+  }
+}
+
+@media (max-width: 479.98px) {
+  .catalog-pagen__prev,
+.catalog-pagen__next {
+    height: 40px;
+    -ms-flex-preferred-size: 40px;
+        flex-basis: 40px;
+  }
+
+  .catalog-pagen__text {
+    font-size: 20px;
   }
 }

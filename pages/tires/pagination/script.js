@@ -4,6 +4,7 @@ function pagenInit(myJson, sortedArray) {
         pagenPrev = document.querySelector('#pagenPrev'),
         pagenNext = document.querySelector('#pagenNext'),
         pagenInput = document.querySelector('#pagenInput'),
+        pagenInputButton = document.querySelector('#pagenInputButton'),
         pagenPage = document.querySelector('#pagenPage');
 
     let fileLength,
@@ -27,7 +28,7 @@ function pagenInit(myJson, sortedArray) {
     // Вешаем события на кнопки
     pagenPrev.addEventListener('click', pagenPrevCards);
     pagenNext.addEventListener('click', pagenNextCards);
-    pagenInput.addEventListener('input', pagenInputFunc);
+    pagenInputButton.addEventListener('click', pagenInputFunc);
 
     // Проверка на активность кнопки пагинации
     cheakPagenPrev();
@@ -228,18 +229,20 @@ function pagenInit(myJson, sortedArray) {
     function pagenInputFunc() {
         let reg = /^\d{1,}$/;
         if (!reg.test(String(pagenInput.value))) {
-            alert('Вводите только цифры!');
+            alert('Неверный формат ввода, допускаются только цифры.');
         } else {
             if (pagenInput.value < 1 || pagenInput.value > pages) {
-                alert('Такой страницы не существует!');
+                alert('Такой страницы не существует.');
             } else {
                 activePage = pagenInput.value;
+                pagenInput.value = '';
                 newCardGenerate(myJson, activePage);
                 changePagenPage(activePage, pages);
                 cheakPagenNext();
                 cheakPagenPrev();
-            }
-        }
+                scrollToPosition(0);
+            };
+        };
     };
 
     function changePagenPage(activePage, pages) {
