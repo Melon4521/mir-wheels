@@ -27,6 +27,7 @@ function pagenInit(myJson, sortedArray) {
     // Вешаем события на кнопки
     pagenPrev.addEventListener('click', pagenPrevCards);
     pagenNext.addEventListener('click', pagenNextCards);
+    pagenInput.addEventListener('input', pagenInputFunc);
 
     // Проверка на активность кнопки пагинации
     cheakPagenPrev();
@@ -222,6 +223,23 @@ function pagenInit(myJson, sortedArray) {
 
         // Проверка на цифру pagenPage
         changePagenPage(activePage, pages);
+    };
+
+    function pagenInputFunc() {
+        let reg = /^\d{1,}$/;
+        if (!reg.test(String(pagenInput.value))) {
+            alert('Вводите только цифры!');
+        } else {
+            if (pagenInput.value < 1 || pagenInput.value > pages) {
+                alert('Такой страницы не существует!');
+            } else {
+                activePage = pagenInput.value;
+                newCardGenerate(myJson, activePage);
+                changePagenPage(activePage, pages);
+                cheakPagenNext();
+                cheakPagenPrev();
+            }
+        }
     };
 
     function changePagenPage(activePage, pages) {
