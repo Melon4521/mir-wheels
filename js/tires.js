@@ -20,7 +20,7 @@ document.addEventListener('click', function (e) {
             pagenInit(myJson, sortedArray);
             settingCards();
         })
-    } 
+    }
     
     if (targetElement.classList.contains('sort-menu__reset')) { // Кнопка "Сбросить"
         fetchAsync().then(function (myJson) {
@@ -34,7 +34,7 @@ document.addEventListener('click', function (e) {
         add2Cart(targetElement);
     } 
     
-    if (targetElement.classList.contains('buyIn1Click')) { // Кнопка "В корзину"
+    if (targetElement.classList.contains('buyIn1Click')) { // Кнопка "Купить в 1 клик"
         buyIn1Click(targetElement);
     } 
     
@@ -96,7 +96,7 @@ fetchAsync().then(function (myJson) {
             pageLoading.classList.add('_loaded');
             document.body.classList.remove('_lock');
         };
-    }, 1000);
+    }, 500);
 
     //</Pre-loader>==============================================================================
 });
@@ -296,6 +296,13 @@ function sortingEvents(myJson) {
     arrAll = arrAll.filter(e => !~arrSuperfluous.indexOf(e)); // Удаление ненужного
 
     return arrAll;
+};
+
+function scrollToPosition(top, behavior = "smooth") {
+    window.scrollTo({
+        top: top,
+        behavior: behavior,
+    });
 };
 
 //</FUNCTIONS>==============================================================================
