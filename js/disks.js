@@ -300,11 +300,4 @@ function sortingEvents(myJson) {
     return arrAll;
 };
 
-function scrollToPosition(top, behavior = "smooth") {
-    window.scrollTo({
-        top: top,
-        behavior: behavior,
-    });
-};
-
 //</FUNCTIONS>==============================================================================

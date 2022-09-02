@@ -205,4 +205,11 @@ function cheakScrollPosition(coord, symbol = '>=') {
     }
 };
 
+function scrollToPosition(top, behavior = "smooth") {
+    window.scrollTo({
+        top: top,
+        behavior: behavior,
+    });
+};
+
 // </FUNCTIONS> ==============================================================================
