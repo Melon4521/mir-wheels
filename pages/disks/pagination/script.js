@@ -240,11 +240,18 @@ function pagenInit(myJson, sortedArray) {
     function pagenInputFunc() {
         let reg = /^\d{1,}$/;
         if (!reg.test(String(pagenInput.value))) {
-            alert('Неверный формат ввода, допускаются только цифры.');
+            if (!pagenInput.classList.contains('_input-error')) {
+                pagenInput.classList.add('_input-error')
+            };
         } else {
             if (pagenInput.value < 1 || pagenInput.value > pages) {
-                alert('Такой страницы не существует.');
+                if (!pagenInput.classList.contains('_input-error')) {
+                    pagenInput.classList.add('_input-error')
+                };
             } else {
+                if (pagenInput.classList.contains('_input-error')) {
+                    pagenInput.classList.remove('_input-error')
+                };
                 activePage = pagenInput.value;
                 pagenInput.value = '';
                 newCardGenerate(myJson, activePage);

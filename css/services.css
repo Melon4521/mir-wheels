@@ -271,6 +271,13 @@ body._lock {
   font-size: 20px;
   font-weight: 400;
   color: #333;
+  -webkit-transition: border 0.3s ease-in;
+  transition: border 0.3s ease-in;
+}
+.form-input._input-error, ._input-error.service-form__comment, ._input-error.service-form__input, ._input-error.cart-offer__input {
+  -webkit-transition: border 0.3s ease-in;
+  transition: border 0.3s ease-in;
+  border: 2px solid red;
 }
 
 .form-button-blue, .service-form__button, .cart-offer__button {
