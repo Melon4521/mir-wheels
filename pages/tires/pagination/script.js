@@ -1,11 +1,11 @@
 function pagenInit(myJson, sortedArray) {
     // Объявления констант
     const step = 10,
-        pagenPrev = document.querySelector('#pagenPrev'),
-        pagenNext = document.querySelector('#pagenNext'),
+        pagenParent = document.querySelector('.catalog-pagen'),
         pagenInput = document.querySelector('#pagenInput'),
-        pagenInputButton = document.querySelector('#pagenInputButton'),
-        pagenPage = document.querySelector('#pagenPage');
+        pagenPage = document.querySelector('#pagenPage'),
+        pagenPrev = document.querySelector('#pagenPrev'),
+        pagenNext = document.querySelector('#pagenNext');
 
     let fileLength,
         pages,
@@ -25,10 +25,17 @@ function pagenInit(myJson, sortedArray) {
 
     newCardGenerate(myJson, activePage);
 
+    pagenParent.addEventListener('click', (e) => {
+        let targetElement = e.target;
+
+        if (targetElement.classList.contains('pagen-buttons__input-btn')) {
+            pagenInputFunc();
+        }
+    });
+
     // Вешаем события на кнопки
     pagenPrev.addEventListener('click', pagenPrevCards);
     pagenNext.addEventListener('click', pagenNextCards);
-    pagenInputButton.addEventListener('click', pagenInputFunc);
 
     // Проверка на активность кнопки пагинации
     cheakPagenPrev();
