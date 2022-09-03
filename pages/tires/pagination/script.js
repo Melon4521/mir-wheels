@@ -259,7 +259,6 @@ function pagenInit(myJson, sortedArray) {
         };
     };
 
-
     function changePagenPage(activePage, pages) {
         pagenPage.innerHTML = `<span>${activePage}</span>/<span>${pages}</span>`;
     };
