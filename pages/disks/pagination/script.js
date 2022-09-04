@@ -36,6 +36,13 @@ function pagenInit(myJson, sortedArray) {
     // Вешаем события на кнопки
     pagenPrev.addEventListener('click', pagenPrevCards);
     pagenNext.addEventListener('click', pagenNextCards);
+    pagenInput.onkeyup = function () {
+        this.value = this.value.replace(/[^\d]/g,'');
+
+        if (+(this.max) < this.value) {
+            this.value = this.max;
+        };
+    };
 
     // Проверка на активность кнопки пагинации
     cheakPagenPrev();
@@ -59,7 +66,7 @@ function pagenInit(myJson, sortedArray) {
                     } else {
                         image = "images/no-image.png";
                     };
-    
+
                     PlaceGeneration.innerHTML += /*html*/ `
                         <div class="catalog__cards-card catalog-card" name="${myJson.disks[sortedArray[i]].name}" price="${myJson.disks[sortedArray[i]].price}" stok="${myJson.disks[sortedArray[i]].stock}" data-brand='${myJson.disks[sortedArray[i]].brand}' data-date_up='${myJson.disks[sortedArray[i]].date_up}' data-w='${myJson.disks[sortedArray[i]].w}' data-r='${myJson.disks[sortedArray[i]].r}' data-b='${myJson.disks[sortedArray[i]].b}' data-color='${myJson.disks[sortedArray[i]].color}' data-type='${myJson.disks[sortedArray[i]].type}' data-supplier='${myJson.disks[sortedArray[i]].supplier}' data-city='${myJson.disks[sortedArray[i]].city}' data-pсd='${myJson.disks[sortedArray[i]].pсd}'>
                             <div class="catalog-card__media-title"></div>
@@ -117,14 +124,14 @@ function pagenInit(myJson, sortedArray) {
                         </div>
                     `;
                     break;
-    
+
                 } else {
                     if (myJson.disks[sortedArray[i]].imgProd) {
                         image = myJson.disks[sortedArray[i]].imgProd;
                     } else {
                         image = "images/no-image.png";
                     };
-    
+
                     PlaceGeneration.innerHTML += /*html*/ `
                         <div class="catalog__cards-card catalog-card" name="${myJson.disks[sortedArray[i]].name}" price="${myJson.disks[sortedArray[i]].price}" stok="${myJson.disks[sortedArray[i]].stock}" data-brand='${myJson.disks[sortedArray[i]].brand}' data-date_up='${myJson.disks[sortedArray[i]].date_up}' data-w='${myJson.disks[sortedArray[i]].w}' data-r='${myJson.disks[sortedArray[i]].r}' data-b='${myJson.disks[sortedArray[i]].b}' data-color='${myJson.disks[sortedArray[i]].color}' data-type='${myJson.disks[sortedArray[i]].type}' data-supplier='${myJson.disks[sortedArray[i]].supplier}' data-city='${myJson.disks[sortedArray[i]].city}' data-pсd='${myJson.disks[sortedArray[i]].pсd}'>
                             <div class="catalog-card__media-title"></div>
@@ -189,7 +196,7 @@ function pagenInit(myJson, sortedArray) {
                 </div>
                 `;
             }
-            
+
         };
     };
 
@@ -238,34 +245,68 @@ function pagenInit(myJson, sortedArray) {
     };
 
     function pagenInputFunc() {
-        let reg = /^\d{1,}$/;
-        if (!reg.test(String(pagenInput.value))) {
-            if (!pagenInput.classList.contains('_input-error')) {
-                pagenInput.classList.add('_input-error')
-            };
-        } else {
-            if (pagenInput.value < 1 || pagenInput.value > pages) {
-                if (!pagenInput.classList.contains('_input-error')) {
-                    pagenInput.classList.add('_input-error')
-                };
-            } else {
-                if (pagenInput.classList.contains('_input-error')) {
-                    pagenInput.classList.remove('_input-error')
-                };
-                
-                activePage = pagenInput.value;
-                pagenInput.value = '';
-                newCardGenerate(myJson, activePage);
-                changePagenPage(activePage, pages);
-                cheakPagenNext();
-                cheakPagenPrev();
-                scrollToPosition(0);
-            };
+        // if (pagenInput.value < 1 || pagenInput.value > pages) {
+        //     if (!pagenInput.classList.contains('_input-error')) {
+        //             pagenInput.classList.add('_input-error')
+        //     };
+        // } else {
+        //     if (pagenInput.classList.contains('_input-error')) {
+        //         pagenInput.classList.remove('_input-error')
+        //     };
+
+        //     activePage = pagenInput.value;
+        //     pagenInput.value = '';
+        //     newCardGenerate(myJson, activePage);
+        //     changePagenPage(activePage, pages);
+        //     cheakPagenNext();
+        //     cheakPagenPrev();
+        //     scrollToPosition(0);
+        // };
+
+        if (pagenInput.value < 1) {
+            pagenInput.value = 1;
+        } else if (pagenInput.value > pages) {
+            pagenInput.value = pagenInput.max;
         };
+        
+        activePage = pagenInput.value;
+        pagenInput.value = '';
+        newCardGenerate(myJson, activePage);
+        changePagenPage(activePage, pages);
+        cheakPagenNext();
+        cheakPagenPrev();
+        scrollToPosition(0);
     };
 
     function changePagenPage(activePage, pages) {
-        pagenPage.innerHTML = `<span>${activePage}</span>/<span>${pages}</span>`;
+        let newStr = '';
+        let newArray = [];
+
+        for (let i = 0; i < activePage.length; i++) {
+            const elem = activePage[i];
+            newArray.push(elem);
+        };
+
+        for (let i = 0; i < newArray.length; i++) {
+            let elem = newArray[i];
+
+            if (elem == '0') {
+                delete newArray[i];
+            } else {
+                break;
+            }
+        };
+
+        newArray.forEach(elem => {
+            newStr += elem;
+        });
+
+        if (newStr == '') {
+            newStr = activePage;
+        };
+
+        pagenPage.innerHTML = `<span>${newStr}</span>/<span>${pages}</span>`;
+        pagenInput.max = pages;
     };
 
     function cheakPagenPrev() {
@@ -287,6 +328,6 @@ function pagenInit(myJson, sortedArray) {
             }
         };
     };
-    
+
     //</Functions>==============================================================================
 };
