@@ -58,7 +58,7 @@ $email = 'shop@mir-wheels.ru'; // от кого
 $send = mail($myaddress2, $sub, $mes2, "Content-type:text/plain; charset = UTF-8\r\nFrom:$email");
 
 ini_set('short_open_tag', 'On');
-header('Refresh: 5; URL = http://tires.intermir.ru/index.html');
+header('Refresh: 5; URL = https://tires.intermir.ru/index.html');
 
 ?>
 <!DOCTYPE html>
@@ -70,7 +70,7 @@ header('Refresh: 5; URL = http://tires.intermir.ru/index.html');
     <meta http-equiv="refresh" content="5; url = index.html">
     <title>Спасибо за заказ!</title>
     <script type="text/javascript">
-        setTimeout("location.replace('http://tires.intermir.ru/index.html')", 5000);
+        setTimeout("location.replace('https://tires.intermir.ru/index.html')", 5000);
     </script>
 </head>
 <body>
