@@ -65,10 +65,10 @@ document.addEventListener('click', function (e) {
 // </Document Actions>==============================================================================
 
 // Меняем maxPrice по ползунку
-document.getElementById("MenuPriceRange").addEventListener("input", function () {
-    let inputRangeValue = document.getElementById('MaxPriceCard')
-    inputRangeValue.innerHTML = `${this.value}`;
-});
+// document.getElementById("MenuPriceRange").addEventListener("input", function () {
+//     let inputRangeValue = document.getElementById('MaxPriceCard')
+//     inputRangeValue.innerHTML = `${this.value}`;
+// });
 
 // Функция с JSON
 fetchAsync().then(function (myJson) {
@@ -126,12 +126,12 @@ changeCartIconNumber();
 //<FUNCTIONS>==============================================================================
 
 function selectGenerate(myJson) {
-    let selectGroup = document.getElementById('selectGroup').children,
-        minPrice = document.getElementById('MinPriceCard'),
-        maxPrice = document.getElementById('MaxPriceCard'),
-        MenuPriceRange = document.getElementById('MenuPriceRange')
+    let selectGroup = document.getElementById('selectGroup').children;
+        // minPrice = document.getElementById('MinPriceCard'),
+        // maxPrice = document.getElementById('MaxPriceCard'),
+        // MenuPriceRange = document.getElementById('MenuPriceRange')
 
-    for (let i = 0; i < selectGroup.length; i++) { //Пробежка по всем селектам
+    for (let i = 0; i < selectGroup.length; i++) { // Пробежка по всем селектам
 
         let name = selectGroup[i].dataset.name;
         let arr = [];
@@ -155,52 +155,52 @@ function selectGenerate(myJson) {
         };
     };
 
-    for (let i = 0; i < myJson.disks.length; i++) {
+    // for (let i = 0; i < myJson.disks.length; i++) {
 
-        // Отоброжаемый текст ОТ и ДО
-        if (
-            (+(myJson.disks[i].price) < +(minPrice.textContent)) ||
-            (+(myJson.disks[i].price) > +(maxPrice.textContent)) ||
-            (minPrice.attributes.value.value == 'false') ||
-            (maxPrice.attributes.value.value == 'false')
-        ) {
+    //     // Отоброжаемый текст ОТ и ДО
+    //     if (
+    //         (+(myJson.disks[i].price) < +(minPrice.textContent)) ||
+    //         (+(myJson.disks[i].price) > +(maxPrice.textContent)) ||
+    //         (minPrice.attributes.value.value == 'false') ||
+    //         (maxPrice.attributes.value.value == 'false')
+    //     ) {
 
-            if (
-                (minPrice.attributes.value.value == 'false') ||
-                (maxPrice.attributes.value.value == 'false')
-            ) {
-                minPrice.attributes.value.value = `${myJson.disks[i].price}`;
-                maxPrice.attributes.value.value = `${myJson.disks[i].price}`;
-                minPrice.innerHTML = `${myJson.disks[i].price}`;
-                maxPrice.innerHTML = `${myJson.disks[i].price}`;
-            } else if (myJson.disks[i].price < +(minPrice.textContent)) {
-                minPrice.innerHTML = `${myJson.disks[i].price}`;
-            } else {
-                maxPrice.attributes.value.value = `${myJson.disks[i].price}`;
-                maxPrice.innerHTML = `${myJson.disks[i].price}`;
-            };
-        };
+    //         if (
+    //             (minPrice.attributes.value.value == 'false') ||
+    //             (maxPrice.attributes.value.value == 'false')
+    //         ) {
+    //             minPrice.attributes.value.value = `${myJson.disks[i].price}`;
+    //             maxPrice.attributes.value.value = `${myJson.disks[i].price}`;
+    //             minPrice.innerHTML = `${myJson.disks[i].price}`;
+    //             maxPrice.innerHTML = `${myJson.disks[i].price}`;
+    //         } else if (myJson.disks[i].price < +(minPrice.textContent)) {
+    //             minPrice.innerHTML = `${myJson.disks[i].price}`;
+    //         } else {
+    //             maxPrice.attributes.value.value = `${myJson.disks[i].price}`;
+    //             maxPrice.innerHTML = `${myJson.disks[i].price}`;
+    //         };
+    //     };
 
-        // Параметры Value 
-        if (
-            (MenuPriceRange.min == false) || (MenuPriceRange.max == false) ||
-            (+(MenuPriceRange.min) > +(myJson.disks[i].price)) || (+(MenuPriceRange.max) < +(myJson.disks[i].price))
-        ) {
-            if (
-                (MenuPriceRange.min == false) ||
-                (MenuPriceRange.max == false)
-            ) {
-                MenuPriceRange.min = `${myJson.disks[i].price}`;
-                MenuPriceRange.max = `${myJson.disks[i].price}`;
-                MenuPriceRange.value = `${myJson.disks[i].price}`;
-            } else if (+(MenuPriceRange.min) > +(myJson.disks[i].price)) {
-                MenuPriceRange.min = `${myJson.disks[i].price}`;
-            } else {
-                MenuPriceRange.max = `${myJson.disks[i].price}`;
-                MenuPriceRange.value = `${myJson.disks[i].price}`;
-            };
-        };
-    };
+    //     // Параметры Value 
+    //     if (
+    //         (MenuPriceRange.min == false) || (MenuPriceRange.max == false) ||
+    //         (+(MenuPriceRange.min) > +(myJson.disks[i].price)) || (+(MenuPriceRange.max) < +(myJson.disks[i].price))
+    //     ) {
+    //         if (
+    //             (MenuPriceRange.min == false) ||
+    //             (MenuPriceRange.max == false)
+    //         ) {
+    //             MenuPriceRange.min = `${myJson.disks[i].price}`;
+    //             MenuPriceRange.max = `${myJson.disks[i].price}`;
+    //             MenuPriceRange.value = `${myJson.disks[i].price}`;
+    //         } else if (+(MenuPriceRange.min) > +(myJson.disks[i].price)) {
+    //             MenuPriceRange.min = `${myJson.disks[i].price}`;
+    //         } else {
+    //             MenuPriceRange.max = `${myJson.disks[i].price}`;
+    //             MenuPriceRange.value = `${myJson.disks[i].price}`;
+    //         };
+    //     };
+    // };
 };
 
 function reset(myJson) {
@@ -209,8 +209,8 @@ function reset(myJson) {
         select = document.getElementById('selectGroup'),
         arrAll = [];
 
-    document.getElementById('MaxPriceCard').innerHTML = `${maxPrice.textContent}`;
-    input.value = input.max;
+    // document.getElementById('MaxPriceCard').innerHTML = `${maxPrice.textContent}`;
+    // input.value = input.max;
 
     for (let i = 0; i < myJson.disks.length; i++) { // Генерация всех индексов товаров
         arrAll.push(i)
@@ -262,9 +262,9 @@ function settingCards() {
 
 function sortingEvents(myJson) {
     let selectAll = document.getElementById('selectGroup'), // Группа селектов
-        maxPriceCard = document.getElementById('MaxPriceCard'),
-        maxPriceValue = +(maxPriceCard.attributes.value.value),
-        maxPriceText = +(maxPriceCard.textContent),
+        // maxPriceCard = document.getElementById('MaxPriceCard'),
+        // maxPriceValue = +(maxPriceCard.attributes.value.value),
+        // maxPriceText = +(maxPriceCard.textContent),
         arrAll = [],
         arrSuperfluous = [], // Массив лишних индексов
         jsonDisks = myJson.disks;
@@ -287,13 +287,13 @@ function sortingEvents(myJson) {
         };
     };
 
-    if (maxPriceText != maxPriceValue) {
-        for (let z = 0; z < jsonDisks.length; z++) {
-            if (+(jsonDisks[z].price) >= maxPriceText) {
-                arrSuperfluous.push(z);
-            };
-        };
-    };
+    // if (maxPriceText != maxPriceValue) {
+    //     for (let z = 0; z < jsonDisks.length; z++) {
+    //         if (+(jsonDisks[z].price) >= maxPriceText) {
+    //             arrSuperfluous.push(z);
+    //         };
+    //     };
+    // };
 
     arrAll = arrAll.filter(e => !~arrSuperfluous.indexOf(e)); // Удаление ненужного
 
