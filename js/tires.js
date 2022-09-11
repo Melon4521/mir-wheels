@@ -202,11 +202,11 @@ function selectGenerate(myJson) {
 };
 
 function reset(myJson) {
-    let maxPrice = document.getElementById('MaxPriceCard').attributes.value,
-        input = document.getElementById('MenuPriceRange'),
-        select = document.getElementById('selectGroup'),
+    let select = document.getElementById('selectGroup'),
         arrAll = [];
-
+        // maxPrice = document.getElementById('MaxPriceCard').attributes.value,
+        // input = document.getElementById('MenuPriceRange');
+        
     // document.getElementById('MaxPriceCard').innerHTML = `${maxPrice.textContent}`;
     // input.value = input.max;
 
