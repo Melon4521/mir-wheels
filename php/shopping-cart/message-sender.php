@@ -17,7 +17,7 @@ if (isset($_POST['cart'])) {
 }
 
 /* Сюда впишите свою эл. почту */
-$myaddress1 = "gleb.sazonov.58@mail.ru"; // кому отправляем
+$myaddress1 = "vlad123kyz@gmail.com"; // кому отправляем
 
 //Письмо в магазин с заказом
 
