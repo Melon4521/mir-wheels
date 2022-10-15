@@ -47,7 +47,7 @@ E-mail: $emailCl\n
 
 /* А эта функция как раз занимается отправкой письма на указанный вами email */
 $sub = 'Service'; // тема
-$send = mail($myaddress, $sub, $message, "Content-type:text/plain; charset = UTF-8\r\nFrom:$emailCl");
+$send = mail($myaddress, $sub, $message, "Content-type:text/plain; Reply-To:no-reply@****.ru; Content-Transfer-Encoding: utf-8; charset = UTF-8\r\nFrom:$emailCl");
 
 // Письмо отправителю о заказе
  
