@@ -21,7 +21,7 @@ if (isset($_POST['comment'])) {
 }
 
 /* Сюда впишите свою эл. почту */
-$myaddress = "gleb.sazonov.58@gmail.com,belozerov.o.s@yandex.ru"; // кому отправляем
+$myaddress = "kuznetsov.neon-x@yandex.ru"; // кому отправляем
 
 //Письмо в магазин с заказом
 
@@ -31,6 +31,7 @@ $message = "Запись на услугу в магазине mir-wheels.ru\n\
 Имя: $name\n
 Телефон: $phone\n
 ==========================================\n\n
+Услуга: Шиномонтаж
 Данные пользователя:\n
 Марка авто: $carMarka\n
 Модель авто: $carModel\n
