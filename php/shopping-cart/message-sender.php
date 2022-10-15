@@ -36,7 +36,7 @@ $cart
 
 /* А эта функция как раз занимается отправкой письма на указанный вами email */
 $sub = 'Order'; // тема
-$send = mail($myaddress, $sub, $mes1, "Content-type:text/plain;  Reply-To:no-reply@****.ru; Content-Transfer-Encoding: utf-8; charset = UTF-8\r\nFrom:$emailCl");
+$send = mail($myaddress, $sub, $mes1, "Content-type:text/plain;  Reply-To: <no-reply@****.ru>; Content-Transfer-Encoding: utf-8; charset = UTF-8\r\nFrom:<$emailCl>");
 
 // Письмо отправителю о заказе
  
@@ -52,7 +52,7 @@ $cart
 ";
 
 /* А эта функция как раз занимается отправкой письма на указанный вами email */
-$send = mail($emailCl, $sub, $mes2, "Content-type:text/plain; charset = UTF-8\r\nFrom:$shopEmail");
+$send = mail($emailCl, $sub, $mes2, "Content-type:text/plain;  Reply-To: <no-reply@****.ru>; Content-Transfer-Encoding: utf-8; charset = UTF-8\r\nFrom:<$shopEmail>");
 
 ini_set('short_open_tag', 'On');
 header('Refresh: 5; URL = https://tires.intermir.ru/index.html');
