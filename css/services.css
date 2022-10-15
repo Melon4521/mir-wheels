@@ -1236,6 +1236,7 @@ body._lock {
   }
 }
 .service-form__inputs {
+  width: 50%;
   margin-right: 50px;
 }
 @media (max-width: 1120px) {
@@ -1467,6 +1468,10 @@ body._lock {
         flex-wrap: wrap;
   }
 
+  .service-form__inputs {
+    width: 100%;
+    margin-right: 0px;
+  }
   .service-form__inputs:not(:last-child) {
     margin-bottom: 30px;
   }

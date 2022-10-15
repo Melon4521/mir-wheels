@@ -17,9 +17,11 @@ if (isset($_POST['cart'])) {
 }
 
 /* Сюда впишите свою эл. почту */
-$myaddress1 = "kuznetsov.neon-x@yandex.ru"; // кому отправляем
+$myaddress = "kuznetsov.neon-x@yandex.ru";
+/* Сюда впишите эл. почту магазина */
+$shopEmail = 'shop@mir-wheels.ru';
 
-//Письмо в магазин с заказом
+// Письмо в магазин с заказом
 
 /* А здесь прописывается текст сообщения, \n - перенос строки */
 $mes1 = "Заказ в магазине mir-wheels.ru\n
@@ -34,12 +36,9 @@ $cart
 
 /* А эта функция как раз занимается отправкой письма на указанный вами email */
 $sub = 'Order'; // тема
-$email = $emailCl; // от кого
-$send = mail($myaddress1, $sub, $mes1, "Content-type:text/plain; charset = UTF-8\r\nFrom:$email");
+$send = mail($myaddress, $sub, $mes1, "Content-type:text/plain; charset = UTF-8\r\nFrom:$emailCl");
 
-//Письмо отправителю о заказе
-
-$myaddress2 = $emailCl; // кому отправляем
+// Письмо отправителю о заказе
  
 /* А здесь прописывается текст сообщения, \n - перенос строки */
 $mes2 = "Вы отправили заказ в mir-wheels.ru\n
@@ -53,9 +52,7 @@ $cart
 ";
 
 /* А эта функция как раз занимается отправкой письма на указанный вами email */
-$sub = 'Order'; // тема
-$email = 'shop@mir-wheels.ru'; // от кого
-$send = mail($myaddress2, $sub, $mes2, "Content-type:text/plain; charset = UTF-8\r\nFrom:$email");
+$send = mail($emailCl, $sub, $mes2, "Content-type:text/plain; charset = UTF-8\r\nFrom:$shopEmail");
 
 ini_set('short_open_tag', 'On');
 header('Refresh: 5; URL = https://tires.intermir.ru/index.html');
