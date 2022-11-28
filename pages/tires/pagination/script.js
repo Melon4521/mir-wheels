@@ -66,9 +66,25 @@ function pagenInit(myJson, sortedArray) {
                     } else {
                         image = "images/no-image.png";
                     };
+
+                    // Наценка
+                    let price = +(myJson.tires[sortedArray[i]].price);
+
+                    if (price * 1.15 > price + 2500) {
+                        // максимум
+                        price += 2500;
+                    } else if (price * 1.15 < price + 400) {
+                        // Минимум
+                        price += 400;
+                    } else {
+                        // средняя
+                        price *= 1.15;
+                    }
+
+                    price = Math.ceil(price);
         
                     PlaceGeneration.innerHTML += /*html*/ `
-                        <div class="catalog__cards-card catalog-card" name="${myJson.tires[sortedArray[i]].name}" price="${myJson.tires[sortedArray[i]].price}" stok="${myJson.tires[sortedArray[i]].stock}" data-brand='${myJson.tires[sortedArray[i]].brand}' data-ship='${myJson.tires[sortedArray[i]].ship}' data-date_up='${myJson.tires[sortedArray[i]].date_up}' data-season='${myJson.tires[sortedArray[i]].season}' data-w='${myJson.tires[sortedArray[i]].w}' data-h='${myJson.tires[sortedArray[i]].h}' data-r='${myJson.tires[sortedArray[i]].r}'>
+                        <div class="catalog__cards-card catalog-card" name="${myJson.tires[sortedArray[i]].name}" price="${price}" stok="${myJson.tires[sortedArray[i]].stock}" data-brand='${myJson.tires[sortedArray[i]].brand}' data-ship='${myJson.tires[sortedArray[i]].ship}' data-date_up='${myJson.tires[sortedArray[i]].date_up}' data-season='${myJson.tires[sortedArray[i]].season}' data-w='${myJson.tires[sortedArray[i]].w}' data-h='${myJson.tires[sortedArray[i]].h}' data-r='${myJson.tires[sortedArray[i]].r}'>
                             <div class="catalog-card__media-title"></div>
                             <div class="catalog-card__body">
                                 <div class="catalog-card__image">
@@ -77,7 +93,7 @@ function pagenInit(myJson, sortedArray) {
                                 <div class="catalog-card__info card-info">
                                     <div class="card-info__title"><a href="#">${myJson.tires[sortedArray[i]].name}</a></div>
                                     <div class="card-info__price">
-                                        <span>${Number(myJson.tires[sortedArray[i]].price)}</span> руб./шт.
+                                        <span>${Number(price)}</span> руб./шт.
                                     </div>
                                     <div class='catalog-card__dop card-dop CardDopInfo'>
                                         <div class="card-dop__item">
@@ -97,7 +113,7 @@ function pagenInit(myJson, sortedArray) {
                                     <div class="card-info__buttons CardButtonAll">
                                         <button class="card-info__button buyIn1Click popup-opener" data-popup_open="#popup-offer"
                                             data-name="${myJson.tires[sortedArray[i]].name}" 
-                                            data-price="${myJson.tires[sortedArray[i]].price}" 
+                                            data-price="${price}" 
                                             data-stock="${myJson.tires[sortedArray[i]].stock}"
                                             data-date_up="${myJson.tires[sortedArray[i]].date_up}" 
                                             data-season="${myJson.tires[sortedArray[i]].season}"
@@ -107,7 +123,7 @@ function pagenInit(myJson, sortedArray) {
                                         </button>
                                         <button class="card-info__button addToCart" 
                                             data-name="${myJson.tires[sortedArray[i]].name}" 
-                                            data-price="${myJson.tires[sortedArray[i]].price}" 
+                                            data-price="${price}" 
                                             data-stock="${myJson.tires[sortedArray[i]].stock}"
                                             data-date_up="${myJson.tires[sortedArray[i]].date_up}" 
                                             data-season="${myJson.tires[sortedArray[i]].season}"
@@ -129,9 +145,25 @@ function pagenInit(myJson, sortedArray) {
                     } else {
                         image = "images/no-image.png";
                     };
+
+                    // Наценка
+                    let price = +(myJson.tires[sortedArray[i]].price);
+
+                    if (price * 1.15 > price + 2500) {
+                        // максимум
+                        price += 2500;
+                    } else if (price * 1.15 < price + 400) {
+                        // Минимум
+                        price += 400;
+                    } else {
+                        // средняя
+                        price *= 1.15;
+                    }
+
+                    price = Math.ceil(price);
         
                     PlaceGeneration.innerHTML += /*html*/ `
-                        <div class="catalog__cards-card catalog-card" name="${myJson.tires[sortedArray[i]].name}" price="${myJson.tires[sortedArray[i]].price}" stok="${myJson.tires[sortedArray[i]].stock}" data-brand='${myJson.tires[sortedArray[i]].brand}' data-ship='${myJson.tires[sortedArray[i]].ship}' data-date_up='${myJson.tires[sortedArray[i]].date_up}' data-season='${myJson.tires[sortedArray[i]].season}' data-w='${myJson.tires[sortedArray[i]].w}' data-h='${myJson.tires[sortedArray[i]].h}' data-r='${myJson.tires[sortedArray[i]].r}'>
+                        <div class="catalog__cards-card catalog-card" name="${myJson.tires[sortedArray[i]].name}" price="${price}" stok="${myJson.tires[sortedArray[i]].stock}" data-brand='${myJson.tires[sortedArray[i]].brand}' data-ship='${myJson.tires[sortedArray[i]].ship}' data-date_up='${myJson.tires[sortedArray[i]].date_up}' data-season='${myJson.tires[sortedArray[i]].season}' data-w='${myJson.tires[sortedArray[i]].w}' data-h='${myJson.tires[sortedArray[i]].h}' data-r='${myJson.tires[sortedArray[i]].r}'>
                             <div class="catalog-card__media-title"></div>
                             <div class="catalog-card__body">
                                 <div class="catalog-card__image">
@@ -140,7 +172,7 @@ function pagenInit(myJson, sortedArray) {
                                 <div class="catalog-card__info card-info">
                                     <div class="card-info__title"><a href="#">${myJson.tires[sortedArray[i]].name}</a></div>
                                     <div class="card-info__price">
-                                        <span>${Number(myJson.tires[sortedArray[i]].price)}</span> руб./шт.
+                                        <span>${Number(price)}</span> руб./шт.
                                     </div>
                                     <div class='catalog-card__dop card-dop CardDopInfo'>
                                         <div class="card-dop__item">
@@ -160,7 +192,7 @@ function pagenInit(myJson, sortedArray) {
                                     <div class="card-info__buttons CardButtonAll">
                                         <button class="card-info__button buyIn1Click popup-opener" data-popup_open="#popup-offer"
                                             data-name="${myJson.tires[sortedArray[i]].name}" 
-                                            data-price="${myJson.tires[sortedArray[i]].price}" 
+                                            data-price="${price}" 
                                             data-stock="${myJson.tires[sortedArray[i]].stock}"
                                             data-date_up="${myJson.tires[sortedArray[i]].date_up}" 
                                             data-season="${myJson.tires[sortedArray[i]].season}"
@@ -170,7 +202,7 @@ function pagenInit(myJson, sortedArray) {
                                         </button>
                                         <button class="card-info__button addToCart" 
                                             data-name="${myJson.tires[sortedArray[i]].name}" 
-                                            data-price="${myJson.tires[sortedArray[i]].price}" 
+                                            data-price="${price}" 
                                             data-stock="${myJson.tires[sortedArray[i]].stock}"
                                             data-date_up="${myJson.tires[sortedArray[i]].date_up}" 
                                             data-season="${myJson.tires[sortedArray[i]].season}"

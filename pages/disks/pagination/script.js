@@ -20,8 +20,8 @@ function pagenInit(myJson, sortedArray) {
 
     pages = Math.ceil(fileLength / step),
 
-    // Проверка на цифру pagenPage
-    changePagenPage(activePage, pages);
+        // Проверка на цифру pagenPage
+        changePagenPage(activePage, pages);
 
     newCardGenerate(myJson, activePage);
 
@@ -37,7 +37,7 @@ function pagenInit(myJson, sortedArray) {
     pagenPrev.addEventListener('click', pagenPrevCards);
     pagenNext.addEventListener('click', pagenNextCards);
     pagenInput.onkeyup = function () {
-        this.value = this.value.replace(/[^\d]/g,'');
+        this.value = this.value.replace(/[^\d]/g, '');
 
         if (+(this.max) < this.value) {
             this.value = this.max;
@@ -67,8 +67,24 @@ function pagenInit(myJson, sortedArray) {
                         image = "images/no-image.png";
                     };
 
+                    // Наценка
+                    let price = +(myJson.disks[sortedArray[i]].price);
+
+                    if (price * 1.20 > price + 3000) {
+                        // максимум
+                        price += 3000;
+                    } else if (price * 1.20 < price + 500) {
+                        // Минимум
+                        price += 500;
+                    } else {
+                        // средняя
+                        price *= 1.20;
+                    }
+
+                    price = Math.ceil(price);
+
                     PlaceGeneration.innerHTML += /*html*/ `
-                        <div class="catalog__cards-card catalog-card" name="${myJson.disks[sortedArray[i]].name}" price="${myJson.disks[sortedArray[i]].price}" stok="${myJson.disks[sortedArray[i]].stock}" data-brand='${myJson.disks[sortedArray[i]].brand}' data-date_up='${myJson.disks[sortedArray[i]].date_up}' data-w='${myJson.disks[sortedArray[i]].w}' data-r='${myJson.disks[sortedArray[i]].r}' data-b='${myJson.disks[sortedArray[i]].b}' data-color='${myJson.disks[sortedArray[i]].color}' data-type='${myJson.disks[sortedArray[i]].type}' data-supplier='${myJson.disks[sortedArray[i]].supplier}' data-city='${myJson.disks[sortedArray[i]].city}' data-pсd='${myJson.disks[sortedArray[i]].pсd}'>
+                        <div class="catalog__cards-card catalog-card" name="${myJson.disks[sortedArray[i]].name}" price="${price}" stok="${myJson.disks[sortedArray[i]].stock}" data-brand='${myJson.disks[sortedArray[i]].brand}' data-date_up='${myJson.disks[sortedArray[i]].date_up}' data-w='${myJson.disks[sortedArray[i]].w}' data-r='${myJson.disks[sortedArray[i]].r}' data-b='${myJson.disks[sortedArray[i]].b}' data-color='${myJson.disks[sortedArray[i]].color}' data-type='${myJson.disks[sortedArray[i]].type}' data-supplier='${myJson.disks[sortedArray[i]].supplier}' data-city='${myJson.disks[sortedArray[i]].city}' data-pсd='${myJson.disks[sortedArray[i]].pсd}'>
                             <div class="catalog-card__media-title"></div>
                             <div class="catalog-card__body">
                                 <div class="catalog-card__image">
@@ -77,7 +93,7 @@ function pagenInit(myJson, sortedArray) {
                                 <div class="catalog-card__info card-info">
                                     <div class="card-info__title"><a href="#">${myJson.disks[sortedArray[i]].name}</a></div>
                                     <div class="card-info__price">
-                                        <span>${Number(myJson.disks[sortedArray[i]].price)}</span> руб./шт.
+                                        <span>${+(price)}</span> руб./шт.
                                     </div>
                                     <div class='catalog-card__dop card-dop CardDopInfo'>
                                         <div class="card-dop__item">
@@ -97,7 +113,7 @@ function pagenInit(myJson, sortedArray) {
                                     <div class="card-info__buttons CardButtonAll">
                                         <button class="card-info__button buyIn1Click popup-opener" data-popup_open="#popup-offer"
                                             data-name="${myJson.disks[sortedArray[i]].name}" 
-                                            data-price="${myJson.disks[sortedArray[i]].price}" 
+                                            data-price="${price}" 
                                             data-stock="${myJson.disks[sortedArray[i]].stock}"
                                             data-date_up="${myJson.disks[sortedArray[i]].date_up}" 
                                             data-color="${myJson.disks[sortedArray[i]].color}"
@@ -108,7 +124,7 @@ function pagenInit(myJson, sortedArray) {
                                         </button>
                                         <button class="card-info__button addToCart" 
                                             data-name="${myJson.disks[sortedArray[i]].name}" 
-                                            data-price="${myJson.disks[sortedArray[i]].price}" 
+                                            data-price="${price}" 
                                             data-stock="${myJson.disks[sortedArray[i]].stock}"
                                             data-date_up="${myJson.disks[sortedArray[i]].date_up}" 
                                             data-color="${myJson.disks[sortedArray[i]].color}"
@@ -132,8 +148,24 @@ function pagenInit(myJson, sortedArray) {
                         image = "images/no-image.png";
                     };
 
+                    // Наценка
+                    let price = +(myJson.disks[sortedArray[i]].price);
+
+                    if (price * 1.20 > price + 3000) {
+                        // максимум
+                        price += 3000;
+                    } else if (price * 1.20 < price + 500) {
+                        // Минимум
+                        price += 500;
+                    } else {
+                        // средняя
+                        price *= 1.20;
+                    }
+
+                    price = Math.ceil(price);
+
                     PlaceGeneration.innerHTML += /*html*/ `
-                        <div class="catalog__cards-card catalog-card" name="${myJson.disks[sortedArray[i]].name}" price="${myJson.disks[sortedArray[i]].price}" stok="${myJson.disks[sortedArray[i]].stock}" data-brand='${myJson.disks[sortedArray[i]].brand}' data-date_up='${myJson.disks[sortedArray[i]].date_up}' data-w='${myJson.disks[sortedArray[i]].w}' data-r='${myJson.disks[sortedArray[i]].r}' data-b='${myJson.disks[sortedArray[i]].b}' data-color='${myJson.disks[sortedArray[i]].color}' data-type='${myJson.disks[sortedArray[i]].type}' data-supplier='${myJson.disks[sortedArray[i]].supplier}' data-city='${myJson.disks[sortedArray[i]].city}' data-pсd='${myJson.disks[sortedArray[i]].pсd}'>
+                        <div class="catalog__cards-card catalog-card" name="${myJson.disks[sortedArray[i]].name}" price="${price}" stok="${myJson.disks[sortedArray[i]].stock}" data-brand='${myJson.disks[sortedArray[i]].brand}' data-date_up='${myJson.disks[sortedArray[i]].date_up}' data-w='${myJson.disks[sortedArray[i]].w}' data-r='${myJson.disks[sortedArray[i]].r}' data-b='${myJson.disks[sortedArray[i]].b}' data-color='${myJson.disks[sortedArray[i]].color}' data-type='${myJson.disks[sortedArray[i]].type}' data-supplier='${myJson.disks[sortedArray[i]].supplier}' data-city='${myJson.disks[sortedArray[i]].city}' data-pсd='${myJson.disks[sortedArray[i]].pсd}'>
                             <div class="catalog-card__media-title"></div>
                             <div class="catalog-card__body">
                                 <div class="catalog-card__image">
@@ -142,7 +174,7 @@ function pagenInit(myJson, sortedArray) {
                                 <div class="catalog-card__info card-info">
                                     <div class="card-info__title"><a href="#">${myJson.disks[sortedArray[i]].name}</a></div>
                                     <div class="card-info__price">
-                                        <span>${Number(myJson.disks[sortedArray[i]].price)}</span> руб./шт.
+                                        <span>${Number(price)}</span> руб./шт.
                                     </div>
                                     <div class='catalog-card__dop card-dop CardDopInfo'>
                                         <div class="card-dop__item">
@@ -162,7 +194,7 @@ function pagenInit(myJson, sortedArray) {
                                     <div class="card-info__buttons CardButtonAll">
                                         <button class="card-info__button buyIn1Click popup-opener" data-popup_open="#popup-offer"
                                             data-name="${myJson.disks[sortedArray[i]].name}" 
-                                            data-price="${myJson.disks[sortedArray[i]].price}" 
+                                            data-price="${price}" 
                                             data-stock="${myJson.disks[sortedArray[i]].stock}"
                                             data-date_up="${myJson.disks[sortedArray[i]].date_up}" 
                                             data-color="${myJson.disks[sortedArray[i]].color}"
@@ -173,7 +205,7 @@ function pagenInit(myJson, sortedArray) {
                                         </button>
                                         <button class="card-info__button addToCart" 
                                             data-name="${myJson.disks[sortedArray[i]].name}" 
-                                            data-price="${myJson.disks[sortedArray[i]].price}" 
+                                            data-price="${price}" 
                                             data-stock="${myJson.disks[sortedArray[i]].stock}"
                                             data-date_up="${myJson.disks[sortedArray[i]].date_up}" 
                                             data-color="${myJson.disks[sortedArray[i]].color}"
@@ -268,7 +300,7 @@ function pagenInit(myJson, sortedArray) {
         } else if (pagenInput.value > pages) {
             pagenInput.value = pagenInput.max;
         };
-        
+
         activePage = pagenInput.value;
         pagenInput.value = '';
         newCardGenerate(myJson, activePage);
