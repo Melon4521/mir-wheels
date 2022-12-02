@@ -60,7 +60,7 @@ function pagenInit(myJson, sortedArray) {
             let image;
 
             if (sortedArray.length != 0) {
-                if (i == fileLength-1) {
+                if (i == fileLength - 1) {
                     if (myJson.tires[sortedArray[i]].image500x500) {
                         image = myJson.tires[sortedArray[i]].image500x500;
                     } else {
@@ -140,7 +140,7 @@ function pagenInit(myJson, sortedArray) {
                     break;
     
                 } else {
-                    if (myJson.tires[sortedArray[i]].image500x500) {
+                    if (myJson.tires[sortedArray[i]].image500x500.length != 0) {
                         image = myJson.tires[sortedArray[i]].image500x500;
                     } else {
                         image = "images/no-image.png";
@@ -167,7 +167,7 @@ function pagenInit(myJson, sortedArray) {
                             <div class="catalog-card__media-title"></div>
                             <div class="catalog-card__body">
                                 <div class="catalog-card__image">
-                                    <img loading="lazy" src="${image}">
+                                    <img src="${image}">
                                 </div>
                                 <div class="catalog-card__info card-info">
                                     <div class="card-info__title"><a href="#">${myJson.tires[sortedArray[i]].name}</a></div>

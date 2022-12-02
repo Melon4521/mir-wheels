@@ -60,9 +60,9 @@ function pagenInit(myJson, sortedArray) {
             let image;
 
             if (sortedArray.length != 0) {
-                if (i == fileLength - 1) {
-                    if (myJson.disks[sortedArray[i]].imgProd) {
-                        image = myJson.disks[sortedArray[i]].imgProd;
+                if (i == fileLength - 1) { 
+                    if (myJson.disks[sortedArray[i]].image500x500) {
+                        image = myJson.disks[sortedArray[i]].image500x500;
                     } else {
                         image = "images/no-image.png";
                     };
@@ -142,8 +142,8 @@ function pagenInit(myJson, sortedArray) {
                     break;
 
                 } else {
-                    if (myJson.disks[sortedArray[i]].imgProd) {
-                        image = myJson.disks[sortedArray[i]].imgProd;
+                    if (myJson.disks[sortedArray[i]].image500x500.length != 0) {
+                        image = myJson.disks[sortedArray[i]].image500x500;
                     } else {
                         image = "images/no-image.png";
                     };
