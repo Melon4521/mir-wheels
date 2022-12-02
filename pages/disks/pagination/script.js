@@ -68,18 +68,35 @@ function pagenInit(myJson, sortedArray) {
                     };
 
                     // Наценка
-                    let price = +(myJson.disks[sortedArray[i]].price);
+                    // let price = +(myJson.disks[sortedArray[i]].price);
 
-                    if (price * 1.20 > price + 3000) {
+                    // if (price * 1.20 > price + 3000) {
+                    //     // максимум
+                    //     price += 3000;
+                    // } else if (price * 1.20 < price + 500) {
+                    //     // Минимум
+                    //     price += 500;
+                    // } else {
+                    //     // средняя
+                    //     price *= 1.20;
+                    // }
+
+                    // Наценка
+                    let price = +(myJson.disks[sortedArray[i]].price);
+                    let overprice = price * 1.2 - price;
+
+                    if (overprice > 3000) {
                         // максимум
                         price += 3000;
-                    } else if (price * 1.20 < price + 500) {
+                    } else if (overprice < 500) {
                         // Минимум
                         price += 500;
                     } else {
                         // средняя
-                        price *= 1.20;
+                        price += overprice;
                     }
+
+                    price = Math.ceil(price);
 
                     price = Math.ceil(price);
 
@@ -150,16 +167,17 @@ function pagenInit(myJson, sortedArray) {
 
                     // Наценка
                     let price = +(myJson.disks[sortedArray[i]].price);
+                    let overprice = price * 1.2 - price;
 
-                    if (price * 1.20 > price + 3000) {
+                    if (overprice > 3000) {
                         // максимум
                         price += 3000;
-                    } else if (price * 1.20 < price + 500) {
+                    } else if (overprice < 500) {
                         // Минимум
                         price += 500;
                     } else {
                         // средняя
-                        price *= 1.20;
+                        price += overprice;
                     }
 
                     price = Math.ceil(price);

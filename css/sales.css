@@ -105,6 +105,10 @@ body._lock {
   overflow: hidden;
 }
 
+html {
+  font-size: 16px;
+}
+
 .container {
   max-width: 1090px;
   padding: 0 15px;
@@ -247,20 +251,20 @@ body._lock {
 .sub-title {
   line-height: 145%;
   font-weight: 800;
-  font-size: 35px;
+  font-size: calc(35rem / 16);
   color: #333;
 }
 
 .sub-title-orange {
   line-height: 145%;
   font-weight: 700;
-  font-size: 30px;
+  font-size: calc(30rem / 16);
   color: #EE940F;
 }
 
 .simple-text {
   line-height: 145%;
-  font-size: 20px;
+  font-size: calc(20rem / 16);
   color: #333;
 }
 
@@ -268,7 +272,7 @@ body._lock {
   background-color: #f6f6f6;
   border-radius: 13px;
   padding: 15px 10px;
-  font-size: 20px;
+  font-size: calc(20rem / 16);
   font-weight: 400;
   color: #333;
 }
@@ -281,7 +285,7 @@ body._lock {
   border-radius: 12px;
   background-color: #2980B1;
   color: #fff;
-  font-size: 18px;
+  font-size: calc(20rem / 16);
   font-weight: 700;
   -webkit-transition: background-color 0.3s ease-in-out;
   transition: background-color 0.3s ease-in-out;
@@ -384,7 +388,7 @@ body._lock {
 }
 @media (max-width: 375px) {
   .popup__title {
-    font-size: 30px;
+    font-size: 26px;
     margin-bottom: 20px;
   }
 }
@@ -694,13 +698,11 @@ body._lock {
         -ms-flex: 1 1 100%;
             flex: 1 1 100%;
   }
-
   .menu-nav._burger-open {
     right: 0;
     -webkit-transition: right 0.4s ease-in;
     transition: right 0.4s ease-in;
   }
-
   .top-menu__burger {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -764,7 +766,6 @@ body._lock {
             transform: rotate(43deg);
     bottom: 50%;
   }
-
   .top-header {
     position: relative;
     z-index: 4;
@@ -813,7 +814,7 @@ body._lock {
           align-items: center;
 }
 .cart-card__image img {
-  max-height: 200px;
+  max-height: 180px;
   max-width: 120px;
 }
 .cart-card__info {
@@ -855,23 +856,23 @@ body._lock {
 .info-header__title a {
   font-weight: 700;
   color: #000;
-  font-size: 23px;
+  font-size: calc(22rem / 16);
 }
 .info-header__price {
-  font-size: 22px;
+  font-size: calc(20rem / 16);
   color: #EE940F;
   font-weight: 700;
 }
 .info-header__details {
-  font-size: 17px;
-  line-height: 1.2;
+  font-size: calc(16rem / 16);
+  line-height: 1.3;
   color: #000;
   font-weight: 400;
 }
 
 .info-footer__cart-left {
   color: #000;
-  font-size: 20px;
+  font-size: calc(20rem / 16);
   font-weight: 700;
 }
 .info-footer__func-btns {
@@ -886,7 +887,7 @@ body._lock {
   color: #EE940F;
   background-color: transparent;
   font-weight: 400;
-  font-size: 18px;
+  font-size: calc(17rem / 16);
   -webkit-transition: all 0.3s ease-in;
   transition: all 0.3s ease-in;
   margin-right: 10px;
@@ -963,7 +964,6 @@ body._lock {
   .popup__content {
     padding: 20px;
   }
-
   .cart-card__info {
     padding-left: 15px;
   }
@@ -978,15 +978,21 @@ body._lock {
   }
 }
 @media (max-width: 479.98px) {
-  .cart-card__body {
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+  .cart-card__image {
+    padding-right: 10px;
   }
   .cart-card__image img {
-    max-height: 150px;
+    width: 100px;
   }
   .cart-card__info-footer {
     margin-top: 0;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
   }
   .cart-card__info-header {
     margin-top: 10px;
@@ -994,12 +1000,17 @@ body._lock {
   .cart-card__info {
     padding-left: 0px;
   }
-
+  .cart-footer__button {
+    font-size: calc(16rem / 16);
+  }
   .info-header__title a {
-    font-size: 20px;
+    font-size: calc(18rem / 16);
   }
   .info-header__details {
     display: none;
+  }
+  .info-footer__cart-left {
+    font-size: calc(18rem / 16);
   }
 }
 @media (max-width: 375px) {
@@ -1022,9 +1033,25 @@ body._lock {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+    font-size: calc(15rem / 16);
   }
   .cart-footer__button:first-child {
     margin-top: 0px;
+  }
+  .cart-card__info-footer div:not(:last-child) {
+    margin-right: 0px;
+  }
+  .cart-footer__total-price, .cart-footer__total-title {
+    font-size: calc(20rem / 16);
+  }
+  .info-footer__func-btns {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
   }
 }
 /* <Form> ============================================================================== */
@@ -1234,7 +1261,6 @@ body._lock {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
   }
-
   .footer__fst-col {
     width: 100%;
     margin-right: 0px;

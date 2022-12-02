@@ -68,17 +68,32 @@ function pagenInit(myJson, sortedArray) {
                     };
 
                     // Наценка
-                    let price = +(myJson.tires[sortedArray[i]].price);
+                    // let price = +(myJson.tires[sortedArray[i]].price);
 
-                    if (price * 1.15 > price + 2500) {
+                    // if (price * 1.15 > price + 2500) {
+                    //     // максимум
+                    //     price += 2500;
+                    // } else if (price * 1.15 < price + 400) {
+                    //     // Минимум
+                    //     price += 400;
+                    // } else {
+                    //     // средняя
+                    //     price *= 1.15;
+                    // }
+
+                    // Наценка
+                    let price = +(myJson.disks[sortedArray[i]].price);
+                    let overprice = price * 1.15 - price;
+
+                    if (overprice > 2500) {
                         // максимум
                         price += 2500;
-                    } else if (price * 1.15 < price + 400) {
+                    } else if (overprice < 400) {
                         // Минимум
                         price += 400;
                     } else {
                         // средняя
-                        price *= 1.15;
+                        price += overprice;
                     }
 
                     price = Math.ceil(price);
@@ -147,17 +162,18 @@ function pagenInit(myJson, sortedArray) {
                     };
 
                     // Наценка
-                    let price = +(myJson.tires[sortedArray[i]].price);
+                    let price = +(myJson.disks[sortedArray[i]].price);
+                    let overprice = price * 1.15 - price;
 
-                    if (price * 1.15 > price + 2500) {
+                    if (overprice > 2500) {
                         // максимум
                         price += 2500;
-                    } else if (price * 1.15 < price + 400) {
+                    } else if (overprice < 400) {
                         // Минимум
                         price += 400;
                     } else {
                         // средняя
-                        price *= 1.15;
+                        price += overprice;
                     }
 
                     price = Math.ceil(price);
