@@ -8,7 +8,6 @@ function pagenInit(myJson, sortedArray) {
         pagenNext = document.querySelector('#pagenNext');
 
     let fileLength,
-        pages,
         activePage = 1;
 
     // Проверка длины массива
@@ -18,7 +17,7 @@ function pagenInit(myJson, sortedArray) {
         fileLength = 1;
     }
 
-    pages = Math.ceil(fileLength / step),
+    let pages = Math.ceil(fileLength / step);
 
     // Проверка на цифру pagenPage
     changePagenPage(activePage, pages);
@@ -37,7 +36,7 @@ function pagenInit(myJson, sortedArray) {
     pagenPrev.addEventListener('click', pagenPrevCards);
     pagenNext.addEventListener('click', pagenNextCards);
     pagenInput.onkeyup = function () {
-        this.value = this.value.replace(/[^\d]/g,'');
+        this.value = this.value.replace(/[^\d]/g, '');
 
         if (+(this.max) < this.value) {
             this.value = this.max;
@@ -48,7 +47,7 @@ function pagenInit(myJson, sortedArray) {
     cheakPagenPrev();
     cheakPagenNext();
 
-    //<Functions>==============================================================================
+    // <Functions> ==============================================================================
 
     function newCardGenerate(myJson, activePage) {
         let PlaceGeneration = document.getElementById('Right');
@@ -60,29 +59,16 @@ function pagenInit(myJson, sortedArray) {
             let image;
 
             if (sortedArray.length != 0) {
+
                 if (i == fileLength - 1) {
-                    if (myJson.tires[sortedArray[i]].image500x500) {
+                    if (myJson.tires[sortedArray[i]].image500x500.length != 0) {
                         image = myJson.tires[sortedArray[i]].image500x500;
                     } else {
                         image = "images/no-image.png";
                     };
 
                     // Наценка
-                    // let price = +(myJson.tires[sortedArray[i]].price);
-
-                    // if (price * 1.15 > price + 2500) {
-                    //     // максимум
-                    //     price += 2500;
-                    // } else if (price * 1.15 < price + 400) {
-                    //     // Минимум
-                    //     price += 400;
-                    // } else {
-                    //     // средняя
-                    //     price *= 1.15;
-                    // }
-
-                    // Наценка
-                    let price = +(myJson.disks[sortedArray[i]].price);
+                    let price = +(myJson.tires[sortedArray[i]].price);
                     let overprice = price * 1.15 - price;
 
                     if (overprice > 2500) {
@@ -152,9 +138,11 @@ function pagenInit(myJson, sortedArray) {
                             <div class="catalog-card__media-buttons"></div>
                         </div>
                     `;
+
                     break;
     
                 } else {
+
                     if (myJson.tires[sortedArray[i]].image500x500.length != 0) {
                         image = myJson.tires[sortedArray[i]].image500x500;
                     } else {
@@ -162,7 +150,7 @@ function pagenInit(myJson, sortedArray) {
                     };
 
                     // Наценка
-                    let price = +(myJson.disks[sortedArray[i]].price);
+                    let price = +(myJson.tires[sortedArray[i]].price);
                     let overprice = price * 1.15 - price;
 
                     if (overprice > 2500) {
@@ -289,24 +277,6 @@ function pagenInit(myJson, sortedArray) {
     };
 
     function pagenInputFunc() {
-        // if (pagenInput.value < 1 || pagenInput.value > pages) {
-        //     if (!pagenInput.classList.contains('_input-error')) {
-        //             pagenInput.classList.add('_input-error')
-        //     };
-        // } else {
-        //     if (pagenInput.classList.contains('_input-error')) {
-        //         pagenInput.classList.remove('_input-error')
-        //     };
-
-        //     activePage = pagenInput.value;
-        //     pagenInput.value = '';
-        //     newCardGenerate(myJson, activePage);
-        //     changePagenPage(activePage, pages);
-        //     cheakPagenNext();
-        //     cheakPagenPrev();
-        //     scrollToPosition(0);
-        // };
-
         if (pagenInput.value < 1) {
             pagenInput.value = 1;
         } else if (pagenInput.value > pages) {

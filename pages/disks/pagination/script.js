@@ -8,7 +8,6 @@ function pagenInit(myJson, sortedArray) {
         pagenNext = document.querySelector('#pagenNext');
 
     let fileLength,
-        pages,
         activePage = 1;
 
     // Проверка длины массива
@@ -18,10 +17,10 @@ function pagenInit(myJson, sortedArray) {
         fileLength = 1;
     }
 
-    pages = Math.ceil(fileLength / step),
+    let pages = Math.ceil(fileLength / step);
 
-        // Проверка на цифру pagenPage
-        changePagenPage(activePage, pages);
+    // Проверка на цифру pagenPage
+    changePagenPage(activePage, pages);
 
     newCardGenerate(myJson, activePage);
 
@@ -48,7 +47,7 @@ function pagenInit(myJson, sortedArray) {
     cheakPagenPrev();
     cheakPagenNext();
 
-    //<Functions>==============================================================================
+    // <Functions> ==============================================================================
 
     function newCardGenerate(myJson, activePage) {
         let PlaceGeneration = document.getElementById('Right');
@@ -60,26 +59,13 @@ function pagenInit(myJson, sortedArray) {
             let image;
 
             if (sortedArray.length != 0) {
+
                 if (i == fileLength - 1) { 
-                    if (myJson.disks[sortedArray[i]].image500x500) {
+                    if (myJson.disks[sortedArray[i]].image500x500.length != 0) {
                         image = myJson.disks[sortedArray[i]].image500x500;
                     } else {
                         image = "images/no-image.png";
                     };
-
-                    // Наценка
-                    // let price = +(myJson.disks[sortedArray[i]].price);
-
-                    // if (price * 1.20 > price + 3000) {
-                    //     // максимум
-                    //     price += 3000;
-                    // } else if (price * 1.20 < price + 500) {
-                    //     // Минимум
-                    //     price += 500;
-                    // } else {
-                    //     // средняя
-                    //     price *= 1.20;
-                    // }
 
                     // Наценка
                     let price = +(myJson.disks[sortedArray[i]].price);
@@ -245,8 +231,7 @@ function pagenInit(myJson, sortedArray) {
                     <div style="font-size: 1.1em; color: #333;">Ничего не найдено</div>
                 </div>
                 `;
-            }
-
+            };
         };
     };
 
@@ -295,24 +280,6 @@ function pagenInit(myJson, sortedArray) {
     };
 
     function pagenInputFunc() {
-        // if (pagenInput.value < 1 || pagenInput.value > pages) {
-        //     if (!pagenInput.classList.contains('_input-error')) {
-        //             pagenInput.classList.add('_input-error')
-        //     };
-        // } else {
-        //     if (pagenInput.classList.contains('_input-error')) {
-        //         pagenInput.classList.remove('_input-error')
-        //     };
-
-        //     activePage = pagenInput.value;
-        //     pagenInput.value = '';
-        //     newCardGenerate(myJson, activePage);
-        //     changePagenPage(activePage, pages);
-        //     cheakPagenNext();
-        //     cheakPagenPrev();
-        //     scrollToPosition(0);
-        // };
-
         if (pagenInput.value < 1) {
             pagenInput.value = 1;
         } else if (pagenInput.value > pages) {
