@@ -3,7 +3,7 @@ let sortedArray = [];
 // <Получение JSON>==============================================================================
 
 async function fetchAsync() {
-    const response = await fetch('../api/DataBase.json');
+    const response = await fetch('../api/tires-stage.json');
     return await response.json();
 };
 
