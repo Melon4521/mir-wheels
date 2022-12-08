@@ -59,7 +59,7 @@ function pagenInit(myJson, sortedArray) {
             let image;
 
             if (sortedArray.length != 0) {
-
+                // Последний элемент в базе
                 if (i == fileLength - 1) { 
                     if (myJson.disks[sortedArray[i]].image500x500.length != 0) {
                         image = myJson.disks[sortedArray[i]].image500x500;
@@ -68,7 +68,7 @@ function pagenInit(myJson, sortedArray) {
                     };
 
                     // Наценка
-                    let price = +(myJson.disks[sortedArray[i]].price);
+                    let price = +(myJson.disks[sortedArray[i]].opt);
                     let overprice = price * 1.2 - price;
 
                     if (overprice > 3000) {
@@ -121,7 +121,7 @@ function pagenInit(myJson, sortedArray) {
                                             data-date_up="${myJson.disks[sortedArray[i]].date_up}" 
                                             data-color="${myJson.disks[sortedArray[i]].color}"
                                             data-type="${myJson.disks[sortedArray[i]].type}"
-                                            data-image="${myJson.disks[sortedArray[i]].imgProd}"
+                                            data-image="${image}"
                                             data-card_id="${myJson.disks[sortedArray[i]].code}">
                                             Купить в 1 клик
                                         </button>
@@ -132,7 +132,7 @@ function pagenInit(myJson, sortedArray) {
                                             data-date_up="${myJson.disks[sortedArray[i]].date_up}" 
                                             data-color="${myJson.disks[sortedArray[i]].color}"
                                             data-type="${myJson.disks[sortedArray[i]].type}"
-                                            data-image="${myJson.disks[sortedArray[i]].imgProd}"
+                                            data-image="${image}"
                                             data-card_id="${myJson.disks[sortedArray[i]].code}">
                                             В корзину
                                         </button>
@@ -144,7 +144,7 @@ function pagenInit(myJson, sortedArray) {
                     `;
                     break;
 
-                } else {
+                } else { 
                     if (myJson.disks[sortedArray[i]].image500x500.length != 0) {
                         image = myJson.disks[sortedArray[i]].image500x500;
                     } else {
@@ -152,7 +152,7 @@ function pagenInit(myJson, sortedArray) {
                     };
 
                     // Наценка
-                    let price = +(myJson.disks[sortedArray[i]].price);
+                    let price = +(myJson.disks[sortedArray[i]].opt);
                     let overprice = price * 1.2 - price;
 
                     if (overprice > 3000) {
@@ -203,7 +203,7 @@ function pagenInit(myJson, sortedArray) {
                                             data-date_up="${myJson.disks[sortedArray[i]].date_up}" 
                                             data-color="${myJson.disks[sortedArray[i]].color}"
                                             data-type="${myJson.disks[sortedArray[i]].type}"
-                                            data-image="${myJson.disks[sortedArray[i]].imgProd}"
+                                            data-image="${image}"
                                             data-card_id="${myJson.disks[sortedArray[i]].code}">
                                             Купить в 1 клик
                                         </button>
@@ -214,7 +214,7 @@ function pagenInit(myJson, sortedArray) {
                                             data-date_up="${myJson.disks[sortedArray[i]].date_up}" 
                                             data-color="${myJson.disks[sortedArray[i]].color}"
                                             data-type="${myJson.disks[sortedArray[i]].type}"
-                                            data-image="${myJson.disks[sortedArray[i]].imgProd}"
+                                            data-image="${image}"
                                             data-card_id="${myJson.disks[sortedArray[i]].code}">
                                             В корзину
                                         </button>

@@ -814,8 +814,8 @@ html {
           align-items: center;
 }
 .cart-card__image img {
-  max-height: 180px;
-  max-width: 120px;
+  width: 130px;
+  max-height: 220px;
 }
 .cart-card__info {
   padding-left: 25px;
@@ -982,7 +982,8 @@ html {
     padding-right: 10px;
   }
   .cart-card__image img {
-    width: 100px;
+    width: 110px;
+    max-height: 180px;
   }
   .cart-card__info-footer {
     margin-top: 0;
@@ -1008,6 +1009,9 @@ html {
   }
   .info-header__details {
     display: none;
+  }
+  .info-header ._details-stock {
+    display: block;
   }
   .info-footer__cart-left {
     font-size: calc(18rem / 16);

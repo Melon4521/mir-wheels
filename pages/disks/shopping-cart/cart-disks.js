@@ -77,7 +77,7 @@ function generateCartCard(cardAtrs) {
         image = "images/no-image.png";
     };
 
-    if (cardAtrs.cardId[0] === 'd') {
+    if (cardAtrs.cardId[0] === 'd') { // Создание карточек товаров для дисков 
         PlaceGeneration.innerHTML += /*html*/ `
         <div class="cart-cards__item cart-card" data-id="${cardAtrs.cardId}">
             <div class="cart-card__body">
@@ -93,7 +93,7 @@ function generateCartCard(cardAtrs) {
                         <div class="info-header__details"><span>Цвет: </span>${cardAtrs.color}</div>
                         <div class="info-header__details"><span>Тип: </span>${cardAtrs.type}</div>
                         <div class="info-header__details"><span>Дата производства: </span>${cardAtrs.dateUp}</div>
-                        <div class="info-header__details"><span>В наличии: </span>${cardAtrs.stock}</div>
+                        <div class="info-header__details _details-stock"><span>В наличии: </span>${cardAtrs.stock}</div>
                     </div>
                     <div class="cart-card__info-footer info-footer">
                         <div class="info-footer__cart-left"><span>В корзине: </span>${cardAtrs.total}</div>
@@ -106,7 +106,7 @@ function generateCartCard(cardAtrs) {
             </div>
         </div>
         `;
-    } else {
+    } else { // Создание карточек товаров для шин 
         PlaceGeneration.innerHTML += /*html*/ `
         <div class="cart-cards__item cart-card" data-id="${cardAtrs.cardId}">
             <div class="cart-card__body">
@@ -121,7 +121,7 @@ function generateCartCard(cardAtrs) {
                         <div class="info-header__price">${cardAtrs.price}руб/шт.</div>
                         <div class="info-header__details"><span>Сезон: </span>${cardAtrs.season}</div>
                         <div class="info-header__details"><span>Дата производства: </span>${cardAtrs.dateUp}</div>
-                        <div class="info-header__details"><span>В наличии: </span>${cardAtrs.stock}</div>
+                        <div class="info-header__details _details-stock"><span>В наличии: </span>${cardAtrs.stock}</div>
                     </div>
                     <div class="cart-card__info-footer info-footer">
                         <div class="info-footer__cart-left"><span>В корзине: </span>${cardAtrs.total}</div>
@@ -135,32 +135,6 @@ function generateCartCard(cardAtrs) {
         </div>
         `;
     }
-    // <div class="cart-cards__item cart-card" data-id="${cardAtrs.cardId}">
-    //     <div class="cart-card__body">
-    //         <div class="cart-card__image">
-    //             <img loading="lazy" src="${image}" alt="Изображение">
-    //         </div>
-    //         <div class="cart-card__info">
-    //             <div class="cart-card__info-header info-header">
-    //                 <div class="info-header__title">
-    //                     <a href="#">${cardAtrs.cardName}</a>
-    //                 </div>
-    //                 <div class="info-header__price">${cardAtrs.price}руб/шт.</div>
-    //                 <div class="info-header__details"><span>Цвет: </span>${cardAtrs.color}</div>
-    //                 <div class="info-header__details"><span>Тип: </span>${cardAtrs.type}</div>
-    //                 <div class="info-header__details"><span>Дата производства: </span>${cardAtrs.dateUp}</div>
-    //                 <div class="info-header__details"><span>В наличии: </span>${cardAtrs.stock}</div>
-    //             </div>
-    //             <div class="cart-card__info-footer info-footer">
-    //                 <div class="info-footer__cart-left"><span>В корзине: </span>${cardAtrs.total}</div>
-    //                 <div class="info-footer__func-btns">
-    //                     <button class="info-footer__func-btn addCartItem" data-id="${cardAtrs.cardId}">Добавить</button>
-    //                     <button class="info-footer__func-btn delCartItem" data-id="${cardAtrs.cardId}">Убрать</button>
-    //                 </div>
-    //             </div>
-    //         </div>
-    //     </div>
-    // </div>`;
 };
 
 function setCartData(cartData, name) {

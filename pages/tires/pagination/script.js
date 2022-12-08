@@ -68,7 +68,7 @@ function pagenInit(myJson, sortedArray) {
                     };
 
                     // Наценка
-                    let price = +(myJson.tires[sortedArray[i]].price);
+                    let price = +(myJson.tires[sortedArray[i]].opt);
                     let overprice = price * 1.15 - price;
 
                     if (overprice > 2500) {
@@ -118,7 +118,7 @@ function pagenInit(myJson, sortedArray) {
                                             data-stock="${myJson.tires[sortedArray[i]].stock}"
                                             data-date_up="${myJson.tires[sortedArray[i]].date_up}" 
                                             data-season="${myJson.tires[sortedArray[i]].season}"
-                                            data-image="${myJson.tires[sortedArray[i]].image500x500}"
+                                            data-image="${image}"
                                             data-card_id="${myJson.tires[sortedArray[i]].code}">
                                             Купить в 1 клик
                                         </button>
@@ -128,7 +128,7 @@ function pagenInit(myJson, sortedArray) {
                                             data-stock="${myJson.tires[sortedArray[i]].stock}"
                                             data-date_up="${myJson.tires[sortedArray[i]].date_up}" 
                                             data-season="${myJson.tires[sortedArray[i]].season}"
-                                            data-image="${myJson.tires[sortedArray[i]].image500x500}"
+                                            data-image="${image}"
                                             data-card_id="${myJson.tires[sortedArray[i]].code}">
                                             В корзину
                                         </button>
@@ -150,7 +150,7 @@ function pagenInit(myJson, sortedArray) {
                     };
 
                     // Наценка
-                    let price = +(myJson.tires[sortedArray[i]].price);
+                    let price = +(myJson.tires[sortedArray[i]].opt);
                     let overprice = price * 1.15 - price;
 
                     if (overprice > 2500) {
@@ -200,7 +200,7 @@ function pagenInit(myJson, sortedArray) {
                                             data-stock="${myJson.tires[sortedArray[i]].stock}"
                                             data-date_up="${myJson.tires[sortedArray[i]].date_up}" 
                                             data-season="${myJson.tires[sortedArray[i]].season}"
-                                            data-image="${myJson.tires[sortedArray[i]].image500x500}"
+                                            data-image="${image}"
                                             data-card_id="${myJson.tires[sortedArray[i]].code}">
                                             Купить в 1 клик
                                         </button>
@@ -210,7 +210,7 @@ function pagenInit(myJson, sortedArray) {
                                             data-stock="${myJson.tires[sortedArray[i]].stock}"
                                             data-date_up="${myJson.tires[sortedArray[i]].date_up}" 
                                             data-season="${myJson.tires[sortedArray[i]].season}"
-                                            data-image="${myJson.tires[sortedArray[i]].image500x500}"
+                                            data-image="${image}"
                                             data-card_id="${myJson.tires[sortedArray[i]].code}">
                                             В корзину
                                         </button>
