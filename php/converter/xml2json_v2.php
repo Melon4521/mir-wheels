@@ -35,7 +35,7 @@ $disksDataString = '{'.'"disks": '.json_encode($disksOffer, JSON_UNESCAPED_UNICO
 $tiresDataString = str_replace('\/', '/', $tiresDataString);
 $disksDataString = str_replace('\/', '/', $disksDataString);
 
-$newTiresJson = fopen('../../api/tires-stage.json.json', 'w');
+$newTiresJson = fopen('../../api/tires-stage.json', 'w');
 $newDisksJson = fopen('../../api/disks-stage.json', 'w');
 
 fwrite($newTiresJson, $tiresDataString);
