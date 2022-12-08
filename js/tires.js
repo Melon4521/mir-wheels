@@ -141,10 +141,11 @@ function selectGenerate(myJson) {
         let arr = [];
 
         for (let y = 0; y < myJson.tires.length; y++) { // Генерация из json файла по имени
-            if (String(myJson.tires[y][name]).replace(/(^[^])|[ ]+/g, '$1') == 'undefined') {
+            // replace(/(^[^])|[ ]+/g, '$1')
+            if (String(myJson.tires[y][name]).trim() == 'undefined') {
                 console.log('error:', 'str:', y , ', type:', name);
             } else {
-                arr.push(String(myJson.tires[y][name]).replace(/(^[^])|[ ]+/g, '$1'));
+                arr.push(String(myJson.tires[y][name]).trim());
             }
 
         };
