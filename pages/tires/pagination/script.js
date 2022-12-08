@@ -59,30 +59,29 @@ function pagenInit(myJson, sortedArray) {
             let image;
 
             if (sortedArray.length != 0) {
-
-                if (i == fileLength - 1) {
+                if (i == fileLength - 1) { // Последний элемент в базе 
                     if (myJson.tires[sortedArray[i]].image500x500.length != 0) {
                         image = myJson.tires[sortedArray[i]].image500x500;
                     } else {
                         image = "images/no-image.png";
                     };
 
+                    let price = +(myJson.tires[sortedArray[i]].price);
+                    // let overprice = price * 1.15 - price;
+
                     // Наценка
-                    let price = +(myJson.tires[sortedArray[i]].opt);
-                    let overprice = price * 1.15 - price;
+                    // if (overprice > 2500) {
+                    //     // максимум
+                    //     price += 2500;
+                    // } else if (overprice < 400) {
+                    //     // Минимум
+                    //     price += 400;
+                    // } else {
+                    //     // средняя
+                    //     price += overprice;
+                    // }
 
-                    if (overprice > 2500) {
-                        // максимум
-                        price += 2500;
-                    } else if (overprice < 400) {
-                        // Минимум
-                        price += 400;
-                    } else {
-                        // средняя
-                        price += overprice;
-                    }
-
-                    price = Math.ceil(price);
+                    // price = Math.ceil(price);
         
                     PlaceGeneration.innerHTML += /*html*/ `
                         <div class="catalog__cards-card catalog-card" name="${myJson.tires[sortedArray[i]].name}" price="${price}" stok="${myJson.tires[sortedArray[i]].stock}" data-brand='${myJson.tires[sortedArray[i]].brand}' data-ship='${myJson.tires[sortedArray[i]].ship}' data-date_up='${myJson.tires[sortedArray[i]].date_up}' data-season='${myJson.tires[sortedArray[i]].season}' data-w='${myJson.tires[sortedArray[i]].w}' data-h='${myJson.tires[sortedArray[i]].h}' data-r='${myJson.tires[sortedArray[i]].r}'>
@@ -142,29 +141,28 @@ function pagenInit(myJson, sortedArray) {
                     break;
     
                 } else {
-
                     if (myJson.tires[sortedArray[i]].image500x500.length != 0) {
                         image = myJson.tires[sortedArray[i]].image500x500;
                     } else {
                         image = "images/no-image.png";
                     };
 
+                    let price = +(myJson.tires[sortedArray[i]].price);
+                    // let overprice = price * 1.15 - price;
+
                     // Наценка
-                    let price = +(myJson.tires[sortedArray[i]].opt);
-                    let overprice = price * 1.15 - price;
+                    // if (overprice > 2500) {
+                    //     // максимум
+                    //     price += 2500;
+                    // } else if (overprice < 400) {
+                    //     // Минимум
+                    //     price += 400;
+                    // } else {
+                    //     // средняя
+                    //     price += overprice;
+                    // }
 
-                    if (overprice > 2500) {
-                        // максимум
-                        price += 2500;
-                    } else if (overprice < 400) {
-                        // Минимум
-                        price += 400;
-                    } else {
-                        // средняя
-                        price += overprice;
-                    }
-
-                    price = Math.ceil(price);
+                    // price = Math.ceil(price);
         
                     PlaceGeneration.innerHTML += /*html*/ `
                         <div class="catalog__cards-card catalog-card" name="${myJson.tires[sortedArray[i]].name}" price="${price}" stok="${myJson.tires[sortedArray[i]].stock}" data-brand='${myJson.tires[sortedArray[i]].brand}' data-ship='${myJson.tires[sortedArray[i]].ship}' data-date_up='${myJson.tires[sortedArray[i]].date_up}' data-season='${myJson.tires[sortedArray[i]].season}' data-w='${myJson.tires[sortedArray[i]].w}' data-h='${myJson.tires[sortedArray[i]].h}' data-r='${myJson.tires[sortedArray[i]].r}'>

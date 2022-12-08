@@ -59,32 +59,29 @@ function pagenInit(myJson, sortedArray) {
             let image;
 
             if (sortedArray.length != 0) {
-                // Последний элемент в базе
-                if (i == fileLength - 1) { 
+                if (i == fileLength - 1) { // Последний элемент в базе 
                     if (myJson.disks[sortedArray[i]].image500x500.length != 0) {
                         image = myJson.disks[sortedArray[i]].image500x500;
                     } else {
                         image = "images/no-image.png";
                     };
 
+                    let price = +(myJson.disks[sortedArray[i]].price);
+                    // let overprice = price * 1.2 - price;
+
                     // Наценка
-                    let price = +(myJson.disks[sortedArray[i]].opt);
-                    let overprice = price * 1.2 - price;
+                    // if (overprice > 3000) {
+                    //     // максимум
+                    //     price += 3000;
+                    // } else if (overprice < 500) {
+                    //     // Минимум
+                    //     price += 500;
+                    // } else {
+                    //     // средняя
+                    //     price += overprice;
+                    // }
 
-                    if (overprice > 3000) {
-                        // максимум
-                        price += 3000;
-                    } else if (overprice < 500) {
-                        // Минимум
-                        price += 500;
-                    } else {
-                        // средняя
-                        price += overprice;
-                    }
-
-                    price = Math.ceil(price);
-
-                    price = Math.ceil(price);
+                    // price = Math.ceil(price);
 
                     PlaceGeneration.innerHTML += /*html*/ `
                         <div class="catalog__cards-card catalog-card" name="${myJson.disks[sortedArray[i]].name}" price="${price}" stok="${myJson.disks[sortedArray[i]].stock}" data-brand='${myJson.disks[sortedArray[i]].brand}' data-date_up='${myJson.disks[sortedArray[i]].date_up}' data-w='${myJson.disks[sortedArray[i]].w}' data-r='${myJson.disks[sortedArray[i]].r}' data-b='${myJson.disks[sortedArray[i]].b}' data-color='${myJson.disks[sortedArray[i]].color}' data-type='${myJson.disks[sortedArray[i]].type}' data-supplier='${myJson.disks[sortedArray[i]].supplier}' data-city='${myJson.disks[sortedArray[i]].city}' data-pсd='${myJson.disks[sortedArray[i]].pсd}'>
@@ -151,22 +148,22 @@ function pagenInit(myJson, sortedArray) {
                         image = "images/no-image.png";
                     };
 
+                    let price = +(myJson.disks[sortedArray[i]].price);
+                    // let overprice = price * 1.2 - price;
+
                     // Наценка
-                    let price = +(myJson.disks[sortedArray[i]].opt);
-                    let overprice = price * 1.2 - price;
+                    // if (overprice > 3000) {
+                    //     // максимум
+                    //     price += 3000;
+                    // } else if (overprice < 500) {
+                    //     // Минимум
+                    //     price += 500;
+                    // } else {
+                    //     // средняя
+                    //     price += overprice;
+                    // }
 
-                    if (overprice > 3000) {
-                        // максимум
-                        price += 3000;
-                    } else if (overprice < 500) {
-                        // Минимум
-                        price += 500;
-                    } else {
-                        // средняя
-                        price += overprice;
-                    }
-
-                    price = Math.ceil(price);
+                    // price = Math.ceil(price);
 
                     PlaceGeneration.innerHTML += /*html*/ `
                         <div class="catalog__cards-card catalog-card" name="${myJson.disks[sortedArray[i]].name}" price="${price}" stok="${myJson.disks[sortedArray[i]].stock}" data-brand='${myJson.disks[sortedArray[i]].brand}' data-date_up='${myJson.disks[sortedArray[i]].date_up}' data-w='${myJson.disks[sortedArray[i]].w}' data-r='${myJson.disks[sortedArray[i]].r}' data-b='${myJson.disks[sortedArray[i]].b}' data-color='${myJson.disks[sortedArray[i]].color}' data-type='${myJson.disks[sortedArray[i]].type}' data-supplier='${myJson.disks[sortedArray[i]].supplier}' data-city='${myJson.disks[sortedArray[i]].city}' data-pсd='${myJson.disks[sortedArray[i]].pсd}'>
