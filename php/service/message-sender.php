@@ -25,7 +25,7 @@ if (isset($_POST['comment'])) {
 }
 
 /* Сюда впишите свою эл. почту */
-$myaddress = "kuznetsov.neon-x@yandex.ru,vlad123kyz@gmail.com";
+$myaddress = "mirkoles61@yandex.ru, belozerov.o.s@yandex.ru";
 /* Сюда впишите эл. почту магазина */
 $shopEmail = 'shop@mir-wheels.ru';
 

@@ -1,17 +1,3 @@
-//<Pre-loader>==============================================================================
-
-// document.body.onload = function () {
-//     setTimeout(() => {
-//         let pageLoading = document.querySelector('.page-loading');
-//         if (!pageLoading.classList.contains('_loaded')) {
-//             pageLoading.classList.add('_loaded');
-//             document.body.classList.remove('_lock');
-//         };
-//     }, 1000)
-// };
-
-//</Pre-loader>==============================================================================
-
 //<Document Actions>==============================================================================
 
 document.addEventListener('click', function (e) {

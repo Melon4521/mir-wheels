@@ -68,12 +68,6 @@ document.addEventListener('click', function (e) {
 
 // </Document Actions>==============================================================================
 
-// Меняем maxPrice по ползунку
-// document.getElementById("MenuPriceRange").addEventListener("input", function () {
-//     let inputRangeValue = document.getElementById('MaxPriceCard')
-//     inputRangeValue.innerHTML = `${this.value}`;
-// });
-
 // Функция с JSON
 fetchAsync().then(function (myJson) {
 
