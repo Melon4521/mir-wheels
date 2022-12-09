@@ -24,17 +24,23 @@ function pagenInit(myJson, sortedArray) {
 
     newCardGenerate(myJson, activePage);
 
-    pagenParent.addEventListener('click', (e) => {
-        let targetElement = e.target;
+    // Вешаем события на кнопки пагинации
+    pagenParent.onclick = function (e) {
+        targetElement = e.target;
 
         if (targetElement.classList.contains('pagen-buttons__input-btn')) {
             pagenInputFunc();
-        }
-    });
+        };
 
-    // Вешаем события на кнопки
-    pagenPrev.addEventListener('click', pagenPrevCards);
-    pagenNext.addEventListener('click', pagenNextCards);
+        if (targetElement.classList.contains('catalog-pagen__prev') || targetElement.parentNode.classList.contains('catalog-pagen__prev')) {
+            pagenPrevCards();
+        };
+
+        if (targetElement.classList.contains('catalog-pagen__next') || targetElement.parentNode.classList.contains('catalog-pagen__next')) {
+            pagenNextCards();
+        };
+    };
+
     pagenInput.onkeyup = function () {
         this.value = this.value.replace(/[^\d]/g, '');
 
@@ -42,6 +48,18 @@ function pagenInit(myJson, sortedArray) {
             this.value = this.max;
         };
     };
+
+    /* Old version (Do not delete this)
+     pagenParent.onclick = function (e) {
+         if (e.target.classList.contains('pagen-buttons__input-btn')) {
+             pagenInputFunc();
+         }
+     }
+     
+     Вешаем события на кнопки
+     pagenPrev.addEventListener('click', pagenPrevCards);
+     pagenNext.addEventListener('click', pagenNextCards);
+    */
 
     // Проверка на активность кнопки пагинации
     cheakPagenPrev();
@@ -59,7 +77,9 @@ function pagenInit(myJson, sortedArray) {
             let image;
 
             if (sortedArray.length != 0) {
+            
                 if (i == fileLength - 1) { // Последний элемент в базе 
+
                     if (myJson.disks[sortedArray[i]].image500x500.length != 0) {
                         image = myJson.disks[sortedArray[i]].image500x500;
                     } else {
@@ -67,21 +87,6 @@ function pagenInit(myJson, sortedArray) {
                     };
 
                     let price = +(myJson.disks[sortedArray[i]].price);
-                    // let overprice = price * 1.2 - price;
-
-                    // Наценка
-                    // if (overprice > 3000) {
-                    //     // максимум
-                    //     price += 3000;
-                    // } else if (overprice < 500) {
-                    //     // Минимум
-                    //     price += 500;
-                    // } else {
-                    //     // средняя
-                    //     price += overprice;
-                    // }
-
-                    // price = Math.ceil(price);
 
                     PlaceGeneration.innerHTML += /*html*/ `
                         <div class="catalog__cards-card catalog-card" name="${myJson.disks[sortedArray[i]].name}" price="${price}" stok="${myJson.disks[sortedArray[i]].stock}" data-brand='${myJson.disks[sortedArray[i]].brand}' data-date_up='${myJson.disks[sortedArray[i]].date_up}' data-w='${myJson.disks[sortedArray[i]].w}' data-r='${myJson.disks[sortedArray[i]].r}' data-b='${myJson.disks[sortedArray[i]].b}' data-color='${myJson.disks[sortedArray[i]].color}' data-type='${myJson.disks[sortedArray[i]].type}' data-supplier='${myJson.disks[sortedArray[i]].supplier}' data-city='${myJson.disks[sortedArray[i]].city}' data-pсd='${myJson.disks[sortedArray[i]].pсd}'>
@@ -139,9 +144,11 @@ function pagenInit(myJson, sortedArray) {
                             <div class="catalog-card__media-buttons"></div>
                         </div>
                     `;
+
                     break;
 
                 } else { 
+
                     if (myJson.disks[sortedArray[i]].image500x500.length != 0) {
                         image = myJson.disks[sortedArray[i]].image500x500;
                     } else {
@@ -149,22 +156,7 @@ function pagenInit(myJson, sortedArray) {
                     };
 
                     let price = +(myJson.disks[sortedArray[i]].price);
-                    // let overprice = price * 1.2 - price;
-
-                    // Наценка
-                    // if (overprice > 3000) {
-                    //     // максимум
-                    //     price += 3000;
-                    // } else if (overprice < 500) {
-                    //     // Минимум
-                    //     price += 500;
-                    // } else {
-                    //     // средняя
-                    //     price += overprice;
-                    // }
-
-                    // price = Math.ceil(price);
-
+                    
                     PlaceGeneration.innerHTML += /*html*/ `
                         <div class="catalog__cards-card catalog-card" name="${myJson.disks[sortedArray[i]].name}" price="${price}" stok="${myJson.disks[sortedArray[i]].stock}" data-brand='${myJson.disks[sortedArray[i]].brand}' data-date_up='${myJson.disks[sortedArray[i]].date_up}' data-w='${myJson.disks[sortedArray[i]].w}' data-r='${myJson.disks[sortedArray[i]].r}' data-b='${myJson.disks[sortedArray[i]].b}' data-color='${myJson.disks[sortedArray[i]].color}' data-type='${myJson.disks[sortedArray[i]].type}' data-supplier='${myJson.disks[sortedArray[i]].supplier}' data-city='${myJson.disks[sortedArray[i]].city}' data-pсd='${myJson.disks[sortedArray[i]].pсd}'>
                             <div class="catalog-card__media-title"></div>
@@ -221,7 +213,7 @@ function pagenInit(myJson, sortedArray) {
                             <div class="catalog-card__media-buttons"></div>
                         </div>
                     `;
-                };
+                }
             } else {
                 PlaceGeneration.innerHTML = /*html*/ `
                 <div style="width: 100%; height: 100px; display: flex; align-items: center; justify-content: center;">

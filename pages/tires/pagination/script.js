@@ -22,19 +22,26 @@ function pagenInit(myJson, sortedArray) {
     // Проверка на цифру pagenPage
     changePagenPage(activePage, pages);
 
-    newCardGenerate(myJson, activePage);
+    // Заполнение страницы карточками
+    newCardGenerate(myJson, activePage)
 
-    pagenParent.addEventListener('click', (e) => {
-        let targetElement = e.target;
+    // Вешаем события на кнопки пагинации
+    pagenParent.onclick = function (e) {
+        targetElement = e.target;
 
         if (targetElement.classList.contains('pagen-buttons__input-btn')) {
             pagenInputFunc();
-        }
-    });
+        };
 
-    // Вешаем события на кнопки
-    pagenPrev.addEventListener('click', pagenPrevCards);
-    pagenNext.addEventListener('click', pagenNextCards);
+        if (targetElement.classList.contains('catalog-pagen__prev') || targetElement.parentNode.classList.contains('catalog-pagen__prev')) {
+            pagenPrevCards();
+        };
+
+        if (targetElement.classList.contains('catalog-pagen__next') || targetElement.parentNode.classList.contains('catalog-pagen__next')) {
+            pagenNextCards();
+        };
+    };
+
     pagenInput.onkeyup = function () {
         this.value = this.value.replace(/[^\d]/g, '');
 
@@ -60,28 +67,13 @@ function pagenInit(myJson, sortedArray) {
 
             if (sortedArray.length != 0) {
                 if (i == fileLength - 1) { // Последний элемент в базе 
-                    if (myJson.tires[sortedArray[i]].image500x500.length != 0) {
+                    if (myJson.tires[sortedArray[i]].image500x500) {
                         image = myJson.tires[sortedArray[i]].image500x500;
                     } else {
                         image = "images/no-image.png";
                     };
 
                     let price = +(myJson.tires[sortedArray[i]].price);
-                    // let overprice = price * 1.15 - price;
-
-                    // Наценка
-                    // if (overprice > 2500) {
-                    //     // максимум
-                    //     price += 2500;
-                    // } else if (overprice < 400) {
-                    //     // Минимум
-                    //     price += 400;
-                    // } else {
-                    //     // средняя
-                    //     price += overprice;
-                    // }
-
-                    // price = Math.ceil(price);
         
                     PlaceGeneration.innerHTML += /*html*/ `
                         <div class="catalog__cards-card catalog-card" name="${myJson.tires[sortedArray[i]].name}" price="${price}" stok="${myJson.tires[sortedArray[i]].stock}" data-brand='${myJson.tires[sortedArray[i]].brand}' data-ship='${myJson.tires[sortedArray[i]].ship}' data-date_up='${myJson.tires[sortedArray[i]].date_up}' data-season='${myJson.tires[sortedArray[i]].season}' data-w='${myJson.tires[sortedArray[i]].w}' data-h='${myJson.tires[sortedArray[i]].h}' data-r='${myJson.tires[sortedArray[i]].r}'>
@@ -141,28 +133,13 @@ function pagenInit(myJson, sortedArray) {
                     break;
     
                 } else {
-                    if (myJson.tires[sortedArray[i]].image500x500.length != 0) {
+                    if (myJson.tires[sortedArray[i]].image500x500) {
                         image = myJson.tires[sortedArray[i]].image500x500;
                     } else {
                         image = "images/no-image.png";
                     };
 
                     let price = +(myJson.tires[sortedArray[i]].price);
-                    // let overprice = price * 1.15 - price;
-
-                    // Наценка
-                    // if (overprice > 2500) {
-                    //     // максимум
-                    //     price += 2500;
-                    // } else if (overprice < 400) {
-                    //     // Минимум
-                    //     price += 400;
-                    // } else {
-                    //     // средняя
-                    //     price += overprice;
-                    // }
-
-                    // price = Math.ceil(price);
         
                     PlaceGeneration.innerHTML += /*html*/ `
                         <div class="catalog__cards-card catalog-card" name="${myJson.tires[sortedArray[i]].name}" price="${price}" stok="${myJson.tires[sortedArray[i]].stock}" data-brand='${myJson.tires[sortedArray[i]].brand}' data-ship='${myJson.tires[sortedArray[i]].ship}' data-date_up='${myJson.tires[sortedArray[i]].date_up}' data-season='${myJson.tires[sortedArray[i]].season}' data-w='${myJson.tires[sortedArray[i]].w}' data-h='${myJson.tires[sortedArray[i]].h}' data-r='${myJson.tires[sortedArray[i]].r}'>
@@ -226,7 +203,6 @@ function pagenInit(myJson, sortedArray) {
                 </div>
                 `;
             }
-            
         };
     };
 
@@ -275,19 +251,21 @@ function pagenInit(myJson, sortedArray) {
     };
 
     function pagenInputFunc() {
-        if (pagenInput.value < 1) {
-            pagenInput.value = 1;
-        } else if (pagenInput.value > pages) {
-            pagenInput.value = pagenInput.max;
-        };
-        
-        activePage = pagenInput.value;
-        pagenInput.value = '';
-        newCardGenerate(myJson, activePage);
-        changePagenPage(activePage, pages);
-        cheakPagenNext();
-        cheakPagenPrev();
-        scrollToPosition(0);
+        if (pagenInput.value) {
+            if (pagenInput.value < 1) {
+                pagenInput.value = 1;
+            } else if (pagenInput.value > pages) {
+                pagenInput.value = pagenInput.max;
+            };
+            
+            activePage = pagenInput.value;
+            pagenInput.value = '';
+            newCardGenerate(myJson, activePage);
+            changePagenPage(activePage, pages);
+            cheakPagenNext();
+            cheakPagenPrev();
+            scrollToPosition(0);
+        }
     };
 
     function changePagenPage(activePage, pages) {
@@ -295,7 +273,7 @@ function pagenInit(myJson, sortedArray) {
         let newArray = [];
 
         for (let i = 0; i < activePage.length; i++) {
-            const elem = activePage[i];
+            let elem = activePage[i];
             newArray.push(elem);
         };
 
@@ -313,7 +291,7 @@ function pagenInit(myJson, sortedArray) {
             newStr += elem;
         });
 
-        if (newStr == '') {
+        if (!newStr) {
             newStr = activePage;
         };
 
