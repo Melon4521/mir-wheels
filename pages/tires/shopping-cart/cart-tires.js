@@ -84,9 +84,7 @@ function generateCartCard(cardAtrs) {
                 </div>
                 <div class="cart-card__info">
                     <div class="cart-card__info-header info-header">
-                        <div class="info-header__title">
-                            <a href="#">${cardAtrs.cardName}</a>
-                        </div>
+                        <div class="info-header__title">${cardAtrs.cardName}</div>
                         <div class="info-header__price">${cardAtrs.price}руб/шт.</div>
                         <div class="info-header__details"><span>Цвет: </span>${cardAtrs.color}</div>
                         <div class="info-header__details"><span>Тип: </span>${cardAtrs.type}</div>
@@ -113,9 +111,7 @@ function generateCartCard(cardAtrs) {
                 </div>
                 <div class="cart-card__info">
                     <div class="cart-card__info-header info-header">
-                        <div class="info-header__title">
-                            <a href="#">${cardAtrs.cardName}</a>
-                        </div>
+                        <div class="info-header__title">${cardAtrs.cardName}</div>
                         <div class="info-header__price">${cardAtrs.price}руб/шт.</div>
                         <div class="info-header__details"><span>Сезон: </span>${cardAtrs.season}</div>
                         <div class="info-header__details"><span>Дата производства: </span>${cardAtrs.dateUp}</div>

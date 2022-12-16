@@ -853,7 +853,7 @@ html {
   margin-right: 10px;
 }
 
-.info-header__title a {
+.info-header__title {
   font-weight: 700;
   color: #000;
   font-size: calc(22rem / 16);
@@ -1004,7 +1004,7 @@ html {
   .cart-footer__button {
     font-size: calc(16rem / 16);
   }
-  .info-header__title a {
+  .info-header__title {
     font-size: calc(18rem / 16);
   }
   .info-header__details {

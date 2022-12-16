@@ -83,7 +83,7 @@ function pagenInit(myJson, sortedArray) {
                                     <img src="${image}">
                                 </div>
                                 <div class="catalog-card__info card-info">
-                                    <div class="card-info__title"><a href="#">${myJson.tires[sortedArray[i]].name}</a></div>
+                                    <div class="card-info__title">${myJson.tires[sortedArray[i]].name}</div>
                                     <div class="card-info__price">
                                         <span>${Number(price)}</span> руб./шт.
                                     </div>
@@ -149,7 +149,7 @@ function pagenInit(myJson, sortedArray) {
                                     <img src="${image}">
                                 </div>
                                 <div class="catalog-card__info card-info">
-                                    <div class="card-info__title"><a href="#">${myJson.tires[sortedArray[i]].name}</a></div>
+                                    <div class="card-info__title">${myJson.tires[sortedArray[i]].name}</div>
                                     <div class="card-info__price">
                                         <span>${Number(price)}</span> руб./шт.
                                     </div>
@@ -217,7 +217,7 @@ function pagenInit(myJson, sortedArray) {
             activePage--;
             newCardGenerate(myJson, activePage);
             settingCards();
-            scrollToPosition(0);
+            // scrollToPosition(0);
         };
 
         // Проверка на активность кнопки пагинации 
@@ -239,7 +239,7 @@ function pagenInit(myJson, sortedArray) {
             activePage++;
             newCardGenerate(myJson, activePage);
             settingCards();
-            scrollToPosition(0);
+            // scrollToPosition(0);
         };
 
         // Проверка на активность кнопки пагинации 
