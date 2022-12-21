@@ -3,7 +3,7 @@ let sortedArray = [];
 // <Получение JSON>==============================================================================
 
 async function fetchAsync() {
-    const response = await fetch('../api/disks-stage.json');
+    const response = await fetch("../api/disks-stage.json");
     return await response.json();
 };
 
@@ -11,7 +11,7 @@ async function fetchAsync() {
 
 // <Document Actions>==============================================================================
 
-document.addEventListener('click', function (e) {
+document.addEventListener("click", function (e) {
     let targetElement = e.target;
 
     if (targetElement.classList.contains('sort-menu__find')) { // Кнопка "Подобрать"
@@ -143,32 +143,77 @@ function selectGenerate(myJson) {
         arr.sort((a, b) => a - b); // Сортировка по возрастанию
         arr = Array.from(new Set(arr)) // Удаление лишнего (повторов)
 
+        for (let z = 0; z < arr.length; z++) {
+            // Генерация option-ов
+            if (selectGroup[i].dataset.name != "et") {
+                if (arr[z] != "") {
+                    selectGroup[
+                        i
+                    ].children[0].innerHTML += `<option value='${arr[z]}'>${arr[z]}</option>`;
+                }
+            } else if (selectGroup[i].dataset.name == "et") {
+                for (let y = 1; y < selectGroup[i].children.length; y++) {
+                    if (y == 2 || y == 4) {
+                        if (y == "4") {
+                            arr.sort((a, b) => b - a);
+                            arr = Array.from(new Set(arr));
+
+                            selectGroup[i].children[
+                                y
+                            ].innerHTML += `<option value='${arr[z]}'>${arr[z]}</option>`;
+                        } else {
+                            selectGroup[i].children[
+                                y
+                            ].innerHTML += `<option value='${arr[z]}'>${arr[z]}</option>`;
+                        }
+                    }
+                }
+            }
+        }
+
+        /* Old Version 
         for (let z = 0; z < arr.length; z++) { // Генерация option-ов
             if (arr[z] != '') {
                 selectGroup[i].children[0].innerHTML += `<option value='${arr[z]}'>${arr[z]}</option>`;
             }
         };
+        */
     };
 };
 
 function reset(myJson) {
     let select = document.getElementById('selectGroup'),
         arrAll = [];
-        // maxPrice = document.getElementById('MaxPriceCard').attributes.value,
-        // input = document.getElementById('MenuPriceRange');
 
-    // document.getElementById('MaxPriceCard').innerHTML = `${maxPrice.textContent}`;
-    // input.value = input.max;
-
-    for (let i = 0; i < myJson.disks.length; i++) { // Генерация всех индексов товаров
+    for (let i = 0; i < myJson.disks.length; i++) {
+        // Генерация всех индексов товаров
         arrAll.push(i)
     };
 
+    for (let i = 0; i < select.children.length; i++) {
+        // Добавление в массив не подходящих по значению
+        if (select.children[i].dataset.name != "et") {
+            if (select.children[i].children[0].children[0].children[2].value != 0) {
+                select.children[i].children[0].children[0].children[2].value = 0;
+            }
+        } else if (select.children[i].dataset.name == "et") {
+            for (let z = 1; z < 3; z++) {
+                if (z == 1) {
+                    select.children[i].children[z * 2].children[0].children[2].value = -20;
+                } else if (z == 2) {
+                    select.children[i].children[z * 2].children[0].children[2].value = 161;
+                }
+            }
+        }
+    }
+
+    /* Old Version 
     for (let i = 0; i < select.children.length; i++) { // Добавление в массив не подходящих по значению
         if (select.children[i].children[0].children[0].children[2].value != 0){
             select.children[i].children[0].children[0].children[2].value = 0;
         };
     };
+    */
 
     return arrAll;
 };
@@ -210,17 +255,55 @@ function settingCards() {
 
 function sortingEvents(myJson) {
     let selectAll = document.getElementById('selectGroup'), // Группа селектов
-        // maxPriceCard = document.getElementById('MaxPriceCard'),
-        // maxPriceValue = +(maxPriceCard.attributes.value.value),
-        // maxPriceText = +(maxPriceCard.textContent),
         arrAll = [],
         arrSuperfluous = [], // Массив лишних индексов
         jsonDisks = myJson.disks;
 
-    for (let i = 0; i < jsonDisks.length; i++) { // Генерация всех индексов товаров
+    for (let i = 0; i < jsonDisks.length; i++) {
+        // Генерация всех индексов товаров
         arrAll.push(i)
     };
 
+    for (let i = 0; i < selectAll.children.length; i++) {
+        // Добавление в массив не подходящих по значению
+        let selectDataName = selectAll.children[i].dataset.name;
+
+        if (selectDataName != "et") {
+            // Тип, data-name (brand, w, h, r ...)
+            let selectValue =
+                selectAll.children[i].children[0].children[0].children[2].value; // Получение value текущего select'a
+
+            if (selectValue != 0) {
+                for (let z = 0; z < jsonDisks.length; z++) {
+                    if (jsonDisks[z][`${selectDataName}`] != selectValue) {
+                        arrSuperfluous.push(z);
+                    }
+                }
+            }
+        } else if (selectDataName == "et") {
+            for (let x = 1; x < 3; x++) {
+                let selectValue =
+                    selectAll.children[i].children[x * 2].children[0].children[2];
+                if (selectValue.value != selectValue.children[0].value) {
+                    for (let z = 0; z < jsonDisks.length; z++) {
+                        if (
+                            jsonDisks[z][`${selectDataName}`] < selectValue.value &&
+                            x == 1
+                        ) {
+                            arrSuperfluous.push(z);
+                        } else if (
+                            jsonDisks[z][`${selectDataName}`] > selectValue.value &&
+                            x == 2
+                        ) {
+                            arrSuperfluous.push(z);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /* Old Version 
     for (let i = 0; i < selectAll.children.length; i++) { // Добавление в массив не подходящих по значению
         
         let selectDataName = selectAll.children[i].dataset.name, // Тип, data-name (brand, w, h, r...) 
@@ -234,14 +317,7 @@ function sortingEvents(myJson) {
             };
         };
     };
-
-    // if (maxPriceText != maxPriceValue) {
-    //     for (let z = 0; z < jsonDisks.length; z++) {
-    //         if (+(jsonDisks[z].price) >= maxPriceText) {
-    //             arrSuperfluous.push(z);
-    //         };
-    //     };
-    // };
+    */
 
     arrAll = arrAll.filter(e => !~arrSuperfluous.indexOf(e)); // Удаление ненужного
 

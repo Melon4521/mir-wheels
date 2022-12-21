@@ -259,9 +259,6 @@ function settingCards() {
 
 function sortingEvents(myJson) {
     let selectAll = document.getElementById('selectGroup'), // Группа селектов
-        // maxPriceCard = document.getElementById('MaxPriceCard'),
-        // maxPriceValue = +(maxPriceCard.attributes.value.value),
-        // maxPriceText = +(maxPriceCard.textContent),
         arrAll = [],
         arrSuperfluous = [], // Массив лишних индексов
         jsonTires = myJson.tires;
@@ -284,15 +281,7 @@ function sortingEvents(myJson) {
         };
     };
 
-    // if (maxPriceText != maxPriceValue) {
-    //     for (let z = 0; z < jsonTires.length; z++) {
-    //         if (+(jsonTires[z].price) >= maxPriceText) {
-    //             arrSuperfluous.push(z);
-    //         };
-    //     };
-    // };
-
-    arrAll = arrAll.filter(e => !~arrSuperfluous.indexOf(e)); // Удаление ненужного
+    arrAll = arrAll.filter((e) => !~arrSuperfluous.indexOf(e)); // Удаление ненужного
 
     return arrAll;
 };
