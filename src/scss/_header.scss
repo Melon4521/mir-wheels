@@ -1,0 +1,324 @@
+@import 'variables';
+
+//<Хедер>==============================================================================
+
+.header {
+    position: relative;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+
+    &._header-fixed {
+        position: fixed;
+        transition: position .3s ease-in;
+    }
+}
+
+.header__container {
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    align-items: center;
+    min-height: 70px;
+}
+
+.top-header {
+    background-color: #fff;
+
+    // .top-header__logo
+    &__logo {
+        display: flex;
+        align-items: center;
+    }
+
+    // .top-header__menu
+    &__menu {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.header-logo {
+    &:hover &__subtitle {
+        color: $blueColor;
+    }
+
+    // .header-logo__title
+    &__title {
+        font-size: 23px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: $textColor;
+        line-height: 1.2;
+    }
+
+    // .header-logo__subtitle
+    &__subtitle {
+        transition: all .2s ease-in;
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        color: $orangeColor;
+    }
+
+    @media (max-width: $md4) {
+
+        &__title,
+        &__subtitle {
+            display: none;
+        }
+    }
+
+    // .header-logo__img
+    &__img {
+        margin-right: 10px;
+    }
+}
+
+.top-menu {
+    flex: 1 1 auto;
+    justify-content: end;
+
+    // .top-menu__tel
+    &__tel {
+        @include adaptiv-value("font-size", 20, 16, 1);
+        color: $textColor;
+        font-weight: 700;
+
+        &::before {
+            transition: all .3s ease-in;
+            color: $orangeColor;
+            padding-right: 10px;
+        }
+
+        &:hover::before {
+            transition: all .3s ease-in;
+            color: $blueColor;
+        }
+    }
+
+    //.top-menu__cart
+    &__cart {
+        @include adaptiv-value("margin-right", 35, 15, 1);
+        @include adaptiv-value("margin-left", 35, 10, 1);
+        background-color: transparent;
+        position: relative;
+
+        &:hover::before,
+        &:hover::after {
+            transition: all .3s ease-in;
+            color: $blueColor;
+        }
+
+        &::before {
+            transition: all .3s ease-in;
+            color: $orangeColor;
+            @include adaptiv-value("font-size", 35, 30, 1);
+        }
+
+        &::after {
+            content: attr(data-count);
+            position: absolute;
+            right: -10px;
+            top: -10px;
+            z-index: 1;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $orangeColor;
+            @include adaptiv-value("font-size", 18, 16, 1);
+            font-weight: 700;
+            padding-left: 2px;
+            @include adaptiv-value("min-width", 25, 22, 1);
+            @include adaptiv-value("min-height", 25, 22, 1);
+            background-color: #fff;
+            border-radius: 50%;
+            transition: all .3s ease-in;
+        }
+    }
+
+    &__burger {
+        display: none;
+    }
+}
+
+// ========================= Второй этаж футера - Меню
+
+.header-footer {
+    background-color: #E9E9E9;
+    box-shadow: $shadow;
+
+    //.header-footer__menu
+    &__menu {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    & .container {
+        padding: 0;
+    }
+}
+
+.menu-nav {
+
+    // .menu-nav__list
+    &__list {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    // .menu-nav__elem
+    &__elem {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1 1 auto;
+        transition: all .3s ease-in;
+    }
+
+    // .menu-nav__link
+    &__link {
+        display: flex;
+        padding: 15px 5px;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        font-size: 18px;
+        font-weight: 600;
+        color: $textColor;
+        transition: all .3s ease-in;
+    }
+
+    @media (any-hover: hover) {
+        &__elem:hover &__link {
+            color: #fff;
+            transition: all .3s ease-in;
+        }
+    }
+
+    &__elem._active-link {
+        background-color: $orangeColor;
+
+        & .menu-nav__link {
+            color: #fff;
+        }
+    }
+
+
+
+    @media (any-hover: hover) {
+        &__elem:hover {
+            transition: all .3s ease-in;
+            background-color: $orangeColor;
+            color: #fff;
+        }
+    }
+}
+
+// МЕНЮ-БУРГЕР
+
+@media (max-width: $md3) {
+
+    .menu-nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        padding: 100px 0 40px 0;
+        transition: right .5s ease;
+        overflow: auto;
+        z-index: 3;
+
+        // .menu-nav__elem
+        &__elem {
+            flex: 1 1 100%;
+        }
+
+    }
+
+    .menu-nav._burger-open {
+        right: 0;
+        transition: right .4s ease-in;
+    }
+
+    .top-menu {
+
+        // .top-menu__burger
+        &__burger {
+            display: flex;
+            flex: 0 0 35px;
+            height: 25px;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 5;
+        }
+
+        // .top-menu__burger span
+        &__burger span {
+            transition: all .3s ease-in;
+            display: inline-block;
+            width: 100%;
+            height: 3px;
+            background-color: $textColor;
+        }
+
+        &__burger::before,
+        &__burger::after {
+            transition: all .3s ease-in;
+            content: '';
+            width: 100%;
+            height: 3px;
+            position: absolute;
+            left: 0;
+            background-color: $textColor;
+        }
+
+        &__burger::before {
+            top: 0;
+        }
+
+        &__burger::after {
+            bottom: 0;
+        }
+
+        &__burger._burger-open span {
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(0);
+            transition: all .3s ease-in;
+        }
+
+        &__burger._burger-open::before {
+            transition: all .3s ease-in;
+            transform: rotate(-43deg);
+            top: 43%;
+        }
+
+        &__burger._burger-open::after {
+            transition: all .3s ease-in;
+            transform: rotate(43deg);
+            bottom: 50%;
+        }
+
+    }
+
+    .top-header {
+        position: relative;
+        z-index: 4;
+        box-shadow: $shadow;
+    }
+
+}
+
+//</Хедер>==============================================================================

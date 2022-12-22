@@ -1,0 +1,274 @@
+//<ИМПОРТЫ>==============================================================================
+
+//<Обнуление>==============================================================================
+@import 'null';
+//</Обнуление>==============================================================================
+
+//<Шрифты>==============================================================================
+@import 'fonts';
+//</Шрифты>==============================================================================
+
+//<Общие стили>==============================================================================
+@import 'common';
+//</Общие стили>==============================================================================
+
+// <Popup>==============================================================================
+@import 'popup';
+// </Popup>==============================================================================
+
+//<ПЕРЕМЕННЫЕ>==============================================================================
+@import 'variables';
+//</ПЕРЕМЕННЫЕ>==============================================================================
+
+//<Миксины>==============================================================================
+@import 'mixins';
+//</Миксины>==============================================================================
+
+//</ИМПОРТЫ>==============================================================================
+
+// <Общие свойства>==============================================================
+// ==============================================================================
+// ==============================================================================
+
+@import 'header';
+@import 'shopping-cart';
+
+//<Блок "Изображение">==============================================================================
+
+.hi-image {
+    position: relative;
+    height: 650px;
+
+    background-image: url("../images/shinomontage.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    @include adaptiv-value("margin-bottom", 120, 80, 1);
+
+    box-shadow: 0px 7px 29px rgba(0, 0, 0, 0.25);
+
+    // .hi-image__layer
+    &__layer {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+
+        background-color: #162229;
+        opacity: .5;
+
+        width: 100%;
+        height: inherit;
+    }
+
+    // .hi-image__container
+    &__container {
+        height: 100%;
+        position: relative;
+        z-index: 3;
+    }
+
+    // .hi-image__body
+    &__body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        height: inherit;
+    }
+
+    // .hi-image__tit&__title
+    &__title {
+        color: $bgColor;
+        text-transform: uppercase;
+        @include adaptiv-value("font-size", 60, 33, 1);
+        font-weight: 800;
+        letter-spacing: 1px;
+        
+        @include adaptiv-value("margin-bottom", 25, 15, 1);
+    }
+
+    // .hi-image__text
+    &__text {
+        color: $bgColor;
+        @include adaptiv-value("font-size", 28, 19, 1);
+        font-weight: 300;
+        line-height: 140%;
+        
+        @include adaptiv-value("margin-bottom", 45, 35, 1);
+    }
+
+    // .hi-image__button
+    &__button {
+        max-width: 220px;
+        padding: 10px 15px;
+        background-color: $orangeColor;
+        box-shadow: 0px 0px 15px $orangeColor;
+        border-radius: 12px;
+
+        color: $bgColor;
+        font-size: 18px;
+        font-weight: 700;
+
+        transition: all .4s ease-in;
+
+        @media (any-hover: hover) {
+            &:hover {
+                transition: all .3s ease-in;
+                background-color: #bd6201;
+            }
+        }
+    }
+}
+
+//</Блок "Изображение">==============================================================================
+
+//<Блок "Тарифы">==============================================================================
+
+.tarifs {
+    @include adaptiv-value("margin-bottom", 120, 80, 1);
+
+    // .tarifs__title
+    &__title {
+        @extend .sub-title;
+        text-align: center;
+    }
+
+    // .tarifs__body
+    &__body {
+        @include adaptiv-value("margin-top", 80, 50, 1);
+        display: flex;
+        justify-content: center;
+    }
+    
+    // .tarifs__item
+    &__item {
+        @include adaptiv-value("margin-right", 60, 40, 1);
+        
+        &:last-child {
+            margin-right: 0px;
+        }
+    }
+}
+
+.tarifs-item {
+    
+    // .tarifs-item__title
+    &__title {
+        @extend .sub-title-orange;
+        display: inline-block;
+        margin-bottom: 25px;
+    }
+    
+    // .tarifs-item__text
+    &__text {
+        @extend .simple-text;
+    }
+}
+
+//</Блок "Тарифы">==============================================================================
+
+//<Блок "Запись на услугу">==============================================================================
+
+.service-form {
+    
+    // .service-form__
+    &__title {
+        @extend .sub-title;
+        text-align: center;
+    }
+    
+    // .service-form__ceil
+    &__ceil {
+        @include adaptiv-value("margin-top", 80, 50, 1);
+        @include adaptiv-value("margin-bottom", 35, 25, 1);
+        display: flex;
+    }
+    
+    // .service-form__inputs
+    &__inputs {
+        width: 50%;
+        @include adaptiv-value("margin-right", 50, 25, 1);
+
+        &:last-child {
+            margin-right: 0px;
+        }
+    }
+
+    // .service-form__input
+    &__input {
+        width: 100%;
+        @extend .form-input;
+        @include adaptiv-value("margin-top", 25, 20, 1);
+    }
+    
+    // .service-form__sub-title
+    &__sub-title {
+        @extend .simple-text;
+        font-size: 22px;
+    }
+    
+    // .service-form__comment
+    &__comment {
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 150px;
+        width: 100%;
+        @extend .form-input;
+        @include adaptiv-value("margin-bottom", 35, 25, 1);
+    }
+
+    // .service-form__button
+    &__button {
+        @extend .form-button-blue;
+    }
+}
+
+
+
+//</Блок "Запись на услугу">==============================================================================
+
+@import 'footer';
+
+@media (max-width: $md3) {
+    .hi-image__body {
+        @include adaptiv-value("padding-left", 30, 15, 1);
+    }
+}
+
+@media (max-width: $md4) {
+    .hi-image {
+        height: 550px;
+    }
+
+    .service-form__ceil {
+        flex-wrap: wrap;
+    }
+
+    .service-form__inputs {
+        width: 100%;
+        margin-right: 0px;
+        &:not(:last-child) {
+            margin-bottom: 30px;
+        }
+    }
+}
+
+@media (max-width: 400px) {
+
+    .tarifs__body {
+        flex-direction: column;
+    }
+
+    .tarifs__item {
+        margin-right: 0px;
+        @include adaptiv-value("margin-bottom", 50, 35, 1);
+    }
+}
+
+@media (max-width: 376px) {
+    .hi-image__body {
+        padding-left: 0px;
+    }
+}

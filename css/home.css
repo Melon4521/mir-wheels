@@ -1107,8 +1107,7 @@ html {
 /* </Form>============================================================================== */
 .my-slider {
   width: 100%;
-  height: calc(100vh - 130px);
-  max-height: 700px;
+  height: 700px;
 }
 
 .my-slider__image {
@@ -1144,8 +1143,7 @@ html {
 }
 
 .slide__wrapper {
-  height: calc(100vh - 130px);
-  max-height: 700px;
+  height: 700px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1251,6 +1249,12 @@ html {
   .slide__image-1 {
     margin-right: 0px;
   }
+  .my-slider {
+    height: 700px;
+  }
+  .slide__wrapper {
+    height: 700px;
+  }
 }
 @media (max-width: 675px) {
   .slide__image-1 {
@@ -1328,8 +1332,7 @@ html {
     width: 320px;
   }
   .slide__image-2__img-1 {
-    height: calc(100vh - 130px);
-    max-height: 700px;
+    height: 700px;
   }
   .slide__content-2 {
     width: 45%;
@@ -1339,8 +1342,7 @@ html {
   }
   .my-slider,
 .slide__wrapper {
-    height: calc(100vh - 130px);
-    max-height: 600px;
+    height: 600px;
   }
 }
 @media (max-width: 740px) {
@@ -1364,8 +1366,7 @@ html {
 }
 @media (max-width: 600px) {
   .slide__image-2__img-1 {
-    height: calc(100vh - 130px);
-    max-height: 600px;
+    height: 700px;
     width: 700px;
     margin-top: -8px;
     right: -5px;

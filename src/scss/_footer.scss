@@ -1,0 +1,145 @@
+//<Footer>==============================================================================
+
+.footer {
+    background-color: #3c3c3c;
+    @include adaptiv-value("margin-top", 100, 80, 1);
+
+    // .footer__body
+    &__body {
+        @include adaptiv-value("padding-top", 50, 30, 1);
+        @include adaptiv-value("padding-bottom", 35, 20, 1);
+        display: flex;
+        justify-content: space-between;
+    }
+
+    // .footer__fst-col
+    &__fst-col {
+        @include adaptiv-value("margin-right", 60, 25, 1);
+    }
+
+    // .footer__columns
+    &__columns {
+        display: flex;
+        // flex: 1 1 auto;
+        justify-content: end;
+        flex-wrap: wrap;
+    }
+
+}
+
+.footer-fst {
+
+    // .footer-fst__logo
+    &__logo {
+        @include adaptiv-value("margin-bottom", 25, 20, 1);
+        
+        & img {
+            @include adaptiv-value("width", 160, 120, 1);
+        }
+    }
+
+    // .footer-fst__social
+    &__social {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.footer-social {
+
+    // .footer-social__item
+    &__item {
+        color: #fff;
+        transition: all .3s ease-in;
+        font-size: 30px;
+        margin: 0px 10px 0px 10px;
+
+        @media (any-hover: hover) {
+            &:hover {
+                color: $orangeColor;
+                transition: all .3s ease-in;
+            }
+        }
+    }
+}
+
+.footer-columns {
+
+    // .footer-columns__col
+    &__col {
+        @include adaptiv-value("margin-right", 35, 15, 1);
+        @include adaptiv-value("margin-left", 35, 15, 1);
+        @include adaptiv-value("margin-bottom", 40, 30, 1);
+    }
+
+    &__col:not(:first-child) {
+        
+    }
+}
+
+.footer-col {
+
+    // .footer-col__title
+    &__title {
+        @include adaptiv-value("font-size", 22, 20, 1);
+        color: $orangeColor;
+        font-weight: 800;
+        margin-bottom: 20px;
+    }
+
+    // .footer-col__list
+    // &__list {}
+
+    // .footer-col__list-item 
+    &__list-item {
+        max-width: 250px;
+
+        &:not(:last-child) {
+            @include adaptiv-value("margin-bottom", 13, 10, 1);
+        }
+
+        
+    }
+
+    // .footer-col__link
+    &__link {
+        color: #fff;
+        line-height: 1.2;
+        transition: all .2s ease-in;
+        @include adaptiv-value("font-size", 18, 16, 1);
+
+        @media (any-hover: hover) {
+            &:hover {
+                color: $blueColor;
+                transition: all .2s ease-in;
+            }
+        }
+    }
+}
+
+@media (max-width: 850px) {
+    .footer__columns {
+        justify-content: start;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .footer__body {
+        flex-wrap: wrap;
+    }
+
+    .footer__fst-col {
+        width: 100%;
+        margin-right: 0px;
+        @include adaptiv-value("margin-bottom", 60, 40, 1);
+    }
+
+    .footer-fst__logo {
+        text-align: center;
+    }
+
+}
+
+//</Footer>==============================================================================

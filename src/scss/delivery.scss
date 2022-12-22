@@ -1,0 +1,279 @@
+//<ИМПОРТЫ>==============================================================================
+
+//<Обнуление>==============================================================================
+@import 'null';
+//</Обнуление>==============================================================================
+
+//<Шрифты>==============================================================================
+@import 'fonts';
+//</Шрифты>==============================================================================
+
+//<Общие стили>==============================================================================
+@import 'common';
+//</Общие стили>==============================================================================
+
+// <Popup>==============================================================================
+@import 'popup';
+// </Popup>==============================================================================
+
+//<ПЕРЕМЕННЫЕ>==============================================================================
+@import 'variables';
+//</ПЕРЕМЕННЫЕ>==============================================================================
+
+//<Миксины>==============================================================================
+@import 'mixins';
+//</Миксины>==============================================================================
+
+//</ИМПОРТЫ>==============================================================================
+
+// <Общие свойства>==============================================================
+// ==============================================================================
+// ==============================================================================
+
+@import 'header';
+@import 'shopping-cart';
+
+//<Блок "Изображение">==============================================================================
+
+.hi-image {
+    position: relative;
+    height: 650px;
+
+    background-image: url("../images/delivery.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    @include adaptiv-value("margin-bottom", 120, 80, 1);
+
+    box-shadow: 0px 7px 29px rgba(0, 0, 0, 0.25);
+
+    // .hi-image__layer
+    &__layer {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+
+        background-color: #162229;
+        opacity: .5;
+
+        width: 100%;
+        height: inherit;
+    }
+
+    // .hi-image__container
+    &__container {
+        height: 100%;
+        position: relative;
+        z-index: 3;
+    }
+
+    // .hi-image__body
+    &__body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        height: inherit;
+    }
+
+    // .hi-image__tit&__title
+    &__title {
+        color: $bgColor;
+        text-transform: uppercase;
+        @include adaptiv-value("font-size", 55, 30, 1);
+        font-weight: 800;
+        letter-spacing: 1px;
+        
+        @include adaptiv-value("margin-bottom", 25, 15, 1);
+    }
+
+    // .hi-image__text
+    &__text {
+        color: $bgColor;
+        @include adaptiv-value("font-size", 27, 18, 1);
+        font-weight: 300;
+        line-height: 145%;
+        
+        @include adaptiv-value("margin-bottom", 45, 35, 1);
+    }
+}
+
+//</Блок "Изображение">==============================================================================
+
+//<Блок "Тарифы">==============================================================================
+
+.tarifs {
+    // @include adaptiv-value("margin-bottom", 120, 80, 1);
+
+    // .tarifs__title
+    &__title {
+        @extend .sub-title;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    // .tarifs__body
+    &__body {
+        @include adaptiv-value("margin-top", 80, 50, 1);
+        display: flex;
+        justify-content: center;
+    }
+    
+    // .tarifs__item
+    &__item {
+        @include adaptiv-value("margin-right", 50, 25, 1);
+        
+        &:last-child {
+            margin-right: 0px;
+        }
+    }
+}
+
+.tarifs-item {
+    
+    // .tarifs-item__title
+    &__title {
+        @extend .sub-title-orange;
+        @include adaptiv-value("font-size", 30, 28, 1);
+        display: inline-block;
+        margin-bottom: 25px;
+    }
+    
+    // .tarifs-item__text
+    &__text {
+        @extend .simple-text;
+        @include adaptiv-value("font-size", 18, 16, 1);
+    }
+}
+
+//</Блок "Тарифы">==============================================================================
+
+//<Блок "Способы оплаты">==============================================================================
+
+.payment {
+    @include adaptiv-value("margin-bottom", 120, 80, 1);
+    
+    // .payment__title
+    &__title {
+        @extend .sub-title;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    // .payment__items
+    &__items {
+        @include adaptiv-value("margin-top", 80, 50, 1);
+        display: flex;
+        justify-content: center;
+    }
+    
+    // .payment__item
+    &__item {
+        @include adaptiv-value("margin-right", 50, 25, 1);
+
+        &:last-child {
+            margin-right: 0px;
+        }
+    }
+}
+
+.payment-item {
+    
+    // .payment-item__title
+    &__title {
+        @extend .sub-title;
+        @include adaptiv-value("font-size", 23, 21, 1);
+        font-weight: 700;
+        @include adaptiv-value("margin-bottom", 30, 20, 1);
+
+        display: flex;
+        align-items: center;
+
+        &:before {
+            color: $orangeColor;
+            font-size: 40px;
+            padding-right: 10px;
+        }
+    }
+    
+    // .payment-item__li
+    &__li {
+        @extend .simple-text;
+        @include adaptiv-value("font-size", 18, 16, 1);
+        margin-bottom: 10px;
+        position: relative;
+        padding-left: 30px;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 0;
+
+            background-color: $orangeColor;
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+        }
+    }
+
+    .payment-item__title-1::before {
+        font-size: 45px;
+    }
+}
+
+
+//</Блок "Способы оплаты">==============================================================================
+
+@import 'footer';
+
+@media (max-width: $md4) {
+    .hi-image {
+        height: 550px;
+    }
+
+    .service-form__ceil {
+        flex-wrap: wrap;
+    }
+
+    .service-form__inputs {
+        &:not(:last-child) {
+            margin-bottom: 30px;
+        }
+    }
+}
+
+@media (max-width: $md3) {
+    .hi-image__body {
+        @include adaptiv-value("padding-left", 30, 15, 1);
+    }
+
+    .tarifs__body {
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+
+    .tarifs__item {
+        margin-right: 0px;
+        @include adaptiv-value("margin-bottom", 50, 35, 1);
+    }
+
+    .payment__items {
+        flex-direction: column;
+    }
+
+    .payment__item {
+        margin-right: 0px;
+        @include adaptiv-value("margin-bottom", 50, 35, 1);
+    }
+}
+
+@media (max-width: 376px) {
+    .hi-image__body {
+        padding-left: 0px;
+    }
+}
