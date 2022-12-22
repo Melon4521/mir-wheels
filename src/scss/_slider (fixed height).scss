@@ -1,14 +1,13 @@
-$headerHeightPC: 130px;
-$headerHeightPhone: 100px;
-$sliderHeightPC: calc(100vh - $headerHeightPC);
-$sliderHeightPhone: calc(100vh - $headerHeightPhone);
+// $headerHeightPC: 130px;
+// $headerHeightPhone: 100px;
+// $sliderHeightPC: calc(100vh - $headerHeightPC);
+// $sliderHeightPhone: calc(100vh - $headerHeightPhone);
 
 //<Слайдер>==============================================================================
 
 .my-slider {
     width: 100%;
-    height: $sliderHeightPC;
-    max-height: 700px;
+    height: 700px;
 }
 
 .my-slider__image {
@@ -45,8 +44,7 @@ $sliderHeightPhone: calc(100vh - $headerHeightPhone);
 }
 
 .slide__wrapper {
-    height: $sliderHeightPC;
-    max-height: 700px;
+    height: 700px;
     display: flex;
     align-items: center;
 }
@@ -144,13 +142,11 @@ $sliderHeightPhone: calc(100vh - $headerHeightPhone);
     }
 
     .my-slider {
-        height: $sliderHeightPhone;
-        max-height: 700px;
+        height: 700px;
     }
 
     .slide__wrapper {
-        height: $sliderHeightPhone;
-        max-height: 700px;
+        height: 700px;
     }
 }
 
@@ -202,8 +198,7 @@ $sliderHeightPhone: calc(100vh - $headerHeightPhone);
 
 .slide__image-2__img-1 {
     width: 950px;
-    height: calc($sliderHeightPC + 100px);
-    max-height: 800px;
+    height: 800px;
     position: absolute;
     right: -15px;
     margin-top: -50px;
@@ -235,8 +230,7 @@ $sliderHeightPhone: calc(100vh - $headerHeightPhone);
     }
 
     .slide__image-2__img-1 {
-        height: $sliderHeightPC;
-        max-height: 700px;
+        height: 700px;
     }
 
     .slide__content-2 {
@@ -269,8 +263,7 @@ $sliderHeightPhone: calc(100vh - $headerHeightPhone);
 
 @media (max-width: 600px) {
     .slide__image-2__img-1 {
-        height: $sliderHeightPhone;
-        max-height: 700px;
+        height: 700px;
         width: 700px;
         margin-top: -8px;
         right: -5px;
