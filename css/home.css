@@ -853,7 +853,7 @@ html {
   margin-right: 10px;
 }
 
-.info-header__title {
+.info-header__title a {
   font-weight: 700;
   color: #000;
   font-size: calc(22rem / 16);
@@ -1004,7 +1004,7 @@ html {
   .cart-footer__button {
     font-size: calc(16rem / 16);
   }
-  .info-header__title {
+  .info-header__title a {
     font-size: calc(18rem / 16);
   }
   .info-header__details {
@@ -1107,7 +1107,8 @@ html {
 /* </Form>============================================================================== */
 .my-slider {
   width: 100%;
-  height: 700px;
+  height: calc(100vh - 130px);
+  max-height: 700px;
 }
 
 .my-slider__image {
@@ -1143,7 +1144,8 @@ html {
 }
 
 .slide__wrapper {
-  height: 700px;
+  height: calc(100vh - 130px);
+  max-height: 700px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1326,7 +1328,8 @@ html {
     width: 320px;
   }
   .slide__image-2__img-1 {
-    height: 700px;
+    height: calc(100vh - 130px);
+    max-height: 700px;
   }
   .slide__content-2 {
     width: 45%;
@@ -1336,7 +1339,8 @@ html {
   }
   .my-slider,
 .slide__wrapper {
-    height: 600px;
+    height: calc(100vh - 130px);
+    max-height: 600px;
   }
 }
 @media (max-width: 740px) {
@@ -1360,7 +1364,8 @@ html {
 }
 @media (max-width: 600px) {
   .slide__image-2__img-1 {
-    height: 600px;
+    height: calc(100vh - 130px);
+    max-height: 600px;
     width: 700px;
     margin-top: -8px;
     right: -5px;
