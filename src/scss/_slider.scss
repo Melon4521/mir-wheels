@@ -1,5 +1,5 @@
-$headerHeightPC: 130px;
-$headerHeightPhone: 100px;
+$headerHeightPC: 137px;
+$headerHeightPhone: 110px;
 $sliderHeightPC: calc(100vh - $headerHeightPC);
 $sliderHeightPhone: calc(100vh - $headerHeightPhone);
 
@@ -202,7 +202,7 @@ $sliderHeightPhone: calc(100vh - $headerHeightPhone);
 
 .slide__image-2__img-1 {
     width: 950px;
-    height: calc($sliderHeightPC + 100px);
+    height: calc($sliderHeightPC + 110px);
     max-height: 800px;
     position: absolute;
     right: -15px;
