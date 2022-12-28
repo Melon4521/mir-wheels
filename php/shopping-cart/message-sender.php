@@ -55,7 +55,7 @@ $cart
 $send = mail($emailCl, $sub, $mes2, "Content-type:text/plain; charset = UTF-8\r\nFrom:$shopEmail");
 
 ini_set('short_open_tag', 'On');
-header('Refresh: 5; URL = https://tires.intermir.ru/index.html');
+header('Refresh: 5; URL = http://mir-wheels.ru');
 
 ?>
 <!DOCTYPE html>
@@ -67,7 +67,7 @@ header('Refresh: 5; URL = https://tires.intermir.ru/index.html');
     <meta http-equiv="refresh" content="5; url = index.html">
     <title>Спасибо за заказ!</title>
     <script type="text/javascript">
-        setTimeout("location.replace('https://tires.intermir.ru/index.html')", 5000);
+        setTimeout("location.replace('http://mir-wheels.ru')", 5000);
     </script>
 </head>
 <body>
