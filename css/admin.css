@@ -1,225 +1,578 @@
-body {
-  margin: 0;
-  padding: 0;
+/* <Стили Глеба>============================================================================== */
 
-  color: rgb(0, 0, 0);
-  background-color: rgb(255, 255, 255);
-  font-size: 20px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+/*
+body {
+    margin: 0;
+    padding: 0;
+
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 :root {
-  --height-header: 90px;
-  --height-body: 80%;
-  --rgb-black: rgb(0, 0, 0);
-  --rgb-orange: rgb(240, 135, 23);
-  --height-panel-register: 400px;
-  --width-panel-register: 400px;
+    --height-header: 90px;
+    --height-body: 80%;
+    --rgb-black: rgb(0, 0, 0);
+    --rgb-orange: rgb(240, 135, 23);
+    --height-panel-register: 400px;
+    --width-panel-register: 400px;
 }
 
 header {
-  position: absolute;
-  top: 0;
-  left: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
 
-  width: 100%;
-  height: var(--height-header);
+    width: 100%;
+    height: var(--height-header);
 
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 header .logo {
-  height: 100%;
+    height: 100%;
 
-  margin: 0 0 0 1%;
+    margin: 0 0 0 1%;
 
-  font-weight: 600;
-  font-size: 1.2em;
+    font-weight: 600;
+    font-size: 1.2em;
 
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 header .logo img {
-  width: 70px;
-  margin: 0 5px 0 0;
+    width: 70px;
+    margin: 0 5px 0 0;
 }
 
 header .logo .title div:nth-child(1) {
-  color: var(--rgb-black);
+    color: var(--rgb-black);
 }
 
 header .logo .title div:nth-child(2) {
-  color: var(--rgb-orange);
+    color: var(--rgb-orange);
 }
 
 section {
-  position: absolute;
-  top: calc(0px + var(--height-header));
+    position: absolute;
+    top: calc(0px + var(--height-header));
 
-  height: var(--height-body);
-  width: 100%;
+    height: var(--height-body);
+    width: 100%;
 }
 
 .block {
-  cursor: none;
-  pointer-events: none;
-  filter: grayscale(100%);
+    cursor: none;
+    pointer-events: none;
+    filter: grayscale(100%);
 }
 
 section #register {
-  position: absolute;
-  top: calc(50% - var(--height-panel-register) / 2);
-  left: calc(50% - var(--width-panel-register) / 2);
+    position: absolute;
+    top: calc(50% - var(--height-panel-register) / 2);
+    left: calc(50% - var(--width-panel-register) / 2);
 
-  height: var(--height-panel-register);
-  width: var(--width-panel-register);
-  border-radius: 15px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    height: var(--height-panel-register);
+    width: var(--width-panel-register);
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 
 section #register form {
-  height: 100%;
-  width: 100%;
+    height: 100%;
+    width: 100%;
 
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
 }
 
 section #register form div {
-  width: 100%;
-  text-align: center;
+    width: 100%;
+    text-align: center;
 }
 
 section #register form .top {
-  font-size: 1.2em;
-  font-weight: 600;
+    font-size: 1.2em;
+    font-weight: 600;
 }
 
 section #register form .body {
-  height: 200px;
+    height: 200px;
 }
 
 section #register form .body .title {
-  margin: 0 0 10px 0;
+    margin: 0 0 10px 0;
 }
 
 section #register form .body input {
-  width: 250px;
-  height: 40px;
+    width: 250px;
+    height: 40px;
 
-  margin: 20px 0;
-  padding: 0 0 0 10px;
+    margin: 20px 0;
+    padding: 0 0 0 10px;
 
-  outline: 0;
-  outline-offset: 0;
-  background-color: rgba(0, 0, 0, 0.1);
-  border: none;
-  border-radius: 7.5px;
+    outline: 0;
+    outline-offset: 0;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 7.5px;
 }
 
 section #register form .body input::placeholder {
-  position: absolute;
-  z-index: 200;
-  top: calc(50% - 1.1em / 2);
+    position: absolute;
+    z-index: 200;
+    top: calc(50% - 1.1em / 2);
 
-  transition: 0.2s;
-  font-size: 1.1em;
-  color: rgba(0, 0, 0, 0.8);
+    transition: 0.2s;
+    font-size: 1.1em;
+    color: rgba(0, 0, 0, 0.8);
 }
 
 section #register form .body input:focus::placeholder {
-  opacity: 0;
-  transform: translateX(10px);
+    opacity: 0;
+    transform: translateX(10px);
 }
 
 section #register form input[type='submit'] {
-  width: 100px;
-  height: 30px;
+    width: 100px;
+    height: 30px;
 
-  margin: -30px 0 0 0;
+    margin: -30px 0 0 0;
 
-  font-size: 0.8em;
-  color: rgb(255, 255, 255);
+    font-size: 0.8em;
+    color: rgb(255, 255, 255);
 
-  background-color: rgb(41, 128, 177);
-  border: none;
-  border-radius: 10px;
+    background-color: rgb(41, 128, 177);
+    border: none;
+    border-radius: 10px;
 
-  cursor: pointer;
-  transition: 0.3s;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 section #register form input[type='submit']:hover {
-  background-color: rgb(240, 135, 23);
+    background-color: rgb(240, 135, 23);
 }
 
 section #upload {
-  position: absolute;
-  top: calc(50% - var(--height-panel-register) / 2);
-  left: calc(50% - var(--width-panel-register) / 2);
+    position: absolute;
+    top: calc(50% - var(--height-panel-register) / 2);
+    left: calc(50% - var(--width-panel-register) / 2);
 
-  height: var(--height-panel-register);
-  width: var(--width-panel-register);
-  border-radius: 15px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    height: var(--height-panel-register);
+    width: var(--width-panel-register);
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 
 section #upload form {
-  height: 100%;
-  width: 100%;
+    height: 100%;
+    width: 100%;
 
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
 }
 
 section #upload form .title {
-  font-size: 1.2em;
-  font-weight: 600;
+    font-size: 1.2em;
+    font-weight: 600;
 }
 
 section #upload form div {
-  margin: -30px 0 0 0;
-  display: flex;
-  flex-direction: column;
+    margin: -30px 0 0 0;
+    display: flex;
+    flex-direction: column;
 }
 
 section #upload form div span {
-  margin: 0 0 10px 0;
-  font-weight: 600;
+    margin: 0 0 10px 0;
+    font-weight: 600;
 }
 
 section #upload form div input[type='file'] {
-  height: 30px;
+    height: 30px;
 }
 
 section #upload form button {
-  width: 250px;
-  height: 30px;
-  margin: -40px 0 0 0;
+    width: 250px;
+    height: 30px;
+    margin: -40px 0 0 0;
 
-  color: rgb(255, 255, 255);
-  border: none;
-  outline: none;
-  background-color: rgb(41, 128, 177);
-  border-radius: 7.5px;
-  transition: 0.3s;
+    color: rgb(255, 255, 255);
+    border: none;
+    outline: none;
+    background-color: rgb(41, 128, 177);
+    border-radius: 7.5px;
+    transition: 0.3s;
 }
 
 section #upload form button:hover {
-  background-color: rgb(240, 135, 23);
+    background-color: rgb(240, 135, 23);
 }
 
 footer {
-  position: absolute;
-  top: calc(0px + var(--height-header) + var(--height-body));
-  z-index: 1000;
+    position: absolute;
+    top: calc(0px + var(--height-header) + var(--height-body));
+    z-index: 1000;
 
-  height: calc(100% - var(--height-header) - var(--height-body));
-  width: 100%;
+    height: calc(100% - var(--height-header) - var(--height-body));
+    width: 100%;
 }
+
+*/
+
+/* </Стили Глеба>============================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700;800&display=swap');
+
+/* <Обнуление>============================================================================== */
+
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+*,
+*:before,
+*:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+:focus,
+:active {
+    outline: none;
+}
+
+a:focus,
+a:active {
+    outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+    display: block;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    font-size: 100%;
+    line-height: 1;
+    font-size: 16px;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+input,
+button,
+textarea {
+    font-family: inherit;
+}
+
+input::-ms-clear {
+    display: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+button::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+a,
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+ul li {
+    list-style: none;
+}
+
+img {
+    vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: inherit;
+    font-weight: 400;
+}
+
+/* </Обнуление>============================================================================== */
+
+body {
+    font-size: 16px;
+    font-family: "Noto Sans", sans-serif;
+}
+
+[class*="__container"] {
+    max-width: 1120px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+/* Прижатие футера */
+.wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.main {
+    flex: 1 1 auto;
+}
+
+/* <Классы>============================================================================== */
+
+._title {
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 80px;
+}
+
+._button {
+    padding: 10px 20px;
+    border-radius: 12px;
+    background-color: #2980B1;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    transition: background-color .3s ease-in-out;
+}
+
+._button:focus {
+    transition: background-color .2s ease-in;
+    background-color: #EE940F;
+}
+
+@media (any-hover: hover) {
+    ._button:hover {
+        background-color: #EE940F;
+        transition: background-color .3s ease-in-out;
+    }
+}
+
+.block {
+    cursor: none;
+    pointer-events: none;
+    filter: grayscale(100%);
+}
+
+/* </Классы>============================================================================== */
+
+/* <Header>============================================================================== */
+
+.header {
+    position: relative;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    min-height: 70px;
+}
+
+.top-header {
+    background-color: #fff;
+}
+
+.top-header__logo {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.top-header__menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.header-logo:hover .header-logo__subtitle {
+    color: #3992C5;
+}
+
+.header-logo__title {
+    font-size: 23px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: #000000;
+    line-height: 1.2;
+}
+
+.header-logo__subtitle {
+    -webkit-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #EF7B00;
+}
+
+@media (max-width: 479.98px) {
+    .header-logo__title,
+    .header-logo__subtitle {
+        display: none;
+    }
+}
+
+.header-logo__img {
+    margin-right: 10px;
+}
+
+.top-menu {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: end;
+}
+
+.top-menu__tel {
+    font-size: 21px;
+    color: #000000;
+    font-weight: 700;
+    transition: all .3s ease-in;
+}
+
+.top-menu__tel:hover {
+    color: #3992C5;
+    transition: all .3s ease-in;
+}
+
+@media (max-width: 1120px) {
+    .top-menu__tel {
+        font-size: calc(16px + 4 * ((100vw - 320px) / 800));
+    }
+}
+
+/* </Header>============================================================================== */
+
+/* <Registration>============================================================================== */
+
+.reg {
+    margin-top: 100px;
+}
+
+.auth__title {
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 35px;
+}
+
+.auth__form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 545px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.auth__input {
+    width: 100%;
+    background-color: #f6f6f6;
+    border-radius: 13px;
+    padding: 15px 10px;
+    font-size: 20px;
+    font-weight: 400;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+/* </Registration>============================================================================== */
+
+/* <Loading>============================================================================== */
+
+.load {
+    margin-top: 100px;
+}
+
+.load__title {
+    margin-bottom: 100px;
+}
+
+.load__conv {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 60px;
+}
+
+.conv__item {
+    margin-bottom: 10px;
+}
+
+.conv__title {
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.conv__input {
+    font-size: 18px;
+}
+
+.load__finish {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.load__button {
+
+}
+
+/* </Loading>============================================================================== */
