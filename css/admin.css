@@ -569,6 +569,16 @@ body {
     margin-bottom: 10px;
 }
 
+@media (max-width: 730px) {
+    .conv__item {
+        margin-bottom: 40px;
+    }
+
+    .conv__item:last-child {
+        margin-bottom: 0px;
+    }
+}
+
 .conv__title {
     font-size: 25px;
     font-weight: 600;
@@ -586,14 +596,6 @@ body {
 }
 
 @media (max-width: 730px) {
-    .conv__input {
-        margin-bottom: 30px;
-    }
-
-    .conv__input:last-child {
-        margin-bottom: 0px;
-    }
-
     .load__conv {
         justify-content: center;
     }
