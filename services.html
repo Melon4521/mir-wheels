@@ -296,7 +296,19 @@
             </div>
         </section>
 
-        <!-- reCAPTCHA -->
+        <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit">
+            var onloadCallback = function(){
+                var key = '6Leq0bsjAAAAAPHcjDlCSj1sZTicsVC_b1AxKWm0';
+                grecaptcha.render('recaptcha_1', {
+                    'sitekey': key
+                });
+                grecaptcha.render('recaptcha_2', {
+                    'sitekey': key
+                });
+            };
+        </script>
+
+        <!-- reCAPTCHA
         <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit">
 
             let onloadCallback = function(){
@@ -308,8 +320,8 @@
                     'sitekey': key
                 });
             };
-            
-        </script>
+
+        </script> -->
 
         <div class="elipse-up" id="elipseUp">
             <div class="elipse-up__body">
