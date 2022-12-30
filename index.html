@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="css/iconsfont.css">
     <link rel="stylesheet" href="css/swiper-bundle.min.css">
     <link rel="stylesheet" href="css/home.css">
+    
+    <!-- reCAPTCHA -->
+    <script src="https://www.google.com/recaptcha/api.js"></script>
 </head>
 
 <body>
@@ -291,7 +294,9 @@
                                 <input class="cart-offer__input" name="mail" id="offerInputMail" placeholder="Почта..." 
                                     type="email">
                             </div>
-                            <div class="cart-offer__button-inner">
+                            <!-- reCAPTCHA -->
+                            <div class="g-recaptcha" data-sitekey="6Leq0bsjAAAAAPHcjDlCSj1sZTicsVC_b1AxKWm0"></div>
+                            <div class="cart-offer__button-inner" style="margin-top: 15px;">
                                 <button class="cart-offer__button" id="cartSendOffer" type="submit">Отправить</button>
                             </div>
                         </form>
