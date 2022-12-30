@@ -1,7 +1,7 @@
 <?php
 
 $error = true;
-$secret = 'СЕКРЕТНЫЙ_КЛЮЧ';
+$secret = '6Leq0bsjAAAAALen1FnPr9uIt7LVFpyDJnRUGaxj';
  
 if (!empty($_POST['g-recaptcha-response'])) {
     $out = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . $secret . '&response=' . $_POST['g-recaptcha-response']);
