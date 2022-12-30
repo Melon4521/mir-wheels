@@ -297,9 +297,8 @@
         </section>
 
         <!-- reCAPTCHA -->
-        <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"></script>
-        
-        <script>
+        <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit">
+
             let onloadCallback = function(){
                 let key = '6Leq0bsjAAAAAPHcjDlCSj1sZTicsVC_b1AxKWm0';
                 grecaptcha.render('recaptcha_1', {
@@ -309,6 +308,7 @@
                     'sitekey': key
                 });
             };
+            
         </script>
 
         <div class="elipse-up" id="elipseUp">
