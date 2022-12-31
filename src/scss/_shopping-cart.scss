@@ -46,7 +46,7 @@
     // .cart-card__image
     &__image img {
         width: 130px;
-        max-height: 220px;
+        max-height: 200px;
     }
     
     // .cart-card__info
@@ -85,7 +85,7 @@
 .info-header {
 
     // .info-header__title
-    &__title a {
+    &__title {
         font-weight: 700;
         color: #000;
         @include fz-rem(22, $fz);
@@ -270,8 +270,8 @@
 
     .info-header {
 
-        // .info-header__title a
-        &__title a {
+        // .info-header__title
+        &__title {
             @include fz-rem(18, $fz);
         }
     

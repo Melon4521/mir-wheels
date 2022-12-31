@@ -836,7 +836,7 @@ html {
 }
 .cart-card__image img {
   width: 130px;
-  max-height: 220px;
+  max-height: 200px;
 }
 .cart-card__info {
   padding-left: 25px;
@@ -874,7 +874,7 @@ html {
   margin-right: 10px;
 }
 
-.info-header__title a {
+.info-header__title {
   font-weight: 700;
   color: #000;
   font-size: calc(22rem / 16);
@@ -1025,7 +1025,7 @@ html {
   .cart-footer__button {
     font-size: calc(16rem / 16);
   }
-  .info-header__title a {
+  .info-header__title {
     font-size: calc(18rem / 16);
   }
   .info-header__details {
