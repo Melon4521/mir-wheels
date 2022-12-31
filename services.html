@@ -136,8 +136,12 @@
                         </div>
                         <textarea class="service-form__comment" type="text" name="comment" placeholder="Комментарий к услуги"></textarea>
                         <!-- reCAPTCHA -->
-                        <div id="recaptcha_1"></div>
-                        <button class="service-form__button" name="service-button" type="submit">Отправить</button>
+                        <div class="captcha-inner-serv">
+                            <div id="recaptcha_1"></div>
+                        </div>
+                        <div class="service-form__button-inner">
+                            <button class="service-form__button" name="service-button" type="submit">Отправить</button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -286,7 +290,9 @@
                                     type="email">
                             </div>
                             <!-- reCAPTCHA -->
-                            <div id="recaptcha_2"></div>
+                            <div style="display: flex; align-items: center; justify-content: center;">
+                                <div id="recaptcha_2"></div>
+                            </div>
                             <div class="cart-offer__button-inner">
                                 <button class="cart-offer__button" id="cartSendOffer" type="submit">Отправить</button>
                             </div>
@@ -296,6 +302,7 @@
             </div>
         </section>
 
+        <!-- reCAPTCHA -->
         <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"></script>
         <script>
             var onloadCallback = function(){
@@ -308,21 +315,6 @@
                 });
             };
         </script>
-
-        <!-- reCAPTCHA
-        <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit">
-
-            let onloadCallback = function(){
-                let key = '6Leq0bsjAAAAAPHcjDlCSj1sZTicsVC_b1AxKWm0';
-                grecaptcha.render('recaptcha_1', {
-                    'sitekey': key
-                });
-                grecaptcha.render('recaptcha_2', {
-                    'sitekey': key
-                });
-            };
-
-        </script> -->
 
         <div class="elipse-up" id="elipseUp">
             <div class="elipse-up__body">

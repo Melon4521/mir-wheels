@@ -221,6 +221,7 @@
 
     // .service-form__button
     &__button {
+        @include adaptiv-value("margin-top", 35, 25, 1);
         @extend .form-button-blue;
     }
 }
@@ -252,6 +253,16 @@
         &:not(:last-child) {
             margin-bottom: 30px;
         }
+    }
+
+    .service-form__button-inner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .captcha-inner-serv {
+        justify-content: center;
     }
 }
 

@@ -39,6 +39,17 @@ html {
     flex: 1 1 auto;
 }
 
+.captcha-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.captcha-inner-serv {
+    display: flex;
+    align-items: center;
+}
+
 // Скролл
 ::-webkit-scrollbar {
     margin: 0;

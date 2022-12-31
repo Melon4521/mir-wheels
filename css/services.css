@@ -138,6 +138,27 @@ html {
           flex: 1 1 auto;
 }
 
+.captcha-inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.captcha-inner-serv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 ::-webkit-scrollbar {
   margin: 0;
   padding: 0;
@@ -853,7 +874,7 @@ html {
   margin-right: 10px;
 }
 
-.info-header__title {
+.info-header__title a {
   font-weight: 700;
   color: #000;
   font-size: calc(22rem / 16);
@@ -1004,7 +1025,7 @@ html {
   .cart-footer__button {
     font-size: calc(16rem / 16);
   }
-  .info-header__title {
+  .info-header__title a {
     font-size: calc(18rem / 16);
   }
   .info-header__details {
@@ -1093,6 +1114,7 @@ html {
   background-color: #e2e2e2;
 }
 .cart-offer__button-inner {
+  margin-top: 15px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1302,6 +1324,15 @@ html {
     margin-bottom: calc(25px + 10 * ((100vw - 320px) / 800));
   }
 }
+.service-form__button {
+  margin-top: 35px;
+}
+@media (max-width: 1120px) {
+  .service-form__button {
+    margin-top: calc(25px + 10 * ((100vw - 320px) / 800));
+  }
+}
+
 .footer {
   background-color: #3c3c3c;
   margin-top: 100px;
@@ -1507,6 +1538,22 @@ html {
   }
   .service-form__inputs:not(:last-child) {
     margin-bottom: 30px;
+  }
+  .service-form__button-inner {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .captcha-inner-serv {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
 }
 @media (max-width: 400px) {
