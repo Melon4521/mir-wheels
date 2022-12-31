@@ -506,7 +506,7 @@ body {
 /* <Registration>============================================================================== */
 
 .reg {
-    margin-top: 100px;
+    margin-top: 60px;
 }
 
 .auth__title {
@@ -514,7 +514,7 @@ body {
     text-align: center;
     font-size: 20px;
     font-weight: 400;
-    margin-bottom: 35px;
+    margin-bottom: 40px;
 }
 
 .auth__form {
@@ -535,7 +535,7 @@ body {
     font-size: 20px;
     font-weight: 400;
     color: #333;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .auth__input:last-child {
@@ -543,7 +543,7 @@ body {
 }
 
 .auth__button {
-    margin-top: 80px;
+    margin-top: 40px;
 }
 
 /* </Registration>============================================================================== */
@@ -551,18 +551,18 @@ body {
 /* <Loading>============================================================================== */
 
 .load {
-    margin-top: 100px;
+    margin-top: 60px;
 }
 
 .load__title {
-    margin-bottom: 100px;
+    margin-bottom: 40px;
 }
 
 .load__conv {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
 }
 
 .conv__item {
