@@ -277,6 +277,13 @@ html {
   color: #333;
 }
 
+.sub-title-grey {
+  line-height: 145%;
+  font-weight: 600;
+  font-size: calc(20rem / 16);
+  color: #666;
+}
+
 .sub-title-orange {
   line-height: 145%;
   font-weight: 700;
@@ -286,8 +293,25 @@ html {
 
 .simple-text {
   line-height: 145%;
-  font-size: calc(20rem / 16);
+  font-size: 20px;
   color: #333;
+}
+@media (max-width: 1120px) {
+  .simple-text {
+    font-size: calc(18px + 2 * ((100vw - 320px) / 800));
+  }
+}
+
+.light-text {
+  line-height: 145%;
+  font-weight: 300;
+  font-size: 18px;
+  color: #333;
+}
+@media (max-width: 1120px) {
+  .light-text {
+    font-size: calc(16px + 2 * ((100vw - 320px) / 800));
+  }
 }
 
 .form-input, .pagen-buttons__input, .cart-offer__input {

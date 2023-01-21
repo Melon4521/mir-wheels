@@ -34,3 +34,39 @@
 @import 'shopping-cart';
 @import 'slider';
 @import 'footer';
+
+//<About Us>==============================================================================
+
+.about-us {
+    @include adaptiv-value("margin-top", 120, 80, 1);
+
+    // .about-us__title
+    &__title {
+        text-align: center;
+    }
+
+    // .about-us__info
+    &__info {
+        @include adaptiv-value("margin-top", 80, 50, 1);
+    }
+
+    // .about-us__info-block
+    &__info-block {
+        margin-bottom: 30px;
+    }
+}
+
+.info-block {
+
+    // .info-block__title
+    &__title {
+
+    }
+
+    // .info-block__text
+    &__text {
+        margin-top: 25px;
+    }
+}
+
+//</About Us>==============================================================================

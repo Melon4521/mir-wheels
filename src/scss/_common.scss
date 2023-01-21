@@ -170,6 +170,13 @@ html {
     color: #333;
 }
 
+.sub-title-grey {
+    line-height: 145%;
+    font-weight: 600;
+    @include fz-rem(20, $fz);
+    color: #666;
+}
+
 .sub-title-orange {
     line-height: 145%;
     font-weight: 700;
@@ -179,7 +186,14 @@ html {
 
 .simple-text {
     line-height: 145%;
-    @include fz-rem(20, $fz);
+    @include adaptiv-value("font-size", 20, 18, 1);
+    color: #333;
+}
+
+.light-text {
+    line-height: 145%;
+    font-weight: 300;
+    @include adaptiv-value("font-size", 18, 16, 1);
     color: #333;
 }
 

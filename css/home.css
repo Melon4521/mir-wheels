@@ -276,6 +276,13 @@ html {
   color: #333;
 }
 
+.sub-title-grey {
+  line-height: 145%;
+  font-weight: 600;
+  font-size: calc(20rem / 16);
+  color: #666;
+}
+
 .sub-title-orange {
   line-height: 145%;
   font-weight: 700;
@@ -285,8 +292,25 @@ html {
 
 .simple-text {
   line-height: 145%;
-  font-size: calc(20rem / 16);
+  font-size: 20px;
   color: #333;
+}
+@media (max-width: 1120px) {
+  .simple-text {
+    font-size: calc(18px + 2 * ((100vw - 320px) / 800));
+  }
+}
+
+.light-text {
+  line-height: 145%;
+  font-weight: 300;
+  font-size: 18px;
+  color: #333;
+}
+@media (max-width: 1120px) {
+  .light-text {
+    font-size: calc(16px + 2 * ((100vw - 320px) / 800));
+  }
 }
 
 .form-input, .cart-offer__input {
@@ -1191,25 +1215,25 @@ html {
 }
 
 .slide__content-title {
-  font-size: 55px;
+  font-size: 45px;
   font-weight: 700;
   line-height: 1;
   margin-bottom: 15px;
 }
 @media (max-width: 1120px) {
   .slide__content-title {
-    font-size: calc(35px + 20 * ((100vw - 320px) / 800));
+    font-size: calc(30px + 15 * ((100vw - 320px) / 800));
   }
 }
 
 .slide__content-subtitle {
-  font-size: 35px;
+  font-size: 30px;
   font-weight: 300;
   max-width: 80%;
 }
 @media (max-width: 1120px) {
   .slide__content-subtitle {
-    font-size: calc(15px + 20 * ((100vw - 320px) / 800));
+    font-size: calc(16px + 14 * ((100vw - 320px) / 800));
   }
 }
 
@@ -1359,7 +1383,7 @@ html {
     width: 320px;
   }
   .slide__image-2__img-1 {
-    height: calc(100vh - 137px);
+    height: calc(100vh - 110px);
     max-height: 700px;
   }
   .slide__content-2 {
@@ -1647,4 +1671,30 @@ html {
   .footer-fst__logo {
     text-align: center;
   }
+}
+.about-us {
+  margin-top: 120px;
+}
+@media (max-width: 1120px) {
+  .about-us {
+    margin-top: calc(80px + 40 * ((100vw - 320px) / 800));
+  }
+}
+.about-us__title {
+  text-align: center;
+}
+.about-us__info {
+  margin-top: 80px;
+}
+@media (max-width: 1120px) {
+  .about-us__info {
+    margin-top: calc(50px + 30 * ((100vw - 320px) / 800));
+  }
+}
+.about-us__info-block {
+  margin-bottom: 30px;
+}
+
+.info-block__text {
+  margin-top: 25px;
 }
