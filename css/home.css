@@ -1337,6 +1337,32 @@ html {
     left: -350px;
   }
 }
+@media (max-height: 570px) {
+  .slide__image-1 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: end;
+  }
+  .slide__image-1 img {
+    width: 85%;
+  }
+}
+@media (max-height: 450px) {
+  .slide__image-1 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: end;
+  }
+  .slide__image-1 img {
+    width: 75%;
+  }
+}
 .slide__image-2__wrapper {
   width: 100%;
   height: 100%;
@@ -1382,19 +1408,29 @@ html {
     left: 0;
     width: 320px;
   }
+  .slide__image-2__wrapper {
+    overflow: visible;
+  }
   .slide__image-2__img-1 {
     height: calc(100vh - 110px);
-    max-height: 700px;
+    max-height: 600px;
+    bottom: 0;
   }
   .slide__content-2 {
-    width: 45%;
+    width: 50%;
   }
   .slide__image-2 {
-    width: 55%;
+    width: 50%;
   }
   .my-slider,
 .slide__wrapper {
-    height: 600px;
+    height: calc(100vh - 110px);
+    max-height: 600px;
+  }
+}
+@media (max-width: 790px) {
+  .slide__image-2__img-2 {
+    width: 290px;
   }
 }
 @media (max-width: 740px) {
@@ -1419,10 +1455,20 @@ html {
 @media (max-width: 600px) {
   .slide__image-2__img-1 {
     height: calc(100vh - 110px);
-    max-height: 700px;
+    max-height: 600px;
     width: 700px;
     margin-top: -8px;
     right: -5px;
+  }
+}
+@media (max-height: 630px) {
+  .slide__image-2__img-2 {
+    width: 330px;
+  }
+}
+@media (max-height: 510px) {
+  .slide__image-2__img-2 {
+    width: 290px;
   }
 }
 .my-slider__image-3 {
@@ -1489,6 +1535,32 @@ html {
   }
   .slide__content-subtitle {
     text-align: center;
+  }
+}
+@media (max-height: 680px) {
+  .slide__image-3 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: end;
+  }
+  .slide__image-3 img {
+    width: 85%;
+  }
+}
+@media (max-height: 500px) {
+  .slide__image-3 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: end;
+  }
+  .slide__image-3 img {
+    width: 60%;
   }
 }
 .footer {
