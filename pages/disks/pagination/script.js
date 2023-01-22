@@ -234,7 +234,7 @@ function pagenInit(myJson, sortedArray) {
             activePage--;
             newCardGenerate(myJson, activePage);
             settingCards();
-            // scrollToPosition(0);
+            scrollToPosition(0);
         };
 
         // Проверка на активность кнопки пагинации 
@@ -256,7 +256,7 @@ function pagenInit(myJson, sortedArray) {
             activePage++;
             newCardGenerate(myJson, activePage);
             settingCards();
-            // scrollToPosition(0);
+            scrollToPosition(0);
         };
 
         // Проверка на активность кнопки пагинации 

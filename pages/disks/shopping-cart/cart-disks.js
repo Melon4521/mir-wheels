@@ -244,13 +244,19 @@ function addItem(targetElement) {
 
         if (cartData[item][7][0] === 'd') {
             if (cartData[item][7] == targetElementId) {
-                cartData[item][8]++;
-                break;
+                // Проверка на превышение кол-ва товаров в наличии
+                if (cartData[item][5] > cartData[item][cartData[item].length-1]) {
+                    cartData[item][cartData[item].length-1]++;
+                    break;
+                }
             }
         } else {
             if (cartData[item][6] == targetElementId) {
-                cartData[item][7]++;
-                break;
+                // Проверка на превышение кол-ва товаров в наличии
+                if (cartData[item][4] > cartData[item][cartData[item].length-1]) {
+                    cartData[item][cartData[item].length-1]++;
+                    break;
+                }
             }
         }
     }
