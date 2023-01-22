@@ -55,16 +55,12 @@ html {
     margin: 0;
     padding: 0;
     background-color: transparent;
+    width: 12px;
 }
 
 ::-webkit-scrollbar-thumb {
-    height: 56px;
-
     background-color: #bfbfbf;
-    background-clip: content-box;
-
-    border-radius: 25px;
-    border: 3px solid transparent;
+    border-radius: 15px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
