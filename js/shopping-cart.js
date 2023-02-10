@@ -1,56 +1,21 @@
 let cartData = getCartData("shopping-cart"),
-    offerBtnSubmit = document.getElementById("cartSendOffer"),
-    offerFormContent = document.getElementById("offerFormContent"),
-    offerInputs = document.getElementById("offerInputs");
+    offerForm = document.getElementById("offerForm"),
+    offerInputPhone = document.getElementById("offerInputPhone"),
+    offerInputMail = document.getElementById("offerInputMail");
 
 const shoppingCart = document.querySelector('#shoppingCart'),
     cartIcon = document.querySelector('.top-menu__cart'),
     cartMakeOffer = document.querySelector('#cartMakeOffer');
 
-// Отправка формы
-offerBtnSubmit.addEventListener('click', function (e) {
-
-    // Проверка на содержимое полей
-    let isEmpty = false;
-
-    for (let i = 0; i < offerInputs.children.length; i++) {
-        const elem = offerInputs.children[i];
-
-        if (elem.type !== "email" && elem.type !== "hidden" && elem.value == "") {
-            isEmpty = true
-            alert("Одно из полей пустое!")
-            break
-        }
+// Checking validity
+offerForm.onsubmit = function () {
+    if (!checkFormValidity(offerInputPhone)) {
+        return false;
+    } else {
+        sendOrder();
+        return true;
     }
-
-    if (!isEmpty) {
-
-        if (!checkFormValidity(offerInputs.children[2])) {
-            return false;
-        } else {
-            let searchParams = new URLSearchParams();
-
-            searchParams.set('name', offerInputs.children[1].value);
-            searchParams.set('phone', offerInputs.children[2].value);
-            searchParams.set('email', offerInputs.children[3].value);
-    
-            let path = "https://tires.intermir.ru/php/shopping-cart/message-sender.php?";
-            postQuery(path, searchParams, offerFormContent);
-            
-            sendOrder();
-        }
-    }
-
-});
-
-// offerForm.onsubmit = function () {
-//     if (!checkFormValidity(offerInputPhone)) {
-//         return false;
-//     } else {
-//         sendOrder();
-//         return true;
-//     }
-// };
+};
 
 //<Functions>==============================================================================
 
@@ -315,31 +280,12 @@ function deleteItem(targetElement) {
 };
 
 function sendOrder() {
+    alert("Заказ отправлен, мы скоро с вами свяжемся!");
     // Закрытие окна
     setTimeout(() => {
         closePopup(document.querySelector('#popup-offer'), true);
-        offerFormContent.innerHTML = /*html*/`
-            <div class="cart-offer__inputs" id="offerInputs">
-                <input type="hidden" name="cart" id="hiddenCartItem" value="">
-                <input class="cart-offer__input" name="name" id="offerInputName" placeholder="Имя..."
-                    type="text">
-                <input class="cart-offer__input" name="phone" id="offerInputPhone"
-                    placeholder="Телефон..." minlength="6" type="tel">
-                <input class="cart-offer__input" name="mail" id="offerInputMail" placeholder="Почта..."
-                    type="email">
-            </div>
-
-            <!-- reCAPTCHA -->
-            <div class="captcha-inner">
-                <div class="g-recaptcha" data-sitekey="6Leq0bsjAAAAAPHcjDlCSj1sZTicsVC_b1AxKWm0"></div>
-            </div>
-
-            <div class="cart-offer__button-inner" style="margin-top: 15px;">
-                <button class="cart-offer__button" id="cartSendOffer">Отправить</button>
-            </div>
-        `
-    }, 3000);
-    // clearAllItems();
+    }, 1000);
+    clearAllItems();
 };
 
 function checkFormValidity(phone) {
@@ -355,31 +301,6 @@ function checkFormValidity(phone) {
         return reg.test(String(phone));
     }
 };
-
-function postQuery(path, params, formContent) {
-    fetch(path, {
-        method: 'POST',
-        body: params
-    }).then(
-        response => {
-            return response.text();
-        }
-    ).then(
-        text => {
-            formContent.innerHTML = /*html*/`
-                <div style="min-height: 200px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-direction: column">
-                    <h4 style="font-size: 30px; margin-bottom: 15px">Спасибо за заказ!</h4>
-                    <p style="font-size: 18px;">В ближайшее время с Вами свяжутся.</p>
-                    <p>${text}</p>
-                </div>
-            `;
-        }
-    )
-}
 
 function changeCartIconNumber() {
     let cartData = getCartData("shopping-cart");

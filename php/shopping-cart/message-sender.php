@@ -32,7 +32,7 @@ if ($error) {
     }
 
     /* Сюда впишите свою эл. почту */
-    $myaddress = "mirkoles61@yandex.ru, belozerov.o.s@yandex.ru, kuznetsov.neon-x@yandex.ru";
+    $myaddress = "mirkoles61@yandex.ru, belozerov.o.s@yandex.ru";
     /* Сюда впишите эл. почту магазина */
     $shopEmail = 'shop@mir-wheels.ru';
 
@@ -70,11 +70,11 @@ if ($error) {
     $send = mail($emailCl, $sub, $mes2, "Content-type:text/plain; charset = UTF-8\r\nFrom:$shopEmail");
 
     ini_set('short_open_tag', 'On');
-    // header('Refresh: 5; URL = http://mir-wheels.ru');
+    header('Refresh: 5; URL = http://mir-wheels.ru');
 }
 
 ?>
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -93,4 +93,4 @@ if ($error) {
 	    <p style="font-size: 18px;">Вас перенаправят на страницу магазина через 5 секунд</p>
     </div>
 </body>
-</html> -->
+</html>
