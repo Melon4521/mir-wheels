@@ -28,8 +28,6 @@ offerBtnSubmit.addEventListener('click', function (e) {
         if (!checkFormValidity(offerInputs.children[2])) {
             return false;
         } else {
-            sendOrder();
-            
             let searchParams = new URLSearchParams();
 
             searchParams.set('name', offerInputs.children[1].value);
@@ -38,6 +36,8 @@ offerBtnSubmit.addEventListener('click', function (e) {
     
             let path = "https://tires.intermir.ru/php/shopping-cart/message-sender.php?";
             postQuery(path, searchParams, offerFormContent);
+            
+            sendOrder();
         }
     }
 
@@ -339,7 +339,7 @@ function checkFormValidity(phone) {
 
 function postQuery(path, params, formContent) {
     fetch(path, {
-        method: "POST",
+        method: 'POST',
         body: params
     }).then(
         response => {
