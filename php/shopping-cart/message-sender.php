@@ -74,7 +74,7 @@ if ($error) {
 }
 
 ?>
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -93,4 +93,4 @@ if ($error) {
 	    <p style="font-size: 18px;">Вас перенаправят на страницу магазина через 5 секунд</p>
     </div>
 </body>
-</html>
+</html> -->
