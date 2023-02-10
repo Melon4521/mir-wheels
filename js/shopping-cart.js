@@ -320,7 +320,7 @@ function sendOrder() {
     setTimeout(() => {
         closePopup(document.querySelector('#popup-offer'), true);
     }, 3000);
-    clearAllItems();
+    // clearAllItems();
 };
 
 function checkFormValidity(phone) {
@@ -348,9 +348,14 @@ function postQuery(path, params, formContent) {
     ).then(
         text => {
             formContent.innerHTML = /*html*/`
-                <div>
+                <div style="min-height: 200px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column">
                     <h4 style="font-size: 30px;">Спасибо за заказ!</h4>
                     <p style="font-size: 18px;">В ближайшее время с Вами свяжутся.</p>
+                    <p>${text}</p>
                 </div>
             `;
         }

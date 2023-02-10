@@ -32,7 +32,7 @@ if ($error) {
     }
 
     /* Сюда впишите свою эл. почту */
-    $myaddress = "mirkoles61@yandex.ru, belozerov.o.s@yandex.ru";
+    $myaddress = "mirkoles61@yandex.ru, belozerov.o.s@yandex.ru, kuznetsov.neon-x@yandex.ru";
     /* Сюда впишите эл. почту магазина */
     $shopEmail = 'shop@mir-wheels.ru';
 
