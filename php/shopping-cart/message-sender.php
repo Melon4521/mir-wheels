@@ -70,7 +70,7 @@ if ($error) {
     $send = mail($emailCl, $sub, $mes2, "Content-type:text/plain; charset = UTF-8\r\nFrom:$shopEmail");
 
     ini_set('short_open_tag', 'On');
-    header('Refresh: 5; URL = http://mir-wheels.ru');
+    // header('Refresh: 5; URL = http://mir-wheels.ru');
 }
 
 ?>

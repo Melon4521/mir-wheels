@@ -36,7 +36,7 @@ offerBtnSubmit.addEventListener('click', function (e) {
             searchParams.set('phone', offerInputs.children[2].value);
             searchParams.set('email', offerInputs.children[3].value);
     
-            let path = "https://tires.intermir.ru/php/shopping-cart/message-sender.php";
+            let path = "https://tires.intermir.ru/php/shopping-cart/message-sender.php?";
             postQuery(path, searchParams, offerFormContent);
         }
     }
@@ -353,7 +353,7 @@ function postQuery(path, params, formContent) {
                 justify-content: center;
                 align-items: center;
                 flex-direction: column">
-                    <h4 style="font-size: 30px;">Спасибо за заказ!</h4>
+                    <h4 style="font-size: 30px; margin-bottom: 15px">Спасибо за заказ!</h4>
                     <p style="font-size: 18px;">В ближайшее время с Вами свяжутся.</p>
                     <p>${text}</p>
                 </div>
