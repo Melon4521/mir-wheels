@@ -16,7 +16,7 @@ offerBtnSubmit.addEventListener('click', function (e) {
     for (let i = 0; i < offerInputs.children.length; i++) {
         const elem = offerInputs.children[i];
 
-        if (elem.type !== "email" || elem.type !== "hidden" && elem.value == "") {
+        if (elem.type !== "email" && elem.type !== "hidden" && elem.value == "") {
             isEmpty = true
             alert("Одно из полей пустое!")
             break
