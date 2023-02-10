@@ -315,10 +315,29 @@ function deleteItem(targetElement) {
 };
 
 function sendOrder() {
-    // alert("Заказ отправлен, мы скоро с вами свяжемся!");
     // Закрытие окна
     setTimeout(() => {
         closePopup(document.querySelector('#popup-offer'), true);
+        offerFormContent.innerHTML = /*html*/`
+            <div class="cart-offer__inputs" id="offerInputs">
+                <input type="hidden" name="cart" id="hiddenCartItem" value="">
+                <input class="cart-offer__input" name="name" id="offerInputName" placeholder="Имя..."
+                    type="text">
+                <input class="cart-offer__input" name="phone" id="offerInputPhone"
+                    placeholder="Телефон..." minlength="6" type="tel">
+                <input class="cart-offer__input" name="mail" id="offerInputMail" placeholder="Почта..."
+                    type="email">
+            </div>
+
+            <!-- reCAPTCHA -->
+            <div class="captcha-inner">
+                <div class="g-recaptcha" data-sitekey="6Leq0bsjAAAAAPHcjDlCSj1sZTicsVC_b1AxKWm0"></div>
+            </div>
+
+            <div class="cart-offer__button-inner" style="margin-top: 15px;">
+                <button class="cart-offer__button" id="cartSendOffer">Отправить</button>
+            </div>
+        `
     }, 3000);
     // clearAllItems();
 };
