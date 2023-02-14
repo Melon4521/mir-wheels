@@ -51,7 +51,7 @@ if ($error) {
 
     /* А эта функция как раз занимается отправкой письма на указанный вами email */
     $sub = 'Order'; // тема
-    $send = mail($myaddress, $sub, $mes1, "Content-type:text/plain;  Reply-To:no-reply@****.ru; Content-Transfer-Encoding: utf-8; charset = UTF-8\r\nFrom:$emailCl");
+    $send = mail($myaddress, $sub, $mes1, "Content-type:text/plain;  Reply-To:no-reply@****.ru; Content-Transfer-Encoding: utf-8; charset = UTF-8\r\nFrom:$shopEmail");
 
     // Письмо отправителю о заказе
     
@@ -80,7 +80,7 @@ if ($error) {
     <meta charset="UTF-8">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="5; url = index.html">
+    <meta http-equiv="refresh" content="5; url = http://mir-wheels.ru">
     <title>Спасибо за заказ!</title>
     <script type="text/javascript">
         setTimeout("location.replace('http://mir-wheels.ru')", 5000);

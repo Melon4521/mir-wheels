@@ -31,14 +31,14 @@ document.addEventListener('click', function (e) {
     } 
     
     if (targetElement.classList.contains('addToCart')) { // Кнопка "В корзину"
-        alert("Внимание! Сайт находится на стадии тестирования,\
-        пока что вы не сможете ничего купить!")
+//        alert("Внимание! Сайт находится на стадии тестирования,\
+//        пока что вы не сможете ничего купить!")
         add2Cart(targetElement);
     } 
     
     if (targetElement.classList.contains('buyIn1Click')) { // Кнопка "Купить в 1 клик"
-        alert("Внимание! Сайт находится на стадии тестирования,\
-        пока что вы не сможете ничего купить!")
+//        alert("Внимание! Сайт находится на стадии тестирования,\
+//        пока что вы не сможете ничего купить!")
         buyIn1Click(targetElement);
     } 
     
