@@ -7,7 +7,7 @@ const shoppingCart = document.querySelector('#shoppingCart'),
     cartIcon = document.querySelector('.top-menu__cart'),
     cartMakeOffer = document.querySelector('#cartMakeOffer');
 
-// Checking validity
+// Валидация формы
 offerForm.onsubmit = function () {
     if (!checkFormValidity(offerInputPhone, offerInputMail)) {
         return false;
@@ -85,7 +85,7 @@ function generateCartCard(cardAtrs) {
                 <div class="cart-card__info">
                     <div class="cart-card__info-header info-header">
                         <div class="info-header__title">${cardAtrs.cardName}</div>
-                        <div class="info-header__price">${cardAtrs.price}руб/шт.</div>
+                        <div class="info-header__price">${cardAtrs.price} руб.</div>
                         <div class="info-header__details"><span>Цвет: </span>${cardAtrs.color}</div>
                         <div class="info-header__details"><span>Тип: </span>${cardAtrs.type}</div>
                         <div class="info-header__details"><span>Дата производства: </span>${cardAtrs.dateUp}</div>
@@ -112,7 +112,7 @@ function generateCartCard(cardAtrs) {
                 <div class="cart-card__info">
                     <div class="cart-card__info-header info-header">
                         <div class="info-header__title">${cardAtrs.cardName}</div>
-                        <div class="info-header__price">${cardAtrs.price}руб/шт.</div>
+                        <div class="info-header__price">${cardAtrs.price} руб.</div>
                         <div class="info-header__details"><span>Сезон: </span>${cardAtrs.season}</div>
                         <div class="info-header__details"><span>Дата производства: </span>${cardAtrs.dateUp}</div>
                         <div class="info-header__details _details-stock"><span>В наличии: </span>${cardAtrs.stock}</div>
@@ -359,7 +359,11 @@ function changeCartIconNumber() {
     if (cartData === null) {
         cartIcon.dataset.count = '0';
     } else {
-        cartIcon.dataset.count = `${count}`;
+        if (count > 99) {
+            cartIcon.dataset.count = `99`;
+        } else {
+            cartIcon.dataset.count = `${count}`;
+        }
     }
 };
 

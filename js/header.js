@@ -120,6 +120,7 @@ let removePadding = () => {
 };
 
 document.addEventListener('scroll', () => {
+    // Фиксация хедера
     if (cheakScrollPosition(600)) {
         headerElement.classList.add('_header-fixed');
         addPadding();
@@ -132,18 +133,17 @@ document.addEventListener('scroll', () => {
         }
     }
     
+    // elipse-up
     if (cheakScrollPosition(600)) {
         let elipseUp = document.querySelector('#elipseUp');
         elipseUp.classList.add('_active');
-        elipseUp.addEventListener('click', () => {
+        elipseUp.onclick = () => {
+            elipseUp.classList.remove('_active');
             scrollToPosition(0)
-        });
+        }
     } else {
         let elipseUp = document.querySelector('#elipseUp');
         elipseUp.classList.remove('_active');
-        elipseUp.removeEventListener('click', () => {
-            scrollToPosition(0)
-        })
     }
 });
 

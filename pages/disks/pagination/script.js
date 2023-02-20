@@ -1,6 +1,6 @@
 function pagenInit(myJson, sortedArray) {
     // Объявления констант
-    const step = 10,
+    const step = 5,
         pagenParent = document.querySelector('.catalog-pagen'),
         pagenInput = document.querySelector('#pagenInput'),
         pagenPage = document.querySelector('#pagenPage'),
