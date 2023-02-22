@@ -1,29 +1,6 @@
 let root = document.querySelector("#root");
 
 function render() {
-    /*
-    `<div id='upload'>
-        <form method="post" enctype="multipart/form-data">
-            <!--enctype="multipart/form-data" чтобы передовалось не только имя файла но и его содержимое-->
-            <div class='title'>
-                Загрузка данных на сайт
-            </div>
-
-            <div>
-                <span>ШИНЫ</span>
-                <input class='file' type="file" name="uploaded_file_tire" value="good" />
-            </div>
-
-            <div>
-                <span>ДИСКИ</span>
-                <input class='file' type="file" name="uploaded_file_disk" value="good" />
-            </div>
-            
-            <button type="submit">Конвертация и выгрузка в базу</button>
-        </form>
-    </div>
-    `;
-    */
 
     root.innerHTML = /*html*/`
     <div class="wrapper">
@@ -67,6 +44,72 @@ function render() {
                         </div>
 
                     </form>
+                </div>
+            </div>
+
+            <div class="guide">
+                <div class="guide__container">
+
+                    <div class="guide__item guide-item">
+                        <h2 class="guide__title _title">Инструкция</h2>
+                        <div class="guide-item__image" style="margin-bottom: 40px;">
+                            <img src="../images/admin-1.jpg" alt="Загрузка шин и дисков">
+                        </div>
+                        <div class="guide-item__text" style="margin-bottom: 0; text-align: center;">
+                            Скачайте файлы шин и дисков с сайта TyreOpt.ru
+                        </div>
+                    </div>
+
+                    <div class="guide__item guide-item">
+                        <h2 class="guide__title _title">Загрузка файла Шин</h2>
+                        <div class="guide-item__text">
+                            <div style="margin-bottom: 15px">
+                                Для загрузки файла Шин нажмите на ссылку в столбце “Выгрузка“ в таблице “Шины”.
+                            </div>
+                            
+                            Обратите внимание на:
+                            <ol style="margin-left: 19px;">
+                                <li>
+                                    Столбец “Название”, в названии должно присутствовать “с изображениями”.
+                                </li>
+                                <li>
+                                    Столбец “Формат”, там должно быть написано “XML”.
+                                </li>
+                                <li>
+                                    Столбец “Дата генерации”, дата должа быть свежая.
+                                </li>
+                            </ol>
+                        </div>
+                        <div class="guide-item__image">
+                            <img src="../images/admin-tires.jpg" alt="Загрузка шин">
+                        </div>
+                    </div>
+
+                    <div class="guide__item guide-item">
+                        <h2 class="guide__title _title">Загрузка файла Дисков</h2>
+                        <div class="guide-item__text">
+                            <div style="margin-bottom: 15px">
+                                Для загрузки файла Дисков нажмите на ссылку в столбце “Выгрузка“ в таблице “Диски”.
+                            </div>
+                            
+                            Обратите внимание на:
+                            <ol style="margin-left: 19px;">
+                                <li>
+                                    Столбец “Название”, в названии должно присутствовать “с изображениями”.
+                                </li>
+                                <li>
+                                    Столбец “Формат”, там должно быть написано “XML”.
+                                </li>
+                                <li>
+                                Столбец “Дата генерации”, дата должа быть свежая.
+                                </li>
+                            </ol>
+                        </div>
+                        <div class="guide-item__image">
+                            <img src="../images/admin-disks.jpg" alt="Загрузка дисков">
+                        </div>
+                    </div>
+
                 </div>
             </div>
 

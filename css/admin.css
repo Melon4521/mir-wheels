@@ -231,7 +231,33 @@ footer {
 
 /* </Стили Глеба>============================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700;800&display=swap');
+/* <Fonts>============================================================================== */
+
+@font-face {
+    font-family: "Noto Sans";
+    src: url("../src/fonts/NotoSans-Regular.ttf") format("truetype");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Noto Sans";
+    src: url("../src/fonts/NotoSans-SemiBold.ttf") format("truetype");
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: "Noto Sans";
+    src: url("../src/fonts/NotoSans-Bold.ttf") format("truetype");
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "Noto Sans";
+    src: url("../src/fonts/NotoSans-ExtraBold.ttf") format("truetype");
+    font-weight: 800;
+}
+
+/* </Fonts>============================================================================== */
 
 /* <Обнуление>============================================================================== */
 
@@ -609,3 +635,37 @@ body {
 }
 
 /* </Loading>============================================================================== */
+
+/* <Guide>============================================================================== */
+
+.guide {
+    margin-top: 120px;
+}
+
+.guide__item {
+    margin-bottom: 100px;
+}
+
+.guide__title {
+    margin-bottom: 60px;
+}
+
+.guide-item__image {
+    max-width: 100%;
+    overflow: hidden;
+
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+}
+.guide-item__image img {
+    width: 100%;
+}
+
+.guide-item__text {
+    margin-bottom: 60px;
+
+    font-size: 18px;
+    line-height: 150%;
+}
+
+/* </Guide>============================================================================== */
