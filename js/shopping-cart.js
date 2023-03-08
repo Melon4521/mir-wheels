@@ -25,7 +25,7 @@ async function sendForm(e) {
         });
 
         if (response.ok) {
-            console.log(await response.json());
+            // console.log(await response.json());
             alert('Данные отправлены');
             offerForm.reset();
             offerForm.classList.remove('_sending');
