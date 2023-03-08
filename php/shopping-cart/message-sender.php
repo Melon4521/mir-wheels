@@ -1,19 +1,19 @@
 <?php
 
-$error = true;
-$secret = '6Leq0bsjAAAAALen1FnPr9uIt7LVFpyDJnRUGaxj';
+// $error = true;
+// $secret = '6Leq0bsjAAAAALen1FnPr9uIt7LVFpyDJnRUGaxj';
  
-if (!empty($_POST['g-recaptcha-response'])) {
-    $out = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . $secret . '&response=' . $_POST['g-recaptcha-response']);
-    $out = json_decode($out);
-    if ($out->success == true) {
-        $error = false;
-    } 
-}
+// if (!empty($_POST['g-recaptcha-response'])) {
+//     $out = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . $secret . '&response=' . $_POST['g-recaptcha-response']);
+//     $out = json_decode($out);
+//     if ($out->success == true) {
+//         $error = false;
+//     } 
+// }
  
-if ($error) {
-    echo 'Ошибка заполнения капчи.';
-} else {
+// if ($error) {
+//     echo 'Ошибка заполнения капчи.';
+// } else {
     /* Здесь проверяется существование переменных */
     if (isset($_POST['name'])) {
         $name = $_POST['name'];
@@ -71,11 +71,11 @@ if ($error) {
     $send = mail($emailCl, $sub, $mes2, "Content-type:text/plain; charset = UTF-8\r\nFrom:$shopEmail");
 
     ini_set('short_open_tag', 'On');
-    header('Refresh: 5; URL = http://mir-wheels.ru');
-}
+    // header('Refresh: 5; URL = http://mir-wheels.ru');
+// }
 
 ?>
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -94,4 +94,4 @@ if ($error) {
 	    <p style="font-size: 18px;">Вас перенаправят на страницу магазина через 5 секунд</p>
     </div>
 </body>
-</html>
+</html> -->
