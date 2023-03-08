@@ -25,10 +25,9 @@ async function sendForm(e) {
         });
 
         if (response.ok) {
-            let resault = await response.json();
-            alert(resault.message)
+            console.log(await response.json());
+            alert('Данные отправлены');
             offerForm.reset();
-            // alert('Данные отправлены');
             offerForm.classList.remove('_sending');
         } else {
             alert('Ошибка')
