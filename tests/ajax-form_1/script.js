@@ -22,8 +22,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (response.ok) {
                 form.reset();
-                form.classList.remove('_sending');
                 console.log('Данные отправлены');
+                form.classList.remove('_sending');
             } else {
                 alert('Ошибка')
                 form.classList.remove('_sending');

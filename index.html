@@ -351,21 +351,40 @@
 					<a href="#" class="popup__close">X</a>
 					<div class="popup__title">Оформление</div>
 					<div class="popup__cart-offer cart-offer">
-						<form class="cart-offer__form" id="offerForm" action="http://mir-wheels.ru/php/shopping-cart/message-sender.php" method="POST">
+
+						<form class="cart-offer__form" id="offerForm" action="#">
+							<input type="hidden" name="cart" id="hiddenCartItem" value="">
+							<div class="cart-offer__item">
+								<label class="cart-offer__label" for="offerInputName">Имя*:</label>
+								<input class="cart-offer__input _req" name="phone" id="offerInputName" type="text">
+							</div>
+							<div class="cart-offer__item">
+								<label class="cart-offer__label" for="offerInputPhone">Телефон*:</label>
+								<input class="cart-offer__input _phone _req" name="phone" id="offerInputPhone" type="phone">
+							</div>
+							<div class="cart-offer__item">
+								<label class="cart-offer__label" for="offerInputMail">Почта:</label>
+								<input class="cart-offer__input _email _req" name="mail" id="offerInputMail" type="email">
+							</div>
+							<button style="width: 100%;" class="cart-offer__button" id="cartSendOffer" type="submit">Отправить</button>
+						</form>
+
+						<!-- <form class="cart-offer__form" id="offerForm" action="http://mir-wheels.ru/php/shopping-cart/message-sender.php" method="POST">
 							<div class="cart-offer__inputs" id="offerInputs">
 								<input type="hidden" name="cart" id="hiddenCartItem" value="">
 								<input class="cart-offer__input" name="name" id="offerInputName" placeholder="Имя..." type="text" required>
 								<input class="cart-offer__input" name="phone" id="offerInputPhone" placeholder="Телефон..." minlength="6" type="tel" required>
 								<input class="cart-offer__input" name="mail" id="offerInputMail" placeholder="Почта..." type="email">
 							</div>
-							<!-- reCAPTCHA -->
+							
 							<div class="captcha-inner">
 								<div class="g-recaptcha" data-sitekey="6Leq0bsjAAAAAPHcjDlCSj1sZTicsVC_b1AxKWm0"></div>
 							</div>
 							<div class="cart-offer__button-inner" style="margin-top: 15px;">
 								<button class="cart-offer__button" id="cartSendOffer" type="submit">Отправить</button>
 							</div>
-						</form>
+						</form> -->
+
 					</div>
 				</div>
 			</div>

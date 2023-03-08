@@ -1,21 +1,103 @@
 let cartData = getCartData("shopping-cart"),
-    offerForm = document.getElementById("offerForm"),
-    offerInputPhone = document.getElementById("offerInputPhone"),
-    offerInputMail = document.getElementById("offerInputMail");
+    offerForm = document.getElementById("offerForm");
+    // offerInputPhone = document.getElementById("offerInputPhone"),
+    // offerInputMail = document.getElementById("offerInputMail");
 
 const shoppingCart = document.querySelector('#shoppingCart'),
     cartIcon = document.querySelector('.top-menu__cart'),
     cartMakeOffer = document.querySelector('#cartMakeOffer');
 
-// Валидация формы
-offerForm.onsubmit = function () {
-    if (!checkFormValidity(offerInputPhone)) {
-        return false;
+// Отправка формы
+offerForm.addEventListener('submit', sendForm);
+
+async function sendForm(e) {
+    e.preventDefault();
+
+    let error = formValidate(offerForm);
+
+    let formData = new FormData(offerForm);
+
+    if (error === 0) {
+        offerForm.classList.add('_sending');
+        let response = await fetch('../php/shopping-cart/message-sender.php', {
+            method: 'POST',
+            body: formData
+        });
+
+        if (response.ok) {
+            let resault = await response.json();
+            alert(resault.message)
+            offerForm.reset();
+            // alert('Данные отправлены');
+            offerForm.classList.remove('_sending');
+        } else {
+            alert('Ошибка')
+            offerForm.classList.remove('_sending');
+        }
     } else {
-        sendOrder();
-        return true;
+        alert('Заполните обязательные поля')
     }
-};
+}
+
+function formValidate(form) {
+    let error = 0;
+    let formReq = form.querySelectorAll('._req');
+
+    for (let i = 0; i<formReq.length; i++) {
+        const input = formReq[i];
+        formRemoveError(input);
+
+        if (input.classList.contains('_email')) {
+            if (emailTest(input)) {
+                formAddError(input);
+                error++;
+            }
+        } else if (input.classList.contains('_phone')) {
+            if (phoneTest(input)) {
+                formAddError(input);
+                error++;
+            }
+        } else if (input.getAttribute('type') === 'checkbox' && input.checked === false) {
+            formAddError(input);
+            error++;
+        } else {
+            if (input.value === '') {
+                formAddError(input);
+                error++;
+            }
+        }
+    }
+    return error;
+}
+
+function formAddError(input) {
+    input.parentElement.classList.add('_error');
+    input.classList.add('_error');
+}
+
+function formRemoveError(input) {
+    input.parentElement.classList.remove('_error');
+    input.classList.remove('_error');
+}
+
+function emailTest(input) { 
+    let reg = /^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/i
+    return !reg.test(input.value)
+}   
+
+function phoneTest(input) {
+    let reg = /^(\+)?((\d{2,3}) ?\d|\d)(([ -]?\d)|( ?(\d{2,3}) ?)){5,12}\d$/;
+    return !reg.test(String(input.value));
+}
+
+// offerForm.onsubmit = function () {
+//     if (!checkFormValidity(offerInputPhone)) {
+//         return false;
+//     } else {
+//         sendOrder();
+//         return true;
+//     }
+// };
 
 //<Functions>==============================================================================
 
@@ -288,20 +370,6 @@ function sendOrder() {
     clearAllItems();
 };
 
-function checkFormValidity(phone) {
-    if (phone.value.length < 11 || !validatePhone(phone.value)) {
-        alert('Неправильный формат ввода телефона!');
-        return false;
-    } else {
-        return true;
-    }
-
-    function validatePhone(phone) {
-        let reg = /^(\+)?((\d{2,3}) ?\d|\d)(([ -]?\d)|( ?(\d{2,3}) ?)){5,12}\d$/;
-        return reg.test(String(phone));
-    }
-};
-
 function changeCartIconNumber() {
     let cartData = getCartData("shopping-cart");
     let count = 0;
@@ -322,5 +390,21 @@ function changeCartIconNumber() {
         }
     }
 };
+
+// Form Validation
+
+// function checkFormValidity(phone) {
+//     if (phone.value.length < 11 || !validatePhone(phone.value)) {
+//         alert('Неправильный формат ввода телефона!');
+//         return false;
+//     } else {
+//         return true;
+//     }
+
+//     function validatePhone(phone) {
+//         let reg = /^(\+)?((\d{2,3}) ?\d|\d)(([ -]?\d)|( ?(\d{2,3}) ?)){5,12}\d$/;
+//         return reg.test(String(phone));
+//     }
+// };
 
 //</Functions>==============================================================================

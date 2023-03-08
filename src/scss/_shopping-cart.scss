@@ -345,50 +345,150 @@
 
 /* <Form> ============================================================================== */
 
+// .cart-offer {
+
+//     // .cart-offer__inputs
+//     &__inputs {
+//         display: flex;
+//         align-items: center;
+//         justify-content: center;
+//         flex-wrap: wrap;
+//         margin-bottom: 25px;
+//     }
+    
+//     // .cart-offer__input
+//     &__input {
+//         width: 100%;
+//         @extend .form-input;
+//         margin-bottom: 15px;
+//         transition: background-color .2s ease-in;
+
+//         &:last-child {
+//             margin-bottom: 0px;
+//         }
+        
+//         &:focus {
+//             transition: background-color .2s ease-in;
+//             background-color: #e2e2e2;
+//         }
+        
+//         &:hover {
+//             transition: background-color .2s ease-in;
+//             background-color: #e2e2e2;
+//         }
+//     }
+    
+//     // .cart-offer__button
+//     &__button {
+//         @extend .form-button-blue;
+
+//         &-inner {
+//             margin-top: 15px;
+//             display: flex;
+//             align-items: center;
+//             justify-content: center;
+//         }
+//     }
+// }
+
 .cart-offer {
 
-    // .cart-offer__inputs
-    &__inputs {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-wrap: wrap;
-        margin-bottom: 25px;
+    & * {
+        outline: none;
+    }
+
+    &__form {
+        position: relative;
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            opacity: 0;
+            visibility: hidden;
+            transition: all .3s ease-in;
+            background-color: #ffffffd1;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 999;
+        
+            width: 50px;
+            height: 50px;
+        
+            opacity: 0;
+            visibility: hidden;
+        
+            border: 7px solid #000;
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: loading2 .8s linear infinite;
+            transition: all .3s ease-in;
+        }
+
+        @keyframes loading2 {
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        &._sending::after {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        &._sending::before {
+            opacity: 1;
+            visibility: visible;
+        }
     }
     
+    // .cart-offer__item
+    &__item {
+        margin-bottom: 20px;
+    }
+
+    // .cart-offer__label
+    &__label {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+
     // .cart-offer__input
     &__input {
         width: 100%;
         @extend .form-input;
-        margin-bottom: 15px;
         transition: background-color .2s ease-in;
 
-        &:last-child {
-            margin-bottom: 0px;
-        }
-        
-        &:focus {
-            transition: background-color .2s ease-in;
+        &:focus, &:hover {
             background-color: #e2e2e2;
         }
-        
-        &:hover {
-            transition: background-color .2s ease-in;
-            background-color: #e2e2e2;
-        }
+
+        &._error {
+            box-shadow: 0 0 10px red;
+        } 
     }
-    
+
     // .cart-offer__button
     &__button {
         @extend .form-button-blue;
-
-        &-inner {
-            margin-top: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
     }
 }
+
 
 /* </Form>============================================================================== */

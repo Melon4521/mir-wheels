@@ -57,7 +57,7 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    translate: transform(-50%, -50%);
+    transform: translate(-50%, -50%);
     z-index: 999;
 
     width: 50px;
@@ -74,7 +74,7 @@ body {
 
 @keyframes loading {
     100% {
-        transform: rotate(360deg);
+        transform: translate(-50%, -50%) rotate(360deg);
     }
 }
 
@@ -126,5 +126,4 @@ body {
     background-color: #90c49c;
     font-size: 18px;
     font-weight: 700;
-
 }
