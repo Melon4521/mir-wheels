@@ -75,23 +75,3 @@
 // }
 
 ?>
-<!-- <!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="5; url = http://mir-wheels.ru">
-    <title>Спасибо за заказ!</title>
-    <script type="text/javascript">
-        setTimeout("location.replace('http://mir-wheels.ru')", 5000);
-    </script>
-</head>
-<body>
-    <div style="max-width: 1000px; padding: 0 15px; margin: 0 auto; text-align: center;">
-		<h1 style="font-size: 40px;">Спасибо за заказ!</h1>
-		<p style="font-size: 20px;">В ближайшее время с Вами свяжутся.</p>
-	    <p style="font-size: 18px;">Вас перенаправят на страницу магазина через 5 секунд</p>
-    </div>
-</body>
-</html> -->
