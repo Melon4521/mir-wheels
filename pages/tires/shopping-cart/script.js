@@ -25,7 +25,7 @@ async function sendForm(e) {
         });
 
         if (response.ok) {
-            alert('Данные отправлены');
+            sendOrder();
             offerForm.reset();
             offerForm.classList.remove('_sending');
         } else {
