@@ -156,13 +156,23 @@ html {
         border-top-color: #fff;
         animation: loading .8s linear infinite;
     }
+}
 
-    @keyframes loading {
-        100% {
-            transform: rotate(360deg);
-        }
+//<@keyframes>==============================================================================
+
+@keyframes loading {
+    100% {
+        transform: rotate(360deg);
     }
 }
+
+@keyframes loading2 {
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+//</@keyframes>==============================================================================
 
 //<Extends>==============================================================================
 
@@ -200,7 +210,7 @@ html {
     color: #333;
 }
 
-// Form elements
+// Form items
 
 .form-input {
     background-color: #f6f6f6;
@@ -213,6 +223,13 @@ html {
     &._input-error {
         border: 2px solid red;
     }
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 10px;
+    @extend .light-text;
+    line-height: 1;
 }
 
 .form-button-blue {

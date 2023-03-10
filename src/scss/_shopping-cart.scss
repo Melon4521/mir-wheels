@@ -436,12 +436,6 @@
             transition: all .3s ease-in;
         }
 
-        @keyframes loading2 {
-            100% {
-                transform: translate(-50%, -50%) rotate(360deg);
-            }
-        }
-
         &._sending::after {
             opacity: 1;
             visibility: visible;
@@ -460,9 +454,7 @@
 
     // .cart-offer__label
     &__label {
-        display: block;
-        margin-bottom: 10px;
-        font-size: 16px;
+        @extend .form-label;
     }
 
     // .cart-offer__input

@@ -1,43 +1,50 @@
-function checkForm(phone, mail) {
-    if (!checkFormValidity(phone, mail)) {
-        return false;
-    } else {
-        alert('Заказ отправлен!')
-        return true;
-    }
-};
+function formValidate(form) {
+    let error = 0;
+    let formReq = form.querySelectorAll('._req');
 
-function checkFormValidity(phone, mail) {
-    let phoneVal, mailVal;
+    for (let i = 0; i<formReq.length; i++) {
+        const input = formReq[i];
+        formRemoveError(input);
 
-    if (phone !== null) {
-        phoneVal = phone.value
-
-        if (phoneVal.length < 11 || !validatePhone(phoneVal)) {
-            alert('Неправильный формат ввода телефона!');
-            return false;
+        if (input.classList.contains('_email')) {
+            if (emailTest(input)) {
+                formAddError(input);
+                error++;
+            }
+        } else if (input.classList.contains('_phone')) {
+            if (phoneTest(input)) {
+                formAddError(input);
+                error++;
+            }
+        } else if (input.getAttribute('type') === 'checkbox' && input.checked === false) {
+            formAddError(input);
+            error++;
         } else {
-            return true;
+            if (input.value === '') {
+                formAddError(input);
+                error++;
+            }
         }
-
-    } else if (mail !== null) {
-        mailVal = mail.value
-
-        if (!validateEmail(mailVal)) {
-            alert('Неправильный формат ввода электронного адреса!');
-            return false;
-        } else {
-            return true;
-        }
-    } 
-
-    function validatePhone(phone) {
-        let reg = /^(\+)?((\d{2,3}) ?\d|\d)(([ -]?\d)|( ?(\d{2,3}) ?)){5,12}\d$/;
-        return reg.test(String(phone));
     }
+    return error;
+}
 
-    function validateEmail(email) {
-        let reg = /^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/i;
-        return reg.test(String(email));
-    }
-};
+function formAddError(input) {
+    input.parentElement.classList.add('_error');
+    input.classList.add('_error');
+}
+
+function formRemoveError(input) {
+    input.parentElement.classList.remove('_error');
+    input.classList.remove('_error');
+}
+
+function emailTest(input) { 
+    let reg = /^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/i
+    return !reg.test(input.value)
+}   
+
+function phoneTest(input) {
+    let reg = /^(\+)?((\d{2,3}) ?\d|\d)(([ -]?\d)|( ?(\d{2,3}) ?)){5,12}\d$/;
+    return !reg.test(String(input.value));
+}

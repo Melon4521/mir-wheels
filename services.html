@@ -118,7 +118,45 @@
 
 			<div class="main__service-form service-form">
 				<div class="service-form__container">
-					<form class="service-form__form" name="service" action="http://mir-wheels.ru/php/service/message-sender.php" method="POST">
+
+					<form class="service-form__form" id="serviceForm" action="#">
+						<h2 class="service-form__title">Запись на услугу</h2>
+						<div class="service-form__ceil">
+							<div class="service-form__group">
+								<h4 class="service-form__sub-title">Ваши данные</h4>
+								<div class="service-form__item">
+									<label for="serviceFormName" class="service-form__label">Имя*:</label>
+									<input name="name" class="service-form__input _req" id="serviceFormName" type="text">
+								</div>
+								<div class="service-form__item">
+									<label for="serviceFormPhone" class="service-form__label">Телефон*:</label>
+									<input name="phone" class="service-form__input _phone _req" id="serviceFormPhone" type="tel">
+								</div>
+								<div class="service-form__item">
+									<label for="serviceFormMail" class="service-form__label">Почта:</label>
+									<input name="emailCl" class="service-form__input _email" id="serviceFormMail" type="email">
+								</div>
+							</div>
+							<div class="service-form__group">
+								<h4 class="service-form__sub-title">Данные авто</h4>
+								<div class="service-form__item">
+									<label for="serviceFormMark" class="service-form__label">Марка авто*:</label>
+									<input name="car_marka" class="service-form__input _req" id="serviceFormMark" type="text">
+								</div>
+								<div class="service-form__item">
+									<label for="serviceFormModel" class="service-form__label">Модель авто*:</label>
+									<input name="car_model" class="service-form__input _req" id="serviceFormModel" type="text">
+								</div>
+							</div>
+						</div>
+						<div class="service-form__item">
+							<label for="serviceFormComment" class="service-form__label">Ваш комментарий:</label>
+							<textarea name="comment" class="service-form__input" id="serviceFormComment" type="text"></textarea>
+						</div>
+						<button class="service-form__button" type="submit">Отправить</button>
+					</form>
+
+					<!-- <form class="service-form__form" name="service" action="http://mir-wheels.ru/php/service/message-sender.php" method="POST">
 						<h2 class="service-form__title">Запись на услугу</h2>
 						<div class="service-form__ceil">
 							<div class="service-form__inputs">
@@ -134,14 +172,15 @@
 							</div>
 						</div>
 						<textarea class="service-form__comment" type="text" name="comment" placeholder="Комментарий к услуге"></textarea>
-						<!-- reCAPTCHA -->
+						
 						<div class="captcha-inner-serv">
 							<div id="recaptcha_1"></div>
 						</div>
 						<div class="service-form__button-inner">
 							<button class="service-form__button" name="service-button" type="submit">Отправить</button>
 						</div>
-					</form>
+					</form> -->
+
 				</div>
 			</div>
 
@@ -283,28 +322,47 @@
 					<a href="#" class="popup__close">X</a>
 					<div class="popup__title">Оформление</div>
 					<div class="popup__cart-offer cart-offer">
-						<form class="cart-offer__form" id="offerForm" action="http://mir-wheels.ru/php/shopping-cart/message-sender.php" method="POST">
+
+						<form class="cart-offer__form" id="offerForm" action="#">
+							<input name="cart" id="hiddenCartItem" type="hidden" value="">
+							<div class="cart-offer__item">
+								<label for="offerInputName" class="cart-offer__label">Имя*:</label>
+								<input name="name" class="cart-offer__input _req" id="offerInputName" type="text">
+							</div>
+							<div class="cart-offer__item">
+								<label for="offerInputPhone" class="cart-offer__label">Телефон*:</label>
+								<input name="phone" class="cart-offer__input _phone _req" id="offerInputPhone" type="phone">
+							</div>
+							<div class="cart-offer__item">
+								<label for="offerInputMail" class="cart-offer__label">Почта:</label>
+								<input name="mail" class="cart-offer__input _email" id="offerInputMail" type="email">
+							</div>
+							<button style="width: 100%;" class="cart-offer__button" type="submit">Отправить</button>
+						</form>
+
+						<!-- <form class="cart-offer__form" id="offerForm" action="http://mir-wheels.ru/php/shopping-cart/message-sender.php" method="POST">
 							<div class="cart-offer__inputs" id="offerInputs">
 								<input type="hidden" name="cart" id="hiddenCartItem" value="">
 								<input class="cart-offer__input" name="name" id="offerInputName" placeholder="Имя..." type="text" required>
 								<input class="cart-offer__input cart-offer__input-phone" name="phone" id="offerInputPhone" placeholder="Телефон..." minlength="6" type="tel" required>
 								<input class="cart-offer__input" name="mail" id="offerInputMail" placeholder="Почта..." type="email">
 							</div>
-							<!-- reCAPTCHA -->
+
 							<div style="display: flex; align-items: center; justify-content: center;">
 								<div id="recaptcha_2"></div>
 							</div>
 							<div class="cart-offer__button-inner">
-								<button class="cart-offer__button" id="cartSendOffer" type="submit">Отправить</button>
+								<button class="cart-offer__button" type="submit">Отправить</button>
 							</div>
-						</form>
+						</form> -->
+
 					</div>
 				</div>
 			</div>
 		</section>
 
 		<!-- reCAPTCHA -->
-		<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"></script>
+		<!-- <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"></script>
 		<script>
 			var onloadCallback = function() {
 				var key = '6Leq0bsjAAAAAPHcjDlCSj1sZTicsVC_b1AxKWm0';
@@ -315,7 +373,7 @@
 					'sitekey': key
 				});
 			};
-		</script>
+		</script> -->
 
 		<div class="elipse-up" id="elipseUp">
 			<div class="elipse-up__body">
@@ -326,8 +384,8 @@
 	</div>
 
 	<script src="js/header.js"></script>
-	<script src="js/shopping-cart.js"></script>
 	<script src="js/forms.js"></script>
+	<script src="js/shopping-cart.js"></script>
 	<script src="js/services.js"></script>
 
 </body></html>

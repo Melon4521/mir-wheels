@@ -85,16 +85,46 @@ setTimeout(() => {
 
 //</Pre-loader>==============================================================================
 
-//<Checking form validity>==============================================================================
+//<Отправка формы>==============================================================================
 
-let serviceForm = document.querySelector('.service-form__form'),
-    servicePhone = document.querySelector('.service-form__phone');
+let serviceForm = document.querySelector('.service-form__form');
+    // servicePhone = document.querySelector('.service-form__phone');
 
-serviceForm.onsubmit = function () {
-    if (checkForm(servicePhone, null)) {
-        return true;
+serviceForm.addEventListener('submit', sendForm);
+
+async function sendForm(e) {
+    e.preventDefault();
+
+    let error = formValidate(serviceForm);
+
+    let formData = new FormData(serviceForm);
+
+    if (error === 0) {
+        serviceForm.classList.add('_sending');
+        let response = await fetch('../php/service/message-sender.php', {
+            method: 'POST',
+            body: formData
+        });
+
+        if (response.ok) {
+            alert('Данные отправлены');
+            serviceForm.reset();
+            serviceForm.classList.remove('_sending');
+        } else {
+            alert('Ошибка');
+            serviceForm.classList.remove('_sending');
+        }
     } else {
-        return false;
-    };
+        alert('Заполните обязательные поля')
+    }
 }
-//</Checking form validity>==============================================================================
+
+// serviceForm.onsubmit = function () {
+//     if (checkForm(servicePhone, null)) {
+//         return true;
+//     } else {
+//         return false;
+//     };
+// }
+
+//</Отправка формы>==============================================================================

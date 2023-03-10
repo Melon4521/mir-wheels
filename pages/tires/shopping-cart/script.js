@@ -7,15 +7,44 @@ const shoppingCart = document.querySelector('#shoppingCart'),
     cartIcon = document.querySelector('.top-menu__cart'),
     cartMakeOffer = document.querySelector('#cartMakeOffer');
 
-// Валидация формы
-offerForm.onsubmit = function () {
-    if (!checkFormValidity(offerInputPhone)) {
-        return false;
+// Отправка формы
+offerForm.addEventListener('submit', sendForm);
+
+async function sendForm(e) {
+    e.preventDefault();
+
+    let error = formValidate(offerForm);
+
+    let formData = new FormData(offerForm);
+
+    if (error === 0) {
+        offerForm.classList.add('_sending');
+        let response = await fetch('../../../php/shopping-cart/message-sender.php', {
+            method: 'POST',
+            body: formData
+        });
+
+        if (response.ok) {
+            alert('Данные отправлены');
+            offerForm.reset();
+            offerForm.classList.remove('_sending');
+        } else {
+            alert('Ошибка')
+            offerForm.classList.remove('_sending');
+        }
     } else {
-        sendOrder();
-        return true;
+        alert('Заполните обязательные поля')
     }
-};
+}
+
+// offerForm.onsubmit = function () {
+//     if (!checkFormValidity(offerInputPhone)) {
+//         return false;
+//     } else {
+//         sendOrder();
+//         return true;
+//     }
+// };
 
 //<Functions>==============================================================================
 
@@ -23,8 +52,7 @@ function add2Cart(targetButton) {
     let cardDataAtributes = {
             cardName: targetButton.dataset.name,
             price: targetButton.dataset.price,
-            color: targetButton.dataset.color,
-            type: targetButton.dataset.type,
+            season: targetButton.dataset.season,
             dateUp: targetButton.dataset.date_up,
             stock: targetButton.dataset.stock,
             cardImage: targetButton.dataset.image,
@@ -41,8 +69,7 @@ function add2Cart(targetButton) {
         cartData[cardID] = [
             cardDataAtributes.cardName,
             cardDataAtributes.price,
-            cardDataAtributes.color,
-            cardDataAtributes.type,
+            cardDataAtributes.season,
             cardDataAtributes.dateUp,
             cardDataAtributes.stock,
             cardDataAtributes.cardImage,
@@ -186,7 +213,6 @@ function openCart() {
 
             cartInfo += "\n\n";
             totalCartSum += Number(String((cartData[items][1])) * cartData[items][cartData[items].length-1]);
-
             generateCartCard(cartDataAtrs);
         }
 
@@ -282,7 +308,7 @@ function deleteItem(targetElement) {
                 }
     
                 break;
-            }
+            };
         } else {
             if (cartData[item][6] == targetElementId) {
 
@@ -293,7 +319,7 @@ function deleteItem(targetElement) {
                 }
     
                 break;
-            }
+            };
         };
     };
 
@@ -335,19 +361,19 @@ function sendOrder() {
     clearAllItems();
 };
 
-function checkFormValidity(phone) {
-    if (phone.value.length < 11 || !validatePhone(phone.value)) {
-        alert('Неправильный формат ввода телефона!');
-        return false;
-    } else {
-        return true;
-    }
+// function checkFormValidity(phone) {
+//     if (phone.value.length < 11 || !validatePhone(phone.value)) {
+//         alert('Неправильный формат ввода телефона!');
+//         return false;
+//     } else {
+//         return true;
+//     }
 
-    function validatePhone(phone) {
-        let reg = /^(\+)?((\d{2,3}) ?\d|\d)(([ -]?\d)|( ?(\d{2,3}) ?)){5,12}\d$/;
-        return reg.test(String(phone));
-    }
-};
+//     function validatePhone(phone) {
+//         let reg = /^(\+)?((\d{2,3}) ?\d|\d)(([ -]?\d)|( ?(\d{2,3}) ?)){5,12}\d$/;
+//         return reg.test(String(phone));
+//     }
+// };
 
 function changeCartIconNumber() {
     let cartData = getCartData("shopping-cart");
@@ -375,8 +401,7 @@ function buyIn1Click(targetButton) {
         "item": {
             cardName: targetButton.dataset.name,
             price: targetButton.dataset.price,
-            color: targetButton.dataset.color,
-            type: targetButton.dataset.type,
+            season: targetButton.dataset.season,
             dateUp: targetButton.dataset.date_up,
             stock: targetButton.dataset.stock,
             cardImage: targetButton.dataset.image,

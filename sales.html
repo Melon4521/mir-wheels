@@ -235,25 +235,40 @@
                     <a href="#" class="popup__close">X</a>
                     <div class="popup__title">Оформление</div>
                     <div class="popup__cart-offer cart-offer">
-                        <form class="cart-offer__form" id="offerForm"
-                            action="http://mir-wheels.ru/php/shopping-cart/message-sender.php" method="POST">
+
+                        <form class="cart-offer__form" id="offerForm" action="#">
+							<input name="cart" id="hiddenCartItem" type="hidden" value="">
+							<div class="cart-offer__item">
+								<label for="offerInputName" class="cart-offer__label">Имя*:</label>
+								<input name="name" class="cart-offer__input _req" id="offerInputName" type="text">
+							</div>
+							<div class="cart-offer__item">
+								<label for="offerInputPhone" class="cart-offer__label">Телефон*:</label>
+								<input name="phone" class="cart-offer__input _phone _req" id="offerInputPhone" type="phone">
+							</div>
+							<div class="cart-offer__item">
+								<label for="offerInputMail" class="cart-offer__label">Почта:</label>
+								<input name="mail" class="cart-offer__input _email" id="offerInputMail" type="email">
+							</div>
+							<button style="width: 100%;" class="cart-offer__button" type="submit">Отправить</button>
+						</form>
+
+                        <!-- <form class="cart-offer__form" id="offerForm" action="http://mir-wheels.ru/php/shopping-cart/message-sender.php" method="POST">
                             <div class="cart-offer__inputs" id="offerInputs">
                                 <input type="hidden" name="cart" id="hiddenCartItem" value="">
-                                <input class="cart-offer__input" name="name" id="offerInputName" placeholder="Имя..."
-                                    type="text" required>
-                                <input class="cart-offer__input" name="phone" id="offerInputPhone" placeholder="Телефон..."
-                                    minlength="6" type="tel" required>
-                                <input class="cart-offer__input" name="mail" id="offerInputMail" placeholder="Почта..." 
-                                    type="email">
+                                <input class="cart-offer__input" name="name" id="offerInputName" placeholder="Имя..." type="text" required>
+                                <input class="cart-offer__input" name="phone" id="offerInputPhone" placeholder="Телефон..." minlength="6" type="tel" required>
+                                <input class="cart-offer__input" name="mail" id="offerInputMail" placeholder="Почта..." type="email">
                             </div>
-                            <!-- reCAPTCHA -->
+                            
                             <div class="captcha-inner">
                                 <div class="g-recaptcha" data-sitekey="6Leq0bsjAAAAAPHcjDlCSj1sZTicsVC_b1AxKWm0"></div>
                             </div>
                             <div class="cart-offer__button-inner">
-                                <button class="cart-offer__button" id="cartSendOffer" type="submit">Отправить</button>
+                                <button class="cart-offer__button" type="submit">Отправить</button>
                             </div>
-                        </form>
+                        </form> -->
+
                     </div>
                 </div>
             </div>
@@ -268,6 +283,7 @@
     </div>
 
     <script src="js/header.js"></script>
+	<script src="js/forms.js"></script>
     <script src="js/shopping-cart.js"></script>
     <script src="js/sales.js"></script>
 

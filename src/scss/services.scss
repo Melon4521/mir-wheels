@@ -171,61 +171,189 @@
 
 //<Блок "Запись на услугу">==============================================================================
 
-.service-form {
+// .service-form {
     
-    // .service-form__
+//     // .service-form__
+//     &__title {
+//         @extend .sub-title;
+//         text-align: center;
+//     }
+    
+//     // .service-form__ceil
+//     &__ceil {
+//         @include adaptiv-value("margin-top", 80, 50, 1);
+//         @include adaptiv-value("margin-bottom", 35, 25, 1);
+//         display: flex;
+//     }
+    
+//     // .service-form__inputs
+//     &__inputs {
+//         width: 50%;
+//         @include adaptiv-value("margin-right", 50, 25, 1);
+
+//         &:last-child {
+//             margin-right: 0px;
+//         }
+//     }
+
+//     // .service-form__input
+//     &__input {
+//         width: 100%;
+//         @extend .form-input;
+//         @include adaptiv-value("margin-top", 25, 20, 1);
+//     }
+    
+//     // .service-form__sub-title
+//     &__sub-title {
+//         @extend .simple-text;
+//         font-size: 22px;
+//     }
+    
+//     // .service-form__comment
+//     &__comment {
+//         max-width: 100%;
+//         min-width: 100%;
+//         min-height: 150px;
+//         width: 100%;
+//         @extend .form-input;
+//         @include adaptiv-value("margin-bottom", 35, 25, 1);
+//     }
+
+//     // .service-form__button
+//     &__button {
+//         @include adaptiv-value("margin-top", 35, 25, 1);
+//         @extend .form-button-blue;
+//     }
+// }
+
+.service-form {
+
+    // .service-form__form
+    &__form {
+
+        & * {
+            outline: none;
+        }
+
+        position: relative;
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            opacity: 0;
+            visibility: hidden;
+            transition: all .3s ease-in;
+            background-color: #ffffffd1;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 999;
+        
+            width: 50px;
+            height: 50px;
+        
+            opacity: 0;
+            visibility: hidden;
+        
+            border: 7px solid #000;
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: loading2 .8s linear infinite;
+            transition: all .3s ease-in;
+        }
+
+        &._sending::after {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        &._sending::before {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    // .service-form__title
     &__title {
         @extend .sub-title;
         text-align: center;
     }
-    
+
     // .service-form__ceil
     &__ceil {
         @include adaptiv-value("margin-top", 80, 50, 1);
         @include adaptiv-value("margin-bottom", 35, 25, 1);
         display: flex;
+        justify-content: space-between;
     }
-    
-    // .service-form__inputs
-    &__inputs {
-        width: 50%;
-        @include adaptiv-value("margin-right", 50, 25, 1);
+
+    // .service-form__group
+    &__group {
+        width: 48%;
+    }
+
+    // .service-form__sub-title
+    &__sub-title {
+        @extend .simple-text;
+        font-size: 22px;
+        margin-bottom: 30px;
+    }
+
+    // .service-form__item
+    &__item {
+        margin-bottom: 20px;
 
         &:last-child {
-            margin-right: 0px;
+            margin-bottom: 0;
         }
+    }
+
+    // .service-form__label
+    &__label {
+        @extend .form-label;
     }
 
     // .service-form__input
     &__input {
         width: 100%;
         @extend .form-input;
-        @include adaptiv-value("margin-top", 25, 20, 1);
+        transition: background-color .2s ease-in;
+
+        &:focus, &:hover {
+            background-color: #e2e2e2;
+        }
+
+        &._error {
+            box-shadow: 0 0 10px red;
+        } 
     }
-    
-    // .service-form__sub-title
-    &__sub-title {
-        @extend .simple-text;
-        font-size: 22px;
-    }
-    
-    // .service-form__comment
-    &__comment {
-        max-width: 100%;
-        min-width: 100%;
-        min-height: 150px;
-        width: 100%;
-        @extend .form-input;
-        @include adaptiv-value("margin-bottom", 35, 25, 1);
+
+    // textarea.service-form__comment
+    textarea.service-form__input {
+        min-height: 120px;
+        resize: vertical;
     }
 
     // .service-form__button
     &__button {
-        @include adaptiv-value("margin-top", 35, 25, 1);
         @extend .form-button-blue;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
     }
 }
-
 
 
 //</Блок "Запись на услугу">==============================================================================
@@ -247,23 +375,22 @@
         flex-wrap: wrap;
     }
 
-    .service-form__inputs {
+    .service-form__group {
         width: 100%;
-        margin-right: 0px;
         &:not(:last-child) {
             margin-bottom: 30px;
         }
     }
 
-    .service-form__button-inner {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+    // .service-form__button-inner {
+    //     display: flex;
+    //     align-items: center;
+    //     justify-content: center;
+    // }
 
-    .captcha-inner-serv {
-        justify-content: center;
-    }
+    // .captcha-inner-serv {
+    //     justify-content: center;
+    // }
 }
 
 @media (max-width: 400px) {

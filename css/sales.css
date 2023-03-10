@@ -260,19 +260,32 @@ html {
   -webkit-animation: loading 0.8s linear infinite;
           animation: loading 0.8s linear infinite;
 }
+
 @-webkit-keyframes loading {
   100% {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg);
   }
 }
+
 @keyframes loading {
   100% {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg);
   }
 }
-
+@-webkit-keyframes loading2 {
+  100% {
+    -webkit-transform: translate(-50%, -50%) rotate(360deg);
+            transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+@keyframes loading2 {
+  100% {
+    -webkit-transform: translate(-50%, -50%) rotate(360deg);
+            transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
 .sub-title {
   line-height: 145%;
   font-weight: 800;
@@ -305,14 +318,14 @@ html {
   }
 }
 
-.light-text {
+.light-text, .form-label, .cart-offer__label {
   line-height: 145%;
   font-weight: 300;
   font-size: 18px;
   color: #333;
 }
 @media (max-width: 1120px) {
-  .light-text {
+  .light-text, .form-label, .cart-offer__label {
     font-size: calc(16px + 2 * ((100vw - 320px) / 800));
   }
 }
@@ -327,6 +340,12 @@ html {
 }
 .form-input._input-error, ._input-error.cart-offer__input {
   border: 2px solid red;
+}
+
+.form-label, .cart-offer__label {
+  display: block;
+  margin-bottom: 10px;
+  line-height: 1;
 }
 
 .form-button-blue, .cart-offer__button {
@@ -1147,18 +1166,6 @@ html {
   -webkit-transition: all 0.3s ease-in;
   transition: all 0.3s ease-in;
 }
-@-webkit-keyframes loading2 {
-  100% {
-    -webkit-transform: translate(-50%, -50%) rotate(360deg);
-            transform: translate(-50%, -50%) rotate(360deg);
-  }
-}
-@keyframes loading2 {
-  100% {
-    -webkit-transform: translate(-50%, -50%) rotate(360deg);
-            transform: translate(-50%, -50%) rotate(360deg);
-  }
-}
 .cart-offer__form._sending::after {
   opacity: 1;
   visibility: visible;
@@ -1169,11 +1176,6 @@ html {
 }
 .cart-offer__item {
   margin-bottom: 20px;
-}
-.cart-offer__label {
-  display: block;
-  margin-bottom: 10px;
-  font-size: 16px;
 }
 .cart-offer__input {
   width: 100%;
