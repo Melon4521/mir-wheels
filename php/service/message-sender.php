@@ -50,7 +50,7 @@ $shopEmail = 'mirkoles61@yandex.ru';
 // Письмо в магазин с заказом
 
 /* А здесь прописывается текст сообщения, \n - перенос строки */
-$message = "Запись на услугу в магазине mir-wheels.ru\n
+$mes1 = "Запись на услугу в магазине mir-wheels.ru\n
 ==========================================\n\n
 Имя: $name\n
 Телефон: $phone\n
@@ -60,12 +60,12 @@ E-mail: $emailCl\n
 Данные пользователя:\n
 Марка авто: $carMarka\n
 Модель авто: $carModel\n
-Комментарий: \n$userComment\n
+Комментарий: \n\"$userComment\"\n
 ";
 
 /* А эта функция как раз занимается отправкой письма на указанный вами email */
 $sub = 'Service'; // тема
-$send = mail($myaddress, $sub, $message, "Content-type:text/plain; Reply-To:no-reply@****.ru; Content-Transfer-Encoding: utf-8; charset = UTF-8\r\nFrom:$emailCl");
+$send = mail($myaddress, $sub, $mes1, "Content-type:text/plain; Reply-To:no-reply@****.ru; Content-Transfer-Encoding: utf-8; charset = UTF-8\r\nFrom:$shopEmail");
 
 // Письмо отправителю о заказе
 
@@ -83,7 +83,7 @@ E-mail: $emailCl\n
 Комментарий: \n$userComment\n
 ";
 
-/* А эта функция как раз занимается отправкой письма на указанный вами email */
+/* А эта функция как раз занимается отправкой письма на указанный клиентом email */
 $send = mail($emailCl, $sub, $mes2, "Content-type:text/plain; charset = UTF-8\r\nFrom:$shopEmail");
 
 ini_set('short_open_tag', 'On');

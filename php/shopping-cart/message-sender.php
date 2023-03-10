@@ -54,7 +54,7 @@ $cart
 
 /* А эта функция как раз занимается отправкой письма на указанный вами email */
 $sub = 'Order'; // тема
-$send = mail($myaddress, $sub, $mes1, "Content-type:text/plain;  Reply-To:no-reply@****.ru; Content-Transfer-Encoding: utf-8; charset = UTF-8\r\nFrom:$shopEmail");
+$send = mail($myaddress, $sub, $mes1, "Content-type:text/plain; Reply-To:no-reply@****.ru; Content-Transfer-Encoding: utf-8; charset = UTF-8\r\nFrom:$shopEmail");
 
 // Письмо отправителю о заказе
 
