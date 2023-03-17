@@ -1,8 +1,13 @@
 //<Footer>==============================================================================
 
+// Главная часть футера
 .footer {
-    background-color: #3c3c3c;
     @include adaptiv-value("margin-top", 100, 80, 1);
+
+    // .footer__main
+    &__main {
+        background-color: #3c3c3c;
+    }
 
     // .footer__body
     &__body {
@@ -25,6 +30,39 @@
         flex-wrap: wrap;
     }
 
+}
+
+// Подвал футера
+.footer {
+
+    // .footer__floor
+    &__floor {
+        background-color: #343434
+    }
+
+    // .footer__team
+    &__team {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 15px 0; 
+
+        // .footer__team a
+        & a {
+            color: #9c9c9c;
+            line-height: 1.2;
+            transition: all .2s ease-in;
+            font-size: 17px;
+            font-weight: 300;
+    
+            @media (any-hover: hover) {
+                &:hover {
+                    cursor: pointer;
+                    color: #c1c1c1;
+                }
+            }
+        }
+    }
 }
 
 .footer-fst {
@@ -73,9 +111,6 @@
         @include adaptiv-value("margin-bottom", 40, 30, 1);
     }
 
-    &__col:not(:first-child) {
-        
-    }
 }
 
 .footer-col {
@@ -88,9 +123,6 @@
         margin-bottom: 20px;
     }
 
-    // .footer-col__list
-    // &__list {}
-
     // .footer-col__list-item 
     &__list-item {
         max-width: 250px;
@@ -98,8 +130,6 @@
         &:not(:last-child) {
             @include adaptiv-value("margin-bottom", 13, 10, 1);
         }
-
-        
     }
 
     // .footer-col__link
@@ -143,3 +173,43 @@
 }
 
 //</Footer>==============================================================================
+
+//<Попап - Команда>==============================================================================
+
+.popup-team {
+
+    // .popup-team__item
+    &__item {
+        margin-bottom: 15px;
+        line-height: 1.5;
+    }
+}
+.team-item {
+
+    // .team-item__title
+    &__title {
+        @include adaptiv-value("font-size", 20, 18, 1);
+        font-weight: 700;
+        color: #000;
+        transition: all .3s ease-in;
+
+        @media (any-hover: hover) {
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+    // .team-item__text
+    &__text {
+        @include adaptiv-value("font-size", 18, 16, 1);
+    }
+
+    // .team-item__between
+    &__between {
+        font-size: 18px;
+        padding: 0px 3px;
+    }
+}
+
+//</Попап - Команда>==============================================================================

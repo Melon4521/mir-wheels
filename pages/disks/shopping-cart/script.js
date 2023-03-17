@@ -64,7 +64,9 @@ function add2Cart(targetButton) {
 
     if (cartData.hasOwnProperty(cardID)) {
         // Если товар уже есть в корзине, то прибавляем его кол-во
-        cartData[cardID][cartData[cardID].length - 1]++;
+        if (cartData[cardID][5] > cartData[cardID][cartData[cardID].length - 1]) {
+            cartData[cardID][cartData[cardID].length - 1]++;
+        }
     } else {
         // Иначе создаем новый товар
         cartData[cardID] = [
