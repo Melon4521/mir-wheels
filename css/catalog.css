@@ -765,7 +765,7 @@ html {
   }
 }
 
-@media (max-width: 767.98px) {
+@media (max-width: 855px) {
   .menu-nav {
     position: fixed;
     top: 0;
@@ -1034,6 +1034,7 @@ html {
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   margin-right: 25px;
+  width: 100%;
 }
 .cart-footer__button:last-child {
   margin-right: 0px;
@@ -1061,6 +1062,32 @@ html {
   .cart-card__info-footer div {
     margin-right: 0;
     line-height: 1.5;
+  }
+}
+@media (max-width: 500px) {
+  .cart-footer__buttons {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .cart-footer__button {
+    margin-right: 0px;
+    margin-top: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    font-size: calc(15rem / 16);
+  }
+  .cart-footer__button:first-child {
+    margin-top: 0px;
   }
 }
 @media (max-width: 479.98px) {
@@ -1104,30 +1131,6 @@ html {
   }
 }
 @media (max-width: 375px) {
-  .cart-footer__buttons {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-  .cart-footer__button {
-    margin-right: 0px;
-    margin-top: 10px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    width: 80%;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    font-size: calc(15rem / 16);
-  }
-  .cart-footer__button:first-child {
-    margin-top: 0px;
-  }
   .cart-card__info-footer div:not(:last-child) {
     margin-right: 0px;
   }
@@ -1306,7 +1309,7 @@ html {
   line-height: 1.2;
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
-  font-size: 17px;
+  font-size: 13px;
   font-weight: 300;
 }
 @media (any-hover: hover) {

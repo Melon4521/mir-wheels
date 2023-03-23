@@ -225,7 +225,7 @@
 
 // МЕНЮ-БУРГЕР
 
-@media (max-width: $md3) {
+@media (max-width: $burgerStartWidth) {
 
     .menu-nav {
         position: fixed;

@@ -11,6 +11,33 @@
 	<link rel="icon" href="images/Logo-2.png" type="image/png">
 	<link rel="stylesheet" href="css/iconsfont.css">
 	<link rel="stylesheet" href="css/services.css">
+
+	<!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m, e, t, r, i, k, a) {
+            m[i] = m[i] || function() {
+                (m[i].a = m[i].a || []).push(arguments)
+            };
+            m[i].l = 1 * new Date();
+            for (var j = 0; j < document.scripts.length; j++) {
+                if (document.scripts[j].src === r) {
+                    return;
+                }
+            }
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+        ym(92516733, "init", {
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true
+        });
+    </script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/92516733" style="position:absolute; left:-9999px;" alt="" /></div>
+    </noscript>
+    <!-- /Yandex.Metrika counter -->
 </head>
 
 <body class="_lock">
@@ -38,7 +65,7 @@
 					<button style="background-color: transparent;">
 						<a class="top-menu__tel icon-phone popup-opener" data-popup_open="#popup-contacts" href="#">Контакты</a>
 					</button>
-					<button data-count="0" class="top-menu__cart icon-cart popup-opener" data-popup_open="#popup-cart"></button>
+                    <button data-count="0" class="top-menu__cart icon-cart popup-opener" data-popup_open="#popup-cart"></button>
 					<div class="top-menu__burger">
 						<span></span>
 					</div>
@@ -52,6 +79,10 @@
 							<li class="menu-nav__elem">
 								<a class="menu-nav__link" href="index.html">Главная</a>
 							</li>
+
+                            <li class="menu-nav__elem">
+                                <a class="menu-nav__link" href="contacts.html">Контакты</a>
+                            </li>
 
 							<li class="menu-nav__elem">
 								<a class="menu-nav__link" href="tires.html">Шины</a>
@@ -124,14 +155,17 @@
 						<div class="service-form__ceil">
 							<div class="service-form__group">
 								<h4 class="service-form__sub-title">Ваши данные</h4>
+
 								<div class="service-form__item">
 									<label for="serviceFormName" class="service-form__label">Имя*:</label>
 									<input name="name" class="service-form__input _req" id="serviceFormName" type="text">
 								</div>
+
 								<div class="service-form__item">
 									<label for="serviceFormPhone" class="service-form__label">Телефон*:</label>
 									<input name="phone" class="service-form__input _phone _req" id="serviceFormPhone" type="tel">
 								</div>
+
 								<div class="service-form__item">
 									<label for="serviceFormMail" class="service-form__label">Почта:</label>
 									<input name="emailCl" class="service-form__input _email" id="serviceFormMail" type="email">
@@ -139,23 +173,34 @@
 							</div>
 							<div class="service-form__group">
 								<h4 class="service-form__sub-title">Данные авто</h4>
+
 								<div class="service-form__item">
 									<label for="serviceFormMark" class="service-form__label">Марка авто*:</label>
 									<input name="car_marka" class="service-form__input _req" id="serviceFormMark" type="text">
 								</div>
+
 								<div class="service-form__item">
 									<label for="serviceFormModel" class="service-form__label">Модель авто*:</label>
 									<input name="car_model" class="service-form__input _req" id="serviceFormModel" type="text">
 								</div>
 							</div>
 						</div>
+
 						<div class="service-form__item">
 							<label for="serviceFormComment" class="service-form__label">Ваш комментарий:</label>
 							<textarea name="comment" class="service-form__input" id="serviceFormComment" type="text"></textarea>
 						</div>
+
+						<div class="service-form__item">
+							<div class="captcha-inner-serv">
+								<div id="recaptcha_1"></div>
+							</div>
+						</div>
+
 						<div class="service-form__item">
 							<button class="service-form__button" type="submit">Отправить</button>
 						</div>
+
 						<div class="service-form__policy">
 							<span>
 								Нажимая на кнопку "Отправить", Вы подтверждаете, что ознакомились с 
@@ -206,10 +251,10 @@
 							<div class="footer-fst__logo">
 								<img src="images/Logo-2_no-bg.png" alt="Логотип">
 							</div>
-							<div class="footer-fst__social footer-social">
+							<!-- <div class="footer-fst__social footer-social">
 								<a class="footer-social__item icon-instagram" href="#"></a>
 								<a class="footer-social__item icon-vk" href="#"></a>
-							</div>
+							</div> -->
 						</div>
 						<div class="footer__columns footer-columns">
 	
@@ -223,6 +268,10 @@
 									<li class="footer-col__list-item">
 										<a class="footer-col__link" href="tel: +79286095110">+7 (928) 609-51-10</a>
 									</li>
+                                    
+                                    <li class="footer-col__list-item">
+                                        <a class="footer-col__link" href="https://yandex.ru/maps/39/rostov-na-donu/house/dnepropetrovskaya_ulitsa_54/Z0AYfgdkSUMEQFptfX54cHVqYQ==/?from=tabbar&ll=39.806310%2C47.291974&source=serp_navig&z=17.75" target="_blank">г. Ростов-на-Дону, Днепропетровская, 54</a>
+                                    </li>
 	
 									<li class="footer-col__list-item">
 										<a class="footer-col__link" href="mailto:mirkoles61@yandex.ru">mirkoles61@yandex.ru</a>
@@ -236,6 +285,10 @@
 									<li class="footer-col__list-item">
 										<a class="footer-col__link" href="index.html">Главная</a>
 									</li>
+
+                                    <li class="footer-col__list-item">
+                                        <a class="footer-col__link" href="contacts.html">Контакты</a>
+                                    </li>
 	
 									<li class="footer-col__list-item">
 										<a class="footer-col__link" href="tires.html">Шины</a>
@@ -275,7 +328,7 @@
 			<div class="footer__floor">
 				<div class="container">
 					<div class="footer__team footer-team">
-						<a class="popup-opener" data-popup_open="#popup-team" href="#">Команда разработчиков</a>
+						<a class="popup-opener" data-popup_open="#popup-team" href="#">InterМИР DevTeam</a>
 					</div>
 				</div>
 			</div>
@@ -325,9 +378,12 @@
 									<h4 class="cart-footer__total-price" id="totalCartSum">0 руб.</h4>
 								</div>
 								<div class="cart-footer__buttons">
-									<button class="cart-footer__button cartClearAll" id="cartClearAll">Очистить
-										всё</button>
-									<button class="cart-footer__button cartMakeOffer popup-opener" data-popup_open="#popup-offer" id="cartMakeOffer">Оформить заказ</button>
+									<button class="cart-footer__button cartClearAll" id="cartClearAll">
+                                        Очистить всё
+                                    </button>
+                                    <button class="cart-footer__button cartMakeOffer popup-opener" data-popup_open="#popup-offer" id="cartMakeOffer">
+                                        Оформить заказ
+                                    </button>
 								</div>
 							</div>
 						</div>
@@ -347,21 +403,32 @@
 
 						<form class="cart-offer__form" id="offerForm" action="#">
 							<input name="cart" id="hiddenCartItem" type="hidden" value="">
+
 							<div class="cart-offer__item">
 								<label for="offerInputName" class="cart-offer__label">Имя*:</label>
 								<input name="name" class="cart-offer__input _req" id="offerInputName" type="text">
 							</div>
+
 							<div class="cart-offer__item">
 								<label for="offerInputPhone" class="cart-offer__label">Телефон*:</label>
 								<input name="phone" class="cart-offer__input _phone _req" id="offerInputPhone" type="phone">
 							</div>
+
 							<div class="cart-offer__item">
 								<label for="offerInputMail" class="cart-offer__label">Почта:</label>
 								<input name="mail" class="cart-offer__input _email" id="offerInputMail" type="email">
 							</div>
+
+							<div class="cart-offer__item">
+								<div style="display: flex; align-items: center; justify-content: center;">
+									<div id="recaptcha_2"></div>
+								</div>
+							</div>
+
 							<div class="cart-offer__item">
 								<button class="cart-offer__button" type="submit">Отправить</button>
 							</div>
+
 							<div class="cart-offer__policy">
 								<span>
 									Нажимая на кнопку "Отправить", Вы подтверждаете, что ознакомились с 
@@ -515,7 +582,7 @@
 		</section>
 
 		<!-- reCAPTCHA -->
-		<!-- <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"></script>
+		<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"></script>
 		<script>
 			var onloadCallback = function() {
 				var key = '6Leq0bsjAAAAAPHcjDlCSj1sZTicsVC_b1AxKWm0';
@@ -526,7 +593,7 @@
 					'sitekey': key
 				});
 			};
-		</script> -->
+		</script>
 
 		<div class="elipse-up" id="elipseUp">
 			<div class="elipse-up__body">
