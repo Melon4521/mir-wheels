@@ -74,9 +74,9 @@ if ($error) {
         $send = mail($emailCl, $sub, $mes2, "Content-type:text/plain; charset = UTF-8\r\nFrom:$shopEmail");
 
         ini_set('short_open_tag', 'On');
-        echo "Заказ отправлен, мы скоро с вами свяжемся!"
+        echo "Заказ отправлен, мы скоро с вами свяжемся!";
     } else {
-        echo "Ошибка"
+        echo "Ошибка";
     }
 }
 
