@@ -117,13 +117,51 @@
         <!-- MAIN -->
         <main class="main">
 
-            <div class="container">
-                <div style="height: 50vh;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;">
+            <div class="contacts">
+                <div class="contacts__container">
+                    <div class="contacts__body">
+                        <h1 class="contacts__title">Контакты и информация</h1>
+                        <div class="contacts__items">
+                            <div class="contacts__item contacts-item">
+                                <h3 class="contacts-item__title">Телефон:</h3>
+                                <ul class="contacts-item__list">
+                                    <li class="contacts-item__li">
+                                        <a href="tel: +79286095110">+7 (928) 609-51-10</a>
+                                    </li>
+                                    <li class="contacts-item__li">
+                                        <a href="tel: +79525703502">+7 (952) 570-35-02</a>
+                                    </li>
+                                </ul>
+                            </div>
 
-                    <p style="font-size: 20px; color: rgb(67, 67, 67);">Страница в разработке.</p>
+                            <div class="contacts__item contacts-item">
+                                <h3 class="contacts-item__title">Почта:</h3>
+                                <ul class="contacts-item__list">
+                                    <li class="contacts-item__li">
+                                        <a href="mailto: mirkoles61@yandex.ru">mirkoles61@yandex.ru</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="contacts__item contacts-item">
+                                <h3 class="contacts-item__title">Адрес:</h3>
+                                <ul class="contacts-item__list">
+                                    <li class="contacts-item__li">
+                                        <a href="https://yandex.ru/maps/39/rostov-na-donu/house/dnepropetrovskaya_ulitsa_54/Z0AYfgdkSUMEQFptfX54cHVqYQ==/?from=tabbar&ll=39.806310%2C47.291974&source=serp_navig&z=17.75" target="_blank">г. Ростов-на-Дону,<br> Днепропетровская, 54</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="contacts__item contacts-item">
+                                <h3 class="contacts-item__title">График работы:</h3>
+                                <ul class="contacts-item__list">
+                                    <li class="contacts-item__li">Ежедневно: 09:00 - 18:00</li>
+                                </ul>
+                            </div>
+
+                        </div>
+                        <div id="contacts-map" class="contacts__map"></div>
+                    </div>
                 </div>
             </div>
 
@@ -475,6 +513,7 @@
 
     </div>
 
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU"></script>
     <script src="js/header.js"></script>
 	<script src="js/forms.js"></script>
     <script src="js/shopping-cart.js"></script>

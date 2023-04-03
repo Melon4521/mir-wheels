@@ -129,7 +129,7 @@ function render() {
         input.addEventListener('change', function () {
             if (this.value) {
                 counter++;
-                console.log(counter);
+                
                 if (counter >= 2) {
                     if (inputButton.classList.contains('block')) {
                         inputButton.classList.remove('block')
