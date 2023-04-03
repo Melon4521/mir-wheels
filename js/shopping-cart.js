@@ -27,7 +27,7 @@ async function sendForm(e) {
         if (response.ok) {
             sendOrder();
             let answer = await response.text();
-            console.log(answer, answer.message)
+            alert(answer)
             offerForm.reset();
             offerForm.classList.remove('_sending');
         } else {
@@ -339,21 +339,5 @@ function changeCartIconNumber() {
         }
     }
 };
-
-// Form Validation
-
-// function checkFormValidity(phone) {
-//     if (phone.value.length < 11 || !validatePhone(phone.value)) {
-//         alert('Неправильный формат ввода телефона!');
-//         return false;
-//     } else {
-//         return true;
-//     }
-
-//     function validatePhone(phone) {
-//         let reg = /^(\+)?((\d{2,3}) ?\d|\d)(([ -]?\d)|( ?(\d{2,3}) ?)){5,12}\d$/;
-//         return reg.test(String(phone));
-//     }
-// };
 
 //</Functions>==============================================================================

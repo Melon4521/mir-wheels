@@ -26,6 +26,8 @@ async function sendForm(e) {
 
         if (response.ok) {
             sendOrder();
+            let answer = await response.text();
+            alert(answer)
             offerForm.reset();
             offerForm.classList.remove('_sending');
         } else {
@@ -36,15 +38,6 @@ async function sendForm(e) {
         alert('Заполните обязательные поля')
     }
 }
-
-// offerForm.onsubmit = function () {
-//     if (!checkFormValidity(offerInputPhone)) {
-//         return false;
-//     } else {
-//         sendOrder();
-//         return true;
-//     }
-// };
 
 //<Functions>==============================================================================
 
@@ -358,27 +351,12 @@ function deleteItem(targetElement) {
 };
 
 function sendOrder() {
-    alert("Заказ отправлен, мы скоро с вами свяжемся!");
     // Закрытие окна
     setTimeout(() => {
         closePopup(document.querySelector('#popup-offer'), true);
     }, 1000);
     clearAllItems();
 };
-
-// function checkFormValidity(phone) {
-//     if (phone.value.length < 11 || !validatePhone(phone.value)) {
-//         alert('Неправильный формат ввода телефона!');
-//         return false;
-//     } else {
-//         return true;
-//     }
-
-//     function validatePhone(phone) {
-//         let reg = /^(\+)?((\d{2,3}) ?\d|\d)(([ -]?\d)|( ?(\d{2,3}) ?)){5,12}\d$/;
-//         return reg.test(String(phone));
-//     }
-// };
 
 function changeCartIconNumber() {
     let cartData = getCartData("shopping-cart");

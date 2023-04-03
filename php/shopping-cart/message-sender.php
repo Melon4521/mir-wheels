@@ -10,28 +10,29 @@ if (!empty($_POST['g-recaptcha-response'])) {
         $error = false;
     }
 }
- 
+
 if ($error) {
     echo 'Ошибка заполнения капчи';
 } else {
     /* Здесь проверяется существование переменных */
-    if (isset($_POST['name'])) {
-        $name = $_POST['name'];
-    }
-
-    if (isset($_POST['phone'])) {
-        $phone = $_POST['phone'];
-    }
-
-    if (isset($_POST['mail'])) {
-        $emailCl = $_POST['mail'];
-    }
-
     if (isset($_POST['cart'])) {
         $cart = $_POST['cart'];
     }
 
     if ($cart !== '') {
+        /* Здесь проверяется существование переменных */
+        if (isset($_POST['name'])) {
+            $name = $_POST['name'];
+        }
+    
+        if (isset($_POST['phone'])) {
+            $phone = $_POST['phone'];
+        }
+    
+        if (isset($_POST['mail'])) {
+            $emailCl = $_POST['mail'];
+        }
+
         /* Сюда впишите свою эл. почту */
 
         // $myaddress = "mirkoles61@yandex.ru, belozerov.o.s@yandex.ru";
