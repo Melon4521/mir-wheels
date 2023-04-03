@@ -109,7 +109,6 @@ async function sendForm(e) {
         if (response.ok) {
             let answer = await response.text();
             alert(answer)
-            sendOrder();
             serviceForm.reset();
             serviceForm.classList.remove('_sending');
         } else {
