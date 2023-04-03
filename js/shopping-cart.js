@@ -26,6 +26,8 @@ async function sendForm(e) {
 
         if (response.ok) {
             sendOrder();
+            let answer = await response.text();
+            console.log(answer.text)
             offerForm.reset();
             offerForm.classList.remove('_sending');
         } else {
@@ -309,7 +311,7 @@ function deleteItem(targetElement) {
 };
 
 function sendOrder() {
-    alert("Заказ отправлен, мы скоро с вами свяжемся!");
+    // alert("Заказ отправлен, мы скоро с вами свяжемся!");
     // Закрытие окна
     setTimeout(() => {
         closePopup(document.querySelector('#popup-offer'), true);
