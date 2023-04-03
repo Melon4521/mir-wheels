@@ -34,8 +34,8 @@ if ($error) {
     if ($cart !== '') {
         /* Сюда впишите свою эл. почту */
 
-        $myaddress = "mirkoles61@yandex.ru, belozerov.o.s@yandex.ru";
-        // $myaddress = "kuznetsov.neon-x@yandex.ru";
+        // $myaddress = "mirkoles61@yandex.ru, belozerov.o.s@yandex.ru";
+        $myaddress = "kuznetsov.neon-x@yandex.ru";
 
         /* Сюда впишите эл. почту магазина */
         $shopEmail = 'mirkoles61@yandex.ru';
