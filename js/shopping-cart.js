@@ -25,9 +25,9 @@ async function sendForm(e) {
         });
 
         if (response.ok) {
-            sendOrder();
             let answer = await response.text();
             alert(answer)
+            sendOrder();
             offerForm.reset();
             offerForm.classList.remove('_sending');
         } else {
