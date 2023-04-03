@@ -27,7 +27,7 @@ async function sendForm(e) {
         if (response.ok) {
             sendOrder();
             let answer = await response.text();
-            console.log(answer.text)
+            console.log(answer, answer.message)
             offerForm.reset();
             offerForm.classList.remove('_sending');
         } else {
