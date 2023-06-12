@@ -2,7 +2,7 @@
 
 // Главная часть футера
 .footer {
-    @include adaptiv-value("margin-top", 100, 80, 1);
+    @include adaptiv-value("margin-top", 120, 100, 1);
 
     // .footer__main
     &__main {

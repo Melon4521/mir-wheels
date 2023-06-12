@@ -33,3 +33,44 @@
 @import 'header';
 @import 'shopping-cart';
 @import 'footer';
+
+//<Sales>==============================================================================
+
+.sales {
+    @include adaptiv-value("margin-top", 120, 80, 1);
+
+    // .sales__title
+    &__title {
+        @include adaptiv-value("margin-bottom", 80, 50, 1);
+        text-align: center;
+        @extend .sub-title;
+    }
+
+    // .sales__items
+    &__items {
+
+    }
+
+    // .sales__item
+    &__item {
+        margin-bottom: 40px;
+    }
+
+    // .sales-item__title
+    &-item__title {
+        @extend .sub-title-grey;
+        font-weight: 800;
+        font-size: 30px;
+        margin-bottom: 10px;
+    }
+
+    // .sales-item__description
+    &-item__description {
+        @extend .light-text;
+    }
+
+}
+
+
+
+//</Sales>==============================================================================

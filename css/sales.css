@@ -286,14 +286,14 @@ html {
             transform: translate(-50%, -50%) rotate(360deg);
   }
 }
-.sub-title {
+.sub-title, .sales__title {
   line-height: 145%;
   font-weight: 800;
   font-size: calc(35rem / 16);
   color: #333;
 }
 
-.sub-title-grey {
+.sub-title-grey, .sales-item__title {
   line-height: 145%;
   font-weight: 600;
   font-size: calc(20rem / 16);
@@ -318,14 +318,14 @@ html {
   }
 }
 
-.light-text, .cart-offer__policy span, .form-label, .cart-offer__label {
+.light-text, .sales-item__description, .cart-offer__policy span, .form-label, .cart-offer__label {
   line-height: 145%;
   font-weight: 300;
   font-size: 18px;
   color: #333;
 }
 @media (max-width: 1120px) {
-  .light-text, .cart-offer__policy span, .form-label, .cart-offer__label {
+  .light-text, .sales-item__description, .cart-offer__policy span, .form-label, .cart-offer__label {
     font-size: calc(16px + 2 * ((100vw - 320px) / 800));
   }
 }
@@ -1239,11 +1239,11 @@ html {
 
 /* </Form>============================================================================== */
 .footer {
-  margin-top: 100px;
+  margin-top: 120px;
 }
 @media (max-width: 1120px) {
   .footer {
-    margin-top: calc(80px + 20 * ((100vw - 320px) / 800));
+    margin-top: calc(100px + 20 * ((100vw - 320px) / 800));
   }
 }
 .footer__main {
@@ -1485,4 +1485,30 @@ html {
 .team-item__between {
   font-size: 18px;
   padding: 0px 3px;
+}
+
+.sales {
+  margin-top: 120px;
+}
+@media (max-width: 1120px) {
+  .sales {
+    margin-top: calc(80px + 40 * ((100vw - 320px) / 800));
+  }
+}
+.sales__title {
+  margin-bottom: 80px;
+  text-align: center;
+}
+@media (max-width: 1120px) {
+  .sales__title {
+    margin-bottom: calc(50px + 30 * ((100vw - 320px) / 800));
+  }
+}
+.sales__item {
+  margin-bottom: 40px;
+}
+.sales-item__title {
+  font-weight: 800;
+  font-size: 30px;
+  margin-bottom: 10px;
 }

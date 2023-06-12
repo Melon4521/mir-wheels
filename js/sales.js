@@ -1,3 +1,6 @@
+"use sctrict"
+document.addEventListener("DOMContentLoaded", () => {
+
 //<Document Actions>==============================================================================
 
 document.addEventListener('click', function (e) {
@@ -55,6 +58,38 @@ if (cartData !== null) {
 
 changeCartIconNumber();
 
+//</Shopping cart>==============================================================================
+
+//<Load sales from JSON>==============================================================================
+
+async function loadSales() {
+    let response = await fetch('../api/sales.json');
+    let myJson = await response.json();
+
+    generateSales(myJson);
+
+    function generateSales(myJson) {
+        let placeGeneration = document.querySelector('#sales');
+
+        placeGeneration.innerHTML = '';
+
+        for (let i = 0; i < myJson.sales.length; i++) {
+            const sale = myJson.sales[i];
+
+            placeGeneration.innerHTML += /*html*/ `
+            <div class="sales__item sales-item">
+                <div class="sales-item__title">${sale.title}</div>
+                <div class="sales-item__description">${sale.description}</div>
+            </div>
+            `;
+        }
+    }
+}
+
+loadSales()
+
+//</Load sales from JSON>==============================================================================
+
 //<Pre-loader>==============================================================================
 
 setTimeout(() => {
@@ -67,4 +102,5 @@ setTimeout(() => {
 
 //</Pre-loader>==============================================================================
 
-//</Shopping cart>==============================================================================
+//</ cart>==============================================================================
+});

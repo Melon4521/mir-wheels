@@ -1,0 +1,16 @@
+{
+    "sales": [
+        {
+            "title": "Бесплатный шиномонтаж",
+            "description": "Бесплатный шиномонтаж при покупке комплекта шин и дисков."
+        },
+        {
+            "title": "Бесплатный шиномонтаж",
+            "description": "При покупке комплекта шин брендов: BFGoodrich, Bridgestone, Continental, Cordiant, Dunlop, Goodyear, Hankook, Kumho, Matador, Michelin, Nexen-Roadstone, Nitto, Nokian, Pirelli, Tigar, Toyo, Yokohama."
+        },
+        {
+            "title": "Ремонт прокола шины бесплатно",
+            "description": "В течение 45 дней после покупки любых шин (кроме боковых порезов)"
+        }
+    ]
+}
