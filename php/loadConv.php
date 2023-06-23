@@ -76,7 +76,7 @@ $_FILES['uploaded_file_disk']['error'] == 0) {
     $sizeTires  = $_FILES['uploaded_file_disk']['size'];
     //	echo "<br>размер передаваемого файла = ".$sizeDisks ."<br>";
             
-    $newpath = '../converter/';
+    $newpath = './converter/';
             
     $fd = fopen($newpath."log.txt", 'a+') or die("не удалось создать файл");
     
