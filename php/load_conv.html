@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ru">
+<head>
+	<meta charset="utf-8">
+	<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Страница Администрирования</title>
+	<link href="../images/Logo-2.png" rel="icon" type="image/png"/>
+
+	<link rel="stylesheet" href="../css/admin.css">
+</head>
+
+<body>
+
+	<div id="root">
+
+		<div class="wrapper">
+
+			<!-- HEADER -->
+			<header class="header lock-padding">
+				<div class="header__container top-header">
+					<div class="top-header__logo header-logo">
+						<img class="header-logo__img" width="70" src="../images/Logo-2.png" alt="Логотип">
+						<div class="logo__text">
+							<h3 class="header-logo__title">Мир колёс</h3>
+							<h4 class="header-logo__subtitle">шины и диски</h4>
+						</div>
+					</div>
+					<div class="top-header__menu top-menu">
+						<a class="top-menu__tel" href="http://mir-wheels.ru">В магазин</a>
+					</div>
+				</div>
+			</header>
+
+			<!-- MAIN -->
+			<main class="main">
+
+				<div class="reg">
+					<div class="reg__container">
+						<h1 class="reg__title _title">Авторизация</h1>
+						<div class="reg__auth auth">
+							<h3 class="auth__title">Ваши данные</h3>
+
+                            <form class="auth__form" id="authForm" action="#">
+
+                                <div class="auth__item">
+                                    <label for="authInputLogin" class="auth__label">Логин*:</label>
+                                    <input id="authInputLogin" name="login" class="auth__input _req" type="text">
+                                </div>
+    
+                                <div class="auth__item">
+                                    <label for="authInputPw" class="auth__label">Пароль*:</label>
+                                    <input id="authInputPw" name="password" class="auth__input _req" type="password">
+                                </div>
+    
+                                <button id="enterBtn" class="auth__button _button" type="submit">Войти</button>
+                                
+                            </form>
+                            
+						</div>
+					</div>
+				</div>
+
+			</main>
+
+			<!-- FOOTER -->
+			<footer class="footer"></footer>
+
+		</div>
+
+	</div>
+
+	<script src='../js/admin.js'></script>
+    <script src="../js/forms.js"></script>
+
+</body>
+</html>
