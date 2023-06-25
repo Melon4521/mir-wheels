@@ -66,10 +66,10 @@
 					</div>
 				</a>
 				<div class="top-header__menu top-menu">
-					<button style="background-color: transparent;">
+					<button style="background-color: transparent;" name="contacts">
 						<a class="top-menu__tel icon-phone popup-opener" data-popup_open="#popup-contacts" href="#">Контакты</a>
 					</button>
-                    <button data-count="0" class="top-menu__cart icon-cart popup-opener" data-popup_open="#popup-cart"></button>
+                    <button name="cart" data-count="0" class="top-menu__cart icon-cart popup-opener" data-popup_open="#popup-cart"></button>
 					<div class="top-menu__burger">
 						<span></span>
 					</div>
@@ -134,8 +134,12 @@
 										<img src="images/Slide-1_Tire.png" alt="">
 									</div>
 									<div class="slide__content slide__content-1">
-										<div class="slide__content-title">Лучшие шины</div>
-										<div class="slide__content-subtitle">от известных производителей.</div>
+										<div class="slide__content-title">
+											<a href="tires.html">Лучшие шины</a>
+										</div>
+										<div class="slide__content-subtitle">
+											<a href="tires.html">от известных производителей.</a>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -153,8 +157,12 @@
 							<div class="container">
 								<div class="slide__wrapper slide__wrapper-2">
 									<div class="slide__content slide__content-2">
-										<div class="slide__content-title">Надежные диски</div>
-										<div class="slide__content-subtitle">для Вашего автомобиля.</div>
+										<div class="slide__content-title">
+											<a href="disks.html">Надежные диски</a>
+										</div>
+										<div class="slide__content-subtitle">
+											<a href="disks.html">для Вашего автомобиля.</a>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -172,9 +180,12 @@
 										<img src="images/Slide-3_Keys.png" alt="">
 									</div>
 									<div class="slide__content slide__content-3">
-										<div class="slide__content-title">Шиномонтаж</div>
-										<div class="slide__content-subtitle">предоставляем при покупке комплекта шин и
-											дисков.</div>
+										<div class="slide__content-title">
+											<a href="services.html">Шиномонтаж</a>
+										</div>
+										<div class="slide__content-subtitle">
+											<a href="services.html">предоставляем при покупке комплекта шин и дисков.</a>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -192,10 +203,10 @@
 
 			<div class="about-us">
 				<div class="about-us__container">
-					<h2 class="about-us__title sub-title">О компании</h2>
+					<h1 class="about-us__title sub-title">О компании</h1>
 					<div class="about-us__info">
 						<div class="about-us__info-block info-block">
-							<h4 class="info-block__title sub-title-grey">Магазин шин и дисков</h4>
+							<h2 class="info-block__title sub-title-grey">Магазин шин и дисков</h2>
 							<p class="info-block__text light-text">
 								В компании «Мир колёс» представлен широкий ассортимент шин для легковых и грузовых
 								автомобилей, индустриальной техники и спецтехники, мотошины и большой ассортимент дисков. В каталоге продукция от отечественных и зарубежных производителей, есть бюджетные
@@ -203,18 +214,18 @@
 							</p>
 						</div>
 						<div class="about-us__info-block info-block">
-							<h4 class="info-block__title sub-title-grey">Оплата заказа</h4>
+							<h2 class="info-block__title sub-title-grey">Оплата заказа</h2>
 							<p class="info-block__text light-text">
 								После заказа товара с Вами свяжется менеджер и Вы с ним можете определить наиболее удобный для Вас способ оплаты и доставки товара.
 							</p>
 						</div>
 						<div class="about-us__info-block info-block">
-							<h4 class="info-block__title sub-title-grey">Ассортимент магазина</h4>
+							<h2 class="info-block__title sub-title-grey">Ассортимент магазина</h2>
 							<div class="info-block__text light-text">
 								<span style="font-weight: 500;">Шины:</span>
 								<br><br>
 
-								<dl>
+								<ul class="info-block__list">
 									<li>
 										Летние шины: для обеспечения надежного сцепления с сухой и мокрой дорогой при
 										температуре не ниже +7°С.
@@ -230,7 +241,7 @@
 									<li>
 										Шины для индустриальной техники и спецтехники.
 									</li>
-								</dl>
+								</ul>
 
 								<br>
 
@@ -445,22 +456,6 @@
 								</span>
 							</div>
 						</form>
-
-                        <!-- <form class="cart-offer__form" id="offerForm" action="http://mir-wheels.ru/php/shopping-cart/message-sender.php" method="POST">
-                            <div class="cart-offer__inputs" id="offerInputs">
-                                <input type="hidden" name="cart" id="hiddenCartItem" value="">
-                                <input class="cart-offer__input" name="name" id="offerInputName" placeholder="Имя..." type="text" required>
-                                <input class="cart-offer__input" name="phone" id="offerInputPhone" placeholder="Телефон..." minlength="6" type="tel" required>
-                                <input class="cart-offer__input" name="mail" id="offerInputMail" placeholder="Почта..." type="email">
-                            </div>
-                            
-                            <div class="captcha-inner">
-                                <div class="g-recaptcha" data-sitekey="6Leq0bsjAAAAAPHcjDlCSj1sZTicsVC_b1AxKWm0"></div>
-                            </div>
-                            <div class="cart-offer__button-inner">
-                                <button class="cart-offer__button" type="submit">Отправить</button>
-                            </div>
-                        </form> -->
 
                     </div>
                 </div>

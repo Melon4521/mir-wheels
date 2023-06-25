@@ -78,7 +78,7 @@ async function loadSales() {
 
             placeGeneration.innerHTML += /*html*/ `
             <div class="sales__item sales-item">
-                <div class="sales-item__title">${sale.title}</div>
+                <h2 class="sales-item__title">${sale.title}</h2>
                 <div class="sales-item__description">${sale.description}</div>
             </div>
             `;

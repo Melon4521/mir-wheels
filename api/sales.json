@@ -1,7 +1,1 @@
-{
-    "sales": [{
-        "id": "1",
-        "title": "Бесплатный шиномонтаж",
-        "description": "При покупке комплекта шин брендов: BFGoodrich, Bridgestone, Continental, Cordiant, Dunlop, Goodyear, Hankook, Kumho, Matador, Michelin, Nexen-Roadstone, Nitto, Nokian, Pirelli, Tigar, Toyo, Yokohama."
-    }]
-}
+{"sales":[{"id":"1","title":"Бесплатный шиномонтаж","description":"При покупке комплекта шин брендов: BFGoodrich, Bridgestone, Continental, Cordiant, Dunlop, Goodyear, Hankook, Kumho, Matador, Michelin, Nexen-Roadstone, Nitto, Nokian, Pirelli, Tigar, Toyo, Yokohama."}]}

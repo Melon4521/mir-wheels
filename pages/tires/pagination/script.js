@@ -80,7 +80,7 @@ function pagenInit(myJson, sortedArray) {
                             <div class="catalog-card__media-title"></div>
                             <div class="catalog-card__body">
                                 <div class="catalog-card__image">
-                                    <img src="${image}">
+                                    <img src="${image}" alt="">
                                 </div>
                                 <div class="catalog-card__info card-info">
                                     <div class="card-info__title">${myJson.tires[sortedArray[i]].name}</div>
@@ -146,7 +146,7 @@ function pagenInit(myJson, sortedArray) {
                             <div class="catalog-card__media-title"></div>
                             <div class="catalog-card__body">
                                 <div class="catalog-card__image">
-                                    <img src="${image}">
+                                    <img src="${image}" alt="">
                                 </div>
                                 <div class="catalog-card__info card-info">
                                     <div class="card-info__title">${myJson.tires[sortedArray[i]].name}</div>

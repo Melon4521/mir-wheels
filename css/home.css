@@ -1270,14 +1270,14 @@ html {
 }
 
 .my-slider .swiper-pagination-bullet {
-  width: 13px;
-  height: 13px;
+  width: 15px;
+  height: 15px;
   font-size: 16px;
 }
 
 @media (max-width: 480px) {
   .my-slider__prev::after,
-.my-slider__next::after {
+  .my-slider__next::after {
     display: none;
   }
 }
@@ -1309,6 +1309,12 @@ html {
 
 .slide__content {
   width: 50%;
+}
+
+.slide__content a,
+.slide__content a:hover,
+.slide__content a:visited {
+  color: #000000;
 }
 
 .slide__content-title {
@@ -1546,7 +1552,7 @@ html {
     width: 50%;
   }
   .my-slider,
-.slide__wrapper {
+  .slide__wrapper {
     height: calc(100vh - 110px);
     max-height: 600px;
   }
@@ -1991,4 +1997,10 @@ html {
 
 .info-block__text {
   margin-top: 25px;
+}
+.info-block__list {
+  padding-left: 20px;
+}
+.info-block__list li {
+  list-style: disc;
 }

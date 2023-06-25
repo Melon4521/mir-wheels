@@ -1,3 +1,5 @@
+@import 'variables';
+
 $headerHeightPC: 137px;
 $headerHeightPhone: 110px;
 $sliderHeightPC: calc(100vh - $headerHeightPC);
@@ -27,8 +29,8 @@ $sliderHeightPhone: calc(100vh - $headerHeightPhone);
 }
 
 .my-slider .swiper-pagination-bullet {
-    width: 13px;
-    height: 13px;
+    width: 15px;
+    height: 15px;
     font-size: 16px;
 }
 
@@ -61,6 +63,12 @@ $sliderHeightPhone: calc(100vh - $headerHeightPhone);
 
 .slide__content {
     width: 50%;
+}
+
+.slide__content a,
+.slide__content a:hover,
+.slide__content a:visited {
+    color: $textColor;
 }
 
 .slide__content-title {

@@ -67,6 +67,17 @@
     &__text {
         margin-top: 25px;
     }
+    
+    // .info-block__list
+    &__list {
+        padding-left: 20px;
+        
+        & li {
+            list-style: disc;
+        }
+    }
+
+
 }
 
 //</About Us>==============================================================================
