@@ -16,7 +16,7 @@ $choise_menu = '
                 </div>
             </div>
             <div class="top-header__menu top-menu">
-                <a class="top-menu__tel" href="http://mir-wheels.ru">Вернуться на сайт</a>
+                <a class="top-menu__tel" href="http://mir-wheels.ru">В магазин</a>
             </div>
         </div>
     </header>
@@ -74,7 +74,7 @@ $load_conv = '
             </div>
             <div class="top-header__menu top-menu">
                 <a class="top-menu__tel" id="BackToChoiseMenuBtn" href="#">Меню выбора</a>
-                <a class="top-menu__tel" href="http://mir-wheels.ru">Вернуться на сайт</a>
+                <a class="top-menu__tel" href="http://mir-wheels.ru">В магазин</a>
             </div>
         </div>
     </header>
@@ -194,7 +194,7 @@ $load_conv_finished = '
                 </div>
                 <div class="top-header__menu top-menu">
                     <a class="top-menu__tel" id="BackToChoiseMenuBtn" href="#">Меню выбора</a>
-                    <a class="top-menu__tel" href="http://mir-wheels.ru">Вернуться на сайт</a>
+                    <a class="top-menu__tel" href="http://mir-wheels.ru">В магазин</a>
                 </div>
             </div>
         </header>
