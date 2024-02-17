@@ -126,37 +126,44 @@
                                     <h3 class="sort-menu__title">Шины</h3>
                                     <div class="sort-menu__body">
                                         <div id="selectGroup" class="sort-menu__selects LeftBodyDiv">
-                                            <div class="SelectBox" data-name="brand">
-                                                <select class="dropdown">
+                                            <div class="SelectBox">
+                                                <select class="dropdown" id="sel" data-type="brand">
                                                     <option value="0">Производитель</option>
                                                 </select>
                                             </div>
-                                            <div class="SelectBox" data-name="ship">
-                                                <select class="dropdown">
+                                            <div class="SelectBox" >
+                                                <select class="dropdown" id="sel" data-type="ship">
                                                     <option value="0">Шиповка</option>
                                                 </select>
                                             </div>
-                                            <div class="SelectBox" data-name="season">
-                                                <select class="dropdown">
+                                            <div class="SelectBox">
+                                                <select class="dropdown" id="sel" data-type="season">
                                                     <option value="0">Сезон</option>
                                                 </select>
                                             </div>
-                                            <div class="SelectBox" data-name="w">
-                                                <select class="dropdown">
+                                            <div class="SelectBox">
+                                                <select class="dropdown" id="sel" data-type="w">
                                                     <option value="0">Ширина</option>
                                                 </select>
                                             </div>
-                                            <div class="SelectBox" data-name="h">
-                                                <select class="dropdown">
+                                            <div class="SelectBox">
+                                                <select class="dropdown" id="sel" data-type="h">
                                                     <option value="0">Высота</option>
                                                 </select>
                                             </div>
-                                            <div class="SelectBox" data-name="r">
-                                                <select class="dropdown">
+                                            <div class="SelectBox">
+                                                <select class="dropdown" id="sel" data-type="r">
                                                     <option value="0">Диаметр</option>
                                                 </select>
                                             </div>
                                         </div>
+
+                                        <style>
+                                            .dropdown{
+                                                width: 100%;
+                                                max-width: 100%;
+                                            }
+                                        </style>
 
                                         <div style="margin-top: 15px;">
                                             <button class="sort-menu__find sort-menu__button" id="LeftPick">Подобрать</button>
@@ -173,8 +180,8 @@
 
                     <!-- Pagen -->
                     <div class="catalog__pagen catalog-pagen">
-                            <div class="catalog-pagen__prev" id="pagenPrev">
-                                <div class="catalog-pagen__text icon-arrow"></div>
+                            <div class="catalog-pagen__prev" id="button" data-value="-1">
+                                <div class="catalog-pagen__text icon-arrow" style="pointer-events: none;"></div>
                             </div>
                             <div class="catalog-pagen__buttons pagen-buttons">
 
@@ -183,11 +190,11 @@
                                         value="" max="" placeholder="Страница...">
                                     <button class="pagen-buttons__input-btn" id="pagenInputButton">&#128269;</button>
                                 </div>
-                                <div class="pagen-buttons__page" id="pagenPage"><span>1</span>/<span>...</span></div>
+                                <div class="pagen-buttons__page" id="pagenPage"><span class="thisPage">1</span>/<span class="lastPage">...</span></div>
 
                             </div>
-                            <div class="catalog-pagen__next" id="pagenNext">
-                                <div class="catalog-pagen__text icon-arrow"></div>
+                            <div class="catalog-pagen__next" id="button" data-value="1">
+                                <div class="catalog-pagen__text icon-arrow" style="pointer-events: none;"></div>
                             </div>
                     </div>
                 </div>
@@ -204,10 +211,6 @@
                             <div class="footer-fst__logo">
                                 <img src="images/Logo-2_no-bg.png" alt="Логотип">
                             </div>
-                            <!-- <div class="footer-fst__social footer-social">
-                                <a class="footer-social__item icon-instagram" href="#"></a>
-                                <a class="footer-social__item icon-vk" href="#"></a>
-                            </div> -->
                         </div>
                         <div class="footer__columns footer-columns">
     
@@ -392,23 +395,6 @@
 								</span>
 							</div>
 						</form>
-
-                        <!-- <form class="cart-offer__form" id="offerForm" action="http://mir-wheels.ru/php/shopping-cart/message-sender.php" method="POST">
-                            <div class="cart-offer__inputs" id="offerInputs">
-                                <input type="hidden" name="cart" id="hiddenCartItem" value="">
-                                <input class="cart-offer__input" name="name" id="offerInputName" placeholder="Имя..." type="text" required>
-                                <input class="cart-offer__input" name="phone" id="offerInputPhone" placeholder="Телефон..." minlength="6" type="tel" required>
-                                <input class="cart-offer__input" name="mail" id="offerInputMail" placeholder="Почта..." type="email">
-                            </div>
-                            
-                            <div class="captcha-inner">
-                                <div class="g-recaptcha" data-sitekey="6Leq0bsjAAAAAPHcjDlCSj1sZTicsVC_b1AxKWm0"></div>
-                            </div>
-                            <div class="cart-offer__button-inner">
-                                <button class="cart-offer__button" type="submit">Отправить</button>
-                            </div>
-                        </form> -->
-
                     </div>
                 </div>
             </div>
@@ -548,11 +534,15 @@
 
     <script src="pages/tires/sorting-panel/selects/script.js"></script>
 
-	<script src="js/forms.js"></script>
     <script src="pages/tires/pagination/script.js"></script>
     <script src="pages/tires/shopping-cart/script.js"></script>
-    <script src="js/header.js"></script>
-    <script src="js/tires.js"></script>
+
+
+    <script>
+        const namePage = 'tires'
+    </script>
+    <script type="module" src="./js/bycart.js"></script>
+    <script src="./js/loader.js" defer></script>
 
 </body>
 </html>

@@ -1,7 +1,5 @@
 let cartData = getCartData("shopping-cart"),
     offerForm = document.getElementById("offerForm");
-    // offerInputPhone = document.getElementById("offerInputPhone"),
-    // offerInputMail = document.getElementById("offerInputMail");
 
 const shoppingCart = document.querySelector('#shoppingCart'),
     cartIcon = document.querySelector('.top-menu__cart'),

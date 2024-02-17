@@ -120,6 +120,13 @@
                 <div class="catalog__container">
                     <div class="catalog__sort-cards">
 
+                        <style>
+                            .dropdown{
+                                width: 100%;
+                                max-width: 100%;
+                            }
+                        </style>
+
                         <!-- Sorting panel -->
                         <div class="catalog__sort" id="Left">
                             <div class="catalog__sort-menu sort-menu">
@@ -128,58 +135,58 @@
                                     <!-- Sorting selects -->
                                     <div id="selectGroup" class="sort-menu__selects LeftBodyDiv">
                                         <div class="SelectBox">
-                                            <select class="dropdown" data-name="brand" 
-                                                data-value="all" data-sort="sel">
+                                            <select class="dropdown"
+                                                data-value="all" id="sel" data-type="brand">
                                                 <option value="0">Производитель</option>
                                             </select>
                                         </div>
                                          
                                         <div class="SelectBox">
-                                            <select class="dropdown" data-name="type" 
-                                                data-value="all" data-sort="sel">
+                                            <select class="dropdown" data-type="type" 
+                                                data-value="all" id="sel">
                                                 <option value="0">Тип</option>
                                             </select>
                                         </div>
                                          
                                         <div class="SelectBox">
-                                            <select class="dropdown" data-name="color" 
-                                                data-value="all" data-sort="sel">
+                                            <select class="dropdown" data-type="color" 
+                                                data-value="all" id="sel">
                                                 <option value="0">Цвет</option>
                                             </select>
                                         </div>
                                          
                                         <div class="SelectBox">
-                                            <select class="dropdown" data-name="w" 
-                                                data-value="all" data-sort="sel">
+                                            <select class="dropdown" data-type="w" 
+                                                data-value="all" id="sel">
                                                 <option value="0">Ширина</option>
                                             </select>
                                         </div>
                                          
                                         <div class="SelectBox">
-                                            <select class="dropdown" data-name="r" 
-                                                data-value="all" data-sort="sel">
+                                            <select class="dropdown" data-type="r" 
+                                                data-value="all" id="sel">
                                                 <option value="0">Диаметр</option>
                                             </select>
                                         </div>
                                          
                                         <div class="SelectBox">
-                                            <select class="dropdown" data-name="b" 
-                                                data-value="all" data-sort="sel">
+                                            <select class="dropdown" data-type="b" 
+                                                data-value="all" id="sel">
                                                 <option value="0">Кол-во отверстий</option>
                                             </select>
                                         </div>
                                          
                                         <div class="SelectBox">
-                                            <select class="dropdown" data-name="pcd" 
-                                                data-value="all" data-sort="sel">
+                                            <select class="dropdown" data-type="pcd" 
+                                                data-value="all" id="sel">
                                                 <option value="0">PCD</option>
                                             </select>
                                         </div>
                                          
                                         <div class="SelectBox">
                                             <h3 style="font-size: 20px; padding: 5px 0px 5px 12px; margin-bottom: 10px;">Ступицы от</h3>
-                                            <select class="dropdown" data-name="dia" 
-                                                data-value="all" data-sort="sel">
+                                            <select class="dropdown" data-type="dia" 
+                                                data-value="all" id="sel">
                                                 <option value="0">Все</option>
                                             </select>
                                         </div>
@@ -188,42 +195,15 @@
                                             <h3 style="font-size: 20px; padding: 5px 0px 5px 12px; margin-bottom: 10px;">Вылет</h3>
                                             <div style="display: flex; align-items: center; padding: 5px 0px 5px 12px;">
                                                 <span style="font-size: 20px;">От</span>
-                                                <select class="dropdown" data-name="et"
-                                                    data-value="min" data-sort="sel"></select>
+                                                <select class="dropdown" data-type="et"
+                                                    data-value="min" id="sel"></select>
                                             </div>
                                             <div style="display: flex; align-items: center; padding: 5px 0px 5px 12px;">
                                                 <span style="font-size: 20px;">До</span>
-                                                <select class="dropdown" data-name="et"
-                                                    data-value="max" data-sort="sel"></select>
+                                                <select class="dropdown" data-type="et"
+                                                    data-value="max" id="sel"></select>
                                             </div>
                                         </div>
-
-                                        <!-- <div class="SelectBox">
-                                            <div style="display: flex; align-items: center; padding: 5px 0px 5px 12px;">
-                                                <div style="font-size: 20px; display: flex; align-items: center; flex-wrap: nowrap;">
-                                                    <span style="margin-right: 5px;">Dia</span>
-                                                    <span>от</span>
-                                                </div>
-                                                <select class="dropdown" data-name="dia" 
-                                                    data-value="all" data-sort="sel">
-                                                    <option value="0">Все</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                         
-                                        <div class="SelectBox">
-                                            <h3 style="font-size: 20px; padding: 5px 0px 0px 12px; margin-bottom: 10px;">Вылет</h3>
-                                            <div style="display: flex; align-items: center; padding: 5px 0px 5px 12px;">
-                                                <div style="font-size: 20px; display: flex; align-items: center; flex-wrap: nowrap;">
-                                                    <span style="font-size: 16px; padding: 0 8px 0 0;">От</span>
-                                                </div>
-                                                <select class="dropdown" data-name="et" id="selectET1"
-                                                    data-value="min" data-sort="sel"></select>
-                                                <span style="font-size: 16px; padding: 0 8px 0 8px;">До</span>
-                                                <select class="dropdown" data-name="et" id="selectET2"
-                                                    data-value="max" data-sort="sel"></select>
-                                            </div>
-                                        </div> -->
                                         
                                     </div>
                                     <!-- Button "Подобрать" -->
@@ -243,8 +223,8 @@
 
                     <!-- Pagen -->
                     <div class="catalog__pagen catalog-pagen">
-                        <div class="catalog-pagen__prev" id="pagenPrev">
-                            <div class="catalog-pagen__text icon-arrow"></div>
+                        <div class="catalog-pagen__prev" id="button" data-value="-1">
+                            <div class="catalog-pagen__text icon-arrow" style="pointer-events: none;"></div>
                         </div>
                         <div class="catalog-pagen__buttons pagen-buttons">
 
@@ -253,11 +233,11 @@
                                     value="" max="" placeholder="Страница...">
                                 <button class="pagen-buttons__input-btn" id="pagenInputButton">&#128269;</button>
                             </div>
-                            <div class="pagen-buttons__page" id="pagenPage"><span>1</span>/<span>...</span></div>
+                            <div class="pagen-buttons__page" id="pagenPage"><span class="thisPage">1</span>/<span class="lastPage">...</span></div>
 
                         </div>
-                        <div class="catalog-pagen__next" id="pagenNext">
-                            <div class="catalog-pagen__text icon-arrow"></div>
+                        <div class="catalog-pagen__next" id="button" data-value="1">
+                            <div class="catalog-pagen__text icon-arrow" style="pointer-events: none;"></div>
                         </div>
                     </div>
                 </div>
@@ -619,12 +599,12 @@
 
     <script src="pages/disks/sorting-panel/selects/script.js"></script>
 
-	<script src="js/forms.js"></script>
-    <script src="pages/disks/pagination/script.js"></script>
-    <script src="pages/disks/shopping-cart/script.js"></script>
-    <script src="js/header.js"></script>
-    <script src="js/disks.js"></script>
-
+    <script src="./js/main.js"></script>
+    <script>
+        const namePage = 'disks'
+    </script>
+    <script type="module" src="./js/bycart.js"></script>
+    <script src="./js/loader.js" defer></script>
 </body>
 
 </html>
