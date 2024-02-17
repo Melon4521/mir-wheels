@@ -194,11 +194,10 @@ function openCart() {
                     cardName: cartData[items][0],
                     price: cartData[items][1],
                     season: cartData[items][2],
-                    dateUp: cartData[items][3],
-                    stock: cartData[items][4],
-                    cardImage: cartData[items][5],
-                    cardId: cartData[items][6],
-                    total: cartData[items][7],
+                    stock: cartData[items][3],
+                    cardImage: cartData[items][4],
+                    cardId: cartData[items][5],
+                    total: cartData[items][6],
                 };
             };
 

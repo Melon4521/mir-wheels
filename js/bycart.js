@@ -10,21 +10,23 @@ let maxPage = Math.ceil(bd.length / cntCardsOnPage);
 document.querySelector('#pagenInput').max = maxPage;
 document.querySelector('.lastPage').innerHTML = maxPage;
 
+let base = localStorage.getItem('shopping-cart') ? JSON.parse(localStorage.getItem('shopping-cart')) : [];
+
 // min max
 
-// const sliders = document.querySelectorAll('input[type="range"]');
+const sliders = document.querySelectorAll('#sel[data-value]');
 
-// sliders[0].addEventListener('input', (e) => {
-//  if(+sliders[0].value > +sliders[1].value){
-//     sliders[1].value = +sliders[0].value;
-//   }
-// });
+sliders[0].addEventListener('input', (e) => {
+ if(+sliders[0].value > +sliders[1].value){
+    sliders[1].value = +sliders[0].value;
+  }
+});
 
-// sliders[1].addEventListener('input', (e) => {
-//  if(+sliders[1].value < +sliders[0].value){
-//     sliders[0].value = +sliders[1].value;
-//   }
-// });
+sliders[1].addEventListener('input', (e) => {
+ if(+sliders[1].value < +sliders[0].value){
+    sliders[0].value = +sliders[1].value;
+  }
+});
 
 function selectGenerate(tires) {
 	const masSort = Array.from(
@@ -66,7 +68,8 @@ function cardGenerate(tires) {
 
 	for (let i = start; i < end; i++) {
 		if (!tires[i]) break;
-		const item = tires[i];
+		let item = tires[i];
+		item['cnt'] = (base.find(el => el.name === item.name) ? base.find(el => el.name === item.name).cnt : 0);
 		const imgSrc = item.image500x500 ? item.image500x500 : './img/nonPNG.png';
 
 		const card = `
@@ -85,10 +88,10 @@ function cardGenerate(tires) {
                         <div class="info-header__details _details-stock"><span>В наличии: </span>${item.stock}</div>
                     </div>
                     <div class="cart-card__info-footer info-footer">
-                        <div class="info-footer__cart-left"><span>В корзине: </span>${item.total}</div>
+                        <div class="info-footer__cart-left"><span>В корзине: </span>${item.cnt}</div>
                         <div class="info-footer__func-btns">
-                            <button class="info-footer__func-btn addCartItem" data-id="${i}">Добавить</button>
-                            <button class="info-footer__func-btn delCartItem" data-id="${i}">Убрать</button>
+                            <button class="info-footer__func-btn addCartItem" data-id='${JSON.stringify(item)}'>Добавить</button>
+                            <button class="info-footer__func-btn delCartItem" data-id='${JSON.stringify(item)}'>Убрать</button>
                         </div>
                     </div>
                 </div>
@@ -98,6 +101,55 @@ function cardGenerate(tires) {
 		cardHtml += card;
 	}
 	dom.innerHTML = cardHtml;
+	addClick();
+}
+
+function updateCart(item, action) {
+    let index = base.findIndex(el => el.name === item.name);
+
+    if (index === -1 && action === 'add') {
+		item.cnt += 1
+        base.push(item);
+    } else if (index !== -1 && action === 'add') {
+        if (base[index].cnt + 1 > +item.stock) {
+            alert('Невозможно заказать больше чем есть в наличии');
+        } else {
+            base[index].cnt += 1;
+        }
+    } else if (index !== -1 && action === 'delete') {
+        if (base[index].cnt > 1) {
+            base[index].cnt -= 1;
+        } else {
+            base.splice(index, 1);
+        }
+    }
+
+	for (const e of document.querySelectorAll(`.cart-card`)) {
+		if (e.querySelector('.info-header__title').textContent == item.name){
+			console.log('111');
+		}
+	}
+
+	document.querySelectorAll(`.info-header__title`).forEach((el=>{
+	el.textContent == item.name	
+	}))
+
+    localStorage.setItem('shopping-cart', JSON.stringify(base));
+}
+function addClick () {
+	document.querySelectorAll('.addCartItem').forEach((el) => {
+		el.addEventListener('click', (e) => {
+			let item = JSON.parse(e.target.dataset.id);
+			updateCart(item, 'add');
+		});
+	});
+
+	document.querySelectorAll('.delCartItem').forEach((el) => {
+		el.addEventListener('click', (e) => {
+			let item = JSON.parse(e.target.dataset.id);
+			updateCart(item, 'delete');
+		});
+	});
 }
 
 function sortCard(sortMas, tires, selectMas) {
@@ -147,6 +199,8 @@ selectGenerate(bd);
 
 cardGenerate(bd);
 
+
+
 document.querySelectorAll('#button').forEach((el) => {
 	el.addEventListener('click', (e) => {
 		const value = +(e.target.dataset.value)
@@ -179,5 +233,4 @@ document.querySelectorAll('#sel').forEach((el) => {
 		sortCard(sortMas, BD(), selectMas);
 	});
 });
-
 
