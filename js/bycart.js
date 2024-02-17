@@ -45,18 +45,16 @@ function selectGenerate(tires) {
 	});
 		masSort.forEach((_, i) => {
 			masValue[i].sort(function(a, b) {return a - b});
-			console.log();
-			if (masElement[i].dataset.value == 'all'){
-				masElement[i].innerHTML += masValue[i]
-				.map((value) => `<option value="${value}">${value}</option>`)
-				.join('');
-			} else {
-				masElement[i].min = masValue[i][0]
-				masElement[i].max = masValue[i][masValue[i].length - 1]
-				document.querySelector(`[data-value='${masElement[i].dataset.value}']`).innerHTML = (masElement[i].dataset.value == 'max' ? masElement[i].max : masElement[i].min)
-				if (masElement[i].dataset.value == 'max') { masElement[i].value = masValue[i][masValue[i].length - 1]};
-			};
-		});
+			
+			if ((masElement[i].dataset.value && masElement[i].dataset.value == 'max')){
+				masValue[i].reverse()
+			}
+			
+			masElement[i].innerHTML += masValue[i]
+			.map((value) => `<option value="${value}">${value}</option>`)
+			.join('');
+			
+	});
 }
 
 function cardGenerate(tires) {
@@ -181,3 +179,5 @@ document.querySelectorAll('#sel').forEach((el) => {
 		sortCard(sortMas, BD(), selectMas);
 	});
 });
+
+
