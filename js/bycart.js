@@ -53,7 +53,7 @@ function selectGenerate(tires) {
 			} else {
 				masElement[i].min = masValue[i][0]
 				masElement[i].max = masValue[i][masValue[i].length - 1]
-				document.querySelector(`#${masElement[i].dataset.value}`).innerHTML = (masElement[i].dataset.value == 'max' ? masElement[i].max : masElement[i].min)
+				document.querySelector(`[data-value='${masElement[i].dataset.value}']`).innerHTML = (masElement[i].dataset.value == 'max' ? masElement[i].max : masElement[i].min)
 				if (masElement[i].dataset.value == 'max') { masElement[i].value = masValue[i][masValue[i].length - 1]};
 			};
 		});
