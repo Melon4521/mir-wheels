@@ -1,0 +1,166 @@
+v1.0.1 (
+    16/02/23: (
+        pagination/script.js - "Изменил шаг пагинации с 10 на 5"
+        index.html - "Убрал лишний отступ у подзаголовка Диски"
+    )
+
+    17/02/23: (
+        shopping-cart/script.js - "Изменил отображение цены (123руб/шт. => 123 руб.)"
+        index.html - "Убрал лишний отступ у подзаголовка Диски"
+        *.html - "Обвернул контакты в button. Добавил класс _lock для body."
+        services.html - "Поправил адрес в action (tires.intermir.ru => mir-wheels.ru)"
+    )
+
+    19/02/23: (
+        header.js - "Пофиксил ошибку с elipse-up"
+        shopping-cart/script.js - "Изменил отображение кол-ва товаров в корзине (100+ => 99)"
+    )
+)
+
+v1.0.2 (
+    22/02/23: (
+        admin.css admin.js - "Инструкции"
+        images/ - "Изобрадения для Инструкции в админке"
+    )
+)
+
+v1.1.0 (
+    ПРИМЕЧАНИЕ: Раскомментировать нужную почту в php-файлах отправки писем
+    08/03/23: (
+        src/scss/_slider.scss - "Поправил пути изображений"
+        src/scss/_shopping-cart.scss - "Новые стили для AJAX-Формы"
+        css/home.css, sales.css, catalog.css, delivery.css  - "Новые стили для AJAX-Формы"
+        pages/*/shopping-cart/script.js - "Код для AJAX-формы"
+        js/shopping-cart.js - "Код для AJAX-формы"
+        js/forms.js - "Новый код для валидации форм"
+        *.html - "Новая AJAX-форма"
+        php/shopping-cart/message-sender.php - "Убрал проверку Google Captcha"
+    )
+    09-10/03/23 (
+        services.html - "Новая AJAX-форма"
+        src/scss/_common.scss - "Новые стили"
+        src/scss/services.scss - "Новые стили для AJAX-Формы"
+        css/services.css  - "Новые стили для AJAX-Формы"
+        js/services.js - "Код для AJAX-формы"
+        php/shopping-cart/message-sender.php - "Убрал проверку Google Captcha"
+    )
+)
+
+v1.1.1 (
+    ПРИМЕЧАНИЕ: Раскомментировать нужную почту в php-файлах отправки писем
+    14/03/23: (
+        src/scss/_footer.scss, home.scss - "Стили для модального окна с командой"
+        css/catalog.css, delivery.css, home.css, sales.css, services.css - "Стили для модального окна с командой"
+        index.html - "Модальное окно с командой"
+    )
+    15/03/23: (
+        *.html - "Обновил ссылки в футере"
+    )
+    17/03/23: (
+        *.html - "Модальное окно с командой,
+            Модальное окно с политикой конф,
+            Текст с политикой конф, Добавил стили для модальных окон"
+        services.html - "Текст с политикой конф для формы шиномонтажа"
+        src/scss/_popup.scss - "Новые стили" 
+        src/scss/_shopping-cart.scss, services.scss - "Стили политики конф"
+        pages/*/shopping-cart/script.js - "Пофиксил баг с добавлением в корзину"
+    )
+)
+
+v1.2.0 (
+    22/03/23: (
+        *.html - "Добавил во все футеры адрес г. Ростов-на-Дону, ул. Днепропетровская 54 и ссылку на яндекс карты по этому адресу,
+            Изменил в футере команду разработчиков на InterМИР Devteam"
+        src/scss/*.scss - "Добавление стилей"
+        css/*.css - "Добавление стилей"
+        delivery.html - "Исправил текст на обложке
+            ДОСТАВКА ПО РОСТОВУ-НА-ДОНУ
+            По согласованию менеджером.
+
+            и ниже в параграфе 
+
+            Доставка
+
+            В Ростове-на-Дону
+            по согласованию с менеджером."
+        sales.html - "Добавил текст Бесплатный шиномонтаж при покупке комплекта шин и дисков."
+
+        NEW FILES: (
+            contacts.html
+            css/contacts.css
+            js/contacts.js
+            src/scss/contacts.scss
+        )
+    )
+    23/03/23: (
+        *.html - "Добавил Google Captcha"
+        php/services/message-sender.php - "Раскомментировал код для Google Captcha"
+        php/shopping-cart/message-sender.php - "Раскомментировал код для Google Captcha"
+    )
+)
+
+v1.3.0 (
+    25/03/23: (
+        contacts.html - "Верстка страницы"
+        css/contacts.css - "Стили страницы"
+        src/scss/contacts.scss - "Стили страницы"
+        js/contacts.js - "Код для Яндекс Карты"
+        js/admin.js - "Убрал лишний console.log"
+    )
+    03/04/23: (
+        js/shopping-cart.js - "Правки кода формы"
+        js/services.js - "Правки кода формы"
+        pages/*/shopping-cart/script.js - "Правки кода формы"
+        php/shopping-cart/message-sender.php - "Первый метод защиты формы"
+        php/shopping-cart/message-sender.php - "Правки кода для формы"
+    )
+)
+
+v1.3.1 (
+    NEW FILES: (
+        api/sales.json
+    )
+
+    21/04/23: (
+        sales.html - "Код для акций"
+        js/disks.js - "Добавил код Глеба"
+        js/sales.js - "Генерация акций из json-файла api/sales.json"
+        css/catalog.css, contacts.css, delivery.css, home.css, sales.css, services.css - "Правки стилей"
+        src/scss/_footer.scss, sales.scss - "Правки стилей"
+    )
+)
+
+v1.4.0 (
+    NEW FILES: (
+        fonts/* - "Сделал шрифты кроссбраузерными"
+        images/sales-card.jpg, loading-card.jpg - "Админка 2.0"
+        php/adminData.php, loadConv.php, sales.php, load_conv.html - "Админка 2.0"
+    )
+
+    ПРИМЕЧАНИЕ: Перенес папку fonts из src/ на первый уровень (В ряду со всеми html)
+
+    22/06/23: (
+        css/catalog.css, contacts.css, delivery.css, home.css, sales.css, services.css - "Правки стилей"
+        src/scss/_fonts.scss - "Правки кода подключения шрифтов"
+    )
+
+    23/06/23: (
+        api/sales.json - "Правки кода"
+        css/admin.css - "Админка 2.0"
+        js/admin.js - "Админка 2.0"
+    )
+
+    24/06/23: (
+        images/* - "Оптимизация изображений"
+        css/home.css, src/scss/home.scss, _slider.scss - "Правка стилей"
+        *.html - "Правки всякой фигни для SEO"
+        pages/*/pagination/script.js - "Правки всякой фигни для SEO"
+        js/sales.js - "Правки всякой фигни для SEO"
+    )
+)
+
+v1.4.1 (
+    29/06/23: (
+        php/adminData.php - "Правка текста"
+    )
+)
