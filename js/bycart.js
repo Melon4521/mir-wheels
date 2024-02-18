@@ -106,9 +106,9 @@ function cardGenerate(tires) {
 
 function updateCart(item, action) {
     let index = base.findIndex(el => el.name === item.name);
-
+	
     if (index === -1 && action === 'add') {
-		item.cnt += 1
+		item.cnt = 1;
         base.push(item);
     } else if (index !== -1 && action === 'add') {
         if (base[index].cnt + 1 > +item.stock) {
@@ -124,15 +124,22 @@ function updateCart(item, action) {
         }
     }
 
+	index = base.findIndex(el => el.name === item.name);
+
 	for (const e of document.querySelectorAll(`.cart-card`)) {
 		if (e.querySelector('.info-header__title').textContent == item.name){
-			console.log('111');
+			if (!!base[index]){
+				e.querySelector('.info-footer__cart-left').innerHTML = /*html*/`
+					<span>В корзине: </span> ${base[index].cnt}
+				`;
+			} else {
+				e.querySelector('.info-footer__cart-left').innerHTML = /*html*/`
+					<span>В корзине: </span>  0
+				`;
+			}
+			break;
 		}
 	}
-
-	document.querySelectorAll(`.info-header__title`).forEach((el=>{
-	el.textContent == item.name	
-	}))
 
     localStorage.setItem('shopping-cart', JSON.stringify(base));
 }
