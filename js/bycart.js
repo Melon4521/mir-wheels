@@ -3,31 +3,15 @@ import { BD } from './togle.js';
 let bd = BD(namePage);
 
 const dom = document.querySelector('#Right');
-let page = 1;
-const cntCardsOnPage = 10;
-
-let maxPage = Math.ceil(bd.length / cntCardsOnPage);
-document.querySelector('#pagenInput').max = maxPage;
+let page = 1; // Номер 1-ой страницы
+const cntCardsOnPage = 10; // количество карточек на странице
+let maxPage = Math.ceil(bd.length / cntCardsOnPage); // Максимум карточек на странице, считаем от общего кол-ва всех карт
+document.querySelector('#pagenInput').max = maxPage; 
 document.querySelector('.lastPage').innerHTML = maxPage;
+const sliders = document.querySelectorAll('#sel[data-value]'); // Массив всех Inpute
+let base = localStorage.getItem('shopping-cart') ? JSON.parse(localStorage.getItem('shopping-cart')) : []; // Корзина
 
-let base = localStorage.getItem('shopping-cart') ? JSON.parse(localStorage.getItem('shopping-cart')) : [];
-
-// min max
-
-const sliders = document.querySelectorAll('#sel[data-value]');
-
-sliders[0].addEventListener('input', (e) => {
- if(+sliders[0].value > +sliders[1].value){
-    sliders[1].value = +sliders[0].value;
-  }
-});
-
-sliders[1].addEventListener('input', (e) => {
- if(+sliders[1].value < +sliders[0].value){
-    sliders[0].value = +sliders[1].value;
-  }
-});
-
+// Заполнение SELECT фильтром поиска
 function selectGenerate(tires) {
 	const masSort = Array.from(
 		document.querySelectorAll('#sel'),
@@ -48,9 +32,11 @@ function selectGenerate(tires) {
 		masSort.forEach((_, i) => {
 			masValue[i].sort(function(a, b) {return a - b});
 			
+			
 			if ((masElement[i].dataset.value && masElement[i].dataset.value == 'max')){
 				masValue[i].reverse()
 			}
+			masElement[i].dataset.start = masValue[i][0];
 			
 			masElement[i].innerHTML += masValue[i]
 			.map((value) => `<option value="${value}">${value}</option>`)
@@ -59,6 +45,7 @@ function selectGenerate(tires) {
 	});
 }
 
+// Генерация карточки
 function cardGenerate(tires) {
 	const start = (page - 1) * cntCardsOnPage;
 	const end = page * cntCardsOnPage;
@@ -104,6 +91,7 @@ function cardGenerate(tires) {
 	addClick();
 }
 
+// Обновляет значение количества товаров в корзине
 function updateCart(item, action) {
     let index = base.findIndex(el => el.name === item.name);
 	
@@ -143,6 +131,8 @@ function updateCart(item, action) {
 
     localStorage.setItem('shopping-cart', JSON.stringify(base));
 }
+
+// Для новых карточек подключаем добавление в корзину
 function addClick () {
 	document.querySelectorAll('.addCartItem').forEach((el) => {
 		el.addEventListener('click', (e) => {
@@ -159,12 +149,12 @@ function addClick () {
 	});
 }
 
+// Сортирует по базе данных
 function sortCard(sortMas, tires, selectMas) {
 	if (sortMas == []) {
 		bd = tires;
 		return;
 	}
-
 	let NewMas = tires;
 	let MasSort = [];
 
@@ -172,20 +162,24 @@ function sortCard(sortMas, tires, selectMas) {
 		let value = 0;
 	  
 		sortMas.forEach((type) => {
-			if (selectMas[sortMas.indexOf(type)].dataset.type !== 'price') {
+			if (selectMas[sortMas.indexOf(type)].dataset.type !== 'et') {
 				if (Object.values(el).indexOf(type) !== -1) {
-				value++;
-				}
-			} else {
-				const select = selectMas[sortMas.indexOf(type)];
-				const valueType = select.dataset.value;
-				const selectValue = +select.value;
-				const elPrice = +el[select.dataset.type];
-		
-				if ((valueType === 'max' && elPrice < selectValue) || (valueType === 'min' && elPrice >= selectValue)) {
 					value++;
 				}
-				document.querySelector(`#${select.dataset.value}`).innerHTML = select.value;
+			} else {
+				if (selectMas[sortMas.indexOf(type)].dataset.start != selectMas[sortMas.indexOf(type)].value ){
+					
+					const select = selectMas[sortMas.indexOf(type)];
+					const valueType = select.dataset.value;
+					const selectValue = +select.value;
+					const elPrice = +el[select.dataset.type];
+					
+					if ((valueType === 'max' && elPrice < selectValue) || (valueType === 'min' && elPrice >= selectValue)) {
+						value++;
+					}
+				} else {
+					value ++;
+				}
 			}
 		});
 		if (value === sortMas.length) {
@@ -195,10 +189,9 @@ function sortCard(sortMas, tires, selectMas) {
 
 	bd = MasSort;
 	maxPage = Math.ceil(bd.length / cntCardsOnPage);
-	document.querySelector('#page input').max = maxPage;
+	document.querySelector('#pagenInput').max = maxPage;
 	document.querySelector('.lastPage').innerHTML = maxPage;
-	document.querySelector('#page input').value = 1;
-	page = 1;
+	page = (maxPage != 0 ? 1 : 0);
 	cardGenerate(bd);
 }
 
@@ -206,15 +199,14 @@ selectGenerate(bd);
 
 cardGenerate(bd);
 
-
-
+// Изменение номера страницы
 document.querySelectorAll('#button').forEach((el) => {
 	el.addEventListener('click', (e) => {
 		const value = +(e.target.dataset.value)
 		if (page + value < 1) {
 			page = maxPage
 		} else if (page + value > maxPage) {
-			page = 1
+			page = (maxPage != 0 ? 1 : 0)
 		} else {
 			page += value
 		};
@@ -224,12 +216,14 @@ document.querySelectorAll('#button').forEach((el) => {
 	});
 });
 
+// Поле ввода намера страницы 
 document.querySelector('#pagenInput').addEventListener('change', (e) => {
 	page = e.target.value;
 	window.scroll({ top: 0, behavior: 'smooth' })
 	cardGenerate(bd);
 });
 
+// Собираем данные для сортировки по значениям select
 document.querySelectorAll('#sel').forEach((el) => {
 	el.addEventListener('change', (e) => {
 		let sortMas = [];
@@ -237,7 +231,19 @@ document.querySelectorAll('#sel').forEach((el) => {
 		document.querySelectorAll('#sel').forEach((select) => {
 			select.value != 0 ? sortMas.push(select.value) && selectMas.push(select) : '';
 		});
-		sortCard(sortMas, BD(), selectMas);
+		sortCard(sortMas, BD(namePage), selectMas);
 	});
 });
 
+// min max
+sliders[0].addEventListener('input', (e) => {
+ if(+sliders[0].value > +sliders[1].value){
+    sliders[1].value = +sliders[0].value;
+  }
+});
+
+sliders[1].addEventListener('input', (e) => {
+ if(+sliders[1].value < +sliders[0].value){
+    sliders[0].value = +sliders[1].value;
+  }
+});
