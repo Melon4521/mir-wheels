@@ -57,6 +57,7 @@ function cardGenerate(tires) {
 		if (!tires[i]) break;
 		let item = tires[i];
 		item['cnt'] = (base.find(el => el.name === item.name) ? base.find(el => el.name === item.name).cnt : 0);
+		item['typeItem'] = namePage;
 		const imgSrc = item.image500x500 ? item.image500x500 : './img/nonPNG.png';
 
 		const card = `
@@ -69,8 +70,8 @@ function cardGenerate(tires) {
                     <div class="cart-card__info-header info-header">
                         <div class="info-header__title">${item.name}</div>
                         <div class="info-header__price">${item.price}руб/шт.</div>
-                        <div class="info-header__details"><span>Цвет: </span>${item.color}</div>
-                        <div class="info-header__details"><span>Тип: </span>${item.type}</div>
+                        <div class="info-header__details"><span>${(namePage == "disks" ? `Цвет: </span>${item.color}` : `Производител: </span>${item.supplier}`)}</div>
+                        <div class="info-header__details"><span>${(namePage == "disks" ? `Тип: </span>${item.type}` : `Сезон: </span>${item.season}`)}</div>
                         <div class="info-header__details"><span>Дата производства: </span>${item.date_up}</div>
                         <div class="info-header__details _details-stock"><span>В наличии: </span>${item.stock}</div>
                     </div>
@@ -236,14 +237,16 @@ document.querySelectorAll('#sel').forEach((el) => {
 });
 
 // min max
-sliders[0].addEventListener('input', (e) => {
- if(+sliders[0].value > +sliders[1].value){
-    sliders[1].value = +sliders[0].value;
-  }
-});
+if (!!sliders.length) {
+	sliders[0].addEventListener('input', (e) => {
+	if(+sliders[0].value > +sliders[1].value){
+		sliders[1].value = +sliders[0].value;
+	}
+	});
 
-sliders[1].addEventListener('input', (e) => {
- if(+sliders[1].value < +sliders[0].value){
-    sliders[0].value = +sliders[1].value;
-  }
-});
+	sliders[1].addEventListener('input', (e) => {
+	if(+sliders[1].value < +sliders[0].value){
+		sliders[0].value = +sliders[1].value;
+	}
+	});
+}

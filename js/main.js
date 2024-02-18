@@ -299,22 +299,22 @@ function generateCartCard(cardAtrs) {
     let PlaceGeneration = shoppingCart,
         image;
 
-    if (cardAtrs.cardImage) {
-        image = cardAtrs.cardImage;
+    if (cardAtrs.image500x500) {
+        image = cardAtrs.image500x500;
     } else {
         image = "images/no-image.png";
     };
 
-    if (cardAtrs.cardId[0] === 'd') { // Создание карточек товаров для дисков 
+    if (cardAtrs.typeItem === 'disks') { // Создание карточек товаров для дисков 
         PlaceGeneration.innerHTML += /*html*/ `
-        <div class="cart-cards__item cart-card" data-id="${cardAtrs.cardId}">
+        <div class="cart-cards__item cart-card" data-id="${cardAtrs.name}">
             <div class="cart-card__body">
                 <div class="cart-card__image">
                     <img loading="lazy" src="${image}" alt="Изображение">
                 </div>
                 <div class="cart-card__info">
                     <div class="cart-card__info-header info-header">
-                        <div class="info-header__title">${cardAtrs.cardName}</div>
+                        <div class="info-header__title">${cardAtrs.name}</div>
                         <div class="info-header__price">${cardAtrs.price} руб.</div>
                         <div class="info-header__details"><span>Цвет: </span>${cardAtrs.color}</div>
                         <div class="info-header__details"><span>Тип: </span>${cardAtrs.type}</div>
@@ -324,8 +324,8 @@ function generateCartCard(cardAtrs) {
                     <div class="cart-card__info-footer info-footer">
                         <div class="info-footer__cart-left"><span>В корзине: </span>${cardAtrs.total}</div>
                         <div class="info-footer__func-btns">
-                            <button class="info-footer__func-btn addCartItem" data-id="${cardAtrs.cardId}">Добавить</button>
-                            <button class="info-footer__func-btn delCartItem" data-id="${cardAtrs.cardId}">Убрать</button>
+                            <button class="info-footer__func-btn addCartItem" data-id="${JSON.stringify(cardAtrs)}">Добавить</button>
+                            <button class="info-footer__func-btn delCartItem" data-id="${JSON.stringify(cardAtrs)}">Убрать</button>
                         </div>
                     </div>
                 </div>
@@ -334,24 +334,24 @@ function generateCartCard(cardAtrs) {
         `;
     } else { // Создание карточек товаров для шин 
         PlaceGeneration.innerHTML += /*html*/ `
-        <div class="cart-cards__item cart-card" data-id="${cardAtrs.cardId}">
+        <div class="cart-cards__item cart-card" data-id="${cardAtrs.name}">
             <div class="cart-card__body">
                 <div class="cart-card__image">
                     <img loading="lazy" src="${image}" alt="Изображение">
                 </div>
                 <div class="cart-card__info">
                     <div class="cart-card__info-header info-header">
-                        <div class="info-header__title">${cardAtrs.cardName}</div>
+                        <div class="info-header__title">${cardAtrs.name}</div>
                         <div class="info-header__price">${cardAtrs.price} руб.</div>
                         <div class="info-header__details"><span>Сезон: </span>${cardAtrs.season}</div>
                         <div class="info-header__details"><span>Дата производства: </span>${cardAtrs.dateUp}</div>
                         <div class="info-header__details _details-stock"><span>В наличии: </span>${cardAtrs.stock}</div>
                     </div>
                     <div class="cart-card__info-footer info-footer">
-                        <div class="info-footer__cart-left"><span>В корзине: </span>${cardAtrs.total}</div>
+                        <div class="info-footer__cart-left"><span>В корзине: </span>${cardAtrs.cnt}</div>
                         <div class="info-footer__func-btns">
-                            <button class="info-footer__func-btn addCartItem" data-id="${cardAtrs.cardId}">Добавить</button>
-                            <button class="info-footer__func-btn delCartItem" data-id="${cardAtrs.cardId}">Убрать</button>
+                            <button class="info-footer__func-btn addCartItem" data-id="${JSON.stringify(cardAtrs)}">Добавить</button>
+                            <button class="info-footer__func-btn delCartItem" data-id="${JSON.stringify(cardAtrs)}">Убрать</button>
                         </div>
                     </div>
                 </div>
@@ -372,51 +372,21 @@ function getCartData(name) {
 
 function openCart() {
     let cartData = getCartData("shopping-cart"),
-        cartDataAtrs,
         PlaceGeneration = shoppingCart,
         totalCartSum = 0, // Сумма всех товаров в корзине
         cartInfo = ''; // Текст заказа для письма
-
     if (cartData !== null) {
         PlaceGeneration.innerHTML = '';
 
         // Пробегаемся по всем ключам в LocalStorage
         for (let items in cartData) {
-
-            if (cartData[items][7][0] === 'd') {
-                // Забираем значения в объект
-                cartDataAtrs = {
-                    cardName: cartData[items][0],
-                    price: cartData[items][1],
-                    color: cartData[items][2],
-                    type: cartData[items][3],
-                    dateUp: cartData[items][4],
-                    stock: cartData[items][5],
-                    cardImage: cartData[items][6],
-                    cardId: cartData[items][7],
-                    total: cartData[items][8],
-                };
-            } else {
-                // Забираем значения в объект
-                cartDataAtrs = {
-                    cardName: cartData[items][0],
-                    price: cartData[items][1],
-                    season: cartData[items][2],
-                    dateUp: cartData[items][3],
-                    stock: cartData[items][4],
-                    cardImage: cartData[items][5],
-                    cardId: cartData[items][6],
-                    total: cartData[items][7],
-                };
-            }
-            
             for (let i = 0; i < cartData[items].length; i++) {
                 cartInfo += `${cartData[items][i]}\t`;
             };
 
             cartInfo += "\n\n";
-            totalCartSum += Number(String((cartData[items][1])) * cartData[items][cartData[items].length-1]);
-            generateCartCard(cartDataAtrs);
+            totalCartSum += Number(String((cartData[items].price)) * cartData[items].cnt);
+            generateCartCard(cartData[items]);
         }
 
         document.getElementById("totalCartSum").innerHTML = `${totalCartSum} руб.`;
@@ -466,29 +436,7 @@ function clearAllItems() {
 };
 
 function addItem(targetElement) {
-    let targetElementId = targetElement.dataset.id,
-        cartData = getCartData("shopping-cart");
-
-    for (let item in cartData) {
-
-        if (cartData[item][7][0] === 'd') {
-            if (cartData[item][7] == targetElementId) {
-                // Проверка на превышение кол-ва товаров в наличии
-                if (cartData[item][5] > cartData[item][cartData[item].length-1]) {
-                    cartData[item][cartData[item].length-1]++;
-                    break;
-                }
-            }
-        } else {
-            if (cartData[item][6] == targetElementId) {
-                // Проверка на превышение кол-ва товаров в наличии
-                if (cartData[item][4] > cartData[item][cartData[item].length-1]) {
-                    cartData[item][cartData[item].length-1]++;
-                    break;
-                }
-            }
-        }
-    }
+    cartData = getCartData("shopping-cart");
 
     setCartData(cartData, "shopping-cart");
     changeCartIconNumber();
@@ -586,3 +534,8 @@ function changeCartIconNumber() {
 };
 
 //</Functions>==============================================================================
+
+
+document.querySelector('[name="cart"]').addEventListener('click', (e)=>{
+    addItem(e.target)
+})
