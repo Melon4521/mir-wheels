@@ -76,31 +76,14 @@ document.addEventListener('click', function (e) {
 // Функция с JSON
 fetchAsync().then(function (myJson) {
     // <Select Generation>==============================================================================
-
     selectGenerate(myJson);
     easydropdown.all();
 
-    // </Select Generation>==============================================================================
 
     // <Sorting>==============================================================================
-
     sortedArray = sortingEvents(myJson);
     pagenInit(myJson, sortedArray);
     settingCards();
-
-    // </Sorting>==============================================================================
-
-    //<Pre-loader>==============================================================================
-
-    setTimeout(() => {
-        let pageLoading = document.querySelector('.page-loading');
-        if (!pageLoading.classList.contains('_loaded')) {
-            pageLoading.classList.add('_loaded');
-            document.body.classList.remove('_lock');
-        }
-    }, 500);
-
-    //</Pre-loader>==============================================================================
 });
 
 // <Shopping cart>==============================================================================
