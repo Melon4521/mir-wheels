@@ -305,8 +305,7 @@ function generateCartCard(cardAtrs) {
         image = "images/no-image.png";
     };
 
-    if (cardAtrs.typeItem === 'disks') { // Создание карточек товаров для дисков 
-        PlaceGeneration.innerHTML += /*html*/ `
+    PlaceGeneration.innerHTML += /*html*/ `
         <div class="cart-cards__item cart-card" data-id="${cardAtrs.name}">
             <div class="cart-card__body">
                 <div class="cart-card__image">
@@ -316,34 +315,12 @@ function generateCartCard(cardAtrs) {
                     <div class="cart-card__info-header info-header">
                         <div class="info-header__title">${cardAtrs.name}</div>
                         <div class="info-header__price">${cardAtrs.price} руб.</div>
-                        <div class="info-header__details"><span>Цвет: </span>${cardAtrs.color}</div>
-                        <div class="info-header__details"><span>Тип: </span>${cardAtrs.type}</div>
-                        <div class="info-header__details"><span>Дата производства: </span>${cardAtrs.dateUp}</div>
-                        <div class="info-header__details _details-stock"><span>В наличии: </span>${cardAtrs.stock}</div>
-                    </div>
-                    <div class="cart-card__info-footer info-footer">
-                        <div class="info-footer__cart-left"><span>В корзине: </span>${cardAtrs.total}</div>
-                        <div class="info-footer__func-btns">
-                            <button class="info-footer__func-btn addCartItem" data-id="${JSON.stringify(cardAtrs)}">Добавить</button>
-                            <button class="info-footer__func-btn delCartItem" data-id="${JSON.stringify(cardAtrs)}">Убрать</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        `;
-    } else { // Создание карточек товаров для шин 
-        PlaceGeneration.innerHTML += /*html*/ `
-        <div class="cart-cards__item cart-card" data-id="${cardAtrs.name}">
-            <div class="cart-card__body">
-                <div class="cart-card__image">
-                    <img loading="lazy" src="${image}" alt="Изображение">
-                </div>
-                <div class="cart-card__info">
-                    <div class="cart-card__info-header info-header">
-                        <div class="info-header__title">${cardAtrs.name}</div>
-                        <div class="info-header__price">${cardAtrs.price} руб.</div>
-                        <div class="info-header__details"><span>Сезон: </span>${cardAtrs.season}</div>
+                        ${
+                            cardAtrs.typeItem === 'disks' ?
+                                `<div class="info-header__details"><span>Цвет: </span>${cardAtrs.color}</div>
+                                <div class="info-header__details"><span>Тип: </span>${cardAtrs.type}</div>`
+                            : `<div class="info-header__details"><span>Сезон: </span>${cardAtrs.season}</div>`
+                        }
                         <div class="info-header__details"><span>Дата производства: </span>${cardAtrs.dateUp}</div>
                         <div class="info-header__details _details-stock"><span>В наличии: </span>${cardAtrs.stock}</div>
                     </div>
@@ -357,9 +334,7 @@ function generateCartCard(cardAtrs) {
                 </div>
             </div>
         </div>
-        `;
-    }
-
+    `;
 };
 
 function setCartData(cartData, name) {
@@ -380,15 +355,16 @@ function openCart() {
 
         // Пробегаемся по всем ключам в LocalStorage
         for (let items in cartData) {
-            for (let i = 0; i < cartData[items].length; i++) {
-                cartInfo += `${cartData[items][i]}\t`;
-            };
+            const data = cartData[items].typeItem === 'disks' ? ['name','price','color', 'type', 'date_up', 'stock'] : ['name','price','season', 'date_up', 'stock'];
 
+            for (const key of data) {
+                cartInfo += `${cartData[items][key]}\t`
+            }
+        
             cartInfo += "\n\n";
             totalCartSum += Number(String((cartData[items].price)) * cartData[items].cnt);
             generateCartCard(cartData[items]);
         }
-
         document.getElementById("totalCartSum").innerHTML = `${totalCartSum} руб.`;
         document.getElementById("hiddenCartItem").value = cartInfo + `Общая стоимость товаров: ${totalCartSum}руб.`;
     }
