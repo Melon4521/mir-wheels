@@ -3,7 +3,7 @@ let sortedArray = [];
 // <Получение JSON>==============================================================================
 
 async function fetchAsync() {
-    const response = await fetch('../api/DataBase.json');
+    const response = await fetch('../api/tires-stage.json');
     return await response.json();
 };
 
@@ -85,6 +85,18 @@ fetchAsync().then(function (myJson) {
     settingCards();
 
     // </Sorting>==============================================================================
+    
+    //<Pre-loader>==============================================================================
+
+    setTimeout(() => {
+        let pageLoading = document.querySelector('.page-loading');
+        if (!pageLoading.classList.contains('_loaded')) {
+            pageLoading.classList.add('_loaded');
+            document.body.classList.remove('_lock');
+        };
+    }, 500);
+
+    //</Pre-loader>==============================================================================
 });
 
 // <Shopping cart>==============================================================================
