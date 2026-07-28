@@ -1,0 +1,7 @@
+User-agent: Yandex
+
+
+Disallow: delibery.html
+Host: http://mir-wheels.ru
+User-agent: *
+Disallow: delibery.html
