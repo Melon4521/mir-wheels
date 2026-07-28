@@ -2,7 +2,7 @@
 
 Commercial website for a tire and wheel disk store – online catalog with cart and checkout, promotions page, tire-fitting service booking, and an admin panel for keeping the catalog up to date. Built as a team project (3 people).
 
-**Live:** [mir-wheels.ru](https://mir-wheels.ru)
+**[Live Demo](https://mir-wheels.ru)**
 
 ![screenshot](docs/screenshot-1.png)
 ![screenshot](docs/screenshot-2.png)
